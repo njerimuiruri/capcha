@@ -25,7 +25,7 @@ const AboutSection = () => {
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="rounded-xl overflow-hidden shadow-lg dark:shadow-xl">
                                     <Image
-                                        src="/img/twohandsplant.jpg"
+                                        src="/img/health2.jpg"
                                         alt="Meeting room with people around table"
                                         width={300}
                                         height={240}
@@ -35,7 +35,7 @@ const AboutSection = () => {
 
                                 <div className="rounded-xl overflow-hidden shadow-lg dark:shadow-xl">
                                     <Image
-                                        src="/img/twohandsplant.jpg"
+                                        src="/img/health3.jpg"
                                         alt="Field researchers working outdoors in grassland"
                                         width={300}
                                         height={240}
