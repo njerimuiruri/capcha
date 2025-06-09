@@ -1,4 +1,3 @@
-// components/theme-provider.jsx
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
@@ -16,7 +15,14 @@ export function ThemeProvider({
     storageKey = "vite-ui-theme",
     ...props
 }) {
-    const [theme, setTheme] = useState(defaultTheme);
+    const [theme, setTheme] = useState(() => {
+        // Check if we're in the browser and if there's a stored theme
+        if (typeof window !== "undefined") {
+            const storedTheme = localStorage.getItem(storageKey);
+            return storedTheme || defaultTheme;
+        }
+        return defaultTheme;
+    });
 
     useEffect(() => {
         const root = window.document.documentElement;
@@ -37,9 +43,11 @@ export function ThemeProvider({
 
     const value = {
         theme,
-        setTheme: (theme) => {
-            localStorage.setItem(storageKey, theme);
-            setTheme(theme);
+        setTheme: (newTheme) => {
+            if (typeof window !== "undefined") {
+                localStorage.setItem(storageKey, newTheme);
+            }
+            setTheme(newTheme);
         },
     };
 

@@ -8,40 +8,25 @@ const TeamsPage = () => {
     const teamMembers = [
         {
             id: 1,
-            name: "Kevin Thompson",
-            position: "Founder & CEO",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+            name: "An Wanjiru Irungu",
+            position: "RESEARCH ASSISTANT & CAPCHA COORDINATOR - HEALTH, CLIMATE CHANGE & ENERGY",
+            image: "/img/Ann-irungu.jpg"
         },
         {
             id: 2,
-            name: "Isabella Woods",
-            position: "Chief Marketing Officer",
-            image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face"
+            name: "Dr. Isaiah Maket",
+            position: "RESEARCH ASSOCIATE - CLIMATE FINANCE & GENDER AND SOCIAL INCLUSION (GESI)",
+            image: "/img/Isaiah-Maket.jpeg"
         },
         {
             id: 3,
-            name: "Liam Stokes",
-            position: "Senior Executive",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
+            name: "Dr. Isaiah Maket",
+            position: "RESEARCH ASSOCIATE - CLIMATE FINANCE & GENDER AND SOCIAL INCLUSION (GESI)",
+
+            image: "/img/Isaiah-Maket.jpeg"
         },
-        {
-            id: 4,
-            name: "Lucy Floyd",
-            position: "Accounts Manager",
-            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face"
-        },
-        {
-            id: 5,
-            name: "Michael Chen",
-            position: "Lead Developer",
-            image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face"
-        },
-        {
-            id: 6,
-            name: "Sarah Johnson",
-            position: "UX Designer",
-            image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&h=300&fit=crop&crop=face"
-        }
+
+
     ];
 
     const itemsPerPage = {
@@ -51,15 +36,12 @@ const TeamsPage = () => {
     };
 
     const getVisibleItems = () => {
-        // For mobile: show 1 item
         if (typeof window !== 'undefined' && window.innerWidth < 768) {
             return teamMembers.slice(currentIndex, currentIndex + 1);
         }
-        // For tablet: show 2 items
         if (typeof window !== 'undefined' && window.innerWidth < 1024) {
             return teamMembers.slice(currentIndex, currentIndex + 2);
         }
-        // For desktop: show 4 items
         return teamMembers.slice(currentIndex, currentIndex + 4);
     };
 
@@ -90,17 +72,16 @@ const TeamsPage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
             <div className="max-w-7xl mx-auto">
-                {/* Header Section */}
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 mb-4">
-                        <div className="w-8 h-1 bg-orange-400 rounded-full"></div>
-                        <span className="text-teal-600 font-medium text-sm uppercase tracking-wide">
+                        <div className="w-8 h-1 bg-orange-400 dark:bg-orange-500 rounded-full"></div>
+                        <span className="text-teal-600 dark:text-teal-400 font-medium text-sm uppercase tracking-wide">
                             Our Volunteer
                         </span>
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                         Our Experts Volunteer
                     </h1>
                 </div>
@@ -111,9 +92,9 @@ const TeamsPage = () => {
                     <button
                         onClick={handlePrev}
                         disabled={!canGoPrev()}
-                        className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center transition-all duration-200 ${canGoPrev()
-                            ? 'hover:bg-gray-50 text-gray-700 hover:text-gray-900'
-                            : 'text-gray-300 cursor-not-allowed'
+                        className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-lg dark:shadow-xl border border-gray-200 dark:border-gray-700 flex items-center justify-center transition-all duration-200 ${canGoPrev()
+                            ? 'hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+                            : 'text-gray-300 dark:text-gray-600 cursor-not-allowed'
                             }`}
                     >
                         <ChevronLeft className="w-6 h-6" />
@@ -122,9 +103,9 @@ const TeamsPage = () => {
                     <button
                         onClick={handleNext}
                         disabled={!canGoNext()}
-                        className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center transition-all duration-200 ${canGoNext()
-                            ? 'hover:bg-gray-50 text-gray-700 hover:text-gray-900'
-                            : 'text-gray-300 cursor-not-allowed'
+                        className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-lg dark:shadow-xl border border-gray-200 dark:border-gray-700 flex items-center justify-center transition-all duration-200 ${canGoNext()
+                            ? 'hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+                            : 'text-gray-300 dark:text-gray-600 cursor-not-allowed'
                             }`}
                     >
                         <ChevronRight className="w-6 h-6" />
@@ -134,10 +115,10 @@ const TeamsPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-8">
                         {getVisibleItems().map((member) => (
                             <div key={member.id} className="group">
-                                <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700">
                                     {/* Profile Image */}
                                     <div className="relative">
-                                        <div className="w-full h-80 bg-gray-100">
+                                        <div className="w-full h-80 bg-gray-100 dark:bg-gray-700">
                                             <img
                                                 src={member.image}
                                                 alt={member.name}
@@ -149,10 +130,10 @@ const TeamsPage = () => {
                                     {/* Member Info Card - Attached to bottom */}
                                     <div className="p-6">
                                         <div className="text-center">
-                                            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                                                 {member.name}
                                             </h3>
-                                            <p className="text-gray-600 text-sm font-medium">
+                                            <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">
                                                 {member.position}
                                             </p>
                                         </div>
@@ -170,14 +151,12 @@ const TeamsPage = () => {
                             key={index}
                             onClick={() => setCurrentIndex(index * 4)}
                             className={`w-3 h-3 rounded-full transition-all duration-200 ${Math.floor(currentIndex / 4) === index
-                                ? 'bg-teal-600'
-                                : 'bg-gray-300 hover:bg-gray-400'
+                                ? 'bg-teal-600 dark:bg-teal-500'
+                                : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
                                 }`}
                         />
                     ))}
                 </div>
-
-
             </div>
         </div>
     );

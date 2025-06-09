@@ -26,21 +26,15 @@ const HeroSection = () => {
     const actionCards = [
         {
             icon: <Users className="w-8 h-8" />,
-            title: "Become A Volunteer",
-            subtitle: "Join With Us",
-            link: "#volunteer"
+            title: "Research and Innovation",
         },
         {
             icon: <Heart className="w-8 h-8" />,
-            title: "Quick Fundraise",
-            subtitle: "Help The People",
-            link: "#fundraise"
+            title: " Policy and Advocacy",
         },
         {
-            icon: <DollarSign className="w-8 h-8" />,
-            title: "Make A Donation",
-            subtitle: "Donate Us",
-            link: "#donate"
+            icon: <Heart className="w-8 h-8" />,
+            title: "Capacity Building",
         }
     ];
 
@@ -58,9 +52,7 @@ const HeroSection = () => {
 
     return (
         <div className="relative">
-            {/* Hero Section */}
             <div className="relative h-[85vh] overflow-hidden">
-                {/* Background Images */}
                 <div className="absolute inset-0">
                     {slides.map((slide, index) => (
                         <div
@@ -73,15 +65,12 @@ const HeroSection = () => {
                                 alt={slide.alt}
                                 className="w-full h-full object-cover"
                             />
-                            {/* Extended black gradient - covering more area to the right */}
                             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 via-black/70 via-black/50 via-black/30 to-black/10"></div>
                         </div>
                     ))}
                 </div>
 
-                {/* Content Container */}
                 <div className="relative z-10 h-[85vh] flex flex-col">
-                    {/* Main Hero Content */}
                     <div className="flex-1 flex items-end pb-32">
                         <div className="container mx-auto px-6 lg:px-12">
                             <div className="max-w-3xl mb-16">
@@ -109,9 +98,7 @@ const HeroSection = () => {
                             </div>
                         </div>
 
-                        {/* Navigation Controls - Right Side */}
                         <div className="absolute right-4 md:right-8 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-6 z-20">
-                            {/* Left Arrow */}
                             <button
                                 onClick={prevSlide}
                                 className="w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:scale-110"
@@ -119,7 +106,6 @@ const HeroSection = () => {
                                 <ChevronLeft className="w-5 h-5 text-white" />
                             </button>
 
-                            {/* Right Arrow */}
                             <button
                                 onClick={nextSlide}
                                 className="w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:scale-110"
@@ -127,7 +113,6 @@ const HeroSection = () => {
                                 <ChevronRight className="w-5 h-5 text-white" />
                             </button>
 
-                            {/* Vertical Slide Indicators */}
                             <div className="flex flex-col space-y-3 mt-4">
                                 {slides.map((_, index) => (
                                     <button
@@ -151,38 +136,30 @@ const HeroSection = () => {
                 </div>
             </div>
 
-            {/* Action Cards Section - Larger and with decorative elements */}
             <div className="relative z-30 -mt-24">
                 <div className="container mx-auto px-6">
                     <div className="flex justify-center">
                         <div className="relative bg-gradient-to-r from-gray-900/95 to-gray-800/95 backdrop-blur-lg border border-white/10 rounded-3xl overflow-hidden shadow-2xl max-w-6xl w-full animate-slide-up">
 
-                            {/* Enhanced Decorative Tree Image - Bottom Left */}
                             <div className="absolute bottom-0 left-0 w-48 h-48 opacity-25 pointer-events-none overflow-hidden">
                                 <svg viewBox="0 0 200 200" className="w-full h-full text-green-500/40">
-                                    {/* Tree trunk */}
                                     <rect x="90" y="160" width="20" height="40" fill="rgb(139, 69, 19)" opacity="0.8" />
-                                    {/* Tree foliage layers */}
                                     <ellipse cx="100" cy="140" rx="35" ry="25" fill="currentColor" />
                                     <ellipse cx="100" cy="120" rx="40" ry="30" fill="currentColor" />
                                     <ellipse cx="100" cy="100" rx="45" ry="35" fill="currentColor" />
                                     <ellipse cx="100" cy="80" rx="35" ry="25" fill="currentColor" />
-                                    {/* Additional foliage details */}
                                     <circle cx="85" cy="110" r="15" fill="currentColor" opacity="0.7" />
                                     <circle cx="115" cy="125" r="18" fill="currentColor" opacity="0.6" />
                                     <circle cx="100" cy="95" r="12" fill="currentColor" opacity="0.8" />
                                 </svg>
                             </div>
 
-                            {/* Enhanced Decorative Elements - Top Right */}
                             <div className="absolute top-6 right-6 w-40 h-40 opacity-20 pointer-events-none">
                                 <div className="w-full h-full relative">
-                                    {/* Nature-inspired decorative elements */}
                                     <div className="absolute top-0 right-0 w-16 h-16 bg-green-400/30 rounded-full blur-xl"></div>
                                     <div className="absolute top-4 right-4 w-12 h-12 bg-blue-400/40 rounded-full blur-lg"></div>
                                     <div className="absolute top-8 right-8 w-8 h-8 bg-yellow-400/25 rounded-full blur-md"></div>
 
-                                    {/* Leaf-like shapes */}
                                     <svg viewBox="0 0 100 100" className="absolute top-2 right-2 w-20 h-20 text-green-400/20">
                                         <path d="M20 50 Q30 30, 50 40 Q70 30, 80 50 Q70 70, 50 60 Q30 70, 20 50" fill="currentColor" />
                                         <path d="M10 30 Q20 10, 40 20 Q60 10, 70 30 Q60 50, 40 40 Q20 50, 10 30" fill="currentColor" opacity="0.6" />
@@ -193,7 +170,6 @@ const HeroSection = () => {
                             <div className="grid grid-cols-1 md:grid-cols-3 relative z-10">
                                 {actionCards.map((card, index) => (
                                     <div key={index} className="relative group">
-                                        {/* Vertical Divider Lines */}
                                         {index < actionCards.length - 1 && (
                                             <div className="hidden md:block absolute right-0 top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
                                         )}
