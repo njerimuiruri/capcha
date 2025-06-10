@@ -22,8 +22,6 @@
   }
 }
 
-
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -80,13 +78,141 @@
   }
 }
 
-
-
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .hero-slide {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .hero-slide-1 {
+    animation: fadeInOut1 15s infinite;
+  }
+
+  .hero-slide-2 {
+    animation: fadeInOut2 15s infinite;
+  }
+
+  .hero-slide-3 {
+    animation: fadeInOut3 15s infinite;
+  }
+
+  .progress-bar {
+    width: 0%;
+    opacity: 0.3;
+    transition: all 0.3s ease;
+  }
+
+  .progress-bar-1 {
+    animation: progressBar1 15s infinite;
+  }
+
+  .progress-bar-2 {
+    animation: progressBar2 15s infinite;
+  }
+
+  .progress-bar-3 {
+    animation: progressBar3 15s infinite;
+  }
+}
+
+@keyframes fadeInOut1 {
+  0%,
+  33% {
+    opacity: 1;
+  }
+  34%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInOut2 {
+  0%,
+  33% {
+    opacity: 0;
+  }
+  34%,
+  66% {
+    opacity: 1;
+  }
+  67%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInOut3 {
+  0%,
+  66% {
+    opacity: 0;
+  }
+  67%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes progressBar1 {
+  0% {
+    width: 0%;
+    opacity: 1;
+  }
+  33% {
+    width: 100%;
+    opacity: 1;
+  }
+  34%,
+  100% {
+    width: 100%;
+    opacity: 0.3;
+  }
+}
+
+@keyframes progressBar2 {
+  0%,
+  33% {
+    width: 0%;
+    opacity: 0.3;
+  }
+  34% {
+    width: 0%;
+    opacity: 1;
+  }
+  66% {
+    width: 100%;
+    opacity: 1;
+  }
+  67%,
+  100% {
+    width: 100%;
+    opacity: 0.3;
+  }
+}
+
+@keyframes progressBar3 {
+  0%,
+  66% {
+    width: 0%;
+    opacity: 0.3;
+  }
+  67% {
+    width: 0%;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
   }
 }

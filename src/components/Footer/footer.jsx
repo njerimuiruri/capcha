@@ -22,7 +22,7 @@ const Footer = () => {
         <footer className="bg-[#021d49] dark:bg-[#0e8601] text-white relative">
             <Button
                 onClick={scrollToTop}
-                className="absolute -top-6 right-8 bg-orange-500 hover:bg-orange-600 rounded-full p-3 shadow-lg"
+                className="absolute -top-6 right-8 bg-[#0e8601] hover:bg-[#0e8601] rounded-full p-3 shadow-lg"
                 size="icon"
             >
                 <ArrowUp className="h-5 w-5" />

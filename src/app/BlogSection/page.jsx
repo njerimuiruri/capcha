@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Moon } from 'lucide-react';
 
-const NewsSection = () => {
+const BlogSection = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const articles = [
@@ -181,4 +181,4 @@ const NewsSection = () => {
     );
 };
 
-export default NewsSection;
+export default BlogSection;

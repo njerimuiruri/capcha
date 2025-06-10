@@ -5,15 +5,15 @@ const TeamsPage = () => {
     const teamMembers = [
         {
             id: 1,
-            name: "An Wanjiru Irungu",
-            position: "RESEARCH ASSISTANT & CAPCHA COORDINATOR - HEALTH, CLIMATE CHANGE & ENERGY",
-            image: "/img/Ann-irungu.jpg"
+            name: "Dr.Joanes Atela",
+            position: "EXECUTIVE DIRECTOR",
+            image: "/img/prof.jpg"
         },
         {
             id: 2,
-            name: "Dr. Isaiah Maket",
-            position: "RESEARCH ASSOCIATE - CLIMATE FINANCE & GENDER AND SOCIAL INCLUSION (GESI)",
-            image: "/img/Isaiah-Maket.jpeg"
+            name: "Ann Wanjiru Irungu",
+            position: "RESEARCH ASSISTANT & CAPCHA COORDINATOR - HEALTH, CLIMATE CHANGE & ENERGY",
+            image: "/img/Ann-irungu.jpg"
         },
         {
             id: 3,
@@ -44,7 +44,6 @@ const TeamsPage = () => {
                     </h1>
                 </div>
 
-                {/* Centered Grid of Team Members */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center px-8">
                     {teamMembers.map((member) => (
                         <div key={member.id} className="group max-w-sm w-full">

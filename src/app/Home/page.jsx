@@ -7,7 +7,7 @@ import AboutSection from '../AboutSection/page';
 import CallToAction from '../CallToAction/page';
 import Dashboard from '../Dashboard/page';
 import TeamsPage from '../TeamsPage/page';
-import NewsSection from '../NewsSection/page';
+import BlogSection from '../BlogSection/page';
 import Footer from '@/components/Footer/footer';
 import { ModeToggle } from '@/components/mode-toggle';
 
@@ -41,7 +41,9 @@ export default function Home() {
                     <CallToAction />
                     <Dashboard />
                     <TeamsPage />
-                    <NewsSection />
+                    <BlogSection />
+
+
                 </main>
                 <Footer />
             </div>

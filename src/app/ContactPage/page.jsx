@@ -174,7 +174,9 @@ const ContactPage = () => {
                                                 href="mailto:info@arin-africa.org"
                                                 className="text-[#0e8601] hover:text-teal-700 cursor-pointer"
                                             >
-                                                info@arin-africa.org
+                                                info@arin-africa.org <br />
+                                                a.irungu@arin-africa.org
+
                                             </a>
                                         </div>
                                     </div>

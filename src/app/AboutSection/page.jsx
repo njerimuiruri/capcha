@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { Leaf, Globe, Award, Users, Heart, Brain, Network, Target } from 'lucide-react';
 
@@ -123,10 +124,13 @@ const AboutSection = () => {
                             </div>
 
                             <div className="flex justify-start mt-4">
-                                <button className="bg-gradient-to-r from-[#55bdd0] to-[#0e8601] hover:from-[#4aa5b8] hover:to-[#0c7501] text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center">
+
+                                <Link
+                                    href="/AboutPage"
+                                    className="bg-gradient-to-r from-[#55bdd0] to-[#0e8601] hover:from-[#4aa5b8] hover:to-[#0c7501] text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center"                                >
                                     <Globe className="w-5 h-5 mr-2" />
                                     Learn More
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

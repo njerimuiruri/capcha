@@ -107,21 +107,21 @@ const Navbar = () => {
                                     <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
                                         <div className="py-2">
                                             <Link
-                                                href="/research"
+                                                href="/Research"
                                                 className="block px-5 py-3 text-[#021d49] hover:bg-[#0e8601] hover:bg-opacity-10 hover:text-[#0e8601] transition-colors duration-200 text-base"
                                                 onClick={() => setIsDropdownOpen(false)}
                                             >
                                                 Research and Innovation
                                             </Link>
                                             <Link
-                                                href="/policy"
+                                                href="/PolicyAdvocacyPage"
                                                 className="block px-5 py-3 text-[#021d49] hover:bg-[#0e8601] hover:bg-opacity-10 hover:text-[#0e8601] transition-colors duration-200 text-base"
                                                 onClick={() => setIsDropdownOpen(false)}
                                             >
                                                 Policy and Advocacy
                                             </Link>
                                             <Link
-                                                href="/capacity"
+                                                href="/CapacityEnhancementPage"
                                                 className="block px-5 py-3 text-[#021d49] hover:bg-[#0e8601] hover:bg-opacity-10 hover:text-[#0e8601] transition-colors duration-200 text-base"
                                                 onClick={() => setIsDropdownOpen(false)}
                                             >
@@ -146,12 +146,7 @@ const Navbar = () => {
                                 Arin Conference
                             </Link>
 
-                            <Link
-                                href="/NewsSection"
-                                className="text-[#021d49] dark:text-white hover:text-[#0e8601] font-medium transition-colors duration-200 text-lg whitespace-nowrap"
-                            >
-                                News
-                            </Link>
+
 
                             <Link
                                 href="/ContactPage"
