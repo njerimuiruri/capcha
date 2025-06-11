@@ -134,7 +134,6 @@ const ConferenceDetail = () => {
                                 </div>
                             </div>
 
-                            {/* Conference Video */}
                             <div className="relative">
                                 <div className="aspect-video rounded-lg overflow-hidden shadow-2xl">
                                     <iframe
@@ -150,7 +149,6 @@ const ConferenceDetail = () => {
                     </div>
                 </div>
 
-                {/* Navigation Tabs */}
                 <div className="bg-white shadow-sm sticky top-0 z-10">
                     <div className="container mx-auto px-4">
                         <div className="flex space-x-8 overflow-x-auto">
@@ -170,12 +168,9 @@ const ConferenceDetail = () => {
                     </div>
                 </div>
 
-                {/* Main Content */}
                 <div className="container mx-auto px-4 py-12">
                     <div className="grid lg:grid-cols-3 gap-8">
-                        {/* Main Content Area */}
                         <div className="lg:col-span-2">
-                            {/* Overview Section */}
                             {activeSection === 'overview' && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
                                     <h2 className="text-3xl font-bold mb-6">Conference Overview</h2>
@@ -212,7 +207,6 @@ const ConferenceDetail = () => {
                                 </div>
                             )}
 
-                            {/* Agenda Section */}
                             {activeSection === 'agenda' && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
                                     <div className="flex justify-between items-center mb-6">
@@ -241,7 +235,6 @@ const ConferenceDetail = () => {
                                 </div>
                             )}
 
-                            {/* Speakers Section */}
                             {activeSection === 'speakers' && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
                                     <h2 className="text-3xl font-bold mb-6">Featured Speakers</h2>
@@ -263,7 +256,6 @@ const ConferenceDetail = () => {
                                 </div>
                             )}
 
-                            {/* Registration Section */}
                             {activeSection === 'registration' && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
                                     <h2 className="text-3xl font-bold mb-6">Registration Information</h2>

@@ -143,7 +143,6 @@ const ResearchPage = () => {
                         ))}
                     </div>
 
-                    {/* Content */}
                     <div className="relative z-10 text-left text-white px-8 max-w-7xl mx-auto w-full">
                         <div className="max-w-3xl">
                             <Badge className="mb-6 bg-[#0e8601]/20 text-white border-[#0e8601] text-sm px-4 py-2">
@@ -163,7 +162,6 @@ const ResearchPage = () => {
                         </div>
                     </div>
 
-                    {/* Video Indicators */}
                     <div className="absolute bottom-8 left-8 flex space-x-2">
                         {videos.map((_, index) => (
                             <div key={index} className="w-12 h-1 bg-white/30 rounded-full overflow-hidden">

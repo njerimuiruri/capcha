@@ -28,7 +28,6 @@ const CallToAction = () => {
                 }}
             />
 
-            {/* Blended Overlay - Blue and Green */}
             <div
                 className="absolute inset-0"
                 style={{
