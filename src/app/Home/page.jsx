@@ -10,6 +10,7 @@ import TeamsPage from '../TeamsPage/page';
 import BlogSection from '../BlogSection/page';
 import Footer from '@/components/Footer/footer';
 import { ModeToggle } from '@/components/mode-toggle';
+import PartnerSection from '../PartnerSection/page';
 
 export default function Home() {
     return (
@@ -41,6 +42,7 @@ export default function Home() {
                     <CallToAction />
                     <Dashboard />
                     <TeamsPage />
+                    <PartnerSection />
                     <BlogSection />
 
 

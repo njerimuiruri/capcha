@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -14,7 +15,9 @@ const CAPCHAActivities = () => {
             color: "bg-[#0d9488]",
             hoverColor: "hover:bg-[#0f766e]",
             textColor: "text-[#0d9488]",
-            features: ["Climate Adaptation", "Innovation Labs", "Data Analysis"]
+            features: ["Climate Adaptation", "Innovation Labs", "Data Analysis"],
+            link: "/Research",
+
         },
         {
             id: 2,
@@ -24,7 +27,9 @@ const CAPCHAActivities = () => {
             color: "bg-[#0e8601]",
             hoverColor: "hover:bg-[#166534]",
             textColor: "text-[#0e8601]",
-            features: ["Policy Development", "Stakeholder Engagement", "Evidence-Based Solutions"]
+            features: ["Policy Development", "Stakeholder Engagement", "Evidence-Based Solutions"],
+            link: "/PolicyAdvocacyPage",
+
         },
         {
             id: 3,
@@ -34,7 +39,9 @@ const CAPCHAActivities = () => {
             color: "bg-[#021d49]",
             hoverColor: "hover:bg-[#1e3a8a]",
             textColor: "text-[#021d49]",
-            features: ["Training Programs", "Awareness Campaigns", "Skill Development"]
+            features: ["Training Programs", "Awareness Campaigns", "Skill Development"],
+            link: "/CapacityEnhancementPage",
+
         },
         {
             id: 4,
@@ -44,7 +51,8 @@ const CAPCHAActivities = () => {
             color: "bg-gradient-to-r from-[#0d9488] to-[#0e8601]",
             hoverColor: "hover:from-[#0f766e] hover:to-[#166534]",
             textColor: "text-[#0d9488]",
-            features: ["Latest Research", "Blog Posts", "News Updates"]
+            features: ["Latest Research", "Blog Posts", "News Updates"],
+            link: "/BlogsPage"
         }
     ];
 
@@ -94,13 +102,15 @@ const CAPCHAActivities = () => {
                                         ))}
                                     </div>
 
-                                    <Button
-                                        variant="ghost"
-                                        className={`w-full ${activity.textColor} hover:bg-slate-50 group-hover:bg-slate-100 transition-all duration-300 mt-4`}
-                                    >
-                                        Read More
-                                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                                    </Button>
+                                    <Link href={activity.link} passHref>
+                                        <Button
+                                            variant="ghost"
+                                            className={`w-full ${activity.textColor} hover:bg-slate-50 group-hover:bg-slate-100 transition-all duration-300 mt-4`}
+                                        >
+                                            Read More
+                                            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                        </Button>
+                                    </Link>
                                 </CardContent>
                             </Card>
                         );

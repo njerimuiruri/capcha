@@ -1,6 +1,7 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Users, Heart, DollarSign } from 'lucide-react';
+import Link from 'next/link';
 
 const HeroSection = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -8,18 +9,23 @@ const HeroSection = () => {
     const slides = [
         {
             id: 1,
-            image: "/img/healthstethoscope.jpg",
-            alt: "Forest conservation"
+            video: "/videos/vegetation1.mp4",
+            alt: "Health research video"
         },
         {
             id: 2,
-            image: "/img/twohandsplant.jpg",
-            alt: "Environmental protection"
+            video: "/videos/plantation2.mp4",
+            alt: "Climate change video"
         },
         {
             id: 3,
-            image: "/img/twohandsplant.jpg",
-            alt: "Clean earth initiative"
+            video: "/videos/flowingwater.mp4",
+            alt: "African health initiatives video"
+        },
+        {
+            id: 4,
+            video: "/videos/healthvideo.mp4",
+            alt: "Environmental health video"
         }
     ];
 
@@ -38,6 +44,14 @@ const HeroSection = () => {
         }
     ];
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [slides.length]);
+
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % slides.length);
     };
@@ -52,7 +66,7 @@ const HeroSection = () => {
 
     return (
         <div className="relative">
-            <div className="relative h-[85vh] overflow-hidden">
+            <div className="relative h-[95vh] overflow-hidden">
                 <div className="absolute inset-0">
                     {slides.map((slide, index) => (
                         <div
@@ -60,41 +74,43 @@ const HeroSection = () => {
                             className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
                                 }`}
                         >
-                            <img
-                                src={slide.image}
-                                alt={slide.alt}
+                            <video
+                                src={slide.video}
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
                                 className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 via-black/70 via-black/50 via-black/30 to-black/10"></div>
+                                style={{ display: index === currentSlide ? 'block' : 'none' }}
+                            >
+                                Your browser does not support the video tag.
+                            </video>
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/20 via-black/15 via-black/10 via-black/5 to-transparent"></div>
                         </div>
                     ))}
                 </div>
 
-                <div className="relative z-10 h-[85vh] flex flex-col">
+                <div className="relative z-10 h-[95vh] flex flex-col">
                     <div className="flex-1 flex items-end pb-32">
                         <div className="container mx-auto px-6 lg:px-12">
                             <div className="max-w-3xl mb-16">
-                                <div className="mb-6">
-                                    <span className="text-[#ff9500] font-semibold text-sm md:text-base tracking-wide uppercase hover:text-[#ffb366] transition-colors duration-300 cursor-default">
-                                        We'll Save Our Planet
-                                    </span>
-                                </div>
-
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate-fade-in-up hover:scale-[1.02] transition-transform duration-500 cursor-default">
-                                    Let's Start Using{' '}
-                                    <span className="text-transparent bg-gradient-to-r from-[#55bdd0] to-[#0e8601] bg-clip-text hover:from-[#6bcde0] hover:to-[#1ea611] transition-all duration-500">
-                                        Green Energy For A Better Planet
+                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate-fade-in-up hover:scale-[1.02] transition-transform duration-500 cursor-default drop-shadow-lg">
+                                    Consultative Platform On{' '}
+                                    <span className="text-transparent bg-gradient-to-r from-[#55bdd0] to-[#0e8601] bg-clip-text hover:from-[#6bcde0] hover:to-[#1ea611] transition-all duration-500 drop-shadow-lg">
+                                        Climate And Health in Africa
                                     </span>
                                 </h1>
 
-                                <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 max-w-2xl animate-fade-in-up animation-delay-300 hover:text-gray-200 transition-colors duration-300 cursor-default">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sollicitudin consectetur netus dui,
-                                    ultrices or lectus ac egestas. Vivamus tellus vestibulum aliquet arcu a duis.
+                                <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 max-w-2xl animate-fade-in-up animation-delay-300 hover:text-gray-100 transition-colors duration-300 cursor-default drop-shadow-md">
+                                    Building a transdisciplinary community of practice towards enhanced decision support environment on Climate and Health (C & H) research and policy in Africa
                                 </p>
 
-                                <button className="bg-[#ff9500] hover:bg-[#e6850e] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-600 hover:shadow-[#ff9500]/25">
-                                    Join With us
-                                </button>
+                                <Link
+                                    href="/ContactPage"
+                                    className="bg-[#ff9500] hover:bg-[#e6850e] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-600 hover:shadow-[#ff9500]/25"
+                                >
+                                    Join  us
+                                </Link>
                             </div>
                         </div>
 
@@ -114,20 +130,22 @@ const HeroSection = () => {
                             </button>
 
                             <div className="flex flex-col space-y-3 mt-4">
-                                {slides.map((_, index) => (
+                                {slides.map((slide, index) => (
                                     <button
                                         key={index}
                                         onClick={() => goToSlide(index)}
-                                        className={`w-16 h-16 rounded-full border-2 overflow-hidden transition-all duration-300 ${index === currentSlide
+                                        className={`w-16 h-16 rounded-full border-2 overflow-hidden transition-all duration-300 relative ${index === currentSlide
                                             ? 'border-[#ff9500] scale-110'
                                             : 'border-white/40 hover:border-white/60 hover:scale-105'
                                             }`}
                                     >
-                                        <img
-                                            src={slides[index].image}
-                                            alt={slides[index].alt}
+                                        <video
+                                            src={slide.video}
+                                            muted
                                             className="w-full h-full object-cover"
+                                            style={{ pointerEvents: 'none' }}
                                         />
+                                        <div className="absolute inset-0 bg-black/20"></div>
                                     </button>
                                 ))}
                             </div>

@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -22,6 +22,26 @@ import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
 
 const ResearchPage = () => {
+    const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+    const videos = [
+        {
+            id: 1,
+            src: "/videos/climate industry.mp4",
+            alt: "Climate research video"
+        },
+        {
+            id: 2,
+            src: "/videos/dna.mp4",
+            alt: "Health systems video"
+        },
+        {
+            id: 3,
+            src: "/videos/windmill.mp4",
+            alt: "Data analysis video"
+        }
+    ];
+
     const focusAreas = [
         {
             icon: <Leaf className="w-8 h-8" />,
@@ -86,31 +106,53 @@ const ResearchPage = () => {
         "Better data sharing enables more effective interventions"
     ];
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [videos.length]);
+
     return (
         <>
             <Navbar />
             <div className="min-h-screen bg-white">
                 <section className="relative mt-32 h-[600px] flex items-center overflow-hidden">
-                    <div
-                        className="absolute inset-0 bg-gray-800 transition-all duration-1000"
-                        style={{
-                            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/climate-research-video1.jpg')`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            animation: 'videoChange 15s infinite'
-                        }}
-                    >
+                    {/* Video Background */}
+                    <div className="absolute inset-0">
+                        {videos.map((video, index) => (
+                            <div
+                                key={video.id}
+                                className={`absolute inset-0 transition-opacity duration-1000 ${index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
+                                    }`}
+                            >
+                                <video
+                                    src={video.src}
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    className="w-full h-full object-cover"
+                                    style={{ display: index === currentVideoIndex ? 'block' : 'none' }}
+                                >
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 via-black/20 to-black/10"></div>
+                            </div>
+                        ))}
                     </div>
 
+                    {/* Content */}
                     <div className="relative z-10 text-left text-white px-8 max-w-7xl mx-auto w-full">
                         <div className="max-w-3xl">
                             <Badge className="mb-6 bg-[#0e8601]/20 text-white border-[#0e8601] text-sm px-4 py-2">
                                 Climate & Health Research Hub
                             </Badge>
-                            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">
+                            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight drop-shadow-lg">
                                 Pioneering Climate-Health Research Across Africa
                             </h1>
-                            <p className="text-xl mb-8 text-gray-200 leading-relaxed max-w-2xl">
+                            <p className="text-xl mb-8 text-gray-200 leading-relaxed max-w-2xl drop-shadow-md">
                                 Advancing scientific understanding and building resilient health systems through innovative research, data sharing, and collaborative solutions for Africa's climate challenges.
                             </p>
                             <nav className="text-lg flex items-center">
@@ -121,16 +163,19 @@ const ResearchPage = () => {
                         </div>
                     </div>
 
+                    {/* Video Indicators */}
                     <div className="absolute bottom-8 left-8 flex space-x-2">
-                        <div className="w-12 h-1 bg-white/30 rounded-full overflow-hidden">
-                            <div className="w-full h-full bg-[#0e8601] rounded-full animate-pulse" style={{ animation: 'indicator1 15s infinite' }}></div>
-                        </div>
-                        <div className="w-12 h-1 bg-white/30 rounded-full overflow-hidden">
-                            <div className="w-full h-full bg-[#0e8601] rounded-full" style={{ animation: 'indicator2 15s infinite' }}></div>
-                        </div>
-                        <div className="w-12 h-1 bg-white/30 rounded-full overflow-hidden">
-                            <div className="w-full h-full bg-[#0e8601] rounded-full" style={{ animation: 'indicator3 15s infinite' }}></div>
-                        </div>
+                        {videos.map((_, index) => (
+                            <div key={index} className="w-12 h-1 bg-white/30 rounded-full overflow-hidden">
+                                <div
+                                    className={`w-full h-full bg-[#0e8601] rounded-full transition-all duration-300 ${index === currentVideoIndex ? 'opacity-100' : 'opacity-40'
+                                        }`}
+                                    style={{
+                                        animation: index === currentVideoIndex ? 'fillIndicator 5s linear infinite' : 'none'
+                                    }}
+                                ></div>
+                            </div>
+                        ))}
                     </div>
                 </section>
 
@@ -153,8 +198,6 @@ const ResearchPage = () => {
                                         CAPCHA centralizes research efforts across Africa, creating a unified platform where data becomes actionable intelligence for healthier, more resilient communities.
                                     </p>
                                 </div>
-
-
                             </div>
 
                             <div className="space-y-6">
@@ -223,22 +266,23 @@ const ResearchPage = () => {
                                 </Card>
                             ))}
                         </div>
-
-                        {/* <div className="mt-16 text-center">
-                            <div className="bg-gradient-to-r from-[#021d49] to-[#0e8601] p-8 rounded-2xl text-white max-w-4xl mx-auto">
-                                <h3 className="text-3xl font-bold mb-4">Ready to Collaborate?</h3>
-                                <p className="text-blue-100 mb-6 text-lg">
-                                    Join us in building a comprehensive understanding of climate and health interactions across Africa through innovative research and data sharing.
-                                </p>
-                                <button className="bg-white text-[#021d49] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
-                                    Get Involved
-                                </button>
-                            </div>
-                        </div> */}
                     </div>
                 </section>
             </div>
             <Footer />
+
+            <style jsx>{`
+                @keyframes fillIndicator {
+                    from {
+                        transform: scaleX(0);
+                        transform-origin: left;
+                    }
+                    to {
+                        transform: scaleX(1);
+                        transform-origin: left;
+                    }
+                }
+            `}</style>
         </>
     );
 };

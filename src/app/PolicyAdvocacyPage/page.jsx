@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -24,6 +24,22 @@ import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
 
 const PolicyAdvocacyPage = () => {
+    const [currentVideo, setCurrentVideo] = useState(0);
+
+    const videos = [
+        '/videos/climate industry.mp4',
+        '/videos/windmill.mp4',
+        '/videos/healthvideo.mp4'
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentVideo((prev) => (prev + 1) % videos.length);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     const policyFocusAreas = [
         {
             icon: <Globe className="w-8 h-8" />,
@@ -57,15 +73,21 @@ const PolicyAdvocacyPage = () => {
             <Navbar />
             <div className="min-h-screen bg-white">
                 <section className="relative mt-32 h-[600px] flex items-center overflow-hidden">
-                    <div
-                        className="absolute inset-0 bg-gray-800 transition-all duration-1000"
-                        style={{
-                            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/policy-advocacy-bg.jpg')`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            animation: 'videoChange 15s infinite'
-                        }}
-                    >
+                    <div className="absolute inset-0">
+                        {videos.map((video, index) => (
+                            <video
+                                key={index}
+                                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentVideo ? 'opacity-100' : 'opacity-0'
+                                    }`}
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                            >
+                                <source src={video} type="video/mp4" />
+                            </video>
+                        ))}
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 via-black/20 to-black/10"></div>
                     </div>
 
                     <div className="relative z-10 text-left text-white px-8 max-w-7xl mx-auto w-full">
@@ -87,16 +109,20 @@ const PolicyAdvocacyPage = () => {
                         </div>
                     </div>
 
+                    {/* Video indicators */}
                     <div className="absolute bottom-8 left-8 flex space-x-2">
-                        <div className="w-12 h-1 bg-white/30 rounded-full overflow-hidden">
-                            <div className="w-full h-full bg-[#0e8601] rounded-full animate-pulse" style={{ animation: 'indicator1 15s infinite' }}></div>
-                        </div>
-                        <div className="w-12 h-1 bg-white/30 rounded-full overflow-hidden">
-                            <div className="w-full h-full bg-[#0e8601] rounded-full" style={{ animation: 'indicator2 15s infinite' }}></div>
-                        </div>
-                        <div className="w-12 h-1 bg-white/30 rounded-full overflow-hidden">
-                            <div className="w-full h-full bg-[#0e8601] rounded-full" style={{ animation: 'indicator3 15s infinite' }}></div>
-                        </div>
+                        {videos.map((_, index) => (
+                            <div
+                                key={index}
+                                className={`w-12 h-1 rounded-full transition-all duration-300 cursor-pointer ${index === currentVideo ? 'bg-[#0e8601]' : 'bg-white/30'
+                                    }`}
+                                onClick={() => setCurrentVideo(index)}
+                            >
+                                {index === currentVideo && (
+                                    <div className="w-full h-full bg-[#0e8601] rounded-full animate-pulse"></div>
+                                )}
+                            </div>
+                        ))}
                     </div>
                 </section>
 
@@ -119,8 +145,6 @@ const PolicyAdvocacyPage = () => {
                                         We align health strategies with broader climate resilience efforts and provide opportunities for participation in international climate negotiations, ensuring Africa's health priorities are represented in global climate actions.
                                     </p>
                                 </div>
-
-
                             </div>
 
                             <div className="space-y-6">
@@ -240,23 +264,6 @@ const PolicyAdvocacyPage = () => {
                                 </div>
                             </div>
                         </div>
-
-                        {/* <div className="mt-16 text-center">
-                            <div className="bg-gradient-to-r from-[#021d49] to-[#0e8601] p-8 rounded-2xl text-white max-w-4xl mx-auto">
-                                <h3 className="text-3xl font-bold mb-4">Ready to Make an Impact?</h3>
-                                <p className="text-blue-100 mb-6 text-lg">
-                                    Join us in advocating for climate-health policies that protect African communities through unified policy influence and strategic advocacy.
-                                </p>
-
-                                <Link
-                                    href="/ContactPage"
-                                    className="bg-white text-[#021d49] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"                                >
-                                    Join Us
-
-                                </Link>
-
-                            </div>
-                        </div> */}
                     </div>
                 </section>
             </div>

@@ -140,10 +140,10 @@ const Navbar = () => {
                             </Link>
 
                             <Link
-                                href="/conference"
+                                href="/ArinConferece"
                                 className="text-[#021d49] dark:text-white hover:text-[#0e8601] font-medium transition-colors duration-200 text-lg whitespace-nowrap"
                             >
-                                Arin Conference
+                                ARIN Conference
                             </Link>
 
 
