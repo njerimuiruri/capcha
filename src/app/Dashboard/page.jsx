@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { BarChart3, Users, Brain, Share2 } from 'lucide-react';
-
+import Image from 'next/image';
 const Dashboard = () => {
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-8 transition-colors duration-300">

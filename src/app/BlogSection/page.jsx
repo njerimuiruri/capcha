@@ -119,7 +119,8 @@ const BlogSection = () => {
                                                         <Image
                                                             src={article.image}
                                                             alt={article.title}
-                                                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                                            fill
+                                                            className="object-cover hover:scale-105 transition-transform duration-300"
                                                         />
                                                     </div>
 

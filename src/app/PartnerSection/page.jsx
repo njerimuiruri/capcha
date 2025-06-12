@@ -131,7 +131,10 @@ const PartnerSection = () => {
                                                         <Image
                                                             src={partner.logo}
                                                             alt={`${partner.name} logo`}
-                                                            className="max-w-full max-h-full object-contain"
+                                                            fill
+
+                                                            className="object-contain"
+
                                                             onError={(e) => {
                                                                 e.target.style.display = 'none';
                                                                 e.target.nextSibling.style.display = 'flex';

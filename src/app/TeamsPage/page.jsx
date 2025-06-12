@@ -88,11 +88,14 @@ const TeamsPage = () => {
                             <div key={member.id} className="w-full flex-shrink-0 px-4">
                                 <div className="bg-white/80 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200/50 dark:border-gray-700/50 max-w-md mx-auto">
                                     <div className="relative w-full h-96 bg-gray-100 dark:bg-gray-700">
-                                        <Image
-                                            src={member.image}
-                                            alt={member.name}
-                                            className="w-full h-full object-cover"
-                                        />
+                                        <div className="relative w-full h-96 bg-gray-100 dark:bg-gray-700">
+                                            <Image
+                                                src={member.image}
+                                                alt={member.name}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                        </div>
                                     </div>
                                     <div className="p-8 text-center">
                                         <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">

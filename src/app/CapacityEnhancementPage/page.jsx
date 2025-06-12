@@ -22,14 +22,15 @@ import {
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
 
+// Move videos array outside component to avoid useEffect dependency issues
+const videos = [
+    '/videos/climate industry.mp4',
+    '/videos/windmill.mp4',
+    '/videos/healthvideo.mp4'
+];
+
 const CapacityEnhancementPage = () => {
     const [currentVideo, setCurrentVideo] = useState(0);
-
-    const videos = [
-        '/videos/climate industry.mp4',
-        '/videos/windmill.mp4',
-        '/videos/healthvideo.mp4'
-    ];
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -37,7 +38,7 @@ const CapacityEnhancementPage = () => {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, []); // Empty dependency array is now correct since videos is outside component
 
     const capacityPrograms = [
         {
