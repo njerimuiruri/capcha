@@ -164,8 +164,11 @@ const ConferencePage = () => {
                                                 <Image
                                                     src={conference.organizerImage}
                                                     alt={conference.organizer}
-                                                    className="w-10 h-10 rounded-full mr-3"
+                                                    width={40}
+                                                    height={40}
+                                                    className="w-10 h-10 rounded-full mr-3 object-cover"
                                                 />
+
                                                 <div>
                                                     <p className={`text-sm ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
                                                         ? 'text-gray-200'

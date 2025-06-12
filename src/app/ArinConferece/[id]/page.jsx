@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import { Calendar, MapPin, DollarSign, Clock, Users, Mail, Phone, ChevronDown, ChevronUp, Share2, Bookmark, Download, FileText } from 'lucide-react';
 import { conferences } from '@/data/conference';
 import Link from "next/link";
+import Image from "next/image";
 
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
@@ -71,10 +72,12 @@ const ConferenceDetail = () => {
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div>
                                 <div className="flex items-center mb-4">
-                                    <img
+                                    <Image
                                         src={conference.organizerImage}
                                         alt={conference.organizer}
-                                        className="w-12 h-12 rounded-full mr-4"
+                                        width={48}
+                                        height={48}
+                                        className="w-12 h-12 rounded-full mr-4 object-cover"
                                     />
                                     <div>
                                         <p className="text-gray-200 text-sm">Organized by</p>
@@ -265,9 +268,11 @@ const ConferenceDetail = () => {
                                     <div className="grid md:grid-cols-2 gap-6">
                                         {conference.speakers.map((speaker, index) => (
                                             <div key={index} className="flex items-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
-                                                <img
+                                                <Image
                                                     src={speaker.image}
                                                     alt={speaker.name}
+                                                    width={64}
+                                                    height={64}
                                                     className="w-16 h-16 rounded-full mr-4 object-cover"
                                                 />
                                                 <div>
@@ -415,10 +420,12 @@ const ConferenceDetail = () => {
                             <div className="bg-white rounded-lg shadow-md p-6">
                                 <h3 className="text-xl font-bold mb-4">Contact Organizer</h3>
                                 <div className="flex items-center mb-4">
-                                    <img
+                                    <Image
                                         src={conference.organizerImage}
                                         alt={conference.organizer}
-                                        className="w-12 h-12 rounded-full mr-4"
+                                        width={48}
+                                        height={48}
+                                        className="w-12 h-12 rounded-full mr-4 object-cover"
                                     />
                                     <div>
                                         <p className="font-semibold">{conference.organizer}</p>

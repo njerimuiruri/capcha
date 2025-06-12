@@ -4,10 +4,10 @@ import { Search, Calendar, User, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useRouter } from 'next/navigation';
 import { blogPosts, recentPosts, popularTags } from '@/data/blogs';
 import Link from "next/link";
+import Image from 'next/image';
 
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
-import Image from 'next/image';
 
 const BlogPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -113,6 +113,8 @@ const BlogPage = () => {
                                                 <Image
                                                     src={post.authorImage}
                                                     alt={post.author}
+                                                    width={40}
+                                                    height={40}
                                                     className="w-10 h-10 rounded-full mr-3"
                                                 />
                                                 <div>
@@ -223,8 +225,6 @@ const BlogPage = () => {
                                 </div>
                             </div>
 
-
-
                             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
                                 <h3 className="text-xl font-bold mb-4">Recent Posts</h3>
                                 <div className="space-y-4">
@@ -233,6 +233,8 @@ const BlogPage = () => {
                                             <Image
                                                 src={post.image}
                                                 alt={post.title}
+                                                width={64}
+                                                height={48}
                                                 className="w-16 h-12 rounded object-cover flex-shrink-0"
                                             />
                                             <div className="flex-1">
@@ -256,14 +258,13 @@ const BlogPage = () => {
                             >
                                 <div className="absolute inset-0 bg-black opacity-60"></div>
                                 <div className="relative z-10 text-center">
-                                    <h3 className="text-2xl font-bold mb-4">Let's Work Together</h3>
+                                    <h3 className="text-2xl font-bold mb-4">Let&apos;s Work Together</h3>
                                     <Link
                                         href="/ContactPage"
                                         className="bg-[#0e8601] text-white px-6 py-3 rounded-lg font-medium hover:bg-teal-700 transition-colors"
                                     >
                                         Contact Us
                                     </Link>
-
                                 </div>
                             </div>
 

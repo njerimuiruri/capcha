@@ -38,7 +38,7 @@ const PolicyAdvocacyPage = () => {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [videos.length]);
 
     const policyFocusAreas = [
         {
@@ -99,7 +99,7 @@ const PolicyAdvocacyPage = () => {
                                 Shaping Climate-Health Policy Across Africa
                             </h1>
                             <p className="text-xl mb-8 text-gray-200 leading-relaxed max-w-2xl">
-                                Creating unified advocacy platforms and building capacity to influence climate policies that prioritize health outcomes and address Africa's unique vulnerabilities.
+                                Creating unified advocacy platforms and building capacity to influence climate policies that prioritize health outcomes and address Africa&apos;s unique vulnerabilities.
                             </p>
                             <nav className="text-lg flex items-center">
                                 <span className="text-gray-300">Home</span>
@@ -142,7 +142,7 @@ const PolicyAdvocacyPage = () => {
                                         CAPCHA serves as a unified platform to advocate for policies addressing the health impacts of climate change, creating avenues to influence national and international climate policies that incorporate health considerations.
                                     </p>
                                     <p>
-                                        We align health strategies with broader climate resilience efforts and provide opportunities for participation in international climate negotiations, ensuring Africa's health priorities are represented in global climate actions.
+                                        We align health strategies with broader climate resilience efforts and provide opportunities for participation in international climate negotiations, ensuring Africa&apos;s health priorities are represented in global climate actions.
                                     </p>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@ const PolicyAdvocacyPage = () => {
                                 <div className="bg-gradient-to-br from-[#021d49] to-[#0e8601] p-8 rounded-2xl text-white">
                                     <h4 className="text-xl font-bold mb-3">Our Voice</h4>
                                     <p className="text-blue-100 mb-4">
-                                        Through strategic advocacy and capacity building, we're ensuring Africa's unique climate-health vulnerabilities are addressed at every policy level.
+                                        Through strategic advocacy and capacity building, we&apos;re ensuring Africa&apos;s unique climate-health vulnerabilities are addressed at every policy level.
                                     </p>
                                     <div className="flex items-center text-sm text-blue-200">
                                         <Handshake className="w-4 h-4 mr-2" />
@@ -233,7 +233,7 @@ const PolicyAdvocacyPage = () => {
                                     <div className="space-y-4 text-gray-700">
                                         <div className="flex items-start gap-3">
                                             <Globe className="w-6 h-6 text-[#0e8601] mt-1 flex-shrink-0" />
-                                            <p>Advocating for Africa's health priorities in global climate forums</p>
+                                            <p>Advocating for Africa&apos;s health priorities in global climate forums</p>
                                         </div>
                                         <div className="flex items-start gap-3">
                                             <FileText className="w-6 h-6 text-[#0e8601] mt-1 flex-shrink-0" />
