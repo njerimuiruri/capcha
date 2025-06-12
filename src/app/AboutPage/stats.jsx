@@ -39,11 +39,15 @@ const StatsSection = () => {
                     <div className="w-full lg:w-1/2 lg:pr-8">
                         <div className="relative group">
                             <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-teal-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-                            <img
+                            <Image
                                 src="/img/stats.jpg"
                                 alt="HNAPS Implementation in Africa - Healthcare systems strengthening"
-                                className="relative w-full h-64 md:h-80 lg:h-96 object-cover rounded-xl shadow-xl "
+                                width={800}
+                                height={600}
+                                className="relative w-full h-64 md:h-80 lg:h-96 object-cover rounded-xl shadow-xl"
                                 loading="lazy"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+                                quality={85}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-xl"></div>
                         </div>
@@ -53,10 +57,10 @@ const StatsSection = () => {
                         {statsData.map((stat, index) => (
                             <div
                                 key={index}
-                                className={`absolute ${stat.position} z-10 group cursor-pointer`}
+                                className={`absolute ${stat.position} z-10 group cursor-pointer animate-fade-in-up`}
                                 style={{
                                     animationDelay: `${index * 0.2}s`,
-                                    animation: 'fadeInUp 0.8s ease-out forwards'
+                                    animationFillMode: 'both'
                                 }}
                             >
                                 <div className={`${stat.bgColor} backdrop-blur-sm border border-white/20 rounded-2xl p-4 md:p-6 shadow-xl hover:shadow-2xl transition-all duration-300 min-w-[200px] md:min-w-[240px] transform hover:scale-105 hover:-translate-y-2`}>
@@ -100,7 +104,8 @@ const StatsSection = () => {
                         alt="Decorative tree illustration representing growth and sustainability"
                         fill
                         className="object-contain filter drop-shadow-md"
-                        priority={false}
+                        sizes="(max-width: 768px) 100px, 140px"
+                        quality={85}
                     />
                 </div>
 
@@ -110,7 +115,8 @@ const StatsSection = () => {
                         alt="Decorative leaf illustration"
                         fill
                         className="object-contain filter drop-shadow-sm"
-                        priority={false}
+                        sizes="(max-width: 768px) 40px, 60px"
+                        quality={85}
                     />
                 </div>
             </div>
@@ -161,6 +167,10 @@ const StatsSection = () => {
                 .animate-leaf-float {
                     animation: leafFloat 4s ease-in-out infinite;
                     animation-delay: 1s;
+                }
+
+                .animate-fade-in-up {
+                    animation: fadeInUp 0.8s ease-out;
                 }
             `}</style>
         </section>

@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Moon } from 'lucide-react';
-
+import Image from 'next/image';
 const BlogSection = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -116,7 +116,7 @@ const BlogSection = () => {
                                             .map((article) => (
                                                 <div key={article.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                                                     <div className="relative h-48 overflow-hidden">
-                                                        <img
+                                                        <Image
                                                             src={article.image}
                                                             alt={article.title}
                                                             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"

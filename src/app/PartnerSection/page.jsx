@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 
 const PartnerSection = () => {
@@ -127,7 +128,7 @@ const PartnerSection = () => {
                                             <div key={partner.id} className="group">
                                                 <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 h-full flex flex-col items-center justify-center text-center hover:scale-105">
                                                     <div className="w-58 h-58 mb-6 flex items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden group-hover:bg-gray-100 dark:group-hover:bg-gray-600 transition-colors duration-300">
-                                                        <img
+                                                        <Image
                                                             src={partner.logo}
                                                             alt={`${partner.name} logo`}
                                                             className="max-w-full max-h-full object-contain"

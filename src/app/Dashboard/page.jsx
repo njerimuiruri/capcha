@@ -56,10 +56,11 @@ const Dashboard = () => {
                         {/* Center Column - Globe Image */}
                         <div className="flex items-center justify-center">
                             <div className="w-full h-80 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/30 rounded-lg flex items-center justify-center shadow-sm dark:shadow-lg overflow-hidden relative border border-gray-200 dark:border-gray-700">
-                                <img
+                                <Image
                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Ccircle cx='200' cy='200' r='180' fill='%23e0f2fe'/%3E%3Ccircle cx='200' cy='200' r='160' fill='%23b3e5fc'/%3E%3Ccircle cx='200' cy='200' r='140' fill='%2381d4fa'/%3E%3Ctext x='200' y='220' text-anchor='middle' font-size='60' fill='%23455a64'%3E🌍%3C/text%3E%3C/svg%3E"
                                     alt="Globe representation"
-                                    className="w-full h-full object-contain opacity-90 dark:opacity-80"
+                                    fill
+                                    className="object-contain opacity-90 dark:opacity-80"
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">

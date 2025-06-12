@@ -109,7 +109,7 @@ const ResearchPage = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
-        }, [videos.length]);
+        }, 5000);
 
         return () => clearInterval(interval);
     }, [videos.length]);

@@ -7,6 +7,7 @@ import Link from "next/link";
 
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
+import Image from 'next/image';
 
 const BlogPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -109,7 +110,7 @@ const BlogPage = () => {
                                     >
                                         <div className="p-6">
                                             <div className="flex items-center mb-4">
-                                                <img
+                                                <Image
                                                     src={post.authorImage}
                                                     alt={post.author}
                                                     className="w-10 h-10 rounded-full mr-3"
@@ -229,7 +230,7 @@ const BlogPage = () => {
                                 <div className="space-y-4">
                                     {recentPosts.map((post) => (
                                         <div key={post.id} className="flex items-start space-x-3 group cursor-pointer">
-                                            <img
+                                            <Image
                                                 src={post.image}
                                                 alt={post.title}
                                                 className="w-16 h-12 rounded object-cover flex-shrink-0"

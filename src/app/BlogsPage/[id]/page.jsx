@@ -5,6 +5,7 @@ import { Calendar, User, ArrowLeft, Clock, Tag, Share2, Facebook, Twitter, Linke
 import { blogPosts, recentPosts, popularTags } from '../../../data/blogs';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
+import Image from 'next/image';
 
 const BlogDetailPage = () => {
     const params = useParams();
@@ -84,10 +85,12 @@ const BlogDetailPage = () => {
 
                             <div className="flex flex-wrap items-center gap-6 text-gray-300">
                                 <div className="flex items-center">
-                                    <img
+                                    <Image
                                         src={post.authorImage}
                                         alt={post.author}
-                                        className="w-10 h-10 rounded-full mr-3"
+                                        width={40}
+                                        height={40}
+                                        className="w-10 h-10 rounded-full mr-3 object-cover"
                                     />
                                     <div>
                                         <p className="font-medium text-white">{post.author}</p>
@@ -190,7 +193,6 @@ const BlogDetailPage = () => {
                                                 <span className="text-gray-600 font-medium">Share this article</span>
                                             </div>
 
-
                                             <div className="flex space-x-3">
                                                 <a
                                                     href="#"
@@ -203,7 +205,8 @@ const BlogDetailPage = () => {
                                                 </a>
 
                                                 <a
-                                                    href="https://x.com/arin_africa" target="_blank"
+                                                    href="https://x.com/arin_africa"
+                                                    target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="p-2 bg-blue-400 text-white rounded-full hover:bg-blue-500 transition-colors"
                                                 >
@@ -221,7 +224,6 @@ const BlogDetailPage = () => {
                                                     <Linkedin className="h-4 w-4" />
                                                 </a>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -260,10 +262,12 @@ const BlogDetailPage = () => {
                             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
                                 <h3 className="text-xl font-bold mb-4">About the Author</h3>
                                 <div className="flex items-start space-x-4">
-                                    <img
+                                    <Image
                                         src={post.authorImage}
                                         alt={post.author}
-                                        className="w-16 h-16 rounded-full"
+                                        width={64}
+                                        height={64}
+                                        className="w-16 h-16 rounded-full object-cover"
                                     />
                                     <div>
                                         <h4 className="font-bold text-gray-900 mb-2">{post.author}</h4>
@@ -284,9 +288,11 @@ const BlogDetailPage = () => {
                                             onClick={() => handleRelatedPostClick(recentPost.id)}
                                             className="flex items-start space-x-3 group cursor-pointer"
                                         >
-                                            <img
+                                            <Image
                                                 src={recentPost.image}
                                                 alt={recentPost.title}
+                                                width={64}
+                                                height={48}
                                                 className="w-16 h-12 rounded object-cover flex-shrink-0"
                                             />
                                             <div className="flex-1">

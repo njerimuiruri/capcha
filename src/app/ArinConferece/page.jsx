@@ -4,7 +4,7 @@ import { Search, Calendar, MapPin, DollarSign, ChevronLeft, ChevronRight, Play, 
 import { useRouter } from 'next/navigation';
 import { conferences, recentConferences, popularConferenceTags } from '@/data/conference';
 import Link from "next/link";
-
+import Image from 'next/image';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
 
@@ -161,7 +161,7 @@ const ConferencePage = () => {
 
                                             {/* Organizer Info */}
                                             <div className="flex items-center mb-4">
-                                                <img
+                                                <Image
                                                     src={conference.organizerImage}
                                                     alt={conference.organizer}
                                                     className="w-10 h-10 rounded-full mr-3"

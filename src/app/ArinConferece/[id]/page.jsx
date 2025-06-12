@@ -24,7 +24,7 @@ const ConferenceDetail = () => {
                 <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                     <div className="text-center">
                         <h1 className="text-4xl font-bold text-gray-900 mb-4">Conference Not Found</h1>
-                        <p className="text-gray-600 mb-8">The conference you're looking for doesn't exist.</p>
+                        <p className="text-gray-600 mb-8">The conference you&apos;re looking for doesn&apos;t exist.</p>
                         <Link
                             href="/ConferencePage"
                             className="bg-[#0e8601] text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition-colors"
@@ -155,7 +155,7 @@ const ConferenceDetail = () => {
                 <div className="bg-white shadow-sm sticky top-0 z-10">
                     <div className="container mx-auto px-4">
                         <div className="flex space-x-8 overflow-x-auto">
-                            {/* Updated navigation - removed 'agenda' and 'speakers' for recent conferences */}
+                            {/* Updated navigation - removed &apos;agenda&apos; and &apos;speakers&apos; for recent conferences */}
                             {['overview', 'registration'].map((section) => (
                                 <button
                                     key={section}
@@ -300,7 +300,7 @@ const ConferenceDetail = () => {
 
                                     <div className="grid md:grid-cols-2 gap-6 mb-8">
                                         <div>
-                                            <h3 className="font-semibold mb-3">What's Included:</h3>
+                                            <h3 className="font-semibold mb-3">What&apos;s Included:</h3>
                                             <ul className="space-y-2 text-gray-700">
                                                 <li className="flex items-center">
                                                     <span className="w-2 h-2 bg-[#0e8601] rounded-full mr-3"></span>
