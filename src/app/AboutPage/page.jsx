@@ -47,9 +47,9 @@ const AboutPage = () => {
                                 />
 
                                 <div className="absolute bottom-8 left-8 right-8 bg-[#0e8601] p-6 rounded-lg text-white">
-                                    <div className="text-6xl font-serif text-teal-300 mb-2">"</div>
+                                    <div className="text-6xl font-serif text-teal-300 mb-2">&ldquo;</div>
                                     <p className="text-sm leading-relaxed">
-                                        Climate change is a global crisis with far-reaching implications for public health, and Africa stands out as a region particularly vulnerable to the adverse effects of extreme weather events linked to climate variability. This heightened susceptibility is exacerbated by an already strained healthcare system and the absence of robust early warning systems, factors partly attributed to the region's fragile socio-economic conditions.
+                                        Climate change is a global crisis with far-reaching implications for public health, and Africa stands out as a region particularly vulnerable to the adverse effects of extreme weather events linked to climate variability. This heightened susceptibility is exacerbated by an already strained healthcare system and the absence of robust early warning systems, factors partly attributed to the region&rsquo;s fragile socio-economic conditions.
                                     </p>
                                 </div>
                             </div>

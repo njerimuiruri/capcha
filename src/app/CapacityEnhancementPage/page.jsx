@@ -164,12 +164,12 @@ const CapacityEnhancementPage = () => {
                                     Our Mission
                                 </Badge>
                                 <h2 className="text-4xl md:text-5xl font-bold text-[#021d49] mb-8 leading-tight">
-                                    Empowering Africa's Climate-Health Leaders
+                                    Empowering Africa&rsquo;s Climate-Health Leaders
                                 </h2>
 
                                 <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                                     <p>
-                                        Raising awareness about the health risks of climate change and engaging communities in adaptation and mitigation efforts are vital for Africa's resilience. CAPCHA supports educational campaigns and community-based initiatives while empowering local populations to take meaningful action.
+                                        Raising awareness about the health risks of climate change and engaging communities in adaptation and mitigation efforts are vital for Africa&rsquo;s resilience. CAPCHA supports educational campaigns and community-based initiatives while empowering local populations to take meaningful action.
                                     </p>
                                     <p>
                                         We advocate for the integration of health perspectives in climate change courses across university curricula, ensuring graduates have the capacity to tackle transdisciplinary research in climate and health.
@@ -196,7 +196,7 @@ const CapacityEnhancementPage = () => {
                                 <div className="bg-gradient-to-br from-[#021d49] to-[#0e8601] p-8 rounded-2xl text-white">
                                     <h4 className="text-xl font-bold mb-3">Our Impact</h4>
                                     <p className="text-blue-100 mb-4">
-                                        Through comprehensive capacity building programs, we're creating a new generation of climate-health experts equipped to address Africa's unique challenges.
+                                        Through comprehensive capacity building programs, we&rsquo;re creating a new generation of climate-health experts equipped to address Africa&rsquo;s unique challenges.
                                     </p>
                                     <div className="flex items-center text-sm text-blue-200">
                                         <Lightbulb className="w-4 h-4 mr-2" />

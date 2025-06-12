@@ -109,7 +109,7 @@ const ResearchPage = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
-        }, 5000);
+        }, [videos.length]);
 
         return () => clearInterval(interval);
     }, [videos.length]);
@@ -152,7 +152,7 @@ const ResearchPage = () => {
                                 Pioneering Climate-Health Research Across Africa
                             </h1>
                             <p className="text-xl mb-8 text-gray-200 leading-relaxed max-w-2xl drop-shadow-md">
-                                Advancing scientific understanding and building resilient health systems through innovative research, data sharing, and collaborative solutions for Africa's climate challenges.
+                                Advancing scientific understanding and building resilient health systems through innovative research, data sharing, and collaborative solutions for Africa&apos;s climate challenges.
                             </p>
                             <nav className="text-lg flex items-center">
                                 <span className="text-gray-300">Home</span>
@@ -185,7 +185,7 @@ const ResearchPage = () => {
                                     Why This Matters
                                 </Badge>
                                 <h2 className="text-4xl md:text-5xl font-bold text-[#021d49] mb-8 leading-tight">
-                                    Understanding Africa's Climate-Health Challenge
+                                    Understanding Africa&apos;s Climate-Health Challenge
                                 </h2>
 
                                 <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
@@ -217,7 +217,7 @@ const ResearchPage = () => {
                                 <div className="bg-gradient-to-br from-[#021d49] to-[#0e8601] p-8 rounded-2xl text-white">
                                     <h4 className="text-xl font-bold mb-3">Our Impact</h4>
                                     <p className="text-blue-100 mb-4">
-                                        Through collaborative research and data sharing, we're building the foundation for climate-resilient health systems across Africa.
+                                        Through collaborative research and data sharing, we&apos;re building the foundation for climate-resilient health systems across Africa.
                                     </p>
                                     <div className="flex items-center text-sm text-blue-200">
                                         <Users className="w-4 h-4 mr-2" />
