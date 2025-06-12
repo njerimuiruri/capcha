@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { Search, Calendar, MapPin, DollarSign, ChevronLeft, ChevronRight, Play, Users } from 'lucide-react';
+import { Search, Calendar, MapPin, DollarSign, ChevronLeft, ChevronRight, Play, Users, Download, Video } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { conferences, recentConferences, popularConferenceTags } from '@/data/conference';
 import Link from "next/link";
@@ -40,6 +40,13 @@ const ConferencePage = () => {
         router.push(`/ArinConferece/${conferenceId}`);
     };
 
+    const handleDownloadConceptNote = (conceptNoteUrl, title) => {
+        // In a real application, this would trigger the download
+        console.log(`Downloading concept note for: ${title}`);
+        // window.open(conceptNoteUrl, '_blank');
+        alert(`Concept note download started for: ${title}`);
+    };
+
     return (
         <>
             <Navbar />
@@ -54,7 +61,7 @@ const ConferencePage = () => {
                     }}
                 >
                     <div className="text-center text-white">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Conferences</h1>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">ARIN Conferences</h1>
                         <nav className="text-sm">
                             <span className="text-gray-300">Home</span>
                             <span className="mx-2 text-gray-400">/</span>
@@ -80,6 +87,24 @@ const ConferencePage = () => {
                                         All
                                     </button>
                                     <button
+                                        onClick={() => handleTagClick('climate')}
+                                        className={`px-4 py-2 rounded-full text-sm transition-colors ${selectedTag === 'climate'
+                                            ? 'bg-[#0e8601] text-white'
+                                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                                            }`}
+                                    >
+                                        Climate & Environment
+                                    </button>
+                                    <button
+                                        onClick={() => handleTagClick('research')}
+                                        className={`px-4 py-2 rounded-full text-sm transition-colors ${selectedTag === 'research'
+                                            ? 'bg-[#0e8601] text-white'
+                                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                                            }`}
+                                    >
+                                        Research
+                                    </button>
+                                    <button
                                         onClick={() => handleTagClick('business')}
                                         className={`px-4 py-2 rounded-full text-sm transition-colors ${selectedTag === 'business'
                                             ? 'bg-[#0e8601] text-white'
@@ -87,33 +112,6 @@ const ConferencePage = () => {
                                             }`}
                                     >
                                         Business
-                                    </button>
-                                    <button
-                                        onClick={() => handleTagClick('climate')}
-                                        className={`px-4 py-2 rounded-full text-sm transition-colors ${selectedTag === 'climate'
-                                            ? 'bg-[#0e8601] text-white'
-                                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                                            }`}
-                                    >
-                                        Climate
-                                    </button>
-                                    <button
-                                        onClick={() => handleTagClick('health')}
-                                        className={`px-4 py-2 rounded-full text-sm transition-colors ${selectedTag === 'health'
-                                            ? 'bg-[#0e8601] text-white'
-                                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                                            }`}
-                                    >
-                                        Health
-                                    </button>
-                                    <button
-                                        onClick={() => handleTagClick('technology')}
-                                        className={`px-4 py-2 rounded-full text-sm transition-colors ${selectedTag === 'technology'
-                                            ? 'bg-[#0e8601] text-white'
-                                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                                            }`}
-                                    >
-                                        Technology
                                     </button>
                                 </div>
                             </div>
@@ -130,19 +128,37 @@ const ConferencePage = () => {
                                     >
                                         {/* Video Thumbnail */}
                                         <div className="relative h-48 bg-gray-200">
-                                            <iframe
-                                                src={conference.videoUrl}
-                                                className="w-full h-full"
-                                                frameBorder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                            ></iframe>
+                                            {conference.eventStatus === 'completed' && conference.recordingsAvailable ? (
+                                                <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                                                    <div className="text-center text-white">
+                                                        <Video className="w-12 h-12 mx-auto mb-2" />
+                                                        <p className="text-sm font-medium">Recordings Available</p>
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <iframe
+                                                    src={conference.videoUrl}
+                                                    className="w-full h-full"
+                                                    frameBorder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen
+                                                ></iframe>
+                                            )}
                                             <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <Play className="w-12 h-12 text-white" />
                                             </div>
                                         </div>
 
                                         <div className="p-6">
+                                            {/* Event Status Badge */}
+                                            {conference.eventStatus === 'completed' && (
+                                                <div className="mb-3">
+                                                    <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                                                        Past Event
+                                                    </span>
+                                                </div>
+                                            )}
+
                                             {/* Organizer Info */}
                                             <div className="flex items-center mb-4">
                                                 <img
@@ -182,7 +198,9 @@ const ConferencePage = () => {
                                                 ? 'text-gray-200'
                                                 : 'text-gray-600'
                                                 }`}>
-                                                {conference.description}
+                                                {conference.description.length > 150
+                                                    ? `${conference.description.substring(0, 150)}...`
+                                                    : conference.description}
                                             </p>
 
                                             {/* Conference Details */}
@@ -211,31 +229,67 @@ const ConferencePage = () => {
                                                         {conference.location}
                                                     </span>
                                                 </div>
-                                                <div className="flex items-center">
-                                                    <DollarSign className={`w-4 h-4 mr-2 ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                        ? 'text-gray-200'
-                                                        : 'text-gray-500'
-                                                        }`} />
-                                                    <span className={`text-sm font-semibold ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                        ? 'text-gray-200'
-                                                        : 'text-[#0e8601]'
-                                                        }`}>
-                                                        {conference.price}
-                                                    </span>
-                                                </div>
+
                                             </div>
 
-                                            {/* Action Button */}
+                                            {conference.partners && (
+                                                <div className="mb-4">
+                                                    <p className={`text-xs mb-2 ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                        ? 'text-gray-300'
+                                                        : 'text-gray-500'
+                                                        }`}>
+                                                        Key Partners:
+                                                    </p>
+                                                    <div className="flex flex-wrap gap-1">
+                                                        {conference.partners.slice(0, 3).map((partner, idx) => (
+                                                            <span
+                                                                key={idx}
+                                                                className={`px-2 py-1 text-xs rounded ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                                    ? 'bg-white bg-opacity-20 text-white'
+                                                                    : 'bg-gray-100 text-gray-600'
+                                                                    }`}
+                                                            >
+                                                                {partner.length > 15 ? `${partner.substring(0, 15)}...` : partner}
+                                                            </span>
+                                                        ))}
+                                                        {conference.partners.length > 3 && (
+                                                            <span className={`px-2 py-1 text-xs rounded ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                                ? 'bg-white bg-opacity-20 text-white'
+                                                                : 'bg-gray-100 text-gray-600'
+                                                                }`}>
+                                                                +{conference.partners.length - 3} more
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {/* Action Buttons */}
                                             <div className="flex justify-between items-center">
-                                                <button
-                                                    onClick={() => handleViewDetails(conference.id)}
-                                                    className={`px-4 py-2 rounded text-sm font-medium transition-colors cursor-pointer ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                        ? 'bg-orange-500 text-white hover:bg-orange-600'
-                                                        : 'bg-[#0e8601] text-white hover:bg-teal-700'
-                                                        }`}
-                                                >
-                                                    View Details →
-                                                </button>
+                                                <div className="flex gap-2">
+                                                    <button
+                                                        onClick={() => handleViewDetails(conference.id)}
+                                                        className={`px-4 py-2 rounded text-sm font-medium transition-colors cursor-pointer ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                            ? 'bg-orange-500 text-white hover:bg-orange-600'
+                                                            : 'bg-[#0e8601] text-white hover:bg-teal-700'
+                                                            }`}
+                                                    >
+                                                        View Details →
+                                                    </button>
+
+                                                    {conference.conceptNoteUrl && (
+                                                        <button
+                                                            onClick={() => handleDownloadConceptNote(conference.conceptNoteUrl, conference.title)}
+                                                            className={`px-3 py-2 rounded text-sm font-medium transition-colors border ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                                ? 'border-white text-white hover:bg-white hover:text-[#0e8601]'
+                                                                : 'border-[#0e8601] text-[#0e8601] hover:bg-[#0e8601] hover:text-white'
+                                                                }`}
+                                                        >
+                                                            <Download className="w-4 h-4" />
+                                                        </button>
+                                                    )}
+                                                </div>
+
                                                 <div className="flex items-center text-sm text-gray-500">
                                                     <Users className="w-4 h-4 mr-1" />
                                                     <span>{conference.speakers.length} Speakers</span>
@@ -279,86 +333,73 @@ const ConferencePage = () => {
                             </div>
                         </div>
 
-                        {/* Sidebar */}
                         <div className="lg:w-1/3">
-                            {/* Search */}
                             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
                                 <h3 className="text-xl font-bold mb-4">Search</h3>
                                 <div className="relative">
+
                                     <input
                                         type="text"
                                         placeholder="Search conferences..."
                                         value={searchTerm}
                                         onChange={(e) => setSearchTerm(e.target.value)}
-                                        className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                                        className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0e8601] focus:border-transparent"
                                     />
-                                    <button className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-[#0e8601] text-white p-2 rounded-lg hover:bg-teal-700">
-                                        <Search className="w-4 h-4" />
-                                    </button>
+                                    <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                                 </div>
                             </div>
 
-                            {/* Recent Conferences */}
                             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-                                <h3 className="text-xl font-bold mb-4">Upcoming Conferences</h3>
-                                <div className="space-y-4">
-                                    {recentConferences.map((conference) => (
-                                        <div key={conference.id} className="flex items-start space-x-3 group cursor-pointer">
-                                            <img
-                                                src={conference.image}
-                                                alt={conference.title}
-                                                className="w-16 h-12 rounded object-cover flex-shrink-0"
-                                            />
-                                            <div className="flex-1">
-                                                <h4 className="text-sm font-medium text-gray-900 group-hover:text-[#0e8601] transition-colors line-clamp-2">
-                                                    {conference.title}
-                                                </h4>
-                                                <p className="text-xs text-gray-500 mt-1">{conference.date}</p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Call to Action */}
-                            <div
-                                className="bg-gray-900 text-white rounded-lg p-8 mb-8 relative overflow-hidden"
-                                style={{
-                                    backgroundImage: "url('/api/placeholder/400/300')",
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center'
-                                }}
-                            >
-                                <div className="absolute inset-0 bg-black opacity-60"></div>
-                                <div className="relative z-10 text-center">
-                                    <h3 className="text-2xl font-bold mb-4">Host Your Conference</h3>
-                                    <Link
-                                        href="/ContactPage"
-                                        className="bg-[#0e8601] text-white px-6 py-3 rounded-lg font-medium hover:bg-teal-700 transition-colors"
-                                    >
-                                        Contact Us
-                                    </Link>
-                                </div>
-                            </div>
-
-                            {/* Popular Tags */}
-                            <div className="bg-white rounded-lg shadow-md p-6">
                                 <h3 className="text-xl font-bold mb-4">Popular Tags</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {popularConferenceTags.map((tag, index) => (
-                                        <span
+                                        <button
                                             key={index}
-                                            className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-teal-100 hover:text-teal-700 cursor-pointer transition-colors"
+                                            onClick={() => handleTagClick(tag.toLowerCase())}
+                                            className="px-3 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-[#0e8601] hover:text-white transition-colors"
                                         >
                                             {tag}
-                                        </span>
+                                        </button>
                                     ))}
                                 </div>
+                            </div>
+
+                            <div className="bg-white rounded-lg shadow-md p-6">
+                                <h3 className="text-xl font-bold mb-4">Recent Conferences</h3>
+                                <div className="space-y-4">
+                                    {recentConferences.map((conf, index) => (
+                                        <Link
+                                            key={index}
+                                            href={`/ArinConferece/${conf.id}`}
+                                            className="block group"
+                                        >
+                                            <div className="flex items-center p-3 border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
+                                                <div className="w-12 h-12 bg-gradient-to-br from-[#0e8601] to-teal-700 rounded-lg flex items-center justify-center mr-4">
+                                                    <Calendar className="w-6 h-6 text-white" />
+                                                </div>
+                                                <div className="flex-1">
+                                                    <h4 className="font-semibold text-gray-900 group-hover:text-[#0e8601] transition-colors">
+                                                        {conf.title}
+                                                    </h4>
+                                                    <p className="text-sm text-gray-600">{conf.date}</p>
+                                                    <p className="text-sm font-semibold text-[#0e8601]">{conf.price}</p>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    ))}
+                                </div>
+                                <Link
+                                    href="/ConferencePage"
+                                    className="block text-center mt-4 text-[#0e8601] hover:text-teal-700 font-medium"
+                                >
+                                    View All →
+                                </Link>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <Footer />
         </>
     );

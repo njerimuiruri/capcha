@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { useParams } from 'next/navigation';
-import { Calendar, MapPin, DollarSign, Clock, Users, Mail, Phone, ChevronDown, ChevronUp, Share2, Bookmark } from 'lucide-react';
+import { Calendar, MapPin, DollarSign, Clock, Users, Mail, Phone, ChevronDown, ChevronUp, Share2, Bookmark, Download, FileText } from 'lucide-react';
 import { conferences } from '@/data/conference';
 import Link from "next/link";
 
@@ -38,9 +38,6 @@ const ConferenceDetail = () => {
         );
     }
 
-    const handleBookmark = () => {
-        setIsBookmarked(!isBookmarked);
-    };
 
     const handleShare = () => {
         if (navigator.share) {
@@ -55,16 +52,23 @@ const ConferenceDetail = () => {
         }
     };
 
+    const handleConceptNoteDownload = () => {
+        const link = document.createElement('a');
+        link.href = conference.conceptNoteUrl;
+        link.download = `${conference.title}-concept-note.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     return (
         <>
             <Navbar />
 
             <div className="min-h-screen bg-gray-50">
-                {/* Hero Section */}
                 <div className="relative mt-32 bg-gradient-to-r from-[#0e8601] to-teal-700 text-white">
                     <div className="container mx-auto px-4 py-16">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
-                            {/* Conference Info */}
                             <div>
                                 <div className="flex items-center mb-4">
                                     <img
@@ -103,28 +107,27 @@ const ConferenceDetail = () => {
                                             <p className="font-semibold">{conference.location}</p>
                                         </div>
                                     </div>
-                                    <div className="flex items-center">
+                                    {/* <div className="flex items-center">
                                         <DollarSign className="w-5 h-5 mr-3 text-gray-200" />
                                         <div>
                                             <p className="text-sm text-gray-200">Price</p>
                                             <p className="font-semibold text-2xl">{conference.price}</p>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
 
                                 <div className="flex flex-wrap gap-4">
-                                    <button className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+                                    {/* <button className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
                                         Register Now
-                                    </button>
+                                    </button> */}
                                     <button
-                                        onClick={handleBookmark}
-                                        className={`px-4 py-3 rounded-lg border-2 border-white transition-colors ${isBookmarked
-                                            ? 'bg-white text-[#0e8601]'
-                                            : 'text-white hover:bg-white hover:text-[#0e8601]'
-                                            }`}
+                                        onClick={handleConceptNoteDownload}
+                                        className="bg-white text-[#0e8601] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center"
                                     >
-                                        <Bookmark className="w-5 h-5" />
+                                        <Download className="w-5 h-5 mr-2" />
+                                        Download Concept Note
                                     </button>
+
                                     <button
                                         onClick={handleShare}
                                         className="px-4 py-3 rounded-lg border-2 border-white text-white hover:bg-white hover:text-[#0e8601] transition-colors"
@@ -152,7 +155,8 @@ const ConferenceDetail = () => {
                 <div className="bg-white shadow-sm sticky top-0 z-10">
                     <div className="container mx-auto px-4">
                         <div className="flex space-x-8 overflow-x-auto">
-                            {['overview', 'agenda', 'speakers', 'registration'].map((section) => (
+                            {/* Updated navigation - removed 'agenda' and 'speakers' for recent conferences */}
+                            {['overview', 'registration'].map((section) => (
                                 <button
                                     key={section}
                                     onClick={() => setActiveSection(section)}
@@ -164,6 +168,21 @@ const ConferenceDetail = () => {
                                     {section.charAt(0).toUpperCase() + section.slice(1)}
                                 </button>
                             ))}
+                            {/* Temporarily commented out until we have complete information */}
+                            {/* 
+                            {['agenda', 'speakers'].map((section) => (
+                                <button
+                                    key={section}
+                                    onClick={() => setActiveSection(section)}
+                                    className={`py-4 px-2 font-medium text-sm whitespace-nowrap border-b-2 transition-colors ${activeSection === section
+                                        ? 'border-[#0e8601] text-[#0e8601]'
+                                        : 'border-transparent text-gray-500 hover:text-gray-700'
+                                        }`}
+                                >
+                                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                                </button>
+                            ))}
+                            */}
                         </div>
                     </div>
                 </div>
@@ -207,6 +226,8 @@ const ConferenceDetail = () => {
                                 </div>
                             )}
 
+                            {/* COMMENTED OUT - Agenda section until we have complete information */}
+                            {/* 
                             {activeSection === 'agenda' && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
                                     <div className="flex justify-between items-center mb-6">
@@ -234,7 +255,10 @@ const ConferenceDetail = () => {
                                     </div>
                                 </div>
                             )}
+                            */}
 
+                            {/* COMMENTED OUT - Speakers section until we have complete information */}
+                            {/* 
                             {activeSection === 'speakers' && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
                                     <h2 className="text-3xl font-bold mb-6">Featured Speakers</h2>
@@ -255,6 +279,7 @@ const ConferenceDetail = () => {
                                     </div>
                                 </div>
                             )}
+                            */}
 
                             {activeSection === 'registration' && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
@@ -318,19 +343,16 @@ const ConferenceDetail = () => {
                                         </div>
                                     </div>
 
-                                    <div className="text-center">
+                                    {/* <div className="text-center">
                                         <button className="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-orange-600 transition-colors">
                                             Register Now
                                         </button>
-                                        <p className="text-gray-600 text-sm mt-2">Secure payment powered by Stripe</p>
-                                    </div>
+                                    </div> */}
                                 </div>
                             )}
                         </div>
 
-                        {/* Sidebar */}
                         <div className="space-y-6">
-                            {/* Quick Info Card */}
                             <div className="bg-white rounded-lg shadow-md p-6">
                                 <h3 className="text-xl font-bold mb-4">Quick Info</h3>
                                 <div className="space-y-4">
@@ -355,6 +377,8 @@ const ConferenceDetail = () => {
                                             <p className="font-semibold">{conference.location}</p>
                                         </div>
                                     </div>
+                                    {/* Temporarily commented out speakers count until we have complete information */}
+                                    {/* 
                                     <div className="flex items-center">
                                         <Users className="w-5 h-5 text-[#0e8601] mr-3" />
                                         <div>
@@ -362,6 +386,28 @@ const ConferenceDetail = () => {
                                             <p className="font-semibold">{conference.speakers.length} Featured</p>
                                         </div>
                                     </div>
+                                    */}
+                                </div>
+                            </div>
+
+                            {/* Concept Note Download Card */}
+                            <div className="bg-white rounded-lg shadow-md p-6">
+                                <h3 className="text-xl font-bold mb-4">Conference Documents</h3>
+                                <div className="space-y-3">
+                                    <div className="flex items-center p-3 border border-gray-200 rounded-lg">
+                                        <FileText className="w-8 h-8 text-[#0e8601] mr-3" />
+                                        <div className="flex-1">
+                                            <p className="font-semibold text-gray-900">Concept Note</p>
+                                            <p className="text-sm text-gray-600">PDF Document</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        onClick={handleConceptNoteDownload}
+                                        className="w-full flex items-center justify-center px-4 py-3 bg-[#0e8601] text-white rounded-lg hover:bg-teal-700 transition-colors"
+                                    >
+                                        <Download className="w-4 h-4 mr-2" />
+                                        Download Concept Note
+                                    </button>
                                 </div>
                             </div>
 
@@ -380,18 +426,22 @@ const ConferenceDetail = () => {
                                     </div>
                                 </div>
                                 <div className="space-y-3">
-                                    <button className="w-full flex items-center justify-center px-4 py-2 border border-[#0e8601] text-[#0e8601] rounded-lg hover:bg-[#0e8601] hover:text-white transition-colors">
-                                        <Mail className="w-4 h-4 mr-2" />
-                                        Send Email
-                                    </button>
-                                    <button className="w-full flex items-center justify-center px-4 py-2 border border-[#0e8601] text-[#0e8601] rounded-lg hover:bg-[#0e8601] hover:text-white transition-colors">
-                                        <Phone className="w-4 h-4 mr-2" />
-                                        Call Now
-                                    </button>
+                                    <a href="info@arin-africa.org" className="block">
+                                        <button className="w-full flex items-center justify-center px-4 py-2 border border-[#0e8601] text-[#0e8601] rounded-lg hover:bg-[#0e8601] hover:text-white transition-colors">
+                                            <Mail className="w-4 h-4 mr-2" />
+                                            Send Email
+                                        </button>
+                                    </a>
+
+                                    <a href="tel:+254746130873" className="block">
+                                        <button className="w-full flex items-center justify-center px-4 py-2 border border-[#0e8601] text-[#0e8601] rounded-lg hover:bg-[#0e8601] hover:text-white transition-colors">
+                                            <Phone className="w-4 h-4 mr-2" />
+                                            Call Now
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
 
-                            {/* Related Conferences */}
                             <div className="bg-white rounded-lg shadow-md p-6">
                                 <h3 className="text-xl font-bold mb-4">Related Conferences</h3>
                                 <div className="space-y-4">
@@ -401,7 +451,7 @@ const ConferenceDetail = () => {
                                         .map((relatedConf) => (
                                             <Link
                                                 key={relatedConf.id}
-                                                href={`/ConferencePage/${relatedConf.id}`}
+                                                href={`/ArinConferece/${relatedConf.id}`}
                                                 className="block group"
                                             >
                                                 <div className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
@@ -415,7 +465,7 @@ const ConferenceDetail = () => {
                                         ))}
                                 </div>
                                 <Link
-                                    href="/ConferencePage"
+                                    href="/ArinConferece"
                                     className="block text-center mt-4 text-[#0e8601] hover:text-teal-700 font-medium"
                                 >
                                     View All Conferences →

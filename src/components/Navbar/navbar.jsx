@@ -62,16 +62,27 @@ const Navbar = () => {
 
             <nav className="bg-white dark:bg-gray-900  shadow-lg border-b-2 border-[#0e8601]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-28">
-                        <div className="flex items-center">
-                            <Link href="/">
+                    <div className="flex justify-between items-center h-32">
+                        <div className="flex items-center space-x-4">
+                            <Link href="/" className="flex items-center space-x-4">
                                 <Image
                                     src="/img/capchalogo.jpeg"
-                                    alt="Company Logo"
-                                    width={60}
-                                    height={60}
-                                    className="h-15 w-15 cursor-pointer"
+                                    alt="CAPCHA Logo"
+                                    width={80}
+                                    height={80}
+                                    className="h-20 w-20 cursor-pointer object-contain"
                                 />
+                                <div className="flex flex-col">
+                                    <h1 className="text-2xl lg:text-3xl font-bold text-[#021d49] dark:text-white">
+                                        CAPCHA
+                                    </h1>
+                                    <p className="text-xs text-gray-600 dark:text-gray-300 hidden lg:block">
+                                        Consultative Platform On
+                                        <br />
+                                        Climate And Health in Africa
+
+                                    </p>
+                                </div>
                             </Link>
                         </div>
 
