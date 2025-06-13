@@ -1,19 +1,18 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata = {
-  title: "CAPTCHA",
-  icons: {
-    icon: "/img/capchalogo.jpeg",
+  title: {
+    default: "ARIN Climate Research",
+    template: "%s | ARIN Climate Research",
   },
+  description:
+    "Environmental Sustainability Blog showcasing data-driven insights on climate change",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body>{children}</body>
     </html>
   );
 }
