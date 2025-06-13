@@ -2,53 +2,23 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Moon } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { blogPosts } from '@/data/blogs';
+
 const BlogSection = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const router = useRouter();
 
-    const articles = [
-        {
-            id: 1,
-            image: "/img/twohandsplant.jpg",
-            author: "Admin",
-            title: "Technical Report: Building Effective Communities of Practice...",
-            date: "August 28 2024"
-        },
-        {
-            id: 2,
-            image: "/img/twohandsplant.jpg",
-            author: "Admin",
-            title: "Policy Brief: Opportunities for Enhancing Transdisciplinary Research ...",
-            date: "August 28 2024"
-        },
-        {
-            id: 3,
-            image: "/img/twohandsplant.jpg",
-            author: "Michel Hudson",
-            title: "Increasing Risk Of Storms, Droughts and Floods",
-            date: "August 28 2024"
-        },
-        {
-            id: 4,
-            image: "/img/twohandsplant.jpg",
-            author: "Ann Irungu, Emily Bolo, Florence Onyango",
-            title: "Climate Change and Health: Bridging the Attribution ...",
-            date: "August 26, 2024"
-        },
-        {
-            id: 5,
-            image: "/img/twohandsplant.jpg",
-            author: "John Smith",
-            title: "Renewable Energy Solutions for Tomorrow",
-            date: "Mar 8, 2024"
-        },
-        {
-            id: 6,
-            image: "/img/twohandsplant.jpg",
-            author: "Emily Davis",
-            title: "Protecting Forests for Future Generations",
-            date: "Mar 5, 2024"
-        }
-    ];
+    const articles = blogPosts.slice(0, 3).map(post => ({
+        id: post.id,
+        image: post.featuredImage,
+        author: post.author,
+        title: post.title,
+        date: post.date,
+        readTime: post.readTime,
+        category: post.category,
+        excerpt: post.excerpt
+    }));
 
     const articlesPerSlide = 3;
     const totalSlides = Math.ceil(articles.length / articlesPerSlide);
@@ -65,19 +35,22 @@ const BlogSection = () => {
         setCurrentSlide(slideIndex);
     };
 
-    const getCurrentArticles = () => {
-        const startIndex = currentSlide * articlesPerSlide;
-        return articles.slice(startIndex, startIndex + articlesPerSlide);
+    const handleReadMore = (blogId) => {
+        router.push(`/BlogsPage/${blogId}`);
+    };
+
+    const handleTitleClick = (blogId) => {
+        router.push(`/BlogsPage/${blogId}`);
     };
 
     return (
-        <div className="bg-gray-50  dark:bg-gray-900 py-16 px-4 relative">
+        <div className="bg-gray-50 dark:bg-gray-900 py-16 px-4 relative">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-12">
                     <div className="flex items-center justify-center mb-4">
                         <span className="text-[#0e8601] text-sm font-medium">Our Latest News</span>
                     </div>
-                    <h2 className="text-4xl font-bold text-gray-900 mb-8">
+                    <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">
                         Our Latest News & Articles
                     </h2>
 
@@ -89,19 +62,23 @@ const BlogSection = () => {
                 </div>
 
                 <div className="relative">
-                    <button
-                        onClick={prevSlide}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                    >
-                        <ChevronLeft size={24} className="text-gray-600" />
-                    </button>
+                    {articles.length > articlesPerSlide && (
+                        <>
+                            <button
+                                onClick={prevSlide}
+                                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                            >
+                                <ChevronLeft size={24} className="text-gray-600" />
+                            </button>
 
-                    <button
-                        onClick={nextSlide}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                    >
-                        <ChevronRight size={24} className="text-gray-600" />
-                    </button>
+                            <button
+                                onClick={nextSlide}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                            >
+                                <ChevronRight size={24} className="text-gray-600" />
+                            </button>
+                        </>
+                    )}
 
                     <div className="overflow-hidden mx-16">
                         <div
@@ -114,7 +91,7 @@ const BlogSection = () => {
                                         {articles
                                             .slice(slideIndex * articlesPerSlide, (slideIndex + 1) * articlesPerSlide)
                                             .map((article) => (
-                                                <div key={article.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                                                <div key={article.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                                                     <div className="relative h-48 overflow-hidden">
                                                         <Image
                                                             src={article.image}
@@ -122,24 +99,40 @@ const BlogSection = () => {
                                                             fill
                                                             className="object-cover hover:scale-105 transition-transform duration-300"
                                                         />
+                                                        {article.category && (
+                                                            <div className="absolute top-4 left-4">
+                                                                <span className="bg-[#0e8601] text-white px-3 py-1 rounded-full text-xs font-medium capitalize">
+                                                                    {article.category}
+                                                                </span>
+                                                            </div>
+                                                        )}
                                                     </div>
 
                                                     <div className="p-6">
                                                         <div className="flex items-center mb-4">
-                                                            {/* <img
-                                                                src={article.authorImage}
-                                                                alt={article.author}
-                                                                className="w-10 h-10 rounded-full mr-3 border-2 border-gray-100"
-                                                            /> */}
                                                             <div>
-                                                                <p className="text-sm text-gray-500">Posted By</p>
-                                                                <p className="text-sm font-medium text-gray-900">{article.author}</p>
+                                                                <p className="text-sm text-gray-500 dark:text-gray-400">Posted By</p>
+                                                                <p className="text-sm font-medium text-gray-900 dark:text-white">{article.author}</p>
                                                             </div>
+                                                            {article.readTime && (
+                                                                <div className="ml-auto">
+                                                                    <span className="text-xs text-gray-500 dark:text-gray-400">{article.readTime}</span>
+                                                                </div>
+                                                            )}
                                                         </div>
 
-                                                        <h3 className="text-xl font-bold text-gray-900 mb-4 leading-tight hover:text-[#0e8601] transition-colors cursor-pointer">
+                                                        <h3
+                                                            className="text-xl font-bold text-gray-900 dark:text-white mb-4 leading-tight hover:text-[#0e8601] transition-colors cursor-pointer line-clamp-2"
+                                                            onClick={() => handleTitleClick(article.id)}
+                                                        >
                                                             {article.title}
                                                         </h3>
+
+                                                        {article.excerpt && (
+                                                            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
+                                                                {article.excerpt}
+                                                            </p>
+                                                        )}
 
                                                         <div className="mb-4">
                                                             <span className="text-sm text-[#0e8601] flex items-center">
@@ -151,7 +144,10 @@ const BlogSection = () => {
                                                         </div>
 
                                                         <div className="mt-4">
-                                                            <button className="w-full py-3 px-4 rounded-md text-sm font-medium transition-all duration-300 bg-[#0e8601] text-white hover:bg-[#0e8601] hover:shadow-md transform hover:-translate-y-0.5">
+                                                            <button
+                                                                onClick={() => handleReadMore(article.id)}
+                                                                className="w-full py-3 px-4 rounded-md text-sm font-medium transition-all duration-300 bg-[#0e8601] text-white hover:bg-[#0c7501] hover:shadow-md transform hover:-translate-y-0.5"
+                                                            >
                                                                 Read More →
                                                             </button>
                                                         </div>
@@ -165,18 +161,20 @@ const BlogSection = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-center mt-8 space-x-3">
-                    {Array.from({ length: totalSlides }).map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => goToSlide(index)}
-                            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
-                                ? 'bg-[#0e8601] scale-125'
-                                : 'bg-gray-300 hover:bg-gray-400'
-                                }`}
-                        />
-                    ))}
-                </div>
+                {totalSlides > 1 && (
+                    <div className="flex justify-center mt-8 space-x-3">
+                        {Array.from({ length: totalSlides }).map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => goToSlide(index)}
+                                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                                    ? 'bg-[#0e8601] scale-125'
+                                    : 'bg-gray-300 hover:bg-gray-400'
+                                    }`}
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );

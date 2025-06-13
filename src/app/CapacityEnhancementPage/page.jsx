@@ -22,11 +22,10 @@ import {
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
 
-// Move videos array outside component to avoid useEffect dependency issues
 const videos = [
+    '/videos/healthvideo.mp4',
     '/videos/climate industry.mp4',
     '/videos/windmill.mp4',
-    '/videos/healthvideo.mp4'
 ];
 
 const CapacityEnhancementPage = () => {

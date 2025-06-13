@@ -9,6 +9,7 @@ import BlogSection from "./BlogSection/page";
 import Footer from "@/components/Footer/footer";
 import { ModeToggle } from "@/components/mode-toggle";
 import PartnerSection from "./PartnerSection/page";
+import GallerySection from "./GallerySection/page";
 
 export const metadata = {
   title: "ARIN Climate Research | Environmental Sustainability Blog",
@@ -41,6 +42,7 @@ export default function Home() {
           <TeamsPage />
           <PartnerSection />
           <BlogSection />
+          <GallerySection />
         </main>
         <Footer />
       </div>

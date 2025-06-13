@@ -27,9 +27,11 @@ const PolicyAdvocacyPage = () => {
     const [currentVideo, setCurrentVideo] = useState(0);
 
     const videos = [
-        '/videos/climate industry.mp4',
         '/videos/windmill.mp4',
-        '/videos/healthvideo.mp4'
+
+        '/videos/healthvideo.mp4',
+        '/videos/climate industry.mp4',
+
     ];
 
     useEffect(() => {

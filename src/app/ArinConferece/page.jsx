@@ -41,9 +41,7 @@ const ConferencePage = () => {
     };
 
     const handleDownloadConceptNote = (conceptNoteUrl, title) => {
-        // In a real application, this would trigger the download
         console.log(`Downloading concept note for: ${title}`);
-        // window.open(conceptNoteUrl, '_blank');
         alert(`Concept note download started for: ${title}`);
     };
 
@@ -55,7 +53,7 @@ const ConferencePage = () => {
                 <div
                     className="relative mt-32 h-[350px] bg-gray-800 flex items-center justify-center pt-32"
                     style={{
-                        backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/conference-hero.jpg')`,
+                        backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/healthstethoscope.jpg')`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                     }}
@@ -72,9 +70,7 @@ const ConferencePage = () => {
 
                 <div className="container mx-auto px-4 py-12">
                     <div className="flex flex-col lg:flex-row gap-8">
-                        {/* Main Content */}
                         <div className="lg:w-2/3">
-                            {/* Filter Tags */}
                             <div className="mb-8">
                                 <div className="flex flex-wrap gap-2">
                                     <button
@@ -116,7 +112,6 @@ const ConferencePage = () => {
                                 </div>
                             </div>
 
-                            {/* Conference Cards */}
                             <div className="grid md:grid-cols-2 gap-8 mb-12">
                                 {currentConferences.map((conference, index) => (
                                     <div
@@ -126,7 +121,6 @@ const ConferencePage = () => {
                                             : 'bg-white rounded-lg overflow-hidden shadow-md hover:bg-gray-50'
                                             }`}
                                     >
-                                        {/* Video Thumbnail */}
                                         <div className="relative h-48 bg-gray-200">
                                             {conference.eventStatus === 'completed' && conference.recordingsAvailable ? (
                                                 <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
@@ -150,7 +144,6 @@ const ConferencePage = () => {
                                         </div>
 
                                         <div className="p-6">
-                                            {/* Event Status Badge */}
                                             {conference.eventStatus === 'completed' && (
                                                 <div className="mb-3">
                                                     <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
@@ -159,7 +152,6 @@ const ConferencePage = () => {
                                                 </div>
                                             )}
 
-                                            {/* Organizer Info */}
                                             <div className="flex items-center mb-4">
                                                 <Image
                                                     src={conference.organizerImage}

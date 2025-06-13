@@ -159,6 +159,110 @@ export const conferences = [
     eventStatus: "completed",
     recordingsAvailable: true,
   },
+  {
+    id: 3,
+    title:
+      "Consultative Platform on Climate and Health in Africa (CAPCHA) Launch",
+    description:
+      "Join us as we embark on a mission to nurture transdisciplinary science-policy engagements towards advocating for resilient and low-carbon health systems. This launch event introduces the Consultative Platform on Climate and Health in Africa (CAPCHA) and its strategic objectives.",
+    videoUrl: "https://youtu.be/u_GfF41bEdg?si=o20BYjKiLjY5GtN4",
+    date: "August 28, 2024",
+    time: "2:00 - 4:00 PM EAT",
+    location: "Live Webinar",
+    category: "climate",
+    organizer: "Africa Research Impact and Network (ARIN)",
+    organizerImage: "/img/Arin.png",
+    callForSideEvent:
+      "Participate in our interactive Q&A session with leading climate and health experts from across Africa.",
+    callForAbstract:
+      "This was a launch event introducing CAPCHA. Recordings and materials are available for viewing.",
+    featured: false,
+    tags: [
+      "climate",
+      "health",
+      "policy",
+      "transdisciplinary",
+      "science-policy",
+      "platform-launch",
+      "Africa",
+    ],
+    conceptNoteUrl: null,
+    agenda: [
+      { time: "2:00 PM", activity: "Welcome & Opening Remarks" },
+      {
+        time: "2:15 PM",
+        activity: "Keynote: Introduction to CAPCHA Platform",
+      },
+      {
+        time: "2:45 PM",
+        activity: "Panel Discussion: Climate-Health Nexus in Africa",
+      },
+      {
+        time: "3:15 PM",
+        activity: "Q&A Session with Speakers",
+      },
+      {
+        time: "3:45 PM",
+        activity: "Platform Demonstration & Next Steps",
+      },
+      { time: "4:00 PM", activity: "Closing Remarks" },
+    ],
+    speakers: [
+      {
+        name: "Dr. Joanes Atela",
+        title: "Executive Director, Africa Research Impact and Network (ARIN)",
+        image: "/img/dr-joanes-atela.jpg",
+        role: "keynote",
+      },
+      {
+        name: "Dr. James Colborn",
+        title:
+          "Senior Malaria Advisor, Clinton Health Access Initiative (CHAI)",
+        image: "/img/dr-james-colborn.jpg",
+        role: "keynote",
+      },
+      {
+        name: "Dr. Vijendra Ingole",
+        title:
+          "Principal Data Scientist (Climate and Health), Health and International Development - Office for National Statistics, UK",
+        image: "/img/dr-vijendra-ingole.jpg",
+        role: "speaker",
+      },
+      {
+        name: "Ms. Karen Bett",
+        title:
+          "Senior Policy Manager, Data Equity and Inclusion - Global Partnership for Sustainable Development Data, Expert Panel Member - Mo Ibrahim Foundation",
+        image: "/img/ms-karen-bett.jpg",
+        role: "speaker",
+      },
+      {
+        name: "Dr. Calae Dianne Philippe",
+        title:
+          "Senior Physician - Ministry of Health and Wellness, The Bahamas, EarthMedic/EarthNurse",
+        image: "/img/dr-calae-philippe.jpg",
+        role: "speaker",
+      },
+      {
+        name: "Ms. Gladys Ngeno",
+        title:
+          "Climate and Health Consultant - Ministry of Public Health, Welfare and Sports, Netherlands",
+        image: "/img/ms-gladys-ngeno.jpg",
+        role: "speaker",
+      },
+    ],
+    partners: [
+      "Africa Research Impact and Network (ARIN)",
+      "Clinton Health Access Initiative (CHAI)",
+      "Office for National Statistics, UK",
+      "Global Partnership for Sustainable Development Data",
+      "Mo Ibrahim Foundation",
+      "Ministry of Health and Wellness, The Bahamas",
+      "Ministry of Public Health, Welfare and Sports, Netherlands",
+    ],
+    eventStatus: "completed",
+    recordingsAvailable: true,
+    registrationUrl: "https://arin-africa.org/capcha-launch-registration",
+  },
 ];
 
 export const recentConferences = [
@@ -176,9 +280,9 @@ export const recentConferences = [
   },
   {
     id: 3,
-    title: "Global Business Forum 2025",
-    date: "November 20, 2025",
-    image: "/img/conference1.jpg",
+    title: "CAPCHA Platform Launch",
+    date: "August 28, 2024",
+    image: "/img/capcha-launch.jpg",
   },
 ];
 
@@ -195,4 +299,6 @@ export const popularConferenceTags = [
   "Technology",
   "Innovation",
   "Leadership",
+  "Science-Policy",
+  "Platform-Launch",
 ];
