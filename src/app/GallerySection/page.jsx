@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const GallerySection = () => {
@@ -163,11 +164,14 @@ const GallerySection = () => {
                             className="group relative overflow-hidden rounded-2xl bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-gray-200 dark:border-white/20 hover:border-[#0e8601]/50 dark:hover:border-green-400/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#0e8601]/20 dark:hover:shadow-green-500/20 cursor-pointer"
                             onClick={() => openModal(image, index)}
                         >
-                            <div className="aspect-square overflow-hidden">
-                                <img
+                            <div className="aspect-square overflow-hidden relative">
+                                <Image
                                     src={image.src}
                                     alt={image.alt}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                    priority={index < 3} // Prioritize first 3 images for faster loading
                                 />
                             </div>
 
@@ -280,11 +284,16 @@ const GallerySection = () => {
                             </button>
 
                             <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-white/90 to-gray-100/90 dark:from-[#021d49]/20 dark:to-[#0e8601]/20 backdrop-blur-sm border border-gray-300 dark:border-white/30 p-2">
-                                <img
-                                    src={selectedImage.src}
-                                    alt={selectedImage.alt}
-                                    className="w-full h-auto max-h-[80vh] object-contain rounded-xl"
-                                />
+                                <div className="relative w-full" style={{ height: '80vh' }}>
+                                    <Image
+                                        src={selectedImage.src}
+                                        alt={selectedImage.alt}
+                                        fill
+                                        sizes="100vw"
+                                        className="object-contain rounded-xl"
+                                        priority
+                                    />
+                                </div>
 
                                 <div className="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-black/50 backdrop-blur-sm rounded-xl p-4 border border-gray-300 dark:border-white/20">
                                     <h3 className="text-gray-800 dark:text-white font-semibold text-xl mb-1">{selectedImage.title}</h3>

@@ -2,18 +2,19 @@
 import React, { useEffect, useState } from 'react';
 import { Leaf, Heart, Globe, Shield } from 'lucide-react';
 
+// Move constants outside component to prevent recreation on each render
+const ICONS = [Leaf, Heart, Globe, Shield];
+const ICON_COLORS = ['text-emerald-500', 'text-red-500', 'text-blue-500', 'text-teal-500'];
+
 const PageLoader = ({ isLoading = true, theme = 'light' }) => {
     const [currentIcon, setCurrentIcon] = useState(0);
     const [dots, setDots] = useState('');
-
-    const icons = [Leaf, Heart, Globe, Shield];
-    const iconColors = ['text-emerald-500', 'text-red-500', 'text-blue-500', 'text-teal-500'];
 
     useEffect(() => {
         if (!isLoading) return;
 
         const iconInterval = setInterval(() => {
-            setCurrentIcon((prev) => (prev + 1) % icons.length);
+            setCurrentIcon((prev) => (prev + 1) % ICONS.length);
         }, 800);
 
         const dotInterval = setInterval(() => {
@@ -24,12 +25,12 @@ const PageLoader = ({ isLoading = true, theme = 'light' }) => {
             clearInterval(iconInterval);
             clearInterval(dotInterval);
         };
-    }, [isLoading]);
+    }, [isLoading]); // Now only depends on isLoading
 
     if (!isLoading) return null;
 
-    const CurrentIcon = icons[currentIcon];
-    const currentColor = iconColors[currentIcon];
+    const CurrentIcon = ICONS[currentIcon];
+    const currentColor = ICON_COLORS[currentIcon];
 
     return (
         <div
@@ -85,7 +86,7 @@ const PageLoader = ({ isLoading = true, theme = 'light' }) => {
                     {[Leaf, Heart, Globe, Shield].map((Icon, i) => (
                         <div key={i} className="flex flex-col items-center space-y-1">
                             <div className={`w-8 h-8 ${['bg-emerald-100', 'bg-red-100', 'bg-blue-100', 'bg-teal-100'][i]} dark:${['bg-emerald-900/30', 'bg-red-900/30', 'bg-blue-900/30', 'bg-teal-900/30'][i]} rounded-full flex items-center justify-center`}>
-                                <Icon className={`h-4 w-4 ${iconColors[i]} dark:${iconColors[i].replace('text-', 'text-')}`} />
+                                <Icon className={`h-4 w-4 ${ICON_COLORS[i]} dark:${ICON_COLORS[i].replace('text-', 'text-')}`} />
                             </div>
                             <span className="text-xs text-gray-500 dark:text-gray-400">
                                 {['Climate', 'Health', 'Global', 'Action'][i]}

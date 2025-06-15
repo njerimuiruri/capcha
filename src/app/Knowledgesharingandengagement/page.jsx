@@ -165,7 +165,7 @@ const Knowledgesharingandengagement = () => {
                                         Climate change and health challenges require collaborative solutions that span multiple disciplines and sectors. Our knowledge sharing and engagement initiatives create meaningful connections between experts across fields.
                                     </p>
                                     <p>
-                                        Through structured dialogues, conferences, and online facilitations, we foster the transdisciplinary collaboration needed to address Africa's most pressing climate-health challenges.
+                                        Through structured dialogues, conferences, and online facilitations, we foster the transdisciplinary collaboration needed to address Africa&apos;s most pressing climate-health challenges.
                                     </p>
                                 </div>
                             </div>
