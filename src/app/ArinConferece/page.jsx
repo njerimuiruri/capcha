@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Calendar, MapPin, DollarSign, ChevronLeft, ChevronRight, Play, Users, Download, Video } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { conferences, recentConferences, popularConferenceTags } from '@/data/conference';
@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from 'next/image';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
+import PageLoader from '@/app/PageLoader';
 
 const ConferencePage = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -44,9 +45,19 @@ const ConferencePage = () => {
         console.log(`Downloading concept note for: ${title}`);
         alert(`Concept note download started for: ${title}`);
     };
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => setIsLoading(false), 4000);
+        return () => clearTimeout(timeout);
+    }, []);
+
+    const [scrollY, setScrollY] = useState(0);
 
     return (
         <>
+            <PageLoader isLoading={isLoading} theme="light" />
+
             <Navbar />
 
             <div className="min-h-screen bg-gray-50">

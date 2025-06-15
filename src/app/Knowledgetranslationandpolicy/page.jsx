@@ -3,26 +3,22 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
-    Heart,
-    Droplets,
-    Bug,
-    Wind,
-    Sun,
-    Shield,
-    Baby,
-    Brain,
-    Scale,
-    Leaf,
+    FileText,
     Globe,
-    Users,
+    DollarSign,
+    Link,
+    Target,
+    Lightbulb,
     ArrowRight,
-    CheckCircle
+    CheckCircle,
+    BookOpen,
+    TrendingUp,
+    Award
 } from 'lucide-react';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
-import PageLoader from '@/app/PageLoader';
 
-const ResearchPage = () => {
+const Knowledgetranslationandpolicy = () => {
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -30,88 +26,54 @@ const ResearchPage = () => {
         {
             id: 1,
             src: "/videos/climate industry.mp4",
-            alt: "Climate research video"
+            alt: "Policy implementation video"
         },
         {
             id: 2,
             src: "/videos/dna.mp4",
-            alt: "Health systems video"
+            alt: "Research translation video"
         },
         {
             id: 3,
             src: "/videos/windmill.mp4",
-            alt: "Data analysis video"
+            alt: "Evidence synthesis video"
         }
     ];
+
     useEffect(() => {
         const timeout = setTimeout(() => setIsLoading(false), 4000);
         return () => clearTimeout(timeout);
     }, []);
 
-    const [scrollY, setScrollY] = useState(0);
-
-    const focusAreas = [
+    const implementationApproaches = [
         {
-            icon: <Leaf className="w-8 h-8" />,
-            title: "Food Security and Nutrition",
-            description: "Addressing climate impacts on agricultural systems and nutritional outcomes across African communities.",
-            color: "from-green-500 to-emerald-600"
+            icon: <FileText className="w-8 h-8" />,
+            title: "Evidence Synthesis and State of Evidence Reports",
+            description: "Evidence synthesis from discussions on status, gaps and opportunities in Transdisciplinary Research on Climate and Health leading to the publishing of state of evidence reports",
+            color: "from-blue-500 to-cyan-600",
+            features: ["Status assessment", "Gap identification", "Opportunity mapping", "Evidence compilation"]
         },
         {
-            icon: <Droplets className="w-8 h-8" />,
-            title: "Water, Sanitation, and Hygiene (WASH)",
-            description: "Improving access to clean water and sanitation infrastructure resilient to climate variability.",
-            color: "from-blue-500 to-cyan-600"
+            icon: <Globe className="w-8 h-8" />,
+            title: "Africa Position Outlooks and Position Papers",
+            description: "Outlooks that can inform Africa Position on Transdisciplinary research and interventions on climate and health leading to the publishing of position papers",
+            color: "from-green-500 to-emerald-600",
+            features: ["Continental perspective", "Research priorities", "Intervention strategies", "Policy recommendations"]
         },
         {
-            icon: <Bug className="w-8 h-8" />,
-            title: "Vector-borne & Communicable Diseases",
-            description: "Monitoring and controlling disease vectors affected by changing climate patterns and extreme weather events.",
-            color: "from-red-500 to-pink-600"
-        },
-        {
-            icon: <Wind className="w-8 h-8" />,
-            title: "Air Quality",
-            description: "Assessing air pollution impacts and developing strategies for cleaner air in urban and rural settings.",
-            color: "from-gray-500 to-slate-600"
-        },
-        {
-            icon: <Sun className="w-8 h-8" />,
-            title: "Urban Heat & Occupational Health",
-            description: "Protecting workers and communities from rising temperatures and heat-related health risks.",
-            color: "from-orange-500 to-red-600"
-        },
-        {
-            icon: <Shield className="w-8 h-8" />,
-            title: "Disaster Preparedness & Response",
-            description: "Building resilient health systems capable of responding to climate-related emergencies and disasters.",
-            color: "from-purple-500 to-violet-600"
-        },
-        {
-            icon: <Baby className="w-8 h-8" />,
-            title: "SRMNCAH",
-            description: "Safeguarding Sexual, Reproductive, Maternal, Newborn, Child and Adolescent health in changing climates.",
-            color: "from-pink-500 to-rose-600"
-        },
-        {
-            icon: <Brain className="w-8 h-8" />,
-            title: "Mental Health",
-            description: "Understanding and addressing the psychological impacts of climate change on African populations.",
-            color: "from-indigo-500 to-blue-600"
-        },
-        {
-            icon: <Scale className="w-8 h-8" />,
-            title: "Ethical Frameworks",
-            description: "Developing ethical guidelines for climate and health research that respects community values and rights.",
-            color: "from-teal-500 to-green-600"
+            icon: <DollarSign className="w-8 h-8" />,
+            title: "Mini-grants for Transdisciplinary Research",
+            description: "Facilitation of Mini-grants to transdisciplinary climate and health research in africa",
+            color: "from-purple-500 to-violet-600",
+            features: ["Research funding", "Capacity building", "Innovation support", "Cross-sector projects"]
         }
     ];
 
-    const keyFacts = [
-        "Africa experiences the most severe climate-related health impacts globally",
-        "Climate change increases water-borne and vector-borne diseases",
-        "Many African health systems need strengthened climate resilience",
-        "Better data sharing enables more effective interventions"
+    const keyBenefits = [
+        "Bridge gap between research and application",
+        "Enable evidence-based decision-making",
+        "Protect and improve public health",
+        "Inform health policies and practices"
     ];
 
     useEffect(() => {
@@ -124,8 +86,6 @@ const ResearchPage = () => {
 
     return (
         <>
-            <PageLoader isLoading={isLoading} theme="light" />
-
             <Navbar />
             <div className="min-h-screen bg-white">
                 <section className="relative mt-32 h-[600px] flex items-center overflow-hidden">
@@ -155,18 +115,18 @@ const ResearchPage = () => {
                     <div className="relative z-10 text-left text-white px-8 max-w-7xl mx-auto w-full">
                         <div className="max-w-3xl">
                             <Badge className="mb-6 bg-[#0e8601]/20 text-white border-[#0e8601] text-sm px-4 py-2">
-                                Climate & Health Research Hub
+                                Knowledge Translation & Policy
                             </Badge>
                             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight drop-shadow-lg">
-                                Pioneering Climate-Health Research Across Africa
+                                Bridging Science and Policy
                             </h1>
                             <p className="text-xl mb-8 text-gray-200 leading-relaxed max-w-2xl drop-shadow-md">
-                                Advancing scientific understanding and building resilient health systems through innovative research, data sharing, and collaborative solutions for Africa&apos;s climate challenges.
+                                To bridge the gap between scientific research and practical application, providing a dynamic and responsive interface between science and policy for evidence-based decision-making.
                             </p>
                             <nav className="text-lg flex items-center">
                                 <span className="text-gray-300">Home</span>
                                 <ArrowRight className="mx-2 w-4 h-4 text-gray-400" />
-                                <span className="text-[#0e8601] font-semibold">Research and Innovation</span>
+                                <span className="text-[#0e8601] font-semibold">Knowledge Translation and Policy</span>
                             </nav>
                         </div>
                     </div>
@@ -186,23 +146,24 @@ const ResearchPage = () => {
                     </div>
                 </section>
 
+                {/* Introduction Section */}
                 <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
                     <div className="max-w-7xl mx-auto">
                         <div className="grid lg:grid-cols-2 gap-16 items-center">
                             <div>
                                 <Badge className="mb-6 bg-[#0e8601]/10 text-[#0e8601] hover:bg-[#0e8601]/20 text-sm px-4 py-2">
-                                    Why This Matters
+                                    Our Mission
                                 </Badge>
                                 <h2 className="text-4xl md:text-5xl font-bold text-[#021d49] mb-8 leading-tight">
-                                    Understanding Africa&apos;s Climate-Health Challenge
+                                    From Research to Action
                                 </h2>
 
                                 <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                                     <p>
-                                        Africa faces unprecedented climate challenges that directly impact millions of lives. From extreme weather events to shifting disease patterns, our continent needs comprehensive research to build effective solutions.
+                                        Knowledge translation and policy: to bridge the gap between scientific research and practical application, the platform provides a dynamic and responsive interface between science and policy, ensuring that the latest research informs practical actions and strategies.
                                     </p>
                                     <p>
-                                        CAPCHA centralizes research efforts across Africa, creating a unified platform where data becomes actionable intelligence for healthier, more resilient communities.
+                                        This process is crucial for enabling evidence-based decision-making that can protect and improve public health in the context of climate change by ensuring that research findings are effectively communicated and utilized to inform health policies, practices, and interventions.
                                     </p>
                                 </div>
                             </div>
@@ -210,27 +171,27 @@ const ResearchPage = () => {
                             <div className="space-y-6">
                                 <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
                                     <h3 className="text-2xl font-bold text-[#021d49] mb-6 flex items-center gap-3">
-                                        <Globe className="w-8 h-8 text-[#0e8601]" />
-                                        Key Facts
+                                        <Target className="w-8 h-8 text-[#0e8601]" />
+                                        Key Benefits
                                     </h3>
                                     <div className="space-y-4">
-                                        {keyFacts.map((fact, index) => (
+                                        {keyBenefits.map((benefit, index) => (
                                             <div key={index} className="flex items-start gap-3">
                                                 <CheckCircle className="w-6 h-6 text-[#0e8601] mt-0.5 flex-shrink-0" />
-                                                <p className="text-gray-700 leading-relaxed">{fact}</p>
+                                                <p className="text-gray-700 leading-relaxed">{benefit}</p>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
 
                                 <div className="bg-gradient-to-br from-[#021d49] to-[#0e8601] p-8 rounded-2xl text-white">
-                                    <h4 className="text-xl font-bold mb-3">Our Impact</h4>
+                                    <h4 className="text-xl font-bold mb-3">Policy Impact</h4>
                                     <p className="text-blue-100 mb-4">
-                                        Through collaborative research and data sharing, we&apos;re building the foundation for climate-resilient health systems across Africa.
+                                        Transforming research findings into actionable policies that protect and improve public health across Africa's changing climate landscape.
                                     </p>
                                     <div className="flex items-center text-sm text-blue-200">
-                                        <Users className="w-4 h-4 mr-2" />
-                                        Join our growing network of researchers
+                                        <Link className="w-4 h-4 mr-2" />
+                                        Connecting science with implementation
                                     </div>
                                 </div>
                             </div>
@@ -238,47 +199,72 @@ const ResearchPage = () => {
                     </div>
                 </section>
 
+                {/* Implementation Approaches Section */}
                 <section className="py-20 px-4 bg-white">
                     <div className="max-w-7xl mx-auto">
                         <div className="text-center mb-16">
                             <Badge className="mb-4 bg-[#0e8601]/10 text-[#0e8601] hover:bg-[#0e8601]/20">
-                                Research Focus
+                                Implementation Strategy
                             </Badge>
                             <h2 className="text-4xl md:text-5xl font-bold text-[#021d49] mb-6">
-                                Our Focus Areas
+                                How We Bridge the Gap
                             </h2>
                             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                                Comprehensive research across critical domains affecting climate and health outcomes in Africa
+                                This will be done through three key approaches that ensure research findings inform policy and practice
                             </p>
                         </div>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {focusAreas.map((area, index) => (
+                        <div className="space-y-12">
+                            {implementationApproaches.map((approach, index) => (
                                 <Card key={index} className="group hover:shadow-xl transition-all duration-500 border-0 bg-white hover:bg-gray-50 overflow-hidden">
-                                    <CardHeader className="pb-4">
-                                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${area.color} flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                                            {area.icon}
+                                    <div className="grid lg:grid-cols-3 gap-8 p-8">
+                                        <div className="lg:col-span-2">
+                                            <CardHeader className="p-0 pb-6">
+                                                <div className="flex items-center gap-4 mb-4">
+                                                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${approach.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300`}>
+                                                        {approach.icon}
+                                                    </div>
+                                                    <div>
+                                                        <Badge className="mb-2 bg-[#0e8601]/10 text-[#0e8601] text-xs">
+                                                            Approach {String.fromCharCode(65 + index)}
+                                                        </Badge>
+                                                        <CardTitle className="text-2xl text-[#021d49] group-hover:text-[#0e8601] transition-colors">
+                                                            {approach.title}
+                                                        </CardTitle>
+                                                    </div>
+                                                </div>
+                                            </CardHeader>
+                                            <CardContent className="p-0">
+                                                <CardDescription className="text-gray-600 leading-relaxed text-base mb-6">
+                                                    {approach.description}
+                                                </CardDescription>
+                                            </CardContent>
                                         </div>
-                                        <CardTitle className="text-xl text-[#021d49] group-hover:text-[#0e8601] transition-colors">
-                                            {area.title}
-                                        </CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <CardDescription className="text-gray-600 leading-relaxed">
-                                            {area.description}
-                                        </CardDescription>
-                                    </CardContent>
 
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${area.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                                        <div className="bg-gray-50 rounded-xl p-6">
+                                            <h4 className="font-semibold text-[#021d49] mb-4 flex items-center gap-2">
+                                                <BookOpen className="w-4 h-4" />
+                                                Key Components
+                                            </h4>
+                                            <div className="space-y-3">
+                                                {approach.features.map((feature, featureIndex) => (
+                                                    <div key={featureIndex} className="flex items-start gap-2">
+                                                        <CheckCircle className="w-4 h-4 text-[#0e8601] mt-0.5 flex-shrink-0" />
+                                                        <span className="text-sm text-gray-600">{feature}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className={`absolute inset-0 bg-gradient-to-br ${approach.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
                                 </Card>
                             ))}
                         </div>
                     </div>
                 </section>
-            </div>
-            <Footer />
 
-            <style jsx>{`
+                <style jsx>{`
                 @keyframes fillIndicator {
                     from {
                         transform: scaleX(0);
@@ -290,8 +276,12 @@ const ResearchPage = () => {
                     }
                 }
             `}</style>
+            </div>
+
+            <Footer />
         </>
+
     );
 };
 
-export default ResearchPage;
+export default Knowledgetranslationandpolicy;

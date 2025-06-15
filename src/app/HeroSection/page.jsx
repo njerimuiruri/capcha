@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 const HeroSection = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
-
     const slides = [
         {
             id: 1,
@@ -33,14 +32,17 @@ const HeroSection = () => {
         {
             icon: <Users className="w-8 h-8" />,
             title: "Research and Innovation",
+            href: "/Research"
         },
         {
             icon: <Heart className="w-8 h-8" />,
-            title: " Policy and Advocacy",
+            title: "Policy and Advocacy",
+            href: "/PolicyAdvocacyPage"
         },
         {
             icon: <Heart className="w-8 h-8" />,
             title: "Capacity Building",
+            href: "/CapacityEnhancementPage"
         }
     ];
 
@@ -48,7 +50,6 @@ const HeroSection = () => {
         const interval = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % slides.length);
         }, 5000);
-
         return () => clearInterval(interval);
     }, [slides.length]);
 
@@ -100,11 +101,9 @@ const HeroSection = () => {
                                         Climate And Health in Africa
                                     </span>
                                 </h1>
-
                                 <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 max-w-2xl animate-fade-in-up animation-delay-300 hover:text-gray-100 transition-colors duration-300 cursor-default drop-shadow-md">
                                     Building a transdisciplinary community of practice towards enhanced decision support environment on Climate and Health (C & H) research and policy in Africa
                                 </p>
-
                                 <Link
                                     href="/ContactPage"
                                     className="bg-[#ff9500] hover:bg-[#e6850e] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-600 hover:shadow-[#ff9500]/25"
@@ -121,7 +120,6 @@ const HeroSection = () => {
                             >
                                 <ChevronLeft className="w-5 h-5 text-white" />
                             </button>
-
                             <button
                                 onClick={nextSlide}
                                 className="w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:scale-110"
@@ -158,6 +156,15 @@ const HeroSection = () => {
                 <div className="container mx-auto px-6">
                     <div className="flex justify-center">
                         <div className="relative bg-gradient-to-r from-gray-900/95 to-gray-800/95 backdrop-blur-lg border border-white/10 rounded-3xl overflow-hidden shadow-2xl max-w-6xl w-full animate-slide-up">
+                            {/* CAPCHA Activities Title */}
+                            <div className="text-center pt-8 pb-4">
+                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                                    <span className="text-transparent bg-gradient-to-r from-[#55bdd0] to-[#0e8601] bg-clip-text">
+                                        CAPCHA Activities
+                                    </span>
+                                </h2>
+                                <div className="w-24 h-1 bg-gradient-to-r from-[#55bdd0] to-[#0e8601] mx-auto rounded-full"></div>
+                            </div>
 
                             <div className="absolute bottom-0 left-0 w-48 h-48 opacity-25 pointer-events-none overflow-hidden">
                                 <svg viewBox="0 0 200 200" className="w-full h-full text-green-500/40">
@@ -177,7 +184,6 @@ const HeroSection = () => {
                                     <div className="absolute top-0 right-0 w-16 h-16 bg-green-400/30 rounded-full blur-xl"></div>
                                     <div className="absolute top-4 right-4 w-12 h-12 bg-blue-400/40 rounded-full blur-lg"></div>
                                     <div className="absolute top-8 right-8 w-8 h-8 bg-yellow-400/25 rounded-full blur-md"></div>
-
                                     <svg viewBox="0 0 100 100" className="absolute top-2 right-2 w-20 h-20 text-green-400/20">
                                         <path d="M20 50 Q30 30, 50 40 Q70 30, 80 50 Q70 70, 50 60 Q30 70, 20 50" fill="currentColor" />
                                         <path d="M10 30 Q20 10, 40 20 Q60 10, 70 30 Q60 50, 40 40 Q20 50, 10 30" fill="currentColor" opacity="0.6" />
@@ -191,24 +197,24 @@ const HeroSection = () => {
                                         {index < actionCards.length - 1 && (
                                             <div className="hidden md:block absolute right-0 top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
                                         )}
-
-                                        <div className="p-12 hover:bg-white/5 transition-all duration-300 cursor-pointer">
-                                            <div className="flex flex-col items-center text-center space-y-6">
-                                                <div className="w-20 h-20 bg-gradient-to-br from-[#ff9500] to-[#ff9500]/80 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl">
-                                                    <div className="transform group-hover:scale-110 transition-transform duration-300">
-                                                        {React.cloneElement(card.icon, { className: "w-10 h-10" })}
+                                        <Link href={card.href} className="block">
+                                            <div className="p-12 hover:bg-white/5 transition-all duration-300 cursor-pointer">
+                                                <div className="flex flex-col items-center text-center space-y-6">
+                                                    <div className="w-20 h-20 bg-gradient-to-br from-[#ff9500] to-[#ff9500]/80 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl">
+                                                        <div className="transform group-hover:scale-110 transition-transform duration-300">
+                                                            {React.cloneElement(card.icon, { className: "w-10 h-10" })}
+                                                        </div>
                                                     </div>
-                                                </div>
-
-                                                <div>
-                                                    <h3 className="text-white font-bold text-2xl mb-3 hover:text-[#ff9500] transition-colors duration-300 cursor-default">{card.title}</h3>
-                                                    <div className="flex items-center justify-center space-x-2 text-[#ff9500] font-semibold text-lg hover:text-[#ffb366] transition-colors duration-300 cursor-pointer">
-                                                        <span>{card.subtitle}</span>
-                                                        <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                                                    <div>
+                                                        <h3 className="text-white font-bold text-2xl mb-3 group-hover:text-[#ff9500] transition-colors duration-300">{card.title}</h3>
+                                                        <div className="flex items-center justify-center space-x-2 text-[#ff9500] font-semibold text-lg group-hover:text-[#ffb366] transition-colors duration-300">
+                                                            <span>Learn More</span>
+                                                            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </Link>
                                     </div>
                                 ))}
                             </div>
@@ -228,7 +234,6 @@ const HeroSection = () => {
                         transform: translateY(0);
                     }
                 }
-
                 @keyframes slide-up {
                     from {
                         opacity: 0;
@@ -239,22 +244,21 @@ const HeroSection = () => {
                         transform: translateY(0);
                     }
                 }
-                
+               
                 .animate-fade-in-up {
                     animation: fade-in-up 0.8s ease-out forwards;
                 }
-
                 .animate-slide-up {
                     animation: slide-up 1s ease-out forwards;
                     animation-delay: 1s;
                     opacity: 0;
                 }
-                
+               
                 .animation-delay-300 {
                     animation-delay: 0.3s;
                     opacity: 0;
                 }
-                
+               
                 .animation-delay-600 {
                     animation-delay: 0.6s;
                     opacity: 0;

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Calendar, User, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { blogPosts, recentPosts, popularTags } from '@/data/blogs';
@@ -8,6 +8,8 @@ import Image from 'next/image';
 
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
+import PageLoader from '@/app/PageLoader';
+
 
 const BlogPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -40,9 +42,18 @@ const BlogPage = () => {
     const handleReadMore = (postId) => {
         router.push(`/BlogsPage/${postId}`);
     };
+    const [isLoading, setIsLoading] = useState(true);
 
+    useEffect(() => {
+        const timeout = setTimeout(() => setIsLoading(false), 4000);
+        return () => clearTimeout(timeout);
+    }, []);
+
+    const [scrollY, setScrollY] = useState(0);
     return (
         <>
+            <PageLoader isLoading={isLoading} theme="light" />
+
             <Navbar />
 
             <div className="min-h-screen bg-gray-50">

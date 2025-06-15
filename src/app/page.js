@@ -10,11 +10,12 @@ import Footer from "@/components/Footer/footer";
 import { ModeToggle } from "@/components/mode-toggle";
 import PartnerSection from "./PartnerSection/page";
 import GallerySection from "./GallerySection/page";
+import MissionVisionSection from "./MissionVisionSection/page";
 
 export const metadata = {
-  title: "ARIN Climate Research | Environmental Sustainability Blog",
+  title: "Consultative Platform On Climate and Health",
   description:
-    "Showcasing data-driven insights on climate change and sustainability",
+    "Building a trasdisciplinary community of practice towards enhanced decisio support environment on C & H research and policy in Africa",
   icons: {
     icon: "/favicon.ico",
   },
@@ -37,6 +38,7 @@ export default function Home() {
         <main>
           <HeroSection />
           <AboutSection />
+          <MissionVisionSection />
           <CallToAction />
           <Dashboard />
           <TeamsPage />

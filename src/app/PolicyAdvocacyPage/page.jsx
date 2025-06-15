@@ -22,9 +22,12 @@ import {
 import Link from 'next/link';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
+import PageLoader from '@/app/PageLoader';
+
 
 const PolicyAdvocacyPage = () => {
     const [currentVideo, setCurrentVideo] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
 
     const videos = [
         '/videos/windmill.mp4',
@@ -33,6 +36,12 @@ const PolicyAdvocacyPage = () => {
         '/videos/climate industry.mp4',
 
     ];
+    useEffect(() => {
+        const timeout = setTimeout(() => setIsLoading(false), 4000);
+        return () => clearTimeout(timeout);
+    }, []);
+
+    const [scrollY, setScrollY] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -72,6 +81,8 @@ const PolicyAdvocacyPage = () => {
 
     return (
         <>
+            <PageLoader isLoading={isLoading} theme="light" />
+
             <Navbar />
             <div className="min-h-screen bg-white">
                 <section className="relative mt-32 h-[600px] flex items-center overflow-hidden">

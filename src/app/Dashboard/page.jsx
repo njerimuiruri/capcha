@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { BarChart3, Users, Brain, Share2 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 const Dashboard = () => {
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-8 transition-colors duration-300">
@@ -16,44 +17,58 @@ const Dashboard = () => {
                                     <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mb-4">
                                         <BarChart3 className="w-6 h-6 text-red-600 dark:text-red-400" />
                                     </div>
-                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+
+                                    <Link
+                                        href="/DatabaseDashboard"
+                                        className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+
                                         Database Dashboard
-                                    </h3>
+                                    </Link>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                         provides users with access to a centralized collection of data and analytics.
                                     </p>
-                                    <button className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
+
+                                    <Link
+                                        href="/DatabaseDashboard"
+                                        className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
+
                                         Read More
-                                        <span className="text-xs">»</span>
-                                    </button>
+                                    </Link>
                                 </CardContent>
                             </Card>
 
-                            {/* Stakeholder Database - Bottom Left */}
                             <Card className="bg-white dark:bg-gray-800 shadow-sm hover:shadow-md dark:hover:shadow-lg transition-shadow duration-200 flex-1 border border-gray-200 dark:border-gray-700">
                                 <CardHeader className="pb-4">
                                     <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mb-4">
                                         <Users className="w-6 h-6 text-red-600 dark:text-red-400" />
                                     </div>
-                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+
+                                    <Link
+                                        href="/StakeholderDatabase"
+                                        className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+
                                         Stakeholder Database
-                                    </h3>
+                                    </Link>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                         Climate and Health Stakeholder Database
                                     </p>
-                                    <button className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
+
+                                    <Link
+                                        href="/StakeholderDatabase"
+                                        className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
+
                                         Read More
                                         <span className="text-xs">»</span>
-                                    </button>
+
+                                    </Link>
                                 </CardContent>
                             </Card>
                         </div>
 
-                        {/* Center Column - Globe Image */}
                         <div className="flex items-center justify-center">
                             <div className="w-full h-80 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/30 rounded-lg flex items-center justify-center shadow-sm dark:shadow-lg overflow-hidden relative border border-gray-200 dark:border-gray-700">
                                 <Image
@@ -72,47 +87,65 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        {/* Right Column */}
                         <div className="flex flex-col gap-6">
-                            {/* Knowledge Translation - Top Right */}
                             <Card className="bg-white dark:bg-gray-800 shadow-sm hover:shadow-md dark:hover:shadow-lg transition-shadow duration-200 flex-1 border border-gray-200 dark:border-gray-700">
                                 <CardHeader className="pb-4">
                                     <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mb-4">
                                         <Brain className="w-6 h-6 text-red-600 dark:text-red-400" />
                                     </div>
-                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+
+                                    <Link
+                                        href="/Knowledgetranslationandpolicy
+"
+                                        className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+
                                         Knowledge translation and policy
-                                    </h3>
+                                    </Link>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                         To bridge the gap between scientific research and practical application
                                     </p>
-                                    <button className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
+
+                                    <Link
+                                        href="/Knowledgetranslationandpolicy
+"
+                                        className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
+
                                         Read More
                                         <span className="text-xs">»</span>
-                                    </button>
+
+                                    </Link>
                                 </CardContent>
                             </Card>
 
-                            {/* Knowledge Sharing - Bottom Right */}
                             <Card className="bg-white dark:bg-gray-800 shadow-sm hover:shadow-md dark:hover:shadow-lg transition-shadow duration-200 flex-1 border border-gray-200 dark:border-gray-700">
                                 <CardHeader className="pb-4">
                                     <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mb-4">
                                         <Share2 className="w-6 h-6 text-red-600 dark:text-red-400" />
                                     </div>
-                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+
+                                    <Link
+                                        href="/Knowledgesharingandengagement
+"
+                                        className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+
                                         Knowledge sharing and engagement
-                                    </h3>
+                                    </Link>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                         Shares knowledge, best practices, and research findings related to the impacts of climate change on health
                                     </p>
-                                    <button className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
+
+                                    <Link
+                                        href="/Knowledgesharingandengagement
+"
+                                        className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
+
                                         Read More
                                         <span className="text-xs">»</span>
-                                    </button>
+                                    </Link>
                                 </CardContent>
                             </Card>
                         </div>

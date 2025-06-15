@@ -21,6 +21,8 @@ import {
 } from 'lucide-react';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
+import PageLoader from '@/app/PageLoader';
+
 
 const videos = [
     '/videos/healthvideo.mp4',
@@ -30,6 +32,7 @@ const videos = [
 
 const CapacityEnhancementPage = () => {
     const [currentVideo, setCurrentVideo] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -37,8 +40,14 @@ const CapacityEnhancementPage = () => {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, []); // Empty dependency array is now correct since videos is outside component
+    }, []);
 
+    useEffect(() => {
+        const timeout = setTimeout(() => setIsLoading(false), 4000);
+        return () => clearTimeout(timeout);
+    }, []);
+
+    const [scrollY, setScrollY] = useState(0);
     const capacityPrograms = [
         {
             icon: <GraduationCap className="w-8 h-8" />,
@@ -101,6 +110,8 @@ const CapacityEnhancementPage = () => {
 
     return (
         <>
+            <PageLoader isLoading={isLoading} theme="light" />
+
             <Navbar />
             <div className="min-h-screen bg-white">
                 <section className="relative mt-32 h-[600px] flex items-center overflow-hidden">
