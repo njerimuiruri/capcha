@@ -187,7 +187,7 @@ const Knowledgetranslationandpolicy = () => {
                                 <div className="bg-gradient-to-br from-[#021d49] to-[#0e8601] p-8 rounded-2xl text-white">
                                     <h4 className="text-xl font-bold mb-3">Policy Impact</h4>
                                     <p className="text-blue-100 mb-4">
-                                        Transforming research findings into actionable policies that protect and improve public health across Africa's changing climate landscape.
+                                        Transforming research findings into actionable policies that protect and improve public health across Africa&apos;s changing climate landscape.
                                     </p>
                                     <div className="flex items-center text-sm text-blue-200">
                                         <Link className="w-4 h-4 mr-2" />

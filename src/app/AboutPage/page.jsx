@@ -130,7 +130,7 @@ const AboutPage = () => {
                             </h2>
 
                             <p className="text-gray-600 leading-relaxed text-lg">
-                                This heightened susceptibility is exacerbated by an already strained healthcare system and the absence of robust early warning systems, factors partly attributed to the region's fragile socio-economic conditions. Besides, many African countries have failed to effectively adapt to climate change impacts due to lack of context-specific data to inform action.
+                                This heightened susceptibility is exacerbated by an already strained healthcare system and the absence of robust early warning systems, factors partly attributed to the region&apos;s fragile socio-economic conditions. Besides, many African countries have failed to effectively adapt to climate change impacts due to lack of context-specific data to inform action.
                             </p>
 
                             <Card className="p-6 bg-gradient-to-br from-teal-50 via-emerald-50 to-green-50 border-none shadow-xl hover:shadow-2xl transition-all duration-500 group">

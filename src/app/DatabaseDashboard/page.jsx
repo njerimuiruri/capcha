@@ -181,7 +181,7 @@ const DatabaseDashboard = () => {
                                 Database Dashboard
                             </Badge>
                             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight drop-shadow-lg">
-                                Climate & Health Data Analytics
+                                Climate &amp; Health Data Analytics
                             </h1>
                             <p className="text-xl mb-8 text-gray-200 leading-relaxed max-w-2xl drop-shadow-md">
                                 Provides users with access to a centralized collection of data and analytics. The dashboards serve as a valuable tool for researchers, policymakers, health officials and other stakeholders, offering a comprehensive view of data, trends, and insights to inform decision-making and strategy development.
@@ -233,7 +233,7 @@ const DatabaseDashboard = () => {
                                 <CardHeader>
                                     <CardTitle className="text-blue-800 flex items-center">
                                         <Search className="w-5 h-5 mr-2" />
-                                        Navigate & Explore
+                                        Navigate &amp; Explore
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent>
@@ -248,7 +248,7 @@ const DatabaseDashboard = () => {
                                 <CardHeader>
                                     <CardTitle className="text-green-800 flex items-center">
                                         <Filter className="w-5 h-5 mr-2" />
-                                        Filter & Analyze
+                                        Filter &amp; Analyze
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent>
@@ -283,7 +283,7 @@ const DatabaseDashboard = () => {
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <h3 className="text-2xl font-bold text-white mb-2">
-                                            Climate & Health Database Analytics
+                                            Climate &amp; Health Database Analytics
                                         </h3>
                                         <p className="text-blue-100">
                                             Comprehensive data visualization and insights platform
@@ -402,7 +402,7 @@ const DatabaseDashboard = () => {
                                 <div className="bg-gradient-to-br from-[#021d49] to-[#0e8601] p-8 rounded-2xl text-white">
                                     <h4 className="text-xl font-bold mb-3">Data-Driven Impact</h4>
                                     <p className="text-blue-100 mb-4">
-                                        Transform raw data into actionable insights that drive policy decisions and improve health outcomes across Africa's changing climate landscape.
+                                        Transform raw data into actionable insights that drive policy decisions and improve health outcomes across Africa&apos;s changing climate landscape.
                                     </p>
                                     <div className="flex items-center text-sm text-blue-200">
                                         <Database className="w-4 h-4 mr-2" />
@@ -421,7 +421,7 @@ const DatabaseDashboard = () => {
                                 Dashboard Components
                             </Badge>
                             <h2 className="text-4xl md:text-5xl font-bold text-[#021d49] mb-6">
-                                What's Inside the Dashboard
+                                What&apos;s Inside the Dashboard
                             </h2>
                             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                                 The dashboards include comprehensive data collections and analytics tools designed for climate and health research
