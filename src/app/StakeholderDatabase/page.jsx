@@ -183,92 +183,6 @@ const StakeholderDatabase = () => {
                                 Navigate between tabs, filter data, and discover insights that matter.
                             </p>
                         </div>
-
-                        {/* Dashboard Container */}
-                        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-                            {/* Dashboard Header */}
-                            <div className="bg-gradient-to-r from-[#021d49] to-[#0e8601] p-8">
-                                <div className="flex items-center justify-between">
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-white mb-2">
-                                            Climate & Health Stakeholder Analysis
-                                        </h3>
-                                        <p className="text-blue-100">
-                                            Real-time data visualization and analytics platform
-                                        </p>
-                                    </div>
-                                    <div className="flex items-center space-x-4 text-white">
-                                        <div className="flex items-center space-x-2">
-                                            <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                                            <span className="text-sm">Live Data</span>
-                                        </div>
-                                        <Shield className="w-6 h-6" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Dashboard Content */}
-                            <div className="relative" style={{ height: '900px' }}>
-                                {loading && (
-                                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 z-10">
-                                        <div className="text-center">
-                                            <div className="relative mb-8">
-                                                <div className="w-16 h-16 border-4 border-blue-200 rounded-full animate-spin border-t-[#0e8601] mx-auto"></div>
-                                                <div className="absolute inset-0 w-16 h-16 border-4 border-transparent rounded-full animate-pulse border-t-blue-400 mx-auto"></div>
-                                            </div>
-                                            <h4 className="text-xl font-semibold text-[#021d49] mb-2">Loading Dashboard</h4>
-                                            <p className="text-gray-600">Preparing your interactive analytics experience...</p>
-                                            <div className="mt-4 flex justify-center space-x-2">
-                                                <div className="w-2 h-2 bg-[#0e8601] rounded-full animate-bounce"></div>
-                                                <div className="w-2 h-2 bg-[#0e8601] rounded-full animate-bounce delay-100"></div>
-                                                <div className="w-2 h-2 bg-[#0e8601] rounded-full animate-bounce delay-200"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-
-                                <iframe
-                                    src={embedUrl}
-                                    width="100%"
-                                    height="100%"
-                                    style={{
-                                        border: 'none',
-                                        pointerEvents: 'auto'
-                                    }}
-                                    onLoad={handleLoad}
-                                    title="Climate and Health Stakeholder Database Analysis"
-                                    allowFullScreen={false}
-                                    onContextMenu={handleContextMenu}
-                                    sandbox="allow-scripts allow-same-origin allow-popups"
-                                />
-                            </div>
-
-                            {/* Dashboard Footer */}
-                            <div className="bg-gray-50 p-6 border-t">
-                                <div className="flex flex-col md:flex-row items-center justify-between">
-                                    <div className="flex items-center space-x-6 mb-4 md:mb-0">
-                                        <div className="flex items-center text-sm text-gray-600">
-                                            <Eye className="w-4 h-4 mr-2 text-[#0e8601]" />
-                                            <span>Fully Interactive Dashboard</span>
-                                        </div>
-                                        <div className="flex items-center text-sm text-gray-600">
-                                            <PieChart className="w-4 h-4 mr-2 text-blue-500" />
-                                            <span>Real-time Analytics</span>
-                                        </div>
-                                        <div className="flex items-center text-sm text-gray-600">
-                                            <LineChart className="w-4 h-4 mr-2 text-purple-500" />
-                                            <span>Multi-dimensional Data</span>
-                                        </div>
-                                    </div>
-                                    <div className="text-sm text-red-600 font-medium flex items-center">
-                                        <Shield className="w-4 h-4 mr-2" />
-                                        Protected Content - Unauthorized copying prohibited
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Usage Instructions */}
                         <div className="mt-12 grid md:grid-cols-3 gap-8">
                             <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
                                 <CardHeader>
@@ -312,6 +226,89 @@ const StakeholderDatabase = () => {
                                 </CardContent>
                             </Card>
                         </div>
+                        <br />
+
+                        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+                            <div className="bg-gradient-to-r from-[#021d49] to-[#0e8601] p-8">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-white mb-2">
+                                            Climate & Health Stakeholder Analysis
+                                        </h3>
+                                        <p className="text-blue-100">
+                                            Real-time data visualization and analytics platform
+                                        </p>
+                                    </div>
+                                    <div className="flex items-center space-x-4 text-white">
+                                        <div className="flex items-center space-x-2">
+                                            <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                                            <span className="text-sm">Live Data</span>
+                                        </div>
+                                        <Shield className="w-6 h-6" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="relative" style={{ height: '900px' }}>
+                                {loading && (
+                                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 z-10">
+                                        <div className="text-center">
+                                            <div className="relative mb-8">
+                                                <div className="w-16 h-16 border-4 border-blue-200 rounded-full animate-spin border-t-[#0e8601] mx-auto"></div>
+                                                <div className="absolute inset-0 w-16 h-16 border-4 border-transparent rounded-full animate-pulse border-t-blue-400 mx-auto"></div>
+                                            </div>
+                                            <h4 className="text-xl font-semibold text-[#021d49] mb-2">Loading Dashboard</h4>
+                                            <p className="text-gray-600">Preparing your interactive analytics experience...</p>
+                                            <div className="mt-4 flex justify-center space-x-2">
+                                                <div className="w-2 h-2 bg-[#0e8601] rounded-full animate-bounce"></div>
+                                                <div className="w-2 h-2 bg-[#0e8601] rounded-full animate-bounce delay-100"></div>
+                                                <div className="w-2 h-2 bg-[#0e8601] rounded-full animate-bounce delay-200"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                <iframe
+                                    src={embedUrl}
+                                    width="100%"
+                                    height="100%"
+                                    style={{
+                                        border: 'none',
+                                        pointerEvents: 'auto'
+                                    }}
+                                    onLoad={handleLoad}
+                                    title="Climate and Health Stakeholder Database Analysis"
+                                    allowFullScreen={false}
+                                    onContextMenu={handleContextMenu}
+                                    sandbox="allow-scripts allow-same-origin allow-popups"
+                                />
+                            </div>
+
+                            <div className="bg-gray-50 p-6 border-t">
+                                <div className="flex flex-col md:flex-row items-center justify-between">
+                                    <div className="flex items-center space-x-6 mb-4 md:mb-0">
+                                        <div className="flex items-center text-sm text-gray-600">
+                                            <Eye className="w-4 h-4 mr-2 text-[#0e8601]" />
+                                            <span>Fully Interactive Dashboard</span>
+                                        </div>
+                                        <div className="flex items-center text-sm text-gray-600">
+                                            <PieChart className="w-4 h-4 mr-2 text-blue-500" />
+                                            <span>Real-time Analytics</span>
+                                        </div>
+                                        <div className="flex items-center text-sm text-gray-600">
+                                            <LineChart className="w-4 h-4 mr-2 text-purple-500" />
+                                            <span>Multi-dimensional Data</span>
+                                        </div>
+                                    </div>
+                                    <div className="text-sm text-red-600 font-medium flex items-center">
+                                        <Shield className="w-4 h-4 mr-2" />
+                                        Protected Content - Unauthorized copying prohibited
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </section>
 
