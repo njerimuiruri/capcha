@@ -25,7 +25,7 @@ const PageLoader = ({ isLoading = true, theme = 'light' }) => {
             clearInterval(iconInterval);
             clearInterval(dotInterval);
         };
-    }, [isLoading]); // Now only depends on isLoading
+    }, [isLoading]);
 
     if (!isLoading) return null;
 
@@ -89,14 +89,13 @@ const PageLoader = ({ isLoading = true, theme = 'light' }) => {
                                 <Icon className={`h-4 w-4 ${ICON_COLORS[i]} dark:${ICON_COLORS[i].replace('text-', 'text-')}`} />
                             </div>
                             <span className="text-xs text-gray-500 dark:text-gray-400">
-                                {['Climate', 'Health', 'Global', 'Action'][i]}
+                                {['Climate', 'Health'][i]}
                             </span>
                         </div>
                     ))}
                 </div>
             </div>
 
-            {/* Helix Style Lines */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <div className="w-96 h-96 opacity-5">

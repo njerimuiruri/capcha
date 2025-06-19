@@ -25,7 +25,7 @@ export const conferences = [
       "sustainability",
       "Africa",
     ],
-    conceptNoteUrl: "/documet/ARIN-International-Conference-Concept-Note-1.pdf",
+    conceptNoteUrl: "/documet/PAN-AFRICANSCIENCEPOLICY.pdf",
     agenda: [
       { time: "Day 1 - 09:00 AM", activity: "Registration & Opening Ceremony" },
       {
