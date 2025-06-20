@@ -811,7 +811,7 @@ const ConferenceDetail = () => {
                                         className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
                                     >
                                         <div className="relative h-48">
-                                            <Image
+                                            {/* <Image
                                                 src={
                                                     relatedConf.heroImage ||
                                                     "/img/default-conference-hero.jpg"
@@ -819,7 +819,7 @@ const ConferenceDetail = () => {
                                                 alt={relatedConf.title}
                                                 fill
                                                 className="object-cover"
-                                            />
+                                            /> */}
                                             <div className="absolute inset-0 bg-black/40"></div>
                                             <div className="absolute bottom-4 left-4 right-4 text-white">
                                                 <h3 className="font-semibold text-lg mb-1">

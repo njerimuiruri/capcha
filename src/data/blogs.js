@@ -87,7 +87,7 @@ export const blogPosts = [
       "Climate Adaptation",
       "Governance",
     ],
-    featuredImage: "/img/twohandsplant.jpg",
+    featuredImage: "/img/policy.jpg",
     views: 1834,
     likes: 67,
   },
@@ -131,7 +131,7 @@ export const blogPosts = [
       "Data Integration",
       "Early Warning Systems",
     ],
-    featuredImage: "/img/twohandsplant.jpg",
+    featuredImage: "/img/climatechange.jpg",
     views: 1567,
     likes: 45,
   },
@@ -152,7 +152,7 @@ export const recentPosts = [
       "Climate Change and Health: Bridging the Attribution Gap through Climate Epidemiology",
 
     date: " August 26, 2024",
-    image: "/img/twohandsplant.jpg",
+    image: "/img/policy.jpg",
     category: "climate",
   },
   {
@@ -160,7 +160,8 @@ export const recentPosts = [
     title:
       "Technical Report: Building Effective Communities of Practice for Transdisciplinary Research and Action in Climate Change and Health in Africa",
     date: "August 28th 2024",
-    image: "/img/twohandsplant.jpg",
+    image: "/img/climatechange.jpg",
+
     category: "health",
   },
 ];

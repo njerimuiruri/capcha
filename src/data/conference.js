@@ -194,16 +194,12 @@ export const conferences = [
       "Join us as we embark on a mission to nurture transdisciplinary science-policy engagements towards advocating for resilient and low-carbon health systems. This launch event introduces the Consultative Platform on Climate and Health in Africa (CAPCHA) and its strategic objectives.",
     videos: [
       {
-        url: "https://youtu.be/u_GfF41bEdg?si=o20BYjKiLjY5GtN4",
+        url: "https://www.youtube.com/watch?v=kEMKKGdrZfY&t=1s",
         title: "CAPCHA Launch Event",
         description: "Full recording of the platform launch",
       },
-      {
-        url: "https://youtu.be/VIDEO_ID_HIGHLIGHTS",
-        title: "Key Highlights",
-        description: "Summary of key presentations and discussions",
-      },
-      null, // No third video
+      null,
+      null,
     ],
     date: "August 28, 2024",
     time: "2:00 - 4:00 PM EAT",
