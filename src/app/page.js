@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar/navbar";
 import { ThemeProvider } from "../components/theme-provider";
 import HeroSection from "./HeroSection/page";
@@ -11,20 +14,28 @@ import { ModeToggle } from "@/components/mode-toggle";
 import PartnerSection from "./PartnerSection/page";
 import GallerySection from "./GallerySection/page";
 import MissionVisionSection from "./MissionVisionSection/page";
-
-export const metadata = {
-  title: "Consultative Platform On Climate and Health",
-  description:
-    "Building a trasdisciplinary community of practice towards enhanced decisio support environment on C & H research and policy in Africa",
-  icons: {
-    icon: "/favicon.ico",
-  },
-};
-
+import PageLoader from "./PageLoader";
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900 transition-colors duration-300">
+      <PageLoader isLoading={isLoading} />
+
+      {/* Main content - hidden while loading */}
+      <div
+        className={`min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900 transition-all duration-500 ${
+          isLoading ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      >
         <div className="fixed top-24 right-6 z-[9999] md:top-28 md:right-8">
           <div className="group relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>

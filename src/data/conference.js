@@ -5,7 +5,16 @@ export const conferences = [
       "Pan-African Conference on Environment, Climate Change and Health: Science to Policy",
     description:
       "Harnessing Science, Policy, and Partnerships for Environmental Sustainability and Climate-Health Resilience. This premier conference brings together researchers, policymakers, and practitioners to address critical environmental and health challenges across Africa.",
-    videoUrl: "https://youtu.be/u_GfF41bEdg?si=o20BYjKiLjY5GtN4",
+    videos: [
+      // {
+      //   url: "https://www.youtube.com/watch?v=kEMKKGdrZfY",
+      //   title: "Conference Highlights",
+      //   description: "Overview of the Pan-African Conference",
+      // },
+      null,
+      null, // No second video
+      null, // No third video
+    ],
     date: "October 21-24, 2025",
     time: "4 Days Conference",
     location: "Emara Ole Sereni Convention Center – Nairobi, Kenya",
@@ -95,7 +104,25 @@ export const conferences = [
     title: "ARIN 4th Annual International Conference 2024",
     description:
       "Bridging Knowledge Gaps: Promoting Transdisciplinary Research for Climate and Health Resilience. The Africa Research and Impact Network (ARIN)'s annual international conference brings together an international community of scholars, policymakers, and practitioners to reflect on global challenges affecting the African continent.",
-    videoUrl: "https://youtu.be/u_GfF41bEdg?si=o20BYjKiLjY5GtN4",
+    videos: [
+      {
+        url: "https://www.youtube.com/watch?v=K1MKlqB0uKk&t=13498s",
+        title: "DAY 1 CONFERENCE ",
+        description: "4TH ANNUAL ARIN CONFERENCE DAY 1",
+      },
+      {
+        url: "https://www.youtube.com/watch?v=u_GfF41bEdg",
+        title: "DAY 2 CONFERENCE ",
+        description:
+          "-OPPORTUNITIES FOR ENHANCING TRANSDISCIPLINARY C & H RESEARCH AND IMPACT IN AFRICA",
+      },
+      {
+        url: "https://www.youtube.com/watch?v=l5H4J5cGpz4&t=18221s",
+        title: "Day 3 - Closing Session",
+        description:
+          "STRENGTHENING FUNDING OPPORTUNITIES FOR TRANSDISCIPLINARY C & H RESEARCH AND IMPACT IN AFRICA",
+      },
+    ],
     date: "November 6-8, 2024",
     time: "3 Days Virtual Event",
     location: "Virtual Conference Platform",
@@ -165,7 +192,19 @@ export const conferences = [
       "Consultative Platform on Climate and Health in Africa (CAPCHA) Launch",
     description:
       "Join us as we embark on a mission to nurture transdisciplinary science-policy engagements towards advocating for resilient and low-carbon health systems. This launch event introduces the Consultative Platform on Climate and Health in Africa (CAPCHA) and its strategic objectives.",
-    videoUrl: "https://youtu.be/u_GfF41bEdg?si=o20BYjKiLjY5GtN4",
+    videos: [
+      {
+        url: "https://youtu.be/u_GfF41bEdg?si=o20BYjKiLjY5GtN4",
+        title: "CAPCHA Launch Event",
+        description: "Full recording of the platform launch",
+      },
+      {
+        url: "https://youtu.be/VIDEO_ID_HIGHLIGHTS",
+        title: "Key Highlights",
+        description: "Summary of key presentations and discussions",
+      },
+      null, // No third video
+    ],
     date: "August 28, 2024",
     time: "2:00 - 4:00 PM EAT",
     location: "Live Webinar",
@@ -302,3 +341,15 @@ export const popularConferenceTags = [
   "Science-Policy",
   "Platform-Launch",
 ];
+
+export const getConferenceVideos = (conferenceId) => {
+  const conference = conferences.find((conf) => conf.id === conferenceId);
+  if (!conference) return [];
+
+  return conference.videos.filter((video) => video !== null);
+};
+
+export const hasVideos = (conferenceId) => {
+  const videos = getConferenceVideos(conferenceId);
+  return videos.length > 0;
+};

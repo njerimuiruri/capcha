@@ -41,10 +41,73 @@ const ConferencePage = () => {
         router.push(`/ArinConferece/${conferenceId}`);
     };
 
-    const handleDownloadConceptNote = (conceptNoteUrl, title) => {
-        console.log(`Downloading concept note for: ${title}`);
-        alert(`Concept note download started for: ${title}`);
+    // Function to get the first available video from the videos array
+    const getFirstVideo = (conference) => {
+        if (!conference.videos || !Array.isArray(conference.videos)) {
+            return null;
+        }
+
+        // Find the first non-null video in the array
+        return conference.videos.find(video => video !== null && video !== undefined);
     };
+
+    // Function to convert YouTube URL to embed URL
+    const getYouTubeEmbedUrl = (url) => {
+        if (!url) return null;
+
+        // Extract video ID from various YouTube URL formats
+        const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+        const match = url.match(regex);
+
+        if (match && match[1]) {
+            return `https://www.youtube.com/embed/${match[1]}`;
+        }
+
+        return null;
+    };
+
+    // Function to handle concept note download
+    const handleDownloadConceptNote = async (conceptNoteUrl, title) => {
+        if (!conceptNoteUrl) {
+            alert('No concept note available for this conference.');
+            return;
+        }
+
+        try {
+            // Create a temporary link element
+            const link = document.createElement('a');
+            link.href = conceptNoteUrl;
+            link.download = `${title.replace(/[^a-zA-Z0-9]/g, '_')}_Concept_Note.pdf`;
+
+            // For external URLs, you might need to fetch and create blob
+            if (conceptNoteUrl.startsWith('http')) {
+                const response = await fetch(conceptNoteUrl);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch the document');
+                }
+
+                const blob = await response.blob();
+                const blobUrl = window.URL.createObjectURL(blob);
+                link.href = blobUrl;
+            }
+
+            // Trigger download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Clean up blob URL if created
+            if (conceptNoteUrl.startsWith('http')) {
+                window.URL.revokeObjectURL(link.href);
+            }
+
+            console.log(`Concept note downloaded for: ${title}`);
+        } catch (error) {
+            console.error('Download failed:', error);
+            alert(`Failed to download concept note for: ${title}. Please try again later.`);
+        }
+    };
+
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -124,186 +187,226 @@ const ConferencePage = () => {
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-8 mb-12">
-                                {currentConferences.map((conference, index) => (
-                                    <div
-                                        key={conference.id}
-                                        className={`group cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                            ? 'bg-[#0e8601] text-white rounded-lg overflow-hidden'
-                                            : 'bg-white rounded-lg overflow-hidden shadow-md hover:bg-gray-50'
-                                            }`}
-                                    >
-                                        <div className="relative h-48 bg-gray-200">
-                                            {conference.eventStatus === 'completed' && conference.recordingsAvailable ? (
-                                                <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                                                    <div className="text-center text-white">
-                                                        <Video className="w-12 h-12 mx-auto mb-2" />
-                                                        <p className="text-sm font-medium">Recordings Available</p>
+                                {currentConferences.map((conference, index) => {
+                                    // Get the first available video
+                                    const firstVideo = getFirstVideo(conference);
+                                    const embedUrl = firstVideo ? getYouTubeEmbedUrl(firstVideo.url) : null;
+
+                                    return (
+                                        <div
+                                            key={conference.id}
+                                            className={`group cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                ? 'bg-[#0e8601] text-white rounded-lg overflow-hidden'
+                                                : 'bg-white rounded-lg overflow-hidden shadow-md hover:bg-gray-50'
+                                                }`}
+                                        >
+                                            <div className="relative h-48 bg-gray-200">
+                                                {conference.eventStatus === 'completed' && conference.recordingsAvailable ? (
+                                                    // Show recordings available for completed events
+                                                    <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                                                        <div className="text-center text-white">
+                                                            <Video className="w-12 h-12 mx-auto mb-2" />
+                                                            <p className="text-sm font-medium">Recordings Available</p>
+                                                            {firstVideo && (
+                                                                <p className="text-xs mt-1 opacity-90">{firstVideo.title}</p>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                ) : embedUrl ? (
+                                                    // Show embedded video if available
+                                                    <iframe
+                                                        src={embedUrl}
+                                                        className="w-full h-full"
+                                                        frameBorder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                        allowFullScreen
+                                                        title={firstVideo.title || conference.title}
+                                                    ></iframe>
+                                                ) : firstVideo ? (
+                                                    // Show video thumbnail/placeholder with title if video exists but can't be embedded
+                                                    <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
+                                                        <div className="text-center text-white p-4">
+                                                            <Video className="w-12 h-12 mx-auto mb-2" />
+                                                            <p className="text-sm font-medium">{firstVideo.title}</p>
+                                                            <p className="text-xs mt-1 opacity-90">{firstVideo.description}</p>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    // Show placeholder if no video available
+                                                    <div className="w-full h-full bg-gray-300 flex items-center justify-center">
+                                                        <div className="text-center text-gray-600">
+                                                            <Video className="w-12 h-12 mx-auto mb-2" />
+                                                            <p className="text-sm">Video Not Available</p>
+                                                        </div>
+                                                    </div>
+                                                )}
+
+                                                {/* Play button overlay */}
+                                                {(embedUrl || firstVideo) && (
+                                                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                                        <Play className="w-12 h-12 text-white" />
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            <div className="p-6">
+                                                {conference.eventStatus === 'completed' && (
+                                                    <div className="mb-3">
+                                                        <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                                                            Past Event
+                                                        </span>
+                                                    </div>
+                                                )}
+
+                                                <div className="flex items-center mb-4">
+                                                    <Image
+                                                        src={conference.organizerImage}
+                                                        alt={conference.organizer}
+                                                        width={40}
+                                                        height={40}
+                                                        className="w-10 h-10 rounded-full mr-3 object-cover"
+                                                    />
+
+                                                    <div>
+                                                        <p className={`text-sm ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                            ? 'text-gray-200'
+                                                            : 'text-gray-500'
+                                                            }`}>
+                                                            Organized By
+                                                        </p>
+                                                        <p className={`font-semibold ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                            ? 'text-white'
+                                                            : 'text-gray-900'
+                                                            }`}>
+                                                            {conference.organizer}
+                                                        </p>
                                                     </div>
                                                 </div>
-                                            ) : (
-                                                <iframe
-                                                    src={conference.videoUrl}
-                                                    className="w-full h-full"
-                                                    frameBorder="0"
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                    allowFullScreen
-                                                ></iframe>
-                                            )}
-                                            <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <Play className="w-12 h-12 text-white" />
-                                            </div>
-                                        </div>
 
-                                        <div className="p-6">
-                                            {conference.eventStatus === 'completed' && (
-                                                <div className="mb-3">
-                                                    <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
-                                                        Past Event
-                                                    </span>
-                                                </div>
-                                            )}
-
-                                            <div className="flex items-center mb-4">
-                                                <Image
-                                                    src={conference.organizerImage}
-                                                    alt={conference.organizer}
-                                                    width={40}
-                                                    height={40}
-                                                    className="w-10 h-10 rounded-full mr-3 object-cover"
-                                                />
-
-                                                <div>
-                                                    <p className={`text-sm ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                        ? 'text-gray-200'
-                                                        : 'text-gray-500'
-                                                        }`}>
-                                                        Organized By
-                                                    </p>
-                                                    <p className={`font-semibold ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                        ? 'text-white'
+                                                {/* Title */}
+                                                <h3
+                                                    onClick={() => handleViewDetails(conference.id)}
+                                                    className={`text-xl font-bold mb-3 group-hover:text-[#0e8601] transition-colors cursor-pointer ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                        ? 'text-white group-hover:text-gray-200'
                                                         : 'text-gray-900'
-                                                        }`}>
-                                                        {conference.organizer}
-                                                    </p>
-                                                </div>
-                                            </div>
+                                                        }`}
+                                                >
+                                                    {conference.title}
+                                                </h3>
 
-                                            {/* Title */}
-                                            <h3
-                                                onClick={() => handleViewDetails(conference.id)}
-                                                className={`text-xl font-bold mb-3 group-hover:text-[#0e8601] transition-colors cursor-pointer ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                    ? 'text-white group-hover:text-gray-200'
-                                                    : 'text-gray-900'
-                                                    }`}
-                                            >
-                                                {conference.title}
-                                            </h3>
+                                                {/* Description */}
+                                                <p className={`text-sm mb-4 ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                    ? 'text-gray-200'
+                                                    : 'text-gray-600'
+                                                    }`}>
+                                                    {conference.description.length > 150
+                                                        ? `${conference.description.substring(0, 150)}...`
+                                                        : conference.description}
+                                                </p>
 
-                                            {/* Description */}
-                                            <p className={`text-sm mb-4 ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                ? 'text-gray-200'
-                                                : 'text-gray-600'
-                                                }`}>
-                                                {conference.description.length > 150
-                                                    ? `${conference.description.substring(0, 150)}...`
-                                                    : conference.description}
-                                            </p>
+                                                {/* Video Info */}
+                                                {firstVideo && (
+                                                    <div className="mb-3 p-2 bg-gray-50 rounded-lg">
+                                                        <p className="text-xs font-medium text-gray-700 mb-1">Featured Video:</p>
+                                                        <p className="text-sm text-gray-600">{firstVideo.title}</p>
+                                                    </div>
+                                                )}
 
-                                            {/* Conference Details */}
-                                            <div className="space-y-2 mb-4">
-                                                <div className="flex items-center">
-                                                    <Calendar className={`w-4 h-4 mr-2 ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                        ? 'text-gray-200'
-                                                        : 'text-gray-500'
-                                                        }`} />
-                                                    <span className={`text-sm ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                        ? 'text-gray-200'
-                                                        : 'text-gray-500'
-                                                        }`}>
-                                                        {conference.date} • {conference.time}
-                                                    </span>
-                                                </div>
-                                                <div className="flex items-center">
-                                                    <MapPin className={`w-4 h-4 mr-2 ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                        ? 'text-gray-200'
-                                                        : 'text-gray-500'
-                                                        }`} />
-                                                    <span className={`text-sm ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                        ? 'text-gray-200'
-                                                        : 'text-gray-500'
-                                                        }`}>
-                                                        {conference.location}
-                                                    </span>
+                                                {/* Conference Details */}
+                                                <div className="space-y-2 mb-4">
+                                                    <div className="flex items-center">
+                                                        <Calendar className={`w-4 h-4 mr-2 ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                            ? 'text-gray-200'
+                                                            : 'text-gray-500'
+                                                            }`} />
+                                                        <span className={`text-sm ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                            ? 'text-gray-200'
+                                                            : 'text-gray-500'
+                                                            }`}>
+                                                            {conference.date} • {conference.time}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex items-center">
+                                                        <MapPin className={`w-4 h-4 mr-2 ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                            ? 'text-gray-200'
+                                                            : 'text-gray-500'
+                                                            }`} />
+                                                        <span className={`text-sm ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                            ? 'text-gray-200'
+                                                            : 'text-gray-500'
+                                                            }`}>
+                                                            {conference.location}
+                                                        </span>
+                                                    </div>
                                                 </div>
 
-                                            </div>
-
-                                            {conference.partners && (
-                                                <div className="mb-4">
-                                                    <p className={`text-xs mb-2 ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                        ? 'text-gray-300'
-                                                        : 'text-gray-500'
-                                                        }`}>
-                                                        Key Partners:
-                                                    </p>
-                                                    <div className="flex flex-wrap gap-1">
-                                                        {conference.partners.slice(0, 3).map((partner, idx) => (
-                                                            <span
-                                                                key={idx}
-                                                                className={`px-2 py-1 text-xs rounded ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                {conference.partners && (
+                                                    <div className="mb-4">
+                                                        <p className={`text-xs mb-2 ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                            ? 'text-gray-300'
+                                                            : 'text-gray-500'
+                                                            }`}>
+                                                            Key Partners:
+                                                        </p>
+                                                        <div className="flex flex-wrap gap-1">
+                                                            {conference.partners.slice(0, 3).map((partner, idx) => (
+                                                                <span
+                                                                    key={idx}
+                                                                    className={`px-2 py-1 text-xs rounded ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                                        ? 'bg-white bg-opacity-20 text-white'
+                                                                        : 'bg-gray-100 text-gray-600'
+                                                                        }`}
+                                                                >
+                                                                    {partner.length > 15 ? `${partner.substring(0, 15)}...` : partner}
+                                                                </span>
+                                                            ))}
+                                                            {conference.partners.length > 3 && (
+                                                                <span className={`px-2 py-1 text-xs rounded ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
                                                                     ? 'bg-white bg-opacity-20 text-white'
                                                                     : 'bg-gray-100 text-gray-600'
-                                                                    }`}
-                                                            >
-                                                                {partner.length > 15 ? `${partner.substring(0, 15)}...` : partner}
-                                                            </span>
-                                                        ))}
-                                                        {conference.partners.length > 3 && (
-                                                            <span className={`px-2 py-1 text-xs rounded ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                                ? 'bg-white bg-opacity-20 text-white'
-                                                                : 'bg-gray-100 text-gray-600'
-                                                                }`}>
-                                                                +{conference.partners.length - 3} more
-                                                            </span>
-                                                        )}
+                                                                    }`}>
+                                                                    +{conference.partners.length - 3} more
+                                                                </span>
+                                                            )}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            )}
+                                                )}
 
-                                            {/* Action Buttons */}
-                                            <div className="flex justify-between items-center">
-                                                <div className="flex gap-2">
-                                                    <button
-                                                        onClick={() => handleViewDetails(conference.id)}
-                                                        className={`px-4 py-2 rounded text-sm font-medium transition-colors cursor-pointer ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                            ? 'bg-orange-500 text-white hover:bg-orange-600'
-                                                            : 'bg-[#0e8601] text-white hover:bg-teal-700'
-                                                            }`}
-                                                    >
-                                                        View Details →
-                                                    </button>
-
-                                                    {conference.conceptNoteUrl && (
+                                                {/* Action Buttons */}
+                                                <div className="flex justify-between items-center">
+                                                    <div className="flex gap-2">
                                                         <button
-                                                            onClick={() => handleDownloadConceptNote(conference.conceptNoteUrl, conference.title)}
-                                                            className={`px-3 py-2 rounded text-sm font-medium transition-colors border ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
-                                                                ? 'border-white text-white hover:bg-white hover:text-[#0e8601]'
-                                                                : 'border-[#0e8601] text-[#0e8601] hover:bg-[#0e8601] hover:text-white'
+                                                            onClick={() => handleViewDetails(conference.id)}
+                                                            className={`px-4 py-2 rounded text-sm font-medium transition-colors cursor-pointer ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                                ? 'bg-orange-500 text-white hover:bg-orange-600'
+                                                                : 'bg-[#0e8601] text-white hover:bg-teal-700'
                                                                 }`}
                                                         >
-                                                            <Download className="w-4 h-4" />
+                                                            View Details →
                                                         </button>
-                                                    )}
-                                                </div>
 
-                                                <div className="flex items-center text-sm text-gray-500">
-                                                    <Users className="w-4 h-4 mr-1" />
-                                                    <span>{conference.speakers.length} Speakers</span>
+                                                        {conference.conceptNoteUrl && (
+                                                            <button
+                                                                onClick={() => handleDownloadConceptNote(conference.conceptNoteUrl, conference.title)}
+                                                                className={`px-3 py-2 rounded text-sm font-medium transition-colors border ${conference.featured && index === 0 && currentPage === 1 && selectedTag === 'all'
+                                                                    ? 'border-white text-white hover:bg-white hover:text-[#0e8601]'
+                                                                    : 'border-[#0e8601] text-[#0e8601] hover:bg-[#0e8601] hover:text-white'
+                                                                    }`}
+                                                            >
+                                                                <Download className="w-4 h-4" />
+                                                            </button>
+                                                        )}
+                                                    </div>
+
+                                                    <div className="flex items-center text-sm text-gray-500">
+                                                        <Users className="w-4 h-4 mr-1" />
+                                                        <span>{conference.speakers.length} Speakers</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
 
                             {/* Pagination */}
@@ -343,7 +446,6 @@ const ConferencePage = () => {
                             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
                                 <h3 className="text-xl font-bold mb-4">Search</h3>
                                 <div className="relative">
-
                                     <input
                                         type="text"
                                         placeholder="Search conferences..."

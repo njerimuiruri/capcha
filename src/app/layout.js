@@ -2,11 +2,14 @@ import "./globals.css";
 
 export const metadata = {
   title: {
-    default: "ARIN Climate Research",
-    template: "%s | ARIN Climate Research",
+    default: "Consultative Platform On Climate and Health",
+    template: "%s | CAPCHA",
   },
   description:
-    "Environmental Sustainability Blog showcasing data-driven insights on climate change",
+    "Building a transdisciplinary community of practice towards enhanced decision support environment on Climate & Health research and policy in Africa",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
