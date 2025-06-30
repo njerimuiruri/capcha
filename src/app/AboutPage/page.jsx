@@ -39,12 +39,8 @@ const GlowingOrb = ({ size = 'w-64 h-64', color = 'bg-green-400', position, opac
 );
 
 const AboutPage = () => {
-    const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const timeout = setTimeout(() => setIsLoading(false), 4000);
-        return () => clearTimeout(timeout);
-    }, []);
+
 
     const [scrollY, setScrollY] = useState(0);
 
@@ -56,7 +52,6 @@ const AboutPage = () => {
 
     return (
         <>
-            <PageLoader isLoading={isLoading} theme="light" />
 
             <Navbar />
             <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50 relative overflow-hidden">

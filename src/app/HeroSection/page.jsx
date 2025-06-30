@@ -41,7 +41,7 @@ const HeroSection = () => {
         },
         {
             icon: <Heart className="w-8 h-8" />,
-            title: "Capacity Building",
+            title: "Capacity Enhancement",
             href: "/CapacityEnhancementPage"
         }
     ];

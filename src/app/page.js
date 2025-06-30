@@ -30,7 +30,6 @@ export default function Home() {
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <PageLoader isLoading={isLoading} />
 
-      {/* Main content - hidden while loading */}
       <div
         className={`min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900 transition-all duration-500 ${
           isLoading ? "opacity-0 pointer-events-none" : "opacity-100"

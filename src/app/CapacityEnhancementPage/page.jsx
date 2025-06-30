@@ -21,8 +21,6 @@ import {
 } from 'lucide-react';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
-import PageLoader from '@/app/PageLoader';
-
 
 const videos = [
     '/videos/healthvideo.mp4',
@@ -110,7 +108,6 @@ const CapacityEnhancementPage = () => {
 
     return (
         <>
-            <PageLoader isLoading={isLoading} theme="light" />
 
             <Navbar />
             <div className="min-h-screen bg-white">

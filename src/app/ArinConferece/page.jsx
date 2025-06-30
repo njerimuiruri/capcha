@@ -119,7 +119,6 @@ const ConferencePage = () => {
 
     return (
         <>
-            <PageLoader isLoading={isLoading} theme="light" />
 
             <Navbar />
 

@@ -124,7 +124,6 @@ const ResearchPage = () => {
 
     return (
         <>
-            <PageLoader isLoading={isLoading} theme="light" />
 
             <Navbar />
             <div className="min-h-screen bg-white">

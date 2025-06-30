@@ -8,7 +8,6 @@ import Image from 'next/image';
 
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
-import PageLoader from '@/app/PageLoader';
 
 
 const BlogPage = () => {
@@ -52,7 +51,6 @@ const BlogPage = () => {
     const [scrollY, setScrollY] = useState(0);
     return (
         <>
-            <PageLoader isLoading={isLoading} theme="light" />
 
             <Navbar />
 
