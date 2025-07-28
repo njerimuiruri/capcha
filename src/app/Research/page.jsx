@@ -29,7 +29,7 @@ const ResearchPage = () => {
     const videos = [
         {
             id: 1,
-            src: "/videos/climate industry.mp4",
+            src: "/videos/48958-457717331_tiny.mp4",
             alt: "Climate research video"
         },
         {
@@ -39,7 +39,7 @@ const ResearchPage = () => {
         },
         {
             id: 3,
-            src: "/videos/windmill.mp4",
+            src: "/videos/research2.mp4",
             alt: "Data analysis video"
         }
     ];

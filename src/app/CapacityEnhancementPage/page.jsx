@@ -23,9 +23,9 @@ import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
 
 const videos = [
-    '/videos/healthvideo.mp4',
-    '/videos/climate industry.mp4',
-    '/videos/windmill.mp4',
+    '/videos/capcity2.mp4',
+    '/videos/capacity3.mp4',
+    '/videos/capacityenhancement.mp4',
 ];
 
 const CapacityEnhancementPage = () => {

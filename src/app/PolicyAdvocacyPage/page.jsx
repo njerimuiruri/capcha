@@ -30,10 +30,10 @@ const PolicyAdvocacyPage = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     const videos = [
-        '/videos/windmill.mp4',
+        '/videos/policy1.mp4',
 
-        '/videos/healthvideo.mp4',
-        '/videos/climate industry.mp4',
+        '/videos/policy2.mp4',
+        '/videos/policy3.mp4',
 
     ];
     useEffect(() => {

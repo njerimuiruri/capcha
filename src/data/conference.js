@@ -6,14 +6,9 @@ export const conferences = [
     description:
       "Harnessing Science, Policy, and Partnerships for Environmental Sustainability and Climate-Health Resilience. This premier conference brings together researchers, policymakers, and practitioners to address critical environmental and health challenges across Africa.",
     videos: [
-      // {
-      //   url: "https://www.youtube.com/watch?v=kEMKKGdrZfY",
-      //   title: "Conference Highlights",
-      //   description: "Overview of the Pan-African Conference",
-      // },
+      null, // No videos yet for upcoming conference
       null,
-      null, // No second video
-      null, // No third video
+      null,
     ],
     date: "October 21-24, 2025",
     time: "4 Days Conference",
@@ -26,6 +21,9 @@ export const conferences = [
     callForAbstract:
       "Submit your research abstracts on climate change, environmental health, and policy interventions by September 15th, 2025. Selected abstracts will be presented during the conference.",
     featured: true,
+    eventStatus: "upcoming",
+    registrationOpen: true,
+    conferenceWebsite: "https://pan-africanconference.com/",
     tags: [
       "environment",
       "climate",
@@ -34,62 +32,11 @@ export const conferences = [
       "sustainability",
       "Africa",
     ],
-    conceptNoteUrl: "/documet/PAN-AFRICANSCIENCEPOLICY.pdf",
-    agenda: [
-      { time: "Day 1 - 09:00 AM", activity: "Registration & Opening Ceremony" },
-      {
-        time: "Day 1 - 10:30 AM",
-        activity: "Keynote: Climate Change and Health in Africa",
-      },
-      {
-        time: "Day 1 - 02:00 PM",
-        activity: "Panel: Environmental Policy Framework",
-      },
-      {
-        time: "Day 2 - 09:00 AM",
-        activity: "Workshop: Science to Policy Translation",
-      },
-      { time: "Day 2 - 02:00 PM", activity: "Partnership Building Sessions" },
-      {
-        time: "Day 3 - 09:00 AM",
-        activity: "Research Presentations & Poster Sessions",
-      },
-      { time: "Day 3 - 02:00 PM", activity: "Policy Dialogue with Ministers" },
-      { time: "Day 4 - 09:00 AM", activity: "Action Planning & Commitments" },
-      { time: "Day 4 - 11:00 AM", activity: "Closing Ceremony & Awards" },
-    ],
-    speakers: [
-      {
-        name: "Hon. Minister of Health",
-        title: "Ministry of Health, Kenya",
-        image: "/img/minister-health.jpg",
-      },
-      {
-        name: "Hon. Minister of Environment",
-        title: "Ministry of Environment, Climate Change & Forestry",
-        image: "/img/minister-environment.jpg",
-      },
-      {
-        name: "Dr. ARIN Director",
-        title: "Executive Director, ARIN",
-        image: "/img/arin-director.jpg",
-      },
-      {
-        name: "NEMA Representative",
-        title: "National Environment Management Authority",
-        image: "/img/nema-rep.jpg",
-      },
-      {
-        name: "AMREF Health Africa Lead",
-        title: "Regional Director, AMREF Health Africa",
-        image: "/img/amref-lead.jpg",
-      },
-      {
-        name: "KEMRI Researcher",
-        title: "Principal Researcher, Kenya Medical Research Institute",
-        image: "/img/kemri-researcher.jpg",
-      },
-    ],
+    conceptNoteUrl: null,
+    theme:
+      "Harnessing Science, Policy, and Partnerships for Environmental Sustainability and Climate-Health Resilience", // Added explicit theme field
+    agenda: [],
+    speakers: [],
     partners: [
       "Ministry of Health",
       "Ministry of Environment, Climate Change & Forestry",
@@ -224,22 +171,13 @@ export const conferences = [
     conceptNoteUrl: null,
     agenda: [
       { time: "2:00 PM", activity: "Welcome & Opening Remarks" },
-      {
-        time: "2:15 PM",
-        activity: "Keynote: Introduction to CAPCHA Platform",
-      },
+      { time: "2:15 PM", activity: "Keynote: Introduction to CAPCHA Platform" },
       {
         time: "2:45 PM",
         activity: "Panel Discussion: Climate-Health Nexus in Africa",
       },
-      {
-        time: "3:15 PM",
-        activity: "Q&A Session with Speakers",
-      },
-      {
-        time: "3:45 PM",
-        activity: "Platform Demonstration & Next Steps",
-      },
+      { time: "3:15 PM", activity: "Q&A Session with Speakers" },
+      { time: "3:45 PM", activity: "Platform Demonstration & Next Steps" },
       { time: "4:00 PM", activity: "Closing Remarks" },
     ],
     speakers: [
@@ -305,18 +243,21 @@ export const recentConferences = [
     id: 1,
     title: "Pan-African Conference on Environment, Climate Change and Health",
     date: "October 21-24, 2025",
-    image: "/img/pan-african-conference.jpg",
+    price: "Registration Open",
+    image: "/img/pan-african-conference-2025.jpg",
   },
   {
     id: 2,
     title: "ARIN 4th Annual International Conference 2024",
     date: "November 6-8, 2024",
+    price: "Past Event",
     image: "/img/arin-conference-2024.jpg",
   },
   {
     id: 3,
     title: "CAPCHA Platform Launch",
     date: "August 28, 2024",
+    price: "Past Event",
     image: "/img/capcha-launch.jpg",
   },
 ];
@@ -341,7 +282,6 @@ export const popularConferenceTags = [
 export const getConferenceVideos = (conferenceId) => {
   const conference = conferences.find((conf) => conf.id === conferenceId);
   if (!conference) return [];
-
   return conference.videos.filter((video) => video !== null);
 };
 
