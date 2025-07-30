@@ -2,6 +2,147 @@ export const conferences = [
   {
     id: 1,
     title:
+      "Pan-African Conference on Environment, Climate Change and Health: Science to Policy - Webinar Launch",
+    description:
+      "Join us for the official launch webinar of the Pan-African Conference on Environment, Climate Change and Health: Science to Policy This webinar will feature high-level panel discussions with leading experts, researchers, and policymakers addressing critical environmental and health challenges across Africa. The session will include welcome remarks from key government officials and announcements about the upcoming conference.",
+    videos: [
+      null, // No videos yet for upcoming webinar
+      null,
+      null,
+    ],
+    date: "August 1, 2025",
+    time: "02:00 – 04:00 PM EAT",
+    location: "Zoom (Virtual Event)",
+    category: "climate",
+    organizer: "Africa Research Impact and Network (ARIN)",
+    organizerImage: "/img/webiner.jpg",
+    conferenceImage: "/img/webiner.jpg",
+    callForSideEvent:
+      "Join our high-level panel discussion featuring directors from ARIN, KEMRI, CHANCE Network, and AMREF Kenya discussing science to policy pathways.",
+    callForAbstract:
+      "Conference details and abstract submission information will be announced during this webinar launch session.",
+    featured: true,
+    eventStatus: "upcoming",
+    registrationOpen: true,
+    conferenceWebsite: "https://pan-africanconference.com/",
+    registrationLink:
+      "https://zoom.us/meeting/register/st302ikkQXuEWw8Q5EaYtw#/registration",
+    tags: [
+      "environment",
+      "climate",
+      "health",
+      "policy",
+      "sustainability",
+      "Africa",
+      "webinar",
+      "launch",
+    ],
+    conceptNoteUrl: null,
+    theme:
+      "Harnessing Science, Policy, and Partnerships for Environmental Sustainability and Climate-Health Resilience",
+    agenda: [
+      {
+        time: "02:00 PM - 02:10 PM",
+        activity: "Opening Remarks and Introduction - Leah Aoko (ARIN)",
+      },
+      {
+        time: "02:10 PM - 02:20 PM",
+        activity:
+          "Welcome Remarks - Dr. Patrick Amoth, EBS (Director General, Ministry of Health)",
+      },
+      {
+        time: "02:20 PM - 02:30 PM",
+        activity:
+          "Welcome Remarks - Dr. Mamo Boru Mamo, EBS (Director General, NEMA)",
+      },
+      {
+        time: "02:30 PM - 03:20 PM",
+        activity:
+          "High-Level Panel Discussion - Dr. Joanes Atela (ARIN), Prof. Elijah Songok (KEMRI), Dr. Gloria Maimela (CHANCE Network), Dr. Martin Muchangi (AMREF Kenya)",
+      },
+      {
+        time: "03:20 PM - 03:30 PM",
+        activity: "Announcement of Conference Details - Leah Aoko (ARIN)",
+      },
+      {
+        time: "03:30 PM - 03:40 PM",
+        activity: "Q&A Session - Moderated by Leah Aoko",
+      },
+      {
+        time: "03:40 PM - 03:50 PM",
+        activity:
+          "Closing Remarks - Dr. Mamo Boru Mamo, EBS (Director General, NEMA)",
+      },
+      {
+        time: "03:50 PM - 04:00 PM",
+        activity:
+          "Closing Remarks - Dr. Patrick Amoth, EBS (Director General, Ministry of Health)",
+      },
+    ],
+    speakers: [
+      {
+        name: "Leah Aoko",
+        title: "Moderator & Conference Coordinator",
+        role: "Moderator",
+        organization: "ARIN",
+        image: "/img/leah.png",
+      },
+      {
+        name: "Dr. Patrick Amoth, EBS",
+        title: "Director General",
+        role: "Keynote Speaker",
+        organization: "Ministry of Health",
+        image: "/img/Dr. Patrick Amoth.jpeg",
+      },
+      {
+        name: "Dr. Mamo Boru Mamo, EBS",
+        title: "Director General",
+        role: "Keynote Speaker",
+        organization: "NEMA",
+        image: "/img/MamoBoru Mamo, EBS.jpg",
+      },
+      {
+        name: "Dr. Joanes Atela",
+        title: "Executive Director",
+        role: "Panelist",
+        organization: "ARIN",
+        image: "/img/prof.jpg",
+      },
+      {
+        name: "Prof. Elijah Songok",
+        title: "Director General",
+        role: "Panelist",
+        organization: "KEMRI",
+        image: "/img/Prof.Songok.png",
+      },
+      {
+        name: "Dr. Gloria Maimela",
+        title: "Chair",
+        role: "Panelist",
+        organization: "CHANCE Network",
+        image: "/img/Gloria-_Maimela.webp",
+      },
+      {
+        name: "Dr. Martin Muchangi",
+        title: "Director for Population Health and Environment",
+        role: "Panelist",
+        organization: "AMREF Kenya",
+        image: "/img/Martin-Muchangi.webp",
+      },
+    ],
+    partners: [
+      "Ministry of Health",
+      "Ministry of Environment, Climate Change & Forestry",
+      "Africa Research Impact and Network (ARIN)",
+      "National Environment Management Authority (NEMA)",
+      "AMREF Health Africa",
+      "Kenya Medical Research Institute (KEMRI)",
+      "CHANCE Network",
+    ],
+  },
+  {
+    id: 2,
+    title:
       "Pan-African Conference on Environment, Climate Change and Health: Science to Policy",
     description:
       "Harnessing Science, Policy, and Partnerships for Environmental Sustainability and Climate-Health Resilience. This premier conference brings together researchers, policymakers, and practitioners to address critical environmental and health challenges across Africa.",
@@ -47,7 +188,7 @@ export const conferences = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "ARIN 4th Annual International Conference 2024",
     description:
       "Bridging Knowledge Gaps: Promoting Transdisciplinary Research for Climate and Health Resilience. The Africa Research and Impact Network (ARIN)'s annual international conference brings together an international community of scholars, policymakers, and practitioners to reflect on global challenges affecting the African continent.",
@@ -134,7 +275,7 @@ export const conferences = [
     recordingsAvailable: true,
   },
   {
-    id: 3,
+    id: 4,
     title:
       "Consultative Platform on Climate and Health in Africa (CAPCHA) Launch",
     description:

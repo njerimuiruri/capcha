@@ -121,7 +121,6 @@ const ConferenceDetail = () => {
         return gradients[conference.category] || "from-[#0e8601] to-teal-700"
     }
 
-    // Function to convert YouTube URL to embed format
     const getYouTubeEmbedUrl = (url) => {
         if (!url) return null
         const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
@@ -236,15 +235,26 @@ const ConferenceDetail = () => {
 
                                 {/* Action Buttons */}
                                 <div className="flex flex-wrap gap-4">
+                                    {isUpcoming && conference.registrationLink && (
+                                        <a
+                                            href={conference.registrationLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors flex items-center"
+                                        >
+                                            <Users className="w-5 h-5 mr-2" />
+                                            Register Now
+                                        </a>
+                                    )}
                                     {isUpcoming && conference.websiteUrl && (
                                         <a
                                             href={conference.websiteUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors flex items-center"
+                                            className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center"
                                         >
                                             <Globe className="w-5 h-5 mr-2" />
-                                            Visit Conference Website
+                                            Conference Website
                                         </a>
                                     )}
                                     {conference.conceptNoteUrl && (
@@ -263,6 +273,7 @@ const ConferenceDetail = () => {
                                         <Share2 className="w-5 h-5" />
                                     </button>
                                 </div>
+
                             </div>
 
                             {/* Video/Media Section */}
@@ -329,7 +340,7 @@ const ConferenceDetail = () => {
                 <div className="bg-white shadow-sm sticky top-0 z-10">
                     <div className="container mx-auto px-4">
                         <div className="flex space-x-8 overflow-x-auto">
-                            {["overview", "agenda", "speakers", "videos", "registration"].map((section) => (
+                            {["overview", "agenda", "speakers", "images", "videos", "registration"].map((section) => (
                                 <button
                                     key={section}
                                     onClick={() => setActiveSection(section)}
@@ -363,6 +374,30 @@ const ConferenceDetail = () => {
                             {activeSection === "overview" && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
                                     <h2 className="text-3xl font-bold mb-6">Conference Overview</h2>
+
+                                    {/* LARGE CONFERENCE IMAGE DISPLAY */}
+                                    {(conference.conferenceImage || conference.heroImage) && (
+                                        <div className="mb-8">
+                                            <div className="relative aspect-video md:aspect-[16/9] rounded-lg overflow-hidden shadow-lg">
+                                                <Image
+                                                    src={conference.conferenceImage || conference.heroImage || "/placeholder.svg"}
+                                                    alt={`${conference.title} Conference Poster`}
+                                                    fill
+                                                    className="object-contain bg-gray-50"
+                                                    priority
+                                                />
+                                                <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
+                                                    Conference Poster
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Rest of overview content continues... */}
+                                    <p className="text-gray-700 mb-6 leading-relaxed">
+                                        {conference.description} This comprehensive event brings together industry leaders, innovators, and
+                                        professionals to explore the latest trends, share insights, and build meaningful connections.
+                                    </p>
                                     <p className="text-gray-700 mb-6 leading-relaxed">
                                         {conference.description} This comprehensive event brings together industry leaders, innovators, and
                                         professionals to explore the latest trends, share insights, and build meaningful connections.
@@ -428,18 +463,18 @@ const ConferenceDetail = () => {
                             {/* Agenda Section */}
                             {activeSection === "agenda" && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
-                                    <h2 className="text-3xl font-bold mb-6">Conference Agenda</h2>
+                                    <h2 className="text-3xl font-bold mb-6">Webinar Agenda</h2>
                                     {conference.agenda && conference.agenda.length > 0 ? (
                                         <div className="space-y-4">
                                             {conference.agenda.map((item, index) => (
-                                                <div key={index} className="flex items-start p-4 border border-gray-200 rounded-lg">
-                                                    <div className="w-24 flex-shrink-0 mr-4">
-                                                        <span className="text-sm font-medium text-[#0e8601] bg-green-50 px-2 py-1 rounded">
+                                                <div key={index} className="flex flex-col md:flex-row md:items-start p-4 border border-gray-200 rounded-lg hover:border-[#0e8601] transition-colors">
+                                                    <div className="md:w-40 flex-shrink-0 mb-2 md:mb-0 md:mr-4">
+                                                        <span className="inline-block text-sm font-medium text-[#0e8601] bg-green-50 px-3 py-1 rounded-full">
                                                             {item.time}
                                                         </span>
                                                     </div>
                                                     <div className="flex-1">
-                                                        <h4 className="font-semibold text-gray-900">{item.activity}</h4>
+                                                        <h4 className="font-semibold text-gray-900 leading-relaxed">{item.activity}</h4>
                                                     </div>
                                                 </div>
                                             ))}
@@ -453,7 +488,6 @@ const ConferenceDetail = () => {
                                     )}
                                 </div>
                             )}
-
                             {/* Speakers Section */}
                             {activeSection === "speakers" && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
@@ -573,6 +607,85 @@ const ConferenceDetail = () => {
                                     )}
                                 </div>
                             )}
+                            {activeSection === "images" && (
+                                <div className="bg-white rounded-lg shadow-md p-8">
+                                    <h2 className="text-3xl font-bold mb-6">Conference Images</h2>
+
+                                    {(conference.conferenceImage || conference.heroImage) ? (
+                                        <div className="space-y-6">
+                                            {/* Main Conference Poster */}
+                                            {conference.conferenceImage && (
+                                                <div>
+                                                    <h3 className="text-xl font-semibold mb-4 text-[#0e8601]">Conference Poster</h3>
+                                                    <div className="relative bg-white rounded-lg shadow-lg p-4">
+                                                        <div className="relative aspect-[3/4] md:aspect-video max-w-4xl mx-auto">
+                                                            <Image
+                                                                src={conference.conferenceImage}
+                                                                alt={`${conference.title} Official Poster`}
+                                                                fill
+                                                                className="object-contain rounded-lg"
+                                                                priority
+                                                            />
+                                                        </div>
+                                                        <div className="mt-4 text-center">
+                                                            <p className="text-gray-600 font-medium">{conference.title}</p>
+                                                            <p className="text-sm text-gray-500">{conference.date} • {conference.location}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {/* Hero/Banner Image */}
+                                            {conference.heroImage && conference.heroImage !== conference.conferenceImage && (
+                                                <div>
+                                                    <h3 className="text-xl font-semibold mb-4 text-[#0e8601]">Conference Banner</h3>
+                                                    <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+                                                        <Image
+                                                            src={conference.heroImage}
+                                                            alt={`${conference.title} Banner`}
+                                                            fill
+                                                            className="object-cover"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {/* Download Options */}
+                                            <div className="bg-gray-50 p-6 rounded-lg">
+                                                <h4 className="font-semibold mb-3">Download Images</h4>
+                                                <div className="flex flex-wrap gap-3">
+                                                    {conference.conferenceImage && (
+                                                        <a
+                                                            href={conference.conferenceImage}
+                                                            download={`${conference.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_poster.jpg`}
+                                                            className="bg-[#0e8601] text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors flex items-center text-sm"
+                                                        >
+                                                            <Download className="w-4 h-4 mr-2" />
+                                                            Download Poster
+                                                        </a>
+                                                    )}
+                                                    {conference.heroImage && (
+                                                        <a
+                                                            href={conference.heroImage}
+                                                            download={`${conference.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_banner.jpg`}
+                                                            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center text-sm"
+                                                        >
+                                                            <Download className="w-4 h-4 mr-2" />
+                                                            Download Banner
+                                                        </a>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div className="text-center py-12">
+                                            <ImageIcon className="w-16 h-16 mx-auto mb-4 text-gray-400" />
+                                            <h3 className="text-lg font-semibold text-gray-600 mb-2">Images Coming Soon</h3>
+                                            <p className="text-gray-500">Conference images will be available soon.</p>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
 
                             {/* Registration Section */}
                             {activeSection === "registration" && (
@@ -591,23 +704,42 @@ const ConferenceDetail = () => {
                                             </div>
 
                                             {/* Conference Website CTA */}
-                                            {conference.websiteUrl && (
-                                                <div className="mb-8 p-6 bg-gradient-to-r from-[#0e8601] to-teal-700 text-white rounded-lg text-center">
-                                                    <h3 className="text-xl font-bold mb-2">Ready to Register?</h3>
-                                                    <p className="text-gray-200 mb-4">
-                                                        Visit the official conference website for registration and more details
-                                                    </p>
-                                                    <a
-                                                        href={conference.websiteUrl}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="bg-white text-[#0e8601] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
-                                                    >
-                                                        <Globe className="w-5 h-5 mr-2" />
-                                                        Visit Conference Website
-                                                    </a>
-                                                </div>
-                                            )}
+                                            <div className="grid gap-4 mb-8">
+                                                {conference.registrationLink && (
+                                                    <div className="p-6 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-lg text-center">
+                                                        <h3 className="text-xl font-bold mb-2">Register for Webinar</h3>
+                                                        <p className="text-orange-100 mb-4">
+                                                            Click the button below to register for this webinar via Zoom
+                                                        </p>
+                                                        <a
+                                                            href={conference.registrationLink}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
+                                                        >
+                                                            <Users className="w-5 h-5 mr-2" />
+                                                            Register Now
+                                                        </a>
+                                                    </div>
+                                                )}
+                                                {conference.websiteUrl && (
+                                                    <div className="p-6 bg-gradient-to-r from-[#0e8601] to-teal-700 text-white rounded-lg text-center">
+                                                        <h3 className="text-xl font-bold mb-2">Conference Website</h3>
+                                                        <p className="text-gray-200 mb-4">
+                                                            Visit the official conference website for more information and updates
+                                                        </p>
+                                                        <a
+                                                            href={conference.websiteUrl}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="bg-white text-[#0e8601] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
+                                                        >
+                                                            <Globe className="w-5 h-5 mr-2" />
+                                                            Visit Website
+                                                        </a>
+                                                    </div>
+                                                )}
+                                            </div>
 
                                             {/* What's Included */}
                                             <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -725,23 +857,22 @@ const ConferenceDetail = () => {
                             </div>
 
                             {/* Conference Website Link */}
-                            {isUpcoming && conference.websiteUrl && (
-                                <div className="bg-gradient-to-r from-[#0e8601] to-teal-700 text-white rounded-lg p-6 text-center">
-                                    <Globe className="w-12 h-12 mx-auto mb-3" />
-                                    <h3 className="text-xl font-bold mb-2">Official Website</h3>
-                                    <p className="text-gray-200 mb-4">Visit for registration and updates</p>
+                            {isUpcoming && conference.registrationLink && (
+                                <div className="bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-lg p-6 text-center">
+                                    <Users className="w-12 h-12 mx-auto mb-3" />
+                                    <h3 className="text-xl font-bold mb-2">Register Now</h3>
+                                    <p className="text-orange-100 mb-4">Join the webinar via Zoom</p>
                                     <a
-                                        href={conference.websiteUrl}
+                                        href={conference.registrationLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="bg-white text-[#0e8601] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
+                                        className="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
                                     >
                                         <ExternalLink className="w-4 h-4 mr-2" />
-                                        Visit Website
+                                        Register
                                     </a>
                                 </div>
                             )}
-
                             {/* Video Quick Access */}
                             {hasVideos && (
                                 <div className="bg-white rounded-lg shadow-md p-6">
