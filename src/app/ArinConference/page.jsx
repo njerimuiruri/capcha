@@ -49,7 +49,7 @@ const ConferencePage = () => {
     }
 
     const handleViewDetails = (conferenceId) => {
-        router.push(`/ArinConferece/${conferenceId}`)
+        router.push(`/ArinConference/${conferenceId}`)
     }
 
     // Function to get the first available video from the videos array
@@ -542,7 +542,7 @@ const ConferencePage = () => {
                                 <h3 className="text-xl font-bold mb-4">Recent Conferences</h3>
                                 <div className="space-y-4">
                                     {recentConferences.map((conf, index) => (
-                                        <Link key={index} href={`/ArinConferece/${conf.id}`} className="block group">
+                                        <Link key={index} href={`/ArinConference/${conf.id}`} className="block group">
                                             <div className="flex items-center p-3 border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
                                                 <div className="w-12 h-12 bg-gradient-to-br from-[#0e8601] to-teal-700 rounded-lg flex items-center justify-center mr-4">
                                                     <Calendar className="w-6 h-6 text-white" />

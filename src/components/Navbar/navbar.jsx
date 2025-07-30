@@ -241,7 +241,7 @@ const Navbar = () => {
                             </Link>
 
                             <Link
-                                href="/ArinConferece"
+                                href="/ArinConference"
                                 className="text-[#021d49] dark:text-white hover:text-[#0e8601] font-medium transition-colors duration-200 text-lg whitespace-nowrap"
                             >
                                 ARIN Conference
@@ -350,7 +350,7 @@ const Navbar = () => {
                             </Link>
 
                             <Link
-                                href="/ArinConferece"
+                                href="/ArinConference"
                                 className="block text-[#021d49] dark:text-white hover:text-[#0e8601] font-medium transition-colors duration-200 text-lg py-2"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >

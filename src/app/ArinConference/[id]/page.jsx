@@ -988,7 +988,7 @@ const ConferenceDetail = () => {
                                 .map((relatedConf) => (
                                     <Link
                                         key={relatedConf.id}
-                                        href={`/ArinConferece/${relatedConf.id}`}
+                                        href={`/ArinConference/${relatedConf.id}`}
                                         className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
                                     >
                                         <div className="relative h-48">
