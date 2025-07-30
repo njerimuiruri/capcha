@@ -370,12 +370,10 @@ const ConferenceDetail = () => {
                 <div className="container mx-auto px-4 py-12">
                     <div className="grid lg:grid-cols-3 gap-8">
                         <div className="lg:col-span-2">
-                            {/* Overview Section */}
                             {activeSection === "overview" && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
                                     <h2 className="text-3xl font-bold mb-6">Conference Overview</h2>
 
-                                    {/* LARGE CONFERENCE IMAGE DISPLAY */}
                                     {(conference.conferenceImage || conference.heroImage) && (
                                         <div className="mb-8">
                                             <div className="relative aspect-video md:aspect-[16/9] rounded-lg overflow-hidden shadow-lg">
@@ -393,7 +391,6 @@ const ConferenceDetail = () => {
                                         </div>
                                     )}
 
-                                    {/* Rest of overview content continues... */}
                                     <p className="text-gray-700 mb-6 leading-relaxed">
                                         {conference.description} This comprehensive event brings together industry leaders, innovators, and
                                         professionals to explore the latest trends, share insights, and build meaningful connections.
@@ -403,7 +400,6 @@ const ConferenceDetail = () => {
                                         professionals to explore the latest trends, share insights, and build meaningful connections.
                                     </p>
 
-                                    {/* Conference Theme Section */}
                                     {conference.theme && (
                                         <div className="mb-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border-l-4 border-[#0e8601]">
                                             <h3 className="text-xl font-semibold mb-3 text-[#0e8601]">Conference Theme</h3>
@@ -411,7 +407,6 @@ const ConferenceDetail = () => {
                                         </div>
                                     )}
 
-                                    {/* Call for Events and Abstracts */}
                                     {(conference.callForSideEvent || conference.callForAbstract) && (
                                         <div className="grid md:grid-cols-2 gap-6 mb-8">
                                             {conference.callForSideEvent && (
@@ -429,7 +424,6 @@ const ConferenceDetail = () => {
                                         </div>
                                     )}
 
-                                    {/* Conference Topics */}
                                     {conference.tags && conference.tags.length > 0 && (
                                         <div className="mb-6">
                                             <h3 className="text-xl font-semibold mb-4">Conference Topics</h3>
@@ -443,7 +437,6 @@ const ConferenceDetail = () => {
                                         </div>
                                     )}
 
-                                    {/* Partners */}
                                     {conference.partners && conference.partners.length > 0 && (
                                         <div className="mb-6">
                                             <h3 className="text-xl font-semibold mb-4">Partners & Collaborators</h3>
@@ -460,7 +453,6 @@ const ConferenceDetail = () => {
                                 </div>
                             )}
 
-                            {/* Agenda Section */}
                             {activeSection === "agenda" && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
                                     <h2 className="text-3xl font-bold mb-6">Webinar Agenda</h2>
@@ -488,7 +480,6 @@ const ConferenceDetail = () => {
                                     )}
                                 </div>
                             )}
-                            {/* Speakers Section */}
                             {activeSection === "speakers" && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
                                     <h2 className="text-3xl font-bold mb-6">Conference Speakers</h2>
@@ -525,7 +516,6 @@ const ConferenceDetail = () => {
                                 </div>
                             )}
 
-                            {/* Videos Section */}
                             {activeSection === "videos" && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
                                     <h2 className="text-3xl font-bold mb-6">Conference Videos</h2>
@@ -613,7 +603,6 @@ const ConferenceDetail = () => {
 
                                     {(conference.conferenceImage || conference.heroImage) ? (
                                         <div className="space-y-6">
-                                            {/* Main Conference Poster */}
                                             {conference.conferenceImage && (
                                                 <div>
                                                     <h3 className="text-xl font-semibold mb-4 text-[#0e8601]">Conference Poster</h3>
@@ -635,7 +624,6 @@ const ConferenceDetail = () => {
                                                 </div>
                                             )}
 
-                                            {/* Hero/Banner Image */}
                                             {conference.heroImage && conference.heroImage !== conference.conferenceImage && (
                                                 <div>
                                                     <h3 className="text-xl font-semibold mb-4 text-[#0e8601]">Conference Banner</h3>
@@ -650,7 +638,6 @@ const ConferenceDetail = () => {
                                                 </div>
                                             )}
 
-                                            {/* Download Options */}
                                             <div className="bg-gray-50 p-6 rounded-lg">
                                                 <h4 className="font-semibold mb-3">Download Images</h4>
                                                 <div className="flex flex-wrap gap-3">
@@ -687,14 +674,12 @@ const ConferenceDetail = () => {
                                 </div>
                             )}
 
-                            {/* Registration Section */}
                             {activeSection === "registration" && (
                                 <div className="bg-white rounded-lg shadow-md p-8">
                                     <h2 className="text-3xl font-bold mb-6">Registration Information</h2>
 
                                     {isUpcoming ? (
                                         <>
-                                            {/* Registration Status */}
                                             <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
                                                 <div className="flex items-center">
                                                     <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
@@ -703,7 +688,6 @@ const ConferenceDetail = () => {
                                                 <p className="text-green-700 text-sm mt-1">Secure your spot at this exciting conference!</p>
                                             </div>
 
-                                            {/* Conference Website CTA */}
                                             <div className="grid gap-4 mb-8">
                                                 {conference.registrationLink && (
                                                     <div className="p-6 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-lg text-center">
