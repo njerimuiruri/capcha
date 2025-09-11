@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { Leaf, Heart, Globe, Shield } from 'lucide-react';
 
-// Move constants outside component to prevent recreation on each render
 const ICONS = [Leaf, Heart, Globe, Shield];
 const ICON_COLORS = ['text-emerald-500', 'text-red-500', 'text-blue-500', 'text-teal-500'];
 
@@ -83,9 +82,9 @@ const PageLoader = ({ isLoading = true, theme = 'light' }) => {
                 </div>
 
                 <div className="mt-8 flex justify-center space-x-6 opacity-60">
-                    {[Leaf, Heart, Globe, Shield].map((Icon, i) => (
+                    {[Leaf, Heart].map((Icon, i) => (
                         <div key={i} className="flex flex-col items-center space-y-1">
-                            <div className={`w-8 h-8 ${['bg-emerald-100', 'bg-red-100', 'bg-blue-100', 'bg-teal-100'][i]} dark:${['bg-emerald-900/30', 'bg-red-900/30', 'bg-blue-900/30', 'bg-teal-900/30'][i]} rounded-full flex items-center justify-center`}>
+                            <div className={`w-8 h-8 ${['bg-emerald-100', 'bg-red-100',][i]} dark:${['bg-emerald-900/30', 'bg-red-900/30', 'bg-blue-900/30', 'bg-teal-900/30'][i]} rounded-full flex items-center justify-center`}>
                                 <Icon className={`h-4 w-4 ${ICON_COLORS[i]} dark:${ICON_COLORS[i].replace('text-', 'text-')}`} />
                             </div>
                             <span className="text-xs text-gray-500 dark:text-gray-400">
