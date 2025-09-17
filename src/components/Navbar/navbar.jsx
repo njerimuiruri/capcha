@@ -32,7 +32,6 @@ const Navbar = () => {
         setIsComponentsDropdownOpen(false);
     };
 
-    // Close dropdowns when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (
