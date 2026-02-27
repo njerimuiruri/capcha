@@ -51,7 +51,7 @@ export default function Home() {
           <MissionVisionSection />
           <CallToAction />
           <Dashboard />
-          <TeamsPage />
+          {/* <TeamsPage /> */}
           <PartnerSection />
           <BlogSection />
           <GallerySection />

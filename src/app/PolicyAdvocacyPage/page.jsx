@@ -151,7 +151,7 @@ const PolicyAdvocacyPage = () => {
 
                                 <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                                     <p>
-                                        CAPCHA serves as a unified platform to advocate for policies addressing the health impacts of climate change, creating avenues to influence national and international climate policies that incorporate health considerations.
+                                        CAPCHA serves as a unified platform to advocate for policies addressing Climate change impacts on health therefore creating avenues to influence national and international climate policies that incorporate health considerations.
                                     </p>
                                     <p>
                                         We align health strategies with broader climate resilience efforts and provide opportunities for participation in international climate negotiations, ensuring Africa&apos;s health priorities are represented in global climate actions.

@@ -13,6 +13,12 @@ const PartnerSection = () => {
             logo: "/img/Arin.png",
             description: "Africa Research Impact Network"
         },
+        {
+            id: 2,
+            name: "Africa Climate & Health Alliance",
+            logo: "/img/acha.webp",
+            description: "Africa Research Impact Network"
+        },
         // {
         //     id: 2,
         //     name: "World Bank",

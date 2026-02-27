@@ -17,8 +17,15 @@ import {
     Award,
     Globe,
     Heart,
-    Zap
+    Zap,
+    Sparkles,
+    Newspaper,
+    Link2,
+    Clock,
+    MessageSquare,
+    Radio,
 } from 'lucide-react';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
 
@@ -36,7 +43,6 @@ const CapacityEnhancementPage = () => {
         const interval = setInterval(() => {
             setCurrentVideo((prev) => (prev + 1) % videos.length);
         }, 5000);
-
         return () => clearInterval(interval);
     }, []);
 
@@ -46,42 +52,73 @@ const CapacityEnhancementPage = () => {
     }, []);
 
     const [scrollY, setScrollY] = useState(0);
+
     const capacityPrograms = [
         {
             icon: <GraduationCap className="w-8 h-8" />,
             title: "Summer School",
             description: "Intensive multi-week programs bringing together students, researchers, and practitioners from across Africa to build comprehensive expertise in climate-health intersections through hands-on learning.",
             color: "from-orange-500 to-red-600",
-            format: "In-person/Hybrid"
+            format: "In-person/Hybrid",
+            href: "/CapacityEnhancementPage/summer-school",  // update when page exists
         },
         {
             icon: <Zap className="w-8 h-8" />,
             title: "Bootcamps",
             description: "Intensive, fast-paced training sessions focused on practical skills and tools for addressing climate-health challenges through interdisciplinary approaches and real-world applications.",
             color: "from-teal-500 to-green-600",
-            format: "Interactive workshops"
+            format: "Interactive workshops",
+            href: "/CapacityEnhancementPage/bootcamps",
         },
         {
             icon: <Monitor className="w-8 h-8" />,
             title: "Webinars",
             description: "Regular online sessions featuring leading experts sharing latest research findings, policy developments, and innovative solutions in climate and health from across the continent.",
             color: "from-indigo-500 to-blue-600",
-            format: "Virtual sessions"
+            format: "Virtual sessions",
+            href: "/CapacityEnhancementPage/webinars",  // ← links to the new webinars listing page
         },
         {
             icon: <Calendar className="w-8 h-8" />,
             title: "Seminars/Workshops",
             description: "Interactive sessions designed for knowledge sharing, collaborative problem-solving, and skill building on specific climate-health topics with peer-to-peer learning opportunities.",
             color: "from-pink-500 to-rose-600",
-            format: "Interactive sessions"
+            format: "Interactive sessions",
+            href: "/CapacityEnhancementPage/seminars",
         },
         {
             icon: <BookOpen className="w-8 h-8" />,
             title: "Short Self-paced Courses",
             description: "Flexible online learning modules covering various aspects of climate and health, designed for busy professionals and accessible to learners at their own pace and schedule.",
             color: "from-purple-500 to-violet-600",
-            format: "Online modules"
-        }
+            format: "Online modules",
+            href: "/CapacityEnhancementPage/courses",
+        },
+        {
+            icon: <Sparkles className="w-8 h-8" />,
+            title: "CAPCHA Spotlight Series",
+            description: "A 90-minute monthly virtual series held every last Thursday (2:00–3:30 PM EAT), designed to bridge African research and real-world policy. Each session provokes cross-sector dialogue, translating climate-health science into actionable decision support. Once per quarter, structured cross-hub conversations bring together representatives from different climate-health platforms to explore complementarities, gaps, and alignment opportunities — with CAPCHA as a neutral convenor fostering ecosystem coherence.",
+            color: "from-amber-500 to-orange-600",
+            format: "Monthly · Last Thursday · 2:00–3:30 PM EAT",
+            href: "/CapacityEnhancementPage/spotlight-series",
+            highlight: true,
+        },
+        {
+            icon: <Newspaper className="w-8 h-8" />,
+            title: "CAPCHA Monthly Digest",
+            description: "A curated monthly publication synthesising the latest climate-health research, policy updates, funding opportunities, and event highlights from across Africa and beyond — keeping researchers, practitioners, and policymakers informed and connected.",
+            color: "from-cyan-500 to-teal-600",
+            format: "Monthly publication",
+            href: "/CapacityEnhancementPage/monthly-digest",
+        },
+        {
+            icon: <Link2 className="w-8 h-8" />,
+            title: "CAPCHA Connect",
+            description: "A community networking platform connecting African climate-health researchers, practitioners, and policymakers. CAPCHA Connect facilitates peer-to-peer knowledge exchange, collaboration on cross-border projects, and mentorship — building the continental community of practice needed to drive evidence-informed climate-health action.",
+            color: "from-rose-500 to-pink-600",
+            format: "Community platform",
+            href: "/CapacityEnhancementPage/connect",
+        },
     ];
 
     const focusAreas = [
@@ -89,13 +126,15 @@ const CapacityEnhancementPage = () => {
             icon: <Users className="w-8 h-8" />,
             title: "Community Engagement",
             description: "Empowering local populations through educational campaigns and community-based initiatives for climate adaptation and mitigation.",
-            color: "from-green-500 to-emerald-600"
+            color: "from-green-500 to-emerald-600",
+            href: null,
         },
         {
             icon: <School className="w-8 h-8" />,
             title: "Curriculum Integration",
             description: "Advocating for integration of health considerations in climate change courses across African universities and educational institutions.",
-            color: "from-blue-500 to-cyan-600"
+            color: "from-blue-500 to-cyan-600",
+            href: null,
         },
     ];
 
@@ -103,21 +142,20 @@ const CapacityEnhancementPage = () => {
         "Graduates equipped with transdisciplinary climate-health expertise",
         "Communities empowered to take climate adaptation actions",
         "Integrated health perspectives in climate education curricula",
-        "Strengthened local capacity for climate-health interventions"
+        "Strengthened local capacity for climate-health interventions",
     ];
 
     return (
         <>
-
             <Navbar />
             <div className="min-h-screen bg-white">
+                {/* Hero video section */}
                 <section className="relative mt-32 h-[600px] flex items-center overflow-hidden">
                     <div className="absolute inset-0">
                         {videos.map((video, index) => (
                             <video
                                 key={index}
-                                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentVideo ? 'opacity-100' : 'opacity-0'
-                                    }`}
+                                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentVideo ? 'opacity-100' : 'opacity-0'}`}
                                 autoPlay
                                 muted
                                 loop
@@ -152,8 +190,7 @@ const CapacityEnhancementPage = () => {
                         {videos.map((_, index) => (
                             <div
                                 key={index}
-                                className={`w-12 h-1 rounded-full transition-all duration-300 cursor-pointer ${index === currentVideo ? 'bg-[#0e8601]' : 'bg-white/30'
-                                    }`}
+                                className={`w-12 h-1 rounded-full transition-all duration-300 cursor-pointer ${index === currentVideo ? 'bg-[#0e8601]' : 'bg-white/30'}`}
                                 onClick={() => setCurrentVideo(index)}
                             >
                                 {index === currentVideo && (
@@ -164,6 +201,7 @@ const CapacityEnhancementPage = () => {
                     </div>
                 </section>
 
+                {/* Mission section */}
                 <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
                     <div className="max-w-7xl mx-auto">
                         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -174,7 +212,6 @@ const CapacityEnhancementPage = () => {
                                 <h2 className="text-4xl md:text-5xl font-bold text-[#021d49] mb-8 leading-tight">
                                     Empowering Africa&rsquo;s Climate-Health Leaders
                                 </h2>
-
                                 <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                                     <p>
                                         Raising awareness about the health risks of climate change and engaging communities in adaptation and mitigation efforts are vital for Africa&rsquo;s resilience. CAPCHA supports educational campaigns and community-based initiatives while empowering local populations to take meaningful action.
@@ -216,8 +253,10 @@ const CapacityEnhancementPage = () => {
                     </div>
                 </section>
 
+                {/* Focus Areas + Programs */}
                 <section className="py-20 px-4 bg-white">
                     <div className="max-w-7xl mx-auto">
+                        {/* Focus Areas */}
                         <div className="text-center mb-16">
                             <Badge className="mb-4 bg-[#0e8601]/10 text-[#0e8601] hover:bg-[#0e8601]/20">
                                 Focus Areas
@@ -231,27 +270,32 @@ const CapacityEnhancementPage = () => {
                         </div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-20">
-                            {focusAreas.map((area, index) => (
-                                <Card key={index} className="group hover:shadow-xl transition-all duration-500 border-0 bg-white hover:bg-gray-50 overflow-hidden">
-                                    <CardHeader className="pb-4">
-                                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${area.color} flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                                            {area.icon}
-                                        </div>
-                                        <CardTitle className="text-xl text-[#021d49] group-hover:text-[#0e8601] transition-colors">
-                                            {area.title}
-                                        </CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <CardDescription className="text-gray-600 leading-relaxed">
-                                            {area.description}
-                                        </CardDescription>
-                                    </CardContent>
-
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${area.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                                </Card>
-                            ))}
+                            {focusAreas.map((area, index) => {
+                                const CardInner = (
+                                    <Card key={index} className={`group hover:shadow-xl transition-all duration-500 border-0 bg-white hover:bg-gray-50 overflow-hidden relative ${area.href ? 'cursor-pointer' : ''}`}>
+                                        <CardHeader className="pb-4">
+                                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${area.color} flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                                                {area.icon}
+                                            </div>
+                                            <CardTitle className="text-xl text-[#021d49] group-hover:text-[#0e8601] transition-colors">
+                                                {area.title}
+                                            </CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <CardDescription className="text-gray-600 leading-relaxed">
+                                                {area.description}
+                                            </CardDescription>
+                                        </CardContent>
+                                        <div className={`absolute inset-0 bg-gradient-to-br ${area.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                                    </Card>
+                                );
+                                return area.href
+                                    ? <Link key={index} href={area.href}>{CardInner}</Link>
+                                    : <React.Fragment key={index}>{CardInner}</React.Fragment>;
+                            })}
                         </div>
 
+                        {/* Training Programs */}
                         <div className="text-center mb-16">
                             <Badge className="mb-4 bg-[#0e8601]/10 text-[#0e8601] hover:bg-[#0e8601]/20">
                                 Training Programs
@@ -266,26 +310,53 @@ const CapacityEnhancementPage = () => {
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {capacityPrograms.map((program, index) => (
-                                <Card key={index} className="group hover:shadow-xl transition-all duration-500 border-0 bg-white hover:bg-gray-50 overflow-hidden">
-                                    <CardHeader className="pb-4">
-                                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${program.color} flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                                            {program.icon}
-                                        </div>
-                                        <CardTitle className="text-xl text-[#021d49] group-hover:text-[#0e8601] transition-colors">
-                                            {program.title}
-                                        </CardTitle>
-                                        <div className="flex gap-2 mt-2">
-                                            <Badge variant="outline" className="text-xs">{program.format}</Badge>
-                                        </div>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <CardDescription className="text-gray-600 leading-relaxed">
-                                            {program.description}
-                                        </CardDescription>
-                                    </CardContent>
-
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${program.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                                </Card>
+                                <Link key={index} href={program.href}>
+                                    <Card className={`group hover:shadow-xl transition-all duration-500 overflow-hidden relative cursor-pointer h-full flex flex-col ${program.highlight
+                                        ? 'border-2 border-amber-300 bg-amber-50/30 hover:border-amber-400'
+                                        : 'border border-gray-100 hover:border-[#0e8601]/30 bg-white'
+                                        }`}>
+                                        {/* NEW badge for spotlight series */}
+                                        {program.highlight && (
+                                            <div className="absolute top-3 right-3 z-10">
+                                                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-500 text-white text-xs font-bold shadow-sm">
+                                                    <Sparkles className="w-3 h-3" /> NEW
+                                                </span>
+                                            </div>
+                                        )}
+                                        <CardHeader className="pb-4">
+                                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${program.color} flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                                                {program.icon}
+                                            </div>
+                                            <CardTitle className="text-xl text-[#021d49] group-hover:text-[#0e8601] transition-colors">
+                                                {program.title}
+                                            </CardTitle>
+                                            <div className="flex flex-wrap gap-2 mt-2">
+                                                {/* Split format on · to show as separate pills */}
+                                                {program.format.split('·').map((f, i) => (
+                                                    <Badge key={i} variant="outline" className={`text-xs ${program.highlight ? 'border-amber-400 text-amber-700 bg-amber-50' : ''}`}>
+                                                        {f.trim()}
+                                                    </Badge>
+                                                ))}
+                                            </div>
+                                        </CardHeader>
+                                        <CardContent className="flex flex-col flex-1">
+                                            <CardDescription className="text-gray-600 leading-relaxed flex-1">
+                                                {program.description}
+                                            </CardDescription>
+                                            {/* Always-visible CTA button */}
+                                            <div className="mt-5 pt-4 border-t border-gray-100">
+                                                <span className={`inline-flex items-center gap-2 text-sm font-semibold text-white px-4 py-2 rounded-lg transition-colors duration-300 ${program.highlight
+                                                    ? 'bg-amber-500 group-hover:bg-amber-600'
+                                                    : 'bg-[#021d49] group-hover:bg-[#0e8601]'
+                                                    }`}>
+                                                    Explore {program.title}
+                                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                                                </span>
+                                            </div>
+                                        </CardContent>
+                                        <div className={`absolute inset-0 bg-gradient-to-br ${program.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                                    </Card>
+                                </Link>
                             ))}
                         </div>
                     </div>

@@ -113,7 +113,7 @@ const AboutPage = () => {
                             <div>
                                 <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
                                     <Heart className="h-4 w-4" />
-                                    Climate Action Platform for Climate and Health in Africa
+                                    Consultative Platform On Climate And Health in Africa
                                 </div>
                                 <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full mb-8"></div>
                             </div>
@@ -121,7 +121,7 @@ const AboutPage = () => {
                             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
                                 Protecting African
                                 <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"> Communities</span>
-                                <br />from Climate Health Impacts
+                                <br />from Climate Change Impacts On Health
                             </h2>
 
                             <p className="text-gray-600 leading-relaxed text-lg">
@@ -327,8 +327,8 @@ const AboutPage = () => {
                 </div>
             </div>
 
-            <StatsSection />
-            <CAPCHAActivities />
+            {/* <StatsSection /> */}
+            {/* <CAPCHAActivities /> */}
             <Footer />
         </>
     );

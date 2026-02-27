@@ -96,11 +96,11 @@ const Footer = () => {
                                     About us
                                 </a>
                             </li>
-                            <li>
+                            {/* <li>
                                 <a href="#" className="text-gray-300 hover:text-orange-400 transition-colors text-sm">
                                     Our Team
                                 </a>
-                            </li>
+                            </li> */}
                             <li>
                                 <a href="#" className="text-gray-300 hover:text-orange-400 transition-colors text-sm">
                                     Recent Events

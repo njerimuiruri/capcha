@@ -207,11 +207,11 @@ const Navbar = () => {
                                             </Link>
 
                                             <Link
-                                                href="/StakeholderDatabase"
+                                                href="/Connect"
                                                 className="block px-5 py-3 text-[#021d49] dark:text-white hover:bg-[#0e8601] hover:bg-opacity-10 hover:text-[#0e8601] transition-colors duration-200 text-base"
                                                 onClick={closeAllDropdowns}
                                             >
-                                                Stakeholder Database
+                                                CAPCHA Connect
                                             </Link>
                                             <Link
                                                 href="/Knowledgesharingandengagement"

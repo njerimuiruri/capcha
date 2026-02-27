@@ -16,7 +16,8 @@ import {
     Globe,
     Users,
     ArrowRight,
-    CheckCircle
+    CheckCircle,
+    Code
 } from 'lucide-react';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
@@ -104,7 +105,13 @@ const ResearchPage = () => {
             title: "Ethical Frameworks",
             description: "Developing ethical guidelines for climate and health research that respects community values and rights.",
             color: "from-teal-500 to-green-600"
-        }
+        },
+        {
+            icon: <Code className="w-8 h-8" />,
+            title: "AI $ Tech Innovation",
+            description: "Leveraging artificial intelligence and technology to enhance climate and health research capabilities.",
+            color: "from-yellow-500 to-rose-600"
+        },
     ];
 
     const keyFacts = [
