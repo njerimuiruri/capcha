@@ -20,7 +20,6 @@ const HeroSection = () => {
         { icon: <Heart className="w-8 h-8" />, title: "Capacity Enhancement", href: "/CapacityEnhancementPage" }
     ];
 
-    // New initiatives — CAPCHA brand colours only (#021d49 navy, #0e8601 green, #ff9500 orange)
     const newInitiatives = [
         {
             icon: <Sparkles className="w-6 h-6" />,
