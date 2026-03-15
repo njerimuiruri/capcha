@@ -1,0 +1,341 @@
+{
+  "title": "Health National Adaptation Plans (HNAPs) — African Countries",
+  "description": "Status of Health National Adaptation Plans (HNAPs) across African countries, showing whether each country has implemented, is considering, or has not yet decided on developing an HNAP.",
+  "legend": {
+    "Implemented": "The country has developed and fully implemented a Health National Adaptation Plan (HNAP)",
+    "Under Consideration": "The country is in the process of developing or integrating an HNAP",
+    "Not Yet Decided": "The country has not yet initiated the process of developing an HNAP"
+  },
+  "summary": {
+    "total_countries": 53,
+    "implemented": 6,
+    "under_consideration": 36,
+    "not_yet_decided": 11
+  },
+  "columns": {
+    "country": "Name of the African country",
+    "hnap_status": "Current HNAP status: Implemented / Under Consideration / Not Yet Decided",
+    "integration_details": "Description of how health is being integrated into climate adaptation plans",
+    "source_url": "Reference URL for additional information (where available)"
+  },
+  "countries": [
+    {
+      "country": "Uganda",
+      "hnap_status": "Implemented",
+      "integration_details": "Uganda has developed and implemented a comprehensive HNAP focusing on health system resilience.",
+      "source_url": null
+    },
+    {
+      "country": "South Africa",
+      "hnap_status": "Under Consideration",
+      "integration_details": "South Africa has a National Climate Change and Health Adaptation Plan emphasizing climate-resilient health systems.",
+      "source_url": null
+    },
+    {
+      "country": "Mauritania",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Mauritania is in the process of developing its HNAP, focusing on integrating health into national adaptation strategies.",
+      "source_url": null
+    },
+    {
+      "country": "Malawi",
+      "hnap_status": "Implemented",
+      "integration_details": "Malawi is facing significant climate-related health challenges and is considering the development of an HNAP to address these issues.",
+      "source_url": null
+    },
+    {
+      "country": "Algeria",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Algeria has implemented an HNAP focusing on climate-resilient health systems.",
+      "source_url": null
+    },
+    {
+      "country": "Angola",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Angola is developing its HNAP to address climate-related health challenges.",
+      "source_url": null
+    },
+    {
+      "country": "Benin",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Benin is in the process of integrating health into its national adaptation plans.",
+      "source_url": null
+    },
+    {
+      "country": "Botswana",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Botswana has a comprehensive HNAP emphasizing climate-resilient health infrastructure.",
+      "source_url": null
+    },
+    {
+      "country": "Burkina Faso",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Is considering the development of HNAP to addreass health risks",
+      "source_url": null
+    },
+    {
+      "country": "Burundi",
+      "hnap_status": "Not Yet Decided",
+      "integration_details": "Burundi has yet to initiate the process of developing an HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Cape Verde",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Cabo Verde is exploring the integration of health into its climate adaptation plans.",
+      "source_url": null
+    },
+    {
+      "country": "Cameroon",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Cameroon is in the early stages of developing an HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Central African Republic",
+      "hnap_status": "Not Yet Decided",
+      "integration_details": "The Central African Republic has not yet decided on developing an HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Chad",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Chad is considering the development of an HNAP to address climate-related health risks.",
+      "source_url": null
+    },
+    {
+      "country": "Comoros",
+      "hnap_status": "Not Yet Decided",
+      "integration_details": "Comoros has not yet initiated the process of developing an HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Congo",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Congo is in the process of integrating health into its national adaptation plans.",
+      "source_url": null
+    },
+    {
+      "country": "Cote d'Ivoire",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Côte d'Ivoire is developing its HNAP to address climate-sensitive diseases.",
+      "source_url": null
+    },
+    {
+      "country": "DRC",
+      "hnap_status": "Under Consideration",
+      "integration_details": "The DRC is addressing health challenges exacerbated by climate change, such as disease outbreaks, and is considering integrating health into its national adaptation plans.",
+      "source_url": "https://www.lemonde.fr/en/le-monde-africa/article/2024/08/26/mpox-in-the-democratic-republic-of-congo-a-reshaped-response_6721692_124.html"
+    },
+    {
+      "country": "Djibouti",
+      "hnap_status": "Not Yet Decided",
+      "integration_details": "Djibouti has not yet decided on developing an HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Egypt",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Egypt has implemented an HNAP focusing on climate-resilient health systems.",
+      "source_url": null
+    },
+    {
+      "country": "Equatorial Guinea",
+      "hnap_status": "Not Yet Decided",
+      "integration_details": "Equatorial Guinea has not yet initiated the process of developing an HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Eritrea",
+      "hnap_status": "Not Yet Decided",
+      "integration_details": "Eritrea has not yet decided on developing an HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Estawini",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Eswatini is in the process of developing its HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Ethiopia",
+      "hnap_status": "Implemented",
+      "integration_details": "Ethiopia has implemented an HNAP focusing on climate-resilient health systems.",
+      "source_url": null
+    },
+    {
+      "country": "Gabon",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Gabon is considering the development of an HNAP to address climate-related health risks.",
+      "source_url": null
+    },
+    {
+      "country": "Gambia",
+      "hnap_status": "Under Consideration",
+      "integration_details": "The Gambia is in the process of integrating health into its national adaptation plans.",
+      "source_url": null
+    },
+    {
+      "country": "Ghana",
+      "hnap_status": "Implemented",
+      "integration_details": "Ghana has implemented an HNAP focusing on climate-resilient health systems.",
+      "source_url": null
+    },
+    {
+      "country": "Guinea",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Guinea is developing its HNAP to address climate-sensitive diseases.",
+      "source_url": null
+    },
+    {
+      "country": "Guinea Bissau",
+      "hnap_status": "Not Yet Decided",
+      "integration_details": "Guinea-Bissau has not yet decided on developing an HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Kenya",
+      "hnap_status": "Implemented",
+      "integration_details": "Kenya has implemented an HNAP focusing on climate-resilient health systems.",
+      "source_url": null
+    },
+    {
+      "country": "Lesotho",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Lesotho is in the process of developing its HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Liberia",
+      "hnap_status": "Not Yet Decided",
+      "integration_details": "Liberia is considering the development of an HNAP to address climate-related health risks.",
+      "source_url": null
+    },
+    {
+      "country": "Madagascar",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Madagascar is in the process of integrating health into its national adaptation plans.",
+      "source_url": null
+    },
+    {
+      "country": "Mali",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Mali is considering the development of an HNAP to address climate-related health risks.",
+      "source_url": null
+    },
+    {
+      "country": "Mauritius",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Mauritius has implemented an HNAP focusing on climate-resilient health systems.",
+      "source_url": null
+    },
+    {
+      "country": "Morocco",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Morocco has implemented an HNAP focusing on climate-resilient health systems.",
+      "source_url": null
+    },
+    {
+      "country": "Mozambique",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Mozambique is in the process of developing its HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Namibia",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Namibia is considering the development of an HNAP to address climate-related health risks.",
+      "source_url": null
+    },
+    {
+      "country": "Niger",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Niger is in the process of integrating health into its national adaptation plans.",
+      "source_url": null
+    },
+    {
+      "country": "Nigeria",
+      "hnap_status": "Implemented",
+      "integration_details": "Nigeria is developing its HNAP to address climate-sensitive diseases.",
+      "source_url": null
+    },
+    {
+      "country": "Rwanda",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Rwanda has implemented an HNAP focusing on climate-resilient health systems.",
+      "source_url": null
+    },
+    {
+      "country": "Sao Tome and Principe",
+      "hnap_status": "Not Yet Decided",
+      "integration_details": "São Tomé and Príncipe has not yet decided on developing an HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Senegal",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Senegal is in the process of developing its HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Seychelles",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Seychelles has implemented an HNAP focusing on climate-resilient health systems.",
+      "source_url": null
+    },
+    {
+      "country": "Sierra Leone",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Sierra Leone is considering the development of an HNAP to address climate-related health risks",
+      "source_url": null
+    },
+    {
+      "country": "Somalia",
+      "hnap_status": "Not Yet Decided",
+      "integration_details": "Somalia has not yet initiated the process of developing an HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "South Sudan",
+      "hnap_status": "Not Yet Decided",
+      "integration_details": "South Sudan has not yet decided on developing an HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Sudan",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Sudan is in the process of developing its HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Tanzania",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Tanzania is considering the development of an HNAP to address climate-related health risks.",
+      "source_url": null
+    },
+    {
+      "country": "Togo",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Togo is in the process of integrating health into its national adaptation plans.",
+      "source_url": null
+    },
+    {
+      "country": "Tunisia",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Tunisia has implemented an HNAP focusing on climate-resilient health systems.",
+      "source_url": null
+    },
+    {
+      "country": "Zambia",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Zambia is in the process of developing its HNAP.",
+      "source_url": null
+    },
+    {
+      "country": "Zimbabwe",
+      "hnap_status": "Under Consideration",
+      "integration_details": "Zimbabwe is considering the development of an HNAP to address climate-related health risks.",
+      "source_url": null
+    }
+  ]
+}

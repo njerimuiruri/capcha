@@ -1,0 +1,84 @@
+{
+  "title": "Technical Support & Networks — Climate and Health Partners in Africa",
+  "description": "Organizations providing non-direct funding but serving as key technical support and network partners in climate change and health work in Africa.",
+  "total_organizations": 6,
+  "columns": {
+    "organization": "Name of the technical support organization or network",
+    "country_or_region": "Country or region where the organization is based or operates",
+    "type_of_support": "List of types of support provided (e.g. Research, Capacity Building, Policy Guidance)",
+    "scope": "Geographic scope of work — Africa-focused or Global",
+    "link_label": "Display name of the link (if no direct URL available)",
+    "url": "Direct website URL (where available)"
+  },
+  "organizations": [
+    {
+      "organization": "Clim-HEALTH Africa",
+      "country_or_region": "Africa-wide",
+      "type_of_support": [
+        "Research",
+        "Capacity Building",
+        "Policy Support"
+      ],
+      "scope": "Africa",
+      "link_label": "Clim-HEALTH Africa",
+      "url": null
+    },
+    {
+      "organization": "World Health Organization (WHO) – Climate & Health Programme",
+      "country_or_region": "Global",
+      "type_of_support": [
+        "Research",
+        "Policy Guidance",
+        "Technical Support"
+      ],
+      "scope": "Global",
+      "link_label": "WHO Climate & Health",
+      "url": null
+    },
+    {
+      "organization": "United Nations Environment Programme (UNEP) – Climate & Health Nexus",
+      "country_or_region": "Global",
+      "type_of_support": [
+        "Research",
+        "Advocacy",
+        "Technical Assistance"
+      ],
+      "scope": "Global",
+      "link_label": "UNEP Climate & Health",
+      "url": null
+    },
+    {
+      "organization": "World Meteorological Organization (WMO) – Health, Climate & Environment Programme",
+      "country_or_region": "Global",
+      "type_of_support": [
+        "Research",
+        "Data & Forecasting"
+      ],
+      "scope": "Global",
+      "link_label": "WMO Climate & Health",
+      "url": null
+    },
+    {
+      "organization": "African Biodiversity Network (ABN)",
+      "country_or_region": "Africa",
+      "type_of_support": [
+        "Research",
+        "Capacity Building"
+      ],
+      "scope": "Africa",
+      "link_label": null,
+      "url": "https://africanbiodiversity.org"
+    },
+    {
+      "organization": "African Climate Policy Centre (ACPC)",
+      "country_or_region": "Africa",
+      "type_of_support": [
+        "Research",
+        "Policy Support"
+      ],
+      "scope": "Africa",
+      "link_label": null,
+      "url": "https://www.uneca.org/acpc"
+    }
+  ]
+}

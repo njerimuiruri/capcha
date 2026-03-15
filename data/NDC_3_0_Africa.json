@@ -1,0 +1,342 @@
+{
+  "title": "NDC Submission Status for African Countries",
+  "description": "Nationally Determined Contributions (NDC) submission status across African countries as of February 10, 2025.",
+  "note": "True indicates submission, False indicates non-submission as of the specified date.",
+  "columns": {
+    "Country": "Name of the African country",
+    "NDC_1_0_Submitted": "Whether the country submitted its first NDC (NDC 1.0)",
+    "NDC_2_0_Updated": "Whether the country submitted an updated NDC (NDC 2.0)",
+    "NDC_3_0_Submitted_by_Feb_10_2025": "Whether the country submitted NDC 3.0 by February 10, 2025"
+  },
+  "summary": {
+    "total_countries": 54,
+    "ndc_3_0_submitted": 3,
+    "ndc_3_0_not_submitted": 51
+  },
+  "countries": [
+    {
+      "Country": "Algeria",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Angola",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Benin",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Botswana",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Burkina Faso",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Burundi",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Cabo Verde",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Cameroon",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Central African Republic",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Chad",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Comoros",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Congo",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Côte d'Ivoire",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Democratic Republic of Congo",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Djibouti",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Egypt",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Equatorial Guinea",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Eritrea",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Eswatini",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Ethiopia",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Gabon",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Gambia",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Ghana",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Guinea",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Guinea-Bissau",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Kenya",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Lesotho",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": true
+    },
+    {
+      "Country": "Liberia",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Libya",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Madagascar",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Malawi",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Mali",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Mauritania",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Mauritius",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Morocco",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Mozambique",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Namibia",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Niger",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Nigeria",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Rwanda",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "São Tomé and Príncipe",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Senegal",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Seychelles",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Sierra Leone",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Somalia",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "South Africa",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "South Sudan",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Sudan",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Tanzania",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Togo",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Tunisia",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Uganda",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": false
+    },
+    {
+      "Country": "Zambia",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": true
+    },
+    {
+      "Country": "Zimbabwe",
+      "NDC_1_0_Submitted": true,
+      "NDC_2_0_Updated": true,
+      "NDC_3_0_Submitted_by_Feb_10_2025": true
+    }
+  ]
+}

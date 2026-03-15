@@ -1,0 +1,188 @@
+{
+  "title": "Climate Change and Health Funders in Africa",
+  "total_records": 25,
+  "columns": [
+    "Funder",
+    "Country",
+    "Type of Funding",
+    "Scope",
+    "Link"
+  ],
+  "data": [
+    {
+      "Funder": "Africa Climate Change Fund (ACCF)",
+      "Country": "Middle East and North AfricaSub-Saharan Africa",
+      "Type of Funding": "Grants",
+      "Scope": "Africa",
+      "Link": "https://accf.afdb.org/"
+    },
+    {
+      "Funder": "Conservation, Food & Health Foundation",
+      "Country": "Massachusetts, USA",
+      "Type of Funding": "Grants",
+      "Scope": "Global",
+      "Link": "https://cfhfoundation.grantsmanagement08.com/"
+    },
+    {
+      "Funder": "Global Environment Facility (GEF)",
+      "Country": "Washington DC, USA",
+      "Type of Funding": "Grants",
+      "Scope": "Global",
+      "Link": "https://www.thegef.org/"
+    },
+    {
+      "Funder": "The Wellcome Trust",
+      "Country": "London,United Kingdom",
+      "Type of Funding": "Grants",
+      "Scope": "Global",
+      "Link": "https://wellcome.org/"
+    },
+    {
+      "Funder": "African Development Bank (AfDB)",
+      "Country": "Abidjan, Côte d'Ivoire",
+      "Type of Funding": "Loans and Grants",
+      "Scope": "Africa",
+      "Link": "https://www.afdb.org/en"
+    },
+    {
+      "Funder": "Green Climate Fund (GCF)",
+      "Country": "Republic of Korea",
+      "Type of Funding": "Grants, Concessional Loans, Equity",
+      "Scope": "Global",
+      "Link": "https://www.greenclimate.fund/"
+    },
+    {
+      "Funder": "LIFE-AR (Locally Led Adaptation Finance)",
+      "Country": "Burkina Faso, Rwanda, Ethiopia, Madagascar, Malawi, Gambia",
+      "Type of Funding": "Grants",
+      "Scope": "Africa",
+      "Link": "https://www.life-ar.org/en/"
+    },
+    {
+      "Funder": "Global Resilience Partnership (GRP)",
+      "Country": "Cape Town, South Africa",
+      "Type of Funding": "Grants, Technical Assistance",
+      "Scope": "Africa",
+      "Link": "https://www.globalresiliencepartnership.org/"
+    },
+    {
+      "Funder": "African Water Facility (AWF)",
+      "Country": "Abidjan, Côte d'Ivoire",
+      "Type of Funding": "Grants, Loans",
+      "Scope": "Africa",
+      "Link": "https://www.africanwaterfacility.org/en"
+    },
+    {
+      "Funder": "ClimateWorks Foundation – Health & Climate Initiative",
+      "Country": "San Francisco, USA",
+      "Type of Funding": "Grants",
+      "Scope": "Global",
+      "Link": "https://www.climateworks.org/"
+    },
+    {
+      "Funder": "The African Union Commission (AUC) – Climate Resilience Fund",
+      "Country": "Addis Ababa, Ethiopia",
+      "Type of Funding": "Grants",
+      "Scope": "Africa",
+      "Link": "https://au.int/"
+    },
+    {
+      "Funder": "The Energy and Environment Partnership (EEP Africa)",
+      "Country": "Helsinki, Finland",
+      "Type of Funding": "Grants, Loans",
+      "Scope": "Africa",
+      "Link": "https://eepafrica.org/"
+    },
+    {
+      "Funder": "Norwegian Agency for Development Cooperation (NORAD)",
+      "Country": "Oslo, Norway",
+      "Type of Funding": "Grants",
+      "Scope": "Africa",
+      "Link": "https://www.norad.no/en/"
+    },
+    {
+      "Funder": "Rockefeller Foundation – Climate & Health",
+      "Country": "Washington DC, USA",
+      "Type of Funding": "Grants, Investments",
+      "Scope": "Global",
+      "Link": "https://www.rockefellerfoundation.org/initiatives/climate-health/"
+    },
+    {
+      "Funder": "Swedish International Development Cooperation Agency (SIDA)",
+      "Country": "Sundbyberg, Sweden",
+      "Type of Funding": "Grants",
+      "Scope": "Global",
+      "Link": "https://www.sida.se/en"
+    },
+    {
+      "Funder": "African Risk Capacity (ARC)",
+      "Country": "Johannesburg, South Africa",
+      "Type of Funding": "Grants, Insurance",
+      "Scope": "Africa",
+      "Link": "https://www.arc.int/"
+    },
+    {
+      "Funder": "Climate and Development Knowledge Network (CDKN)",
+      "Country": "Cape Town, South Africa",
+      "Type of Funding": "Grants, Technical Support",
+      "Scope": "Global",
+      "Link": "https://cdkn.org/"
+    },
+    {
+      "Funder": "Bill & Melinda Gates Foundation",
+      "Country": "Seattle, Washington , USA",
+      "Type of Funding": "Grants",
+      "Scope": "Global",
+      "Link": "https://www.gatesfoundation.org/"
+    },
+    {
+      "Funder": "The Global Fund",
+      "Country": "Geneva, Switzerland",
+      "Type of Funding": "Grants",
+      "Scope": "Global",
+      "Link": "https://www.theglobalfund.org/"
+    },
+    {
+      "Funder": "University of Columbia",
+      "Country": "New York",
+      "Type of Funding": "Grants",
+      "Scope": "Global",
+      "Link": "https://www.columbia.edu/"
+    },
+    {
+      "Funder": "Grand Challenges",
+      "Country": "Canada",
+      "Type of Funding": "Grants",
+      "Scope": "Global",
+      "Link": "https://www.grandchallenges.org/"
+    },
+    {
+      "Funder": "International Development Research Center (IDRC)",
+      "Country": "Canada",
+      "Type of Funding": "Grants",
+      "Scope": "Global",
+      "Link": "https://idrc-crdi.ca/en"
+    },
+    {
+      "Funder": "Climate Investment Funds (CIF)",
+      "Country": "USA",
+      "Type of Funding": "Grants, Loans",
+      "Scope": "Global",
+      "Link": "https://www.cif.org/"
+    },
+    {
+      "Funder": "Islamic Development Bank (IsDB)",
+      "Country": "Saudi Arabia",
+      "Type of Funding": "Loans, Grants",
+      "Scope": "Global",
+      "Link": "https://www.isdb.org/"
+    },
+    {
+      "Funder": "The William and Flora Hewlett Foundation",
+      "Country": "USA",
+      "Type of Funding": "Grants",
+      "Scope": "Global",
+      "Link": "https://hewlett.org/"
+    }
+  ]
+}

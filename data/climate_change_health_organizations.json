@@ -1,0 +1,558 @@
+{
+  "title": "Climate Change and Health Organizations in Africa",
+  "description": "A directory of organizations working at the intersection of climate change and health in Africa, including their focus areas, partners, funders, and locations.",
+  "total_organizations": 24,
+  "columns": {
+    "organization": "Name of the organization",
+    "scope": "Geographic scope of work (e.g. Africa, Global, Regional, National)",
+    "projects_and_thematic_focus": "List of projects or thematic focus areas the organization works on",
+    "partners": "List of partner organizations collaborating on the work",
+    "project_location": "Specific countries or regions where projects are implemented",
+    "funder": "List of funders supporting the organization or projects",
+    "funder_location": "Location of the funder (if available)",
+    "link": "Website or project URL for more information"
+  },
+  "organizations": [
+    {
+      "organization": "Africa Population and Health Research Center",
+      "scope": "Africa",
+      "projects_and_thematic_focus": [
+        "Visibilizing Climate Change Impacts on Nutrition and Mental Health among Vulnerable Populations in East African Drylands to catalyse climate action at scale (Visibilize4ClimateAction in East Africa Project)"
+      ],
+      "partners": [
+        "Center for International Forest Research and World Agroforestry (CIFOR-ICRAF)",
+        "University of Nairobi",
+        "Oxford University",
+        "PELUM Kenya",
+        "London School of Hygiene & Tropical Medicine",
+        "Loughborough University"
+      ],
+      "project_location": "Kenya , Uganda, Ethiopia, Tanzania",
+      "funder": [
+        "Wellcome Trust"
+      ],
+      "funder_location": null,
+      "link": "https://aphrc.org/career/visibilize4climateaction-website-web-developer-consultancy/"
+    },
+    {
+      "organization": "Grand Challenges Ethiopia (Armauer Hansen Research Institute)",
+      "scope": "National",
+      "projects_and_thematic_focus": [
+        "Seeking innovative solutions to address climate change impacts on health, women's lives, and agriculture."
+      ],
+      "partners": [
+        "pan -Afrca",
+        "Ministry of Health Brazil",
+        "Department of Biotechnology of India",
+        "National Council for Science and Technology"
+      ],
+      "project_location": "Ethiopia",
+      "funder": [
+        "Bill & Melinda Gates Foundation",
+        "Wellcome",
+        "Foundation S-The Sanofi Collective",
+        "Rockefeller Foundation"
+      ],
+      "funder_location": null,
+      "link": "https://www2.fundsforngos.org/latest-funds-for-ngos/up-to-usd-100000-grant-for-advancing-solutions-for-climate-change-impact-on-health-ethiopia/"
+    },
+    {
+      "organization": "WHO-Mozambique",
+      "scope": "National",
+      "projects_and_thematic_focus": [
+        "Strengthening the resilience of the Mozambique health system to climate change impacts"
+      ],
+      "partners": [
+        "Ministry of Health",
+        "National Institute of Health (INS)",
+        "National Meteorological Institute (INAM)",
+        "National Institute of Disaster Management (INGC)",
+        "Universidade Eduardo Mondlane",
+        "University of Oslo",
+        "WHO/WMO Health and Climate Office."
+      ],
+      "project_location": "Mozambique",
+      "funder": [
+        "Government of Flanders"
+      ],
+      "funder_location": null,
+      "link": "https://www.who.int/news/item/01-01-2018-strengthening-the-resilience-of-the-mozambique-health-system-to-climate-change-impacts"
+    },
+    {
+      "organization": "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
+      "scope": "Global",
+      "projects_and_thematic_focus": [
+        "Adaptation to climate change in the health sector: Improving engagement, evidence and action in sub-Saharan African countries"
+      ],
+      "partners": [
+        "World  Health Organization"
+      ],
+      "project_location": "Guinea, Madagascar, Malawi and Zambia",
+      "funder": [
+        "GEF",
+        "WHO"
+      ],
+      "funder_location": null,
+      "link": "https://www.who.int/news/item/01-11-2013-adaptation-to-climate-change-in-the-health-sector-improving-engagement-evidence-and-action-in-sub-saharan-african-countries"
+    },
+    {
+      "organization": "World Health Orgnaization",
+      "scope": "Global",
+      "projects_and_thematic_focus": [
+        "Climate change adaptation to protect human health"
+      ],
+      "partners": [
+        "United Nations Development Program"
+      ],
+      "project_location": "Barbados, Bhutan, China, Fiji, Kenya, Jordan, Uzbekistan",
+      "funder": [
+        "Global Environment Facility (GEF) Special Climate Change Fund (SCCF)"
+      ],
+      "funder_location": null,
+      "link": "https://www.who.int/news/item/01-10-2010-climate-change-adaptation-to-protect-human-health"
+    },
+    {
+      "organization": "Pan-African Climate Justice Alliance (PACJA)",
+      "scope": "Regional",
+      "projects_and_thematic_focus": [
+        "The Galvanising and Unifying Africa’s Action for Resilient Development in the Era of the Pandemic(GUARD) Africa Project"
+      ],
+      "partners": [],
+      "project_location": "Kenya, Botswana, Zambia, Ethiopia, Ivory Coast, Gabon, Nigeria, Rwanda, Niger , Cameroon",
+      "funder": [
+        "Swedish International Develoment Agency"
+      ],
+      "funder_location": null,
+      "link": null
+    },
+    {
+      "organization": "South African Medical Research Council (SAMRC) - Climate & Health Unit",
+      "scope": "Regional",
+      "projects_and_thematic_focus": [
+        "Climate Change and Human Health Research Programme",
+        "Persistent Toxic Substance Research Programme",
+        "Water, sanitation and Society Research Programme"
+      ],
+      "partners": [
+        "University of Cape Town",
+        "University of Johannesburg, UNEP"
+      ],
+      "project_location": "South Africa",
+      "funder": [
+        "National Research Foundation (NRF)",
+        "WHO"
+      ],
+      "funder_location": null,
+      "link": "https://www.samrc.ac.za/"
+    },
+    {
+      "organization": "EcoHealth Alliance",
+      "scope": "Global",
+      "projects_and_thematic_focus": [
+        "Promoting Biodiversity Conservation and Enhancing Economic Prosperity in Liberia through a One Health Approach"
+      ],
+      "partners": [
+        "World Wildlife Fund (WWF)",
+        "Food and Agriculture Organization (FAO)",
+        "Local Communities"
+      ],
+      "project_location": "Liberia",
+      "funder": [
+        "United States Agency for International Development"
+      ],
+      "funder_location": null,
+      "link": "https://www.ecohealthalliance.org/program/conservation-works"
+    },
+    {
+      "organization": "Association of African Universities (AAU)",
+      "scope": "Africa",
+      "projects_and_thematic_focus": [
+        "Mapping Research Infrastructure To Enhance The Resilience Of Science Systems In Sub-Saharan Africa"
+      ],
+      "partners": [],
+      "project_location": "All African countries",
+      "funder": [
+        "International Development Research Centre (IDRC)",
+        "UK Foreign Commonwealth Development Office"
+      ],
+      "funder_location": null,
+      "link": "https://aau.org/mapping-research-infrastructure-to-enhance-the-resilience-of-science-systems-in-sub-saharan-africa/"
+    },
+    {
+      "organization": "Centre for International Forestry Research (CIFOR)",
+      "scope": "Global",
+      "projects_and_thematic_focus": [
+        "Women Shellfishers and Food Security Activity",
+        "Restoration of rangeland carbon sinks for increased community climate resilience and agricultural outcomes",
+        "Towards food security, better nutrition, and resilience through adaptive learning and nested scale support of agency in local communities in the Yangambi Engagement Landscape",
+        "Food trees for diversified diets, improved nutrition, and better livelihoods for smallholders in East Africa"
+      ],
+      "partners": [
+        "University of Ghana, University of Cape Coast, USAID",
+        "World Agroforestry",
+        "Entraide Multisectorielle pour la Survie et le Développement en RDC (EMSuDe-RDC)",
+        "JKUAT, Kenya Agriculture Livestock Research Organization, Feed the Children, Tharaka Nithi County Government, SGS"
+      ],
+      "project_location": "Ghana",
+      "funder": [
+        "University of Rhode Island"
+      ],
+      "funder_location": null,
+      "link": "https://www.cifor-icraf.org/project/3122f7dafb324538a4bf1f4df7917d6f"
+    },
+    {
+      "organization": "Arab Network for Environment and Development (RAED)",
+      "scope": "Arabian Nations",
+      "projects_and_thematic_focus": [
+        "Regional Solid Waste Management Program RCSWMP"
+      ],
+      "partners": [
+        "Enda Morocco Association-Morocco",
+        "Kairouan Environmental Protection Association-Tunisia",
+        "Lebanese Authority for Environment and Development-Lebanon",
+        "Dutch Taumelio Foundation"
+      ],
+      "project_location": "Egypt, Morocco, Tunisia, Lebanon",
+      "funder": [
+        "European Union"
+      ],
+      "funder_location": null,
+      "link": "https://raednetwork.org/en/portfolio/regional-solid-waste-management-program-rcswmp/"
+    },
+    {
+      "organization": "The Global Fund",
+      "scope": "Global",
+      "projects_and_thematic_focus": [
+        "Disease (Malaria, Tuberclosis, HIV) control in the context of climate change"
+      ],
+      "partners": [
+        "World Bank and the Green Climate Fund"
+      ],
+      "project_location": "Global",
+      "funder": [
+        "Global Fund"
+      ],
+      "funder_location": null,
+      "link": "https://www.theglobalfund.org/en/climate-change/"
+    },
+    {
+      "organization": "African Centre for Cities",
+      "scope": "Africa",
+      "projects_and_thematic_focus": [
+        "Urban Food Futures"
+      ],
+      "partners": [
+        "TMG Think Tanks for Sustainability",
+        "Muungano Alliance Food Agency",
+        "Cape Town Miramar International Foundation"
+      ],
+      "project_location": "African countries",
+      "funder": [
+        "German Federal Ministry for Economic Cooperation and Development (BMZ)"
+      ],
+      "funder_location": null,
+      "link": "https://www.africancentreforcities.net/programme/urban-food-futures/"
+    },
+    {
+      "organization": "Amref Africa",
+      "scope": "Africa",
+      "projects_and_thematic_focus": [],
+      "partners": [
+        "The Carter Center",
+        "Clean Air Africa",
+        "KEMRI",
+        "University of Kent",
+        "University of Liverpool",
+        "University of Sydney",
+        "University of Witwatersrand",
+        "Johanessburg",
+        "SIDRA Institute",
+        "Global Challenges Reseach Fund(GCRF)",
+        "AU",
+        "Bill&Mellinda Gates Foundation",
+        "University of Kinshasa",
+        "University of Edinburg",
+        "Danone Ecosyteme"
+      ],
+      "project_location": "African countries",
+      "funder": [
+        "USAID",
+        "UNICEF",
+        "Center for Disease Control",
+        "Global Fund",
+        "Foreign Affairs",
+        "Trade and Development Canada(DFATD)",
+        "United Nations Population Fund(UNFPA)"
+      ],
+      "funder_location": null,
+      "link": "https://amref.org/"
+    },
+    {
+      "organization": "Center for Applied Research on the Environment and Sustainability (CARES)",
+      "scope": "Africa",
+      "projects_and_thematic_focus": [],
+      "partners": [
+        "Erasmus+",
+        "Heliopolis University",
+        "University of Nicosia",
+        "GIZ",
+        "IDRC",
+        "UNESCO",
+        "Al Alfi Foundation",
+        "Suez Canal University",
+        "Washington State University",
+        "DAAD",
+        "Uta State University",
+        "Agricultural Research Center"
+      ],
+      "project_location": "African countries",
+      "funder": [
+        "IDRC",
+        "GIZ"
+      ],
+      "funder_location": null,
+      "link": "https://sse.aucegypt.edu/centers-labs/cares"
+    },
+    {
+      "organization": "African Ministers Council on Water",
+      "scope": "Africa",
+      "projects_and_thematic_focus": [],
+      "partners": [
+        "UNICEF",
+        "UNEP",
+        "UNDP",
+        "Global Water Partnership",
+        "African Civil Society Network on Water and Sanitation (ANEW)",
+        "AU"
+      ],
+      "project_location": "African countries",
+      "funder": [
+        "Bill & Melinda Gates Foundation",
+        "European Union",
+        "Global Environment Facility",
+        "FCDO",
+        "GIZ",
+        "USAID",
+        "World Bank",
+        "Global Sanitation Fund (GSF)"
+      ],
+      "funder_location": null,
+      "link": "https://amcow-online.org/amcow/"
+    },
+    {
+      "organization": "The African Women's Development and Communication Network (FEMNET)",
+      "scope": "Africa",
+      "projects_and_thematic_focus": [
+        "Advocacy for gender-responsive climate policies and programs that address health disparities."
+      ],
+      "partners": [
+        "PACJA",
+        "OXFAM",
+        "UN Women",
+        "APHRC",
+        "Aga Khan Foundation",
+        "UNDP",
+        "Feminista",
+        "Internationa Women's Health Foundation"
+      ],
+      "project_location": "African countries",
+      "funder": [
+        "SIDA",
+        "EU",
+        "Bill & Mellinda Gates Foundation",
+        "Global Fund for Women",
+        "African Women Development Fund"
+      ],
+      "funder_location": null,
+      "link": "https://www.femnet.org/"
+    },
+    {
+      "organization": "African Institute for Development Policy (AFIDEP)",
+      "scope": "Africa",
+      "projects_and_thematic_focus": [
+        "Research on climate change impacts on health and policy advocacy"
+      ],
+      "partners": [
+        "AU",
+        "WHO",
+        "Ministries of Health",
+        "APHRC",
+        "UNFPA country offices",
+        "Institute for Policy Research & Social Empowerment",
+        "IPRSE",
+        "University of Malawi"
+      ],
+      "project_location": "Kenya, Malawi, Rwanda",
+      "funder": [
+        "Bill & Melinda Gates Foundation"
+      ],
+      "funder_location": null,
+      "link": "https://afidep.org/"
+    },
+    {
+      "organization": "Women Environmental Programme",
+      "scope": "Africa",
+      "projects_and_thematic_focus": [
+        "Gender, climate change, and health - Empowering Communities for Effective WASH Practices in Gwagwalada LG, FCT Abuja"
+      ],
+      "partners": [
+        "UNDP",
+        "Coalition for Social Ecological",
+        "Trees for Cities",
+        "Both ENDS"
+      ],
+      "project_location": "Nigeria, but works its other projects in Burkina Faso, Tunisia, Togo, Niger, Sierra Leone",
+      "funder": [
+        "GEF",
+        "EU",
+        "Government of Nedherlands",
+        "Global Community Engagement and Resilience Fund",
+        "Charities Aid Foundation America (CAF America)"
+      ],
+      "funder_location": null,
+      "link": "https://wepnigeria.net/"
+    },
+    {
+      "organization": "Save the Children",
+      "scope": "Global",
+      "projects_and_thematic_focus": [
+        "Climate change, health, and child protection"
+      ],
+      "partners": [
+        "American Express",
+        "American Express",
+        "Apple",
+        "Inc.",
+        "Baxter International Foundation",
+        "Boston Consulting Group (BCG)",
+        "Bristol-Myers Squibb",
+        "Cargill",
+        "Carnival Corporation & plc",
+        "Carter’s",
+        "Charles Monat Associates",
+        "Cherry Hill Programs",
+        "Cisco",
+        "Citi Foundation",
+        "The Starbucks Foundation",
+        "Warner Bross Discovery"
+      ],
+      "project_location": "Burkina Faso, Democratic Republic of Congo, Egypt, Ethiopia, Kenya, Malawi, Mali, Mozambique, Niger, Nigeria, Rwanda, Sierra Leone, Somalia, South Sudan, Sudan, Tanzania, Uganda, Zambia, Zimbabwe",
+      "funder": [
+        "European Union",
+        "Bill & Mellinda Gates Foundation",
+        "Johnson & Johnson",
+        "Bank of America",
+        "Microsoft",
+        "Fidelity",
+        "Paypal"
+      ],
+      "funder_location": null,
+      "link": "https://www.savethechildren.org/"
+    },
+    {
+      "organization": "CARE International",
+      "scope": "Global",
+      "projects_and_thematic_focus": [
+        "Climate resilience, health, and gender equality"
+      ],
+      "partners": [
+        "Health Work Committees (HWC",
+        "Union of Agricultural Workers Committees (UAWC)"
+      ],
+      "project_location": "African countries",
+      "funder": [
+        "USAID",
+        "The Centers for Disease Control and Prevention (CDC)",
+        "United States of America State Department",
+        "Global Fund",
+        "The World Bank",
+        "Millennium Challenge Corporation (MCC)",
+        "IDRC",
+        "GCF"
+      ],
+      "funder_location": null,
+      "link": "https://www.care.org/"
+    },
+    {
+      "organization": "American Institutes for Research (AIR)",
+      "scope": "Global",
+      "projects_and_thematic_focus": [
+        "Exploring linkages between socioeconomic indicators and climate change impacts on public health."
+      ],
+      "partners": [
+        "African Economic Research Consortium (AERC)",
+        "Georgia State University (Atlanta",
+        "USA)",
+        "Howard University (Washington",
+        "D.C.",
+        "USA)",
+        "The University of Texas at San Antonio (USA)",
+        "Union for African Population Studies (UAPS)",
+        "University of Dar es Salaam (Tanzania) University of Nairobi (Kenya)"
+      ],
+      "project_location": "Kenya, Uganda, Tanzania",
+      "funder": [
+        "Bill and Melinda Gates Foundation",
+        "Defense Advanced Research Projects Agency",
+        "George Kaiser Family Foundation",
+        "the state of California",
+        "the U.S. Department of Education",
+        "and the U.S. Department of Health and Human Services."
+      ],
+      "funder_location": null,
+      "link": "https://www.air.org/"
+    },
+    {
+      "organization": "Eastern Africa GEOHealth Hub",
+      "scope": "Regional",
+      "projects_and_thematic_focus": [
+        "Research and training center focused on environmental and occupational health in eastern Africa."
+      ],
+      "partners": [
+        "Addis Ababa University",
+        "Mailman School of Public Heath",
+        "Colorado School of Public Health",
+        "Universoty of Rwanda",
+        "Kintampo Health Research Center",
+        "University of Southern Carlifonia",
+        "University of Nairobi",
+        "Makerere University",
+        "Vital Strategies"
+      ],
+      "project_location": "Kenya, Ethiopia, Uganda, Tanzania, Rwanda,",
+      "funder": [
+        "World Resource Institute",
+        "Fogarty International Center of the National Institutes of Health"
+      ],
+      "funder_location": null,
+      "link": "https://geohealth-hub.org/"
+    },
+    {
+      "organization": "CHASE Africa",
+      "scope": "Global",
+      "projects_and_thematic_focus": [
+        "Community Health & Sustainable Environment \nHealthy environment \nHealthy communities\nHealthy women"
+      ],
+      "partners": [
+        "Reproductive Health Network Kenya",
+        "Kalyet Afya Foundation",
+        "Mount Kenya Trust",
+        "Rural Initiative for Community Empowerment West Nile",
+        "Rwenzori Centre for Research and Advocacy Uganda",
+        "Save The Elephants",
+        "Dandelion Africa",
+        "South Rift Association of Land Owners",
+        "The Maa Trust",
+        "Community Health Volunteers",
+        "Community Health Africa Trust",
+        "Big Life Foundation"
+      ],
+      "project_location": "Kenya and Uganda",
+      "funder": [
+        "Randal Charitable Foundation."
+      ],
+      "funder_location": null,
+      "link": "https://www.chaseafrica.org.uk/"
+    }
+  ]
+}
