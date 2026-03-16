@@ -361,6 +361,82 @@ const CapacityEnhancementPage = () => {
                         </div>
                     </div>
                 </section>
+
+                {/* ── OPEN CALLS CTA ── */}
+                <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+                    <div className="max-w-5xl mx-auto">
+                        <div className="text-center mb-10">
+                            <div className="inline-flex items-center gap-2 bg-[#0e8601]/10 border border-[#0e8601]/30 text-[#0e8601] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
+                                <span className="w-2 h-2 rounded-full bg-[#0e8601] animate-pulse inline-block"></span>
+                                Applications Now Open
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-[#021d49] mb-3">Ready to Get Involved?</h2>
+                            <p className="text-gray-500 max-w-xl mx-auto">Three active calls are open right now. Apply, register, or enrol directly.</p>
+                        </div>
+
+                        <div className="grid md:grid-cols-3 gap-6">
+                            {/* Spotlight Series */}
+                            <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#ff9500] to-[#c97000]" />
+                                <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full" />
+                                <div className="relative p-7 flex flex-col h-full min-h-[260px]">
+                                    <span className="inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 self-start">
+                                        <span className="w-1.5 h-1.5 bg-white rounded-full animate-ping"></span>
+                                        2026 Call Open
+                                    </span>
+                                    <Sparkles className="w-8 h-8 text-white mb-3" />
+                                    <h3 className="text-white font-extrabold text-lg mb-2 leading-snug">Spotlight Series<br />Presenters & Moderators</h3>
+                                    <p className="text-white/75 text-sm leading-relaxed flex-1 mb-5">Apply to present or moderate a 2026 CAPCHA Spotlight Series session.</p>
+                                    <a href="https://ee.kobotoolbox.org/single/b5423b283351f3f61595a92a17a66e00"
+                                        target="_blank" rel="noopener noreferrer"
+                                        className="flex items-center justify-center gap-2 bg-white text-[#c97000] hover:bg-orange-50 font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200">
+                                        Apply Now <ArrowRight className="w-4 h-4" />
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* CAPCHA Connect */}
+                            <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#021d49] to-[#03337a]" />
+                                <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/5 rounded-full" />
+                                <div className="relative p-7 flex flex-col h-full min-h-[260px]">
+                                    <span className="inline-flex items-center gap-1.5 bg-white/15 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 self-start">
+                                        <span className="w-1.5 h-1.5 bg-[#ff9500] rounded-full animate-ping"></span>
+                                        Registration Open
+                                    </span>
+                                    <Link2 className="w-8 h-8 text-white mb-3" />
+                                    <h3 className="text-white font-extrabold text-lg mb-2 leading-snug">CAPCHA Connect<br />Community Platform</h3>
+                                    <p className="text-white/75 text-sm leading-relaxed flex-1 mb-5">Register for Africa's premier climate-health networking community.</p>
+                                    <a href="https://ee.kobotoolbox.org/single/81f9beab8ea9a72662b5c429f732f7f3"
+                                        target="_blank" rel="noopener noreferrer"
+                                        className="flex items-center justify-center gap-2 bg-[#ff9500] hover:bg-[#e6850e] text-white font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200">
+                                        Register Now <ArrowRight className="w-4 h-4" />
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Learning Curve */}
+                            <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#0e8601] to-[#0a6e01]" />
+                                <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full" />
+                                <div className="relative p-7 flex flex-col h-full min-h-[260px]">
+                                    <span className="inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 self-start">
+                                        <span className="w-1.5 h-1.5 bg-white rounded-full animate-ping"></span>
+                                        Enrolment Open
+                                    </span>
+                                    <BookOpen className="w-8 h-8 text-white mb-3" />
+                                    <h3 className="text-white font-extrabold text-lg mb-2 leading-snug">Learning Curve<br />Structured Programme</h3>
+                                    <p className="text-white/75 text-sm leading-relaxed flex-1 mb-5">Enrol in a structured learning programme for Africa's next-generation climate-health researchers.</p>
+                                    <a href="https://ee.kobotoolbox.org/single/5b3703edf1a128aa20c66dff2fadd84f"
+                                        target="_blank" rel="noopener noreferrer"
+                                        className="flex items-center justify-center gap-2 bg-white text-[#0a6e01] hover:bg-green-50 font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200">
+                                        Enrol Now <ArrowRight className="w-4 h-4" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
             <Footer />
         </>

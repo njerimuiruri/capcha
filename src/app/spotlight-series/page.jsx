@@ -1,13 +1,11 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { Sparkles, ChevronRight, Bell, ArrowLeft, Clock, Calendar, Users, Globe, Zap, CheckCircle } from 'lucide-react';
+import { Sparkles, ChevronRight, ArrowLeft, ArrowRight, Clock, Calendar, Users } from 'lucide-react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
 
 const SpotlightSeriesPage = () => {
-    const [email, setEmail] = useState('');
-    const [submitted, setSubmitted] = useState(false);
     const launchDate = new Date('2025-10-30T14:00:00');
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
@@ -26,8 +24,6 @@ const SpotlightSeriesPage = () => {
         const id = setInterval(tick, 1000);
         return () => clearInterval(id);
     }, []);
-
-    const handleNotify = (e) => { e.preventDefault(); if (email) setSubmitted(true); };
 
     const features = [
         { icon: '🎯', title: 'Cross-Sector Dialogue', desc: 'Each session provokes conversation across research, policy, and practice — breaking down silos between disciplines.' },
@@ -146,32 +142,45 @@ const SpotlightSeriesPage = () => {
                     </div>
                 </section>
 
-                {/* ── NOTIFY FORM ── */}
+                {/* ── 2026 CALL FOR PRESENTERS CTA ── */}
                 <section className="py-20 px-4 bg-white">
-                    <div className="max-w-xl mx-auto text-center">
-                        <div className="w-14 h-14 rounded-2xl bg-[#ff9500]/10 flex items-center justify-center mx-auto mb-6">
-                            <Bell className="w-7 h-7 text-[#ff9500]" />
-                        </div>
-                        <h2 className="text-2xl font-bold text-[#021d49] mb-3">Be the First to Join</h2>
-                        <p className="text-gray-500 mb-8 leading-relaxed">Register your interest and we'll send you the invite for the first session.</p>
+                    <div className="max-w-2xl mx-auto">
+                        {/* Glowing card */}
+                        <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                            {/* Gradient background */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#ff9500] via-[#e6850e] to-[#c97000]" />
+                            {/* Decorative circles */}
+                            <div className="absolute -top-16 -right-16 w-64 h-64 bg-white/10 rounded-full" />
+                            <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-white/5 rounded-full" />
 
-                        {submitted ? (
-                            <div className="bg-[#0e8601]/5 border border-[#0e8601]/20 rounded-2xl py-8 px-8">
-                                <CheckCircle className="w-10 h-10 text-[#0e8601] mx-auto mb-3" />
-                                <p className="text-[#021d49] font-bold text-lg">You're on the list!</p>
-                                <p className="text-gray-500 text-sm mt-2">We'll send you the invite when the first session is scheduled.</p>
+                            <div className="relative p-10 text-center">
+                                {/* Pulsing badge */}
+                                <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+                                    <span className="relative flex h-2 w-2">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                                    </span>
+                                    2026 Call Now Open
+                                </div>
+
+                                <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
+                                    Be a Presenter<br />or Moderator
+                                </h2>
+                                <p className="text-white/85 text-base leading-relaxed mb-8 max-w-lg mx-auto">
+                                    Share your climate-health expertise with Africa's leading researchers and policymakers. Applications for the 2026 CAPCHA Spotlight Series are now open.
+                                </p>
+
+                                <a href="https://ee.kobotoolbox.org/single/b5423b283351f3f61595a92a17a66e00"
+                                    target="_blank" rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-3 bg-white text-[#c97000] hover:bg-orange-50 font-extrabold text-base px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+                                    <Sparkles className="w-5 h-5" />
+                                    Apply Now — 2026 Call
+                                    <ArrowRight className="w-5 h-5" />
+                                </a>
+
+                                <p className="text-white/60 text-xs mt-5">Takes ~5 minutes · Open to all African climate-health professionals</p>
                             </div>
-                        ) : (
-                            <form onSubmit={handleNotify} className="flex flex-col sm:flex-row gap-3">
-                                <input type="email" required placeholder="Enter your email address" value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="flex-1 px-5 py-3.5 rounded-xl border border-gray-200 bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0e8601]/30 focus:border-[#0e8601] transition text-sm" />
-                                <button type="submit"
-                                    className="bg-[#ff9500] hover:bg-[#e6850e] text-white px-6 py-3.5 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
-                                    <Bell className="w-4 h-4" /> Notify Me
-                                </button>
-                            </form>
-                        )}
+                        </div>
                     </div>
                 </section>
 

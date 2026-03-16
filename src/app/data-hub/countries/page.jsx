@@ -26,6 +26,110 @@ const NDC_BAR_DATA = [
   { version: 'NDC 3.0', Submitted: 3, 'Not Submitted': 51 },
 ];
 
+/* ── Multi-Pie chart data ──────────────────────────────────────── */
+const STATUS_COLORS = {
+  Completed:  '#4a7c59',
+  Started:    '#a8d5a2',
+  'Not Yet':  '#f5e167',
+  Unknown:    '#9ca3af',
+};
+
+const MULTI_PIE_DATA = [
+  {
+    title: 'HNAP Status',
+    subtitle: '53 countries',
+    data: [
+      { name: 'Completed',  value: 6  },
+      { name: 'Started',    value: 36 },
+      { name: 'Not Yet',    value: 11 },
+    ],
+  },
+  {
+    title: 'NDC 1.0',
+    subtitle: '54 countries',
+    data: [
+      { name: 'Completed',  value: 54 },
+    ],
+  },
+  {
+    title: 'NDC 2.0',
+    subtitle: '54 countries',
+    data: [
+      { name: 'Completed',  value: 54 },
+    ],
+  },
+  {
+    title: 'NDC 3.0',
+    subtitle: '54 countries',
+    data: [
+      { name: 'Completed',  value: 3  },
+      { name: 'Not Yet',    value: 51 },
+    ],
+  },
+];
+
+/* ── Custom outer label (count + %) ───────────────────────────── */
+const RADIAN = Math.PI / 180;
+function OuterLabel({ cx, cy, midAngle, outerRadius, value, percent }) {
+  if (!value) return null;
+  const sin = Math.sin(-midAngle * RADIAN);
+  const cos = Math.cos(-midAngle * RADIAN);
+  const sx  = cx + (outerRadius + 6)  * cos;
+  const sy  = cy + (outerRadius + 6)  * sin;
+  const mx  = cx + (outerRadius + 22) * cos;
+  const my  = cy + (outerRadius + 22) * sin;
+  const ex  = mx + (cos >= 0 ? 1 : -1) * 14;
+  const ey  = my;
+  const anchor = cos >= 0 ? 'start' : 'end';
+  const tx  = ex + (cos >= 0 ? 3 : -3);
+  return (
+    <g>
+      <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke="#bbb" fill="none" strokeWidth={1} />
+      <circle cx={ex} cy={ey} r={2} fill="#bbb" />
+      <text x={tx} y={ey - 3}  textAnchor={anchor} fontSize={11} fontWeight={700} fill="#222">
+        {value}
+      </text>
+      <text x={tx} y={ey + 11} textAnchor={anchor} fontSize={10} fill="#555">
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    </g>
+  );
+}
+
+/* ── Single small pie ─────────────────────────────────────────── */
+function SmallPie({ title, subtitle, data }) {
+  return (
+    <div className="flex flex-col items-center">
+      <div style={{ width: 200, height: 200 }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <PieChart margin={{ top: 24, right: 36, bottom: 24, left: 36 }}>
+            <Pie
+              data={data}
+              cx="50%"
+              cy="50%"
+              outerRadius={62}
+              dataKey="value"
+              labelLine={false}
+              label={OuterLabel}
+              isAnimationActive
+            >
+              {data.map((entry) => (
+                <Cell key={entry.name} fill={STATUS_COLORS[entry.name] ?? '#ccc'} stroke="white" strokeWidth={1} />
+              ))}
+            </Pie>
+            <Tooltip
+              formatter={(v, n) => [`${v} countries`, n]}
+              contentStyle={{ borderRadius: 8, fontSize: 12 }}
+            />
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
+      <p className="mt-1 text-sm font-bold text-[#021d49]">{title}</p>
+      <p className="text-xs text-gray-400">{subtitle}</p>
+    </div>
+  );
+}
+
 const HNAP_STATUS_COLORS = {
   'Implemented': { bg: 'bg-green-100', text: 'text-green-700', border: 'border-green-200' },
   'Under Consideration': { bg: 'bg-amber-100', text: 'text-amber-700', border: 'border-amber-200' },
@@ -45,7 +149,6 @@ function StatCard({ value, label, color = '#0e8601' }) {
 /* ── Custom pie label ─────────────────────────────────────────── */
 const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
   if (percent < 0.05) return null;
-  const RADIAN = Math.PI / 180;
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -163,6 +266,29 @@ export default function CountriesPage() {
         </div>
 
         <AfricaMap hnapsData={hnapsData} ndcData={ndcData} mapMode={mapMode} />
+      </div>
+
+      {/* ── Multi-Pie overview ──────────────────────────────────── */}
+      <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-6">
+        <h3 className="text-lg font-bold text-[#021d49] mb-1">Policy Status Overview</h3>
+        <p className="text-xs text-gray-400 mb-6">Breakdown of HNAP implementation and NDC submission progress across African countries</p>
+
+        {/* Pie row */}
+        <div className="flex flex-wrap justify-around gap-6">
+          {MULTI_PIE_DATA.map((d) => (
+            <SmallPie key={d.title} title={d.title} subtitle={d.subtitle} data={d.data} />
+          ))}
+        </div>
+
+        {/* Shared legend */}
+        <div className="flex flex-wrap justify-center gap-6 mt-4 pt-4 border-t border-gray-100">
+          {Object.entries(STATUS_COLORS).map(([name, color]) => (
+            <span key={name} className="inline-flex items-center gap-2 text-xs text-gray-600">
+              <span className="w-4 h-4 rounded-sm flex-shrink-0" style={{ backgroundColor: color }} />
+              {name}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* ── Charts row ──────────────────────────────────────────── */}

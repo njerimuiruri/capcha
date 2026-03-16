@@ -1,15 +1,11 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { Link2, ChevronRight, Bell, ArrowLeft, Users, Globe, MessageSquare, BookOpen, Star, CheckCircle } from 'lucide-react';
+import { Link2, ChevronRight, ArrowLeft, Users, Globe, MessageSquare, BookOpen, Star } from 'lucide-react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
 
 const CAPCHAConnectPage = () => {
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-    const [role, setRole] = useState('');
-    const [submitted, setSubmitted] = useState(false);
     const launchDate = new Date('2025-12-01T00:00:00');
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
@@ -28,8 +24,6 @@ const CAPCHAConnectPage = () => {
         const id = setInterval(tick, 1000);
         return () => clearInterval(id);
     }, []);
-
-    const handleNotify = (e) => { e.preventDefault(); if (email) setSubmitted(true); };
 
     const features = [
         { icon: <Users className="w-5 h-5" />, title: 'Researcher Profiles', desc: 'Build your professional profile and showcase your climate-health work to the continental community.' },
@@ -160,45 +154,41 @@ const CAPCHAConnectPage = () => {
                     </div>
                 </section>
 
-                {/* ── EARLY ACCESS FORM ── */}
+                {/* ── REGISTER CTA ── */}
                 <section className="py-20 px-4 bg-white">
-                    <div className="max-w-xl mx-auto text-center">
-                        <div className="w-14 h-14 rounded-2xl bg-[#ff9500]/10 flex items-center justify-center mx-auto mb-6">
-                            <Link2 className="w-7 h-7 text-[#ff9500]" />
-                        </div>
-                        <h2 className="text-2xl font-bold text-[#021d49] mb-3">Request Early Access</h2>
-                        <p className="text-gray-500 mb-8 leading-relaxed">Join the waitlist and be among the first members of CAPCHA Connect when it launches.</p>
+                    <div className="max-w-2xl mx-auto">
+                        <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#021d49] via-[#03337a] to-[#021d49]" />
+                            <div className="absolute -top-16 -right-16 w-64 h-64 bg-white/5 rounded-full" />
+                            <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-white/5 rounded-full" />
 
-                        {submitted ? (
-                            <div className="bg-[#0e8601]/5 border border-[#0e8601]/20 rounded-2xl py-8 px-8">
-                                <CheckCircle className="w-10 h-10 text-[#0e8601] mx-auto mb-3" />
-                                <p className="text-[#021d49] font-bold text-lg">You're on the waitlist!</p>
-                                <p className="text-gray-500 text-sm mt-2">We'll reach out with your early access invite when CAPCHA Connect is ready.</p>
+                            <div className="relative p-10 text-center">
+                                <div className="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+                                    <span className="relative flex h-2 w-2">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff9500] opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff9500]"></span>
+                                    </span>
+                                    Registration Now Open
+                                </div>
+
+                                <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
+                                    Join CAPCHA Connect
+                                </h2>
+                                <p className="text-white/80 text-base leading-relaxed mb-8 max-w-lg mx-auto">
+                                    Be among the first members of Africa's premier climate-health networking platform. Register now to secure your place in the community.
+                                </p>
+
+                                <a href="https://ee.kobotoolbox.org/single/81f9beab8ea9a72662b5c429f732f7f3"
+                                    target="_blank" rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-3 bg-[#ff9500] hover:bg-[#e6850e] text-white font-extrabold text-base px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+                                    <Link2 className="w-5 h-5" />
+                                    Register for CAPCHA Connect
+                                    <Users className="w-5 h-5" />
+                                </a>
+
+                                <p className="text-white/50 text-xs mt-5">Free to join · Open to all African climate-health professionals</p>
                             </div>
-                        ) : (
-                            <form onSubmit={handleNotify} className="space-y-3 text-left">
-                                <input type="text" placeholder="Your full name" value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    className="w-full px-5 py-3.5 rounded-xl border border-gray-200 bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#021d49]/20 focus:border-[#021d49] transition text-sm" />
-                                <input type="email" required placeholder="Email address" value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full px-5 py-3.5 rounded-xl border border-gray-200 bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#021d49]/20 focus:border-[#021d49] transition text-sm" />
-                                <select value={role} onChange={(e) => setRole(e.target.value)}
-                                    className="w-full px-5 py-3.5 rounded-xl border border-gray-200 bg-white text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#021d49]/20 focus:border-[#021d49] transition text-sm appearance-none">
-                                    <option value="">I am a... (select your role)</option>
-                                    <option value="researcher">Researcher / Academic</option>
-                                    <option value="policymaker">Policymaker</option>
-                                    <option value="practitioner">Health Practitioner</option>
-                                    <option value="student">Student / Early-Career</option>
-                                    <option value="ngo">NGO / Civil Society</option>
-                                    <option value="other">Other</option>
-                                </select>
-                                <button type="submit"
-                                    className="w-full bg-[#021d49] hover:bg-[#03337a] text-white px-6 py-3.5 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2">
-                                    <Bell className="w-4 h-4" /> Request Early Access
-                                </button>
-                            </form>
-                        )}
+                        </div>
                     </div>
                 </section>
 

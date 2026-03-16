@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Users, Heart, Sparkles, Newspaper, Link2, ArrowRight, Bell } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Users, Heart, Sparkles, Newspaper, Link2, ArrowRight, BookOpen } from 'lucide-react';
 import Link from 'next/link';
 
 const HeroSection = () => {
@@ -23,16 +23,48 @@ const HeroSection = () => {
     const newInitiatives = [
         {
             icon: <Sparkles className="w-6 h-6" />,
-            tag: "NEW · Monthly Series",
+            tag: "OPEN · 2026 Call",
             title: "CAPCHA Spotlight Series",
             desc: "90-minute monthly virtual sessions bridging African climate-health research and real-world policy. Every last Thursday, 2:00–3:30 PM EAT.",
             href: "/spotlight-series",
+            applyHref: "https://ee.kobotoolbox.org/single/b5423b283351f3f61595a92a17a66e00",
+            applyLabel: "Apply as Presenter / Moderator →",
             accentBg: "bg-[#ff9500]",
             accentHover: "hover:bg-[#e6850e]",
             tagBg: "bg-[#ff9500]/10 text-[#c97000]",
             topBar: "bg-[#ff9500]",
-            cardBorder: "border-[#ff9500]/20",
+            cardBorder: "border-[#ff9500]/40",
             iconRing: "ring-[#ff9500]/20",
+        },
+        {
+            icon: <Link2 className="w-6 h-6" />,
+            tag: "OPEN · Join Now",
+            title: "CAPCHA Connect",
+            desc: "A pan-African networking platform connecting climate-health researchers, policymakers, and practitioners for collaboration and mentorship.",
+            href: "/connect",
+            applyHref: "https://ee.kobotoolbox.org/single/81f9beab8ea9a72662b5c429f732f7f3",
+            applyLabel: "Register for CAPCHA Connect →",
+            accentBg: "bg-[#021d49]",
+            accentHover: "hover:bg-[#03337a]",
+            tagBg: "bg-[#021d49]/10 text-[#021d49]",
+            topBar: "bg-[#021d49]",
+            cardBorder: "border-[#021d49]/30",
+            iconRing: "ring-[#021d49]/15",
+        },
+        {
+            icon: <BookOpen className="w-6 h-6" />,
+            tag: "OPEN · Enrol Now",
+            title: "Learning Curve",
+            desc: "A structured learning programme for Africa's next generation of climate-health researchers — building skills, knowledge, and networks.",
+            href: "https://ee.kobotoolbox.org/single/5b3703edf1a128aa20c66dff2fadd84f",
+            applyHref: "https://ee.kobotoolbox.org/single/5b3703edf1a128aa20c66dff2fadd84f",
+            applyLabel: "Enrol in Learning Curve →",
+            accentBg: "bg-[#0e8601]",
+            accentHover: "hover:bg-[#0a6e01]",
+            tagBg: "bg-[#0e8601]/10 text-[#0a6e01]",
+            topBar: "bg-[#0e8601]",
+            cardBorder: "border-[#0e8601]/30",
+            iconRing: "ring-[#0e8601]/20",
         },
         {
             icon: <Newspaper className="w-6 h-6" />,
@@ -40,25 +72,14 @@ const HeroSection = () => {
             title: "CAPCHA Monthly Digest",
             desc: "Your curated monthly briefing on the latest climate-health research, policy updates, funding opportunities, and events from across Africa.",
             href: "/monthly-digest",
-            accentBg: "bg-[#0e8601]",
-            accentHover: "hover:bg-[#0a6e01]",
-            tagBg: "bg-[#0e8601]/10 text-[#0a6e01]",
-            topBar: "bg-[#0e8601]",
-            cardBorder: "border-[#0e8601]/20",
-            iconRing: "ring-[#0e8601]/20",
-        },
-        {
-            icon: <Link2 className="w-6 h-6" />,
-            tag: "NEW · Community Platform",
-            title: "CAPCHA Connect",
-            desc: "A pan-African networking platform connecting climate-health researchers, policymakers, and practitioners for collaboration and mentorship.",
-            href: "/connect",
-            accentBg: "bg-[#021d49]",
-            accentHover: "hover:bg-[#03337a]",
-            tagBg: "bg-[#021d49]/10 text-[#021d49]",
-            topBar: "bg-[#021d49]",
-            cardBorder: "border-[#021d49]/15",
-            iconRing: "ring-[#021d49]/15",
+            applyHref: null,
+            applyLabel: null,
+            accentBg: "bg-[#55bdd0]",
+            accentHover: "hover:bg-[#3aaecc]",
+            tagBg: "bg-[#55bdd0]/10 text-[#2090a8]",
+            topBar: "bg-[#55bdd0]",
+            cardBorder: "border-[#55bdd0]/20",
+            iconRing: "ring-[#55bdd0]/20",
         },
     ];
 
@@ -139,6 +160,36 @@ const HeroSection = () => {
                                 ))}
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* ── OPEN CALLS ANNOUNCEMENT STRIP ─────────────────────── */}
+            <div className="relative z-40 bg-gradient-to-r from-[#021d49] via-[#0e4a8c] to-[#021d49] border-b border-white/10">
+                <div className="max-w-6xl mx-auto px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-2.5 flex-shrink-0">
+                        <span className="relative flex h-2.5 w-2.5">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff9500] opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#ff9500]"></span>
+                        </span>
+                        <span className="text-white font-bold text-xs uppercase tracking-widest">Applications Now Open</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                        <a href="https://ee.kobotoolbox.org/single/b5423b283351f3f61595a92a17a66e00"
+                            target="_blank" rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 bg-[#ff9500] hover:bg-[#e6850e] text-white text-xs font-bold px-3 py-1.5 rounded-full transition-colors">
+                            <Sparkles className="w-3 h-3" /> Spotlight Series 2026
+                        </a>
+                        <a href="https://ee.kobotoolbox.org/single/81f9beab8ea9a72662b5c429f732f7f3"
+                            target="_blank" rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 bg-white/15 hover:bg-white/25 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/20 transition-colors">
+                            <Link2 className="w-3 h-3" /> CAPCHA Connect
+                        </a>
+                        <a href="https://ee.kobotoolbox.org/single/5b3703edf1a128aa20c66dff2fadd84f"
+                            target="_blank" rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 bg-[#0e8601] hover:bg-[#0a6e01] text-white text-xs font-bold px-3 py-1.5 rounded-full transition-colors">
+                            <BookOpen className="w-3 h-3" /> Learning Curve
+                        </a>
                     </div>
                 </div>
             </div>
@@ -224,38 +275,54 @@ const HeroSection = () => {
                     </div>
 
                     {/* Cards grid */}
-                    <div className="grid md:grid-cols-3 gap-6">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {newInitiatives.map((item, index) => (
                             <div key={index}
-                                className={`group bg-white rounded-2xl border ${item.cardBorder} shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden`}>
+                                className={`group bg-white rounded-2xl border-2 ${item.cardBorder} shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden`}>
 
                                 {/* Solid top colour bar */}
-                                <div className={`h-1.5 w-full ${item.topBar}`} />
+                                <div className={`h-2 w-full ${item.topBar}`} />
 
-                                <div className="p-7 flex flex-col flex-1">
+                                <div className="p-6 flex flex-col flex-1">
                                     {/* Tag pill */}
-                                    <span className={`inline-flex items-center gap-1.5 self-start text-xs font-bold px-3 py-1 rounded-full mb-5 ${item.tagBg}`}>
+                                    <span className={`inline-flex items-center gap-1.5 self-start text-xs font-bold px-3 py-1 rounded-full mb-4 ${item.tagBg}`}>
                                         <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse"></span>
                                         {item.tag}
                                     </span>
 
                                     {/* Icon */}
-                                    <div className={`w-12 h-12 rounded-xl ${item.accentBg} ring-4 ${item.iconRing} flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                                    <div className={`w-12 h-12 rounded-xl ${item.accentBg} ring-4 ${item.iconRing} flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
                                         {item.icon}
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className="text-[17px] font-bold text-[#021d49] mb-2.5 leading-snug">{item.title}</h3>
+                                    <h3 className="text-[16px] font-bold text-[#021d49] mb-2 leading-snug">{item.title}</h3>
 
                                     {/* Description */}
-                                    <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-6">{item.desc}</p>
+                                    <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-5">{item.desc}</p>
 
-                                    {/* CTA */}
-                                    <Link href={item.href}
-                                        className={`inline-flex items-center justify-center gap-2 text-sm font-semibold text-white py-2.5 px-5 rounded-xl transition-colors duration-200 ${item.accentBg} ${item.accentHover}`}>
-                                        Learn More
-                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                                    </Link>
+                                    {/* Apply CTA — prominent if open call */}
+                                    {item.applyHref && (
+                                        <a href={item.applyHref} target="_blank" rel="noopener noreferrer"
+                                            className={`inline-flex items-center justify-center gap-2 text-sm font-bold text-white py-2.5 px-4 rounded-xl transition-colors duration-200 mb-2 ${item.accentBg} ${item.accentHover}`}>
+                                            {item.applyLabel}
+                                        </a>
+                                    )}
+
+                                    {/* Learn More secondary link */}
+                                    {!item.applyHref && (
+                                        <Link href={item.href}
+                                            className={`inline-flex items-center justify-center gap-2 text-sm font-semibold text-white py-2.5 px-5 rounded-xl transition-colors duration-200 ${item.accentBg} ${item.accentHover}`}>
+                                            Learn More
+                                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                                        </Link>
+                                    )}
+                                    {item.applyHref && (
+                                        <Link href={item.href}
+                                            className="inline-flex items-center justify-center gap-1 text-xs font-semibold text-gray-400 hover:text-[#021d49] py-1 transition-colors duration-200">
+                                            Learn more <ArrowRight className="w-3 h-3" />
+                                        </Link>
+                                    )}
                                 </div>
                             </div>
                         ))}
