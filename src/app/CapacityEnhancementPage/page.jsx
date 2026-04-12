@@ -381,17 +381,15 @@ const CapacityEnhancementPage = () => {
                                 <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full" />
                                 <div className="relative p-7 flex flex-col h-full min-h-[260px]">
                                     <span className="inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 self-start">
-                                        <span className="w-1.5 h-1.5 bg-white rounded-full animate-ping"></span>
-                                        2026 Call Open
+                                        <span className="w-1.5 h-1.5 bg-white rounded-full"></span>
+                                        Deadline Passed
                                     </span>
                                     <Sparkles className="w-8 h-8 text-white mb-3" />
                                     <h3 className="text-white font-extrabold text-lg mb-2 leading-snug">Spotlight Series<br />Presenters & Moderators</h3>
-                                    <p className="text-white/75 text-sm leading-relaxed flex-1 mb-5">Apply to present or moderate a 2026 CAPCHA Spotlight Series session.</p>
-                                    <a href="https://ee.kobotoolbox.org/single/b5423b283351f3f61595a92a17a66e00"
-                                        target="_blank" rel="noopener noreferrer"
-                                        className="flex items-center justify-center gap-2 bg-white text-[#c97000] hover:bg-orange-50 font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200">
-                                        Apply Now <ArrowRight className="w-4 h-4" />
-                                    </a>
+                                    <p className="text-white/75 text-sm leading-relaxed flex-1 mb-5">Applications for the 2026 CAPCHA Spotlight Series are now closed.</p>
+                                    <span className="flex items-center justify-center gap-2 bg-white/40 text-white font-bold text-sm px-5 py-3 rounded-xl cursor-not-allowed">
+                                        Closed
+                                    </span>
                                 </div>
                             </div>
 
@@ -422,11 +420,11 @@ const CapacityEnhancementPage = () => {
                                 <div className="relative p-7 flex flex-col h-full min-h-[260px]">
                                     <span className="inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 self-start">
                                         <span className="w-1.5 h-1.5 bg-white rounded-full animate-ping"></span>
-                                        Enrolment Open
+                                        Deadline Extended — 25 Apr
                                     </span>
                                     <BookOpen className="w-8 h-8 text-white mb-3" />
                                     <h3 className="text-white font-extrabold text-lg mb-2 leading-snug">Learning Curve<br />Structured Programme</h3>
-                                    <p className="text-white/75 text-sm leading-relaxed flex-1 mb-5">Enrol in a structured learning programme for Africa's next-generation climate-health researchers.</p>
+                                    <p className="text-white/75 text-sm leading-relaxed flex-1 mb-5">Enrol in a structured learning programme for Africa's next-generation climate-health researchers. <span className="font-bold text-white">New deadline: 25 April.</span></p>
                                     <a href="https://ee.kobotoolbox.org/single/5b3703edf1a128aa20c66dff2fadd84f"
                                         target="_blank" rel="noopener noreferrer"
                                         className="flex items-center justify-center gap-2 bg-white text-[#0a6e01] hover:bg-green-50 font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200">

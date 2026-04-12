@@ -5,16 +5,17 @@ import { X, Sparkles, Link2, BookOpen, ArrowRight, ExternalLink, ChevronUp, Chev
 const CALLS = [
   {
     Icon: Sparkles,
-    tag: '2026 Call Open',
+    tag: 'Deadline Passed',
     title: 'Spotlight Series',
     sub: 'Call for Presenters & Moderators',
-    href: 'https://ee.kobotoolbox.org/single/b5423b283351f3f61595a92a17a66e00',
-    btnLabel: 'Apply Now',
+    href: null,
+    btnLabel: 'Closed',
     gradient: 'from-[#ff9500] to-[#c97000]',
-    btnBg: 'bg-[#ff9500] hover:bg-[#e6850e]',
+    btnBg: 'bg-gray-400 cursor-not-allowed',
     border: 'border-[#ff9500]/30',
-    text: 'text-[#ff9500]',
-    dot: 'bg-[#ff9500]',
+    text: 'text-gray-400',
+    dot: 'bg-gray-400',
+    disabled: true,
   },
   {
     Icon: Link2,
@@ -31,7 +32,7 @@ const CALLS = [
   },
   {
     Icon: BookOpen,
-    tag: 'Enrolment Open',
+    tag: 'Deadline Extended — 25 Apr',
     title: 'Learning Curve',
     sub: 'Structured Learning Programme',
     href: 'https://ee.kobotoolbox.org/single/5b3703edf1a128aa20c66dff2fadd84f',
@@ -97,7 +98,7 @@ export default function OpenCallsWidget() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
                     <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
                   </span>
-                  3 Applications Currently Open
+                  2 Applications Currently Open
                 </div>
                 <h2 className="text-2xl font-extrabold text-[#021d49] leading-tight">
                   Don&apos;t Miss These<br />CAPCHA Open Calls!
@@ -107,29 +108,35 @@ export default function OpenCallsWidget() {
 
               {/* Call cards */}
               <div className="space-y-3 mb-7">
-                {CALLS.map(({ Icon, tag, title, sub, href, btnLabel, border, text, dot, btnBg }) => (
+                {CALLS.map(({ tag, title, sub, href, btnLabel, border, text, dot, btnBg, disabled }) => (
                   <div
                     key={title}
-                    className={`flex items-center gap-4 p-4 rounded-2xl border-2 ${border} hover:shadow-md transition-all duration-200`}
+                    className={`flex items-center gap-4 p-4 rounded-2xl border-2 ${border} ${!disabled ? 'hover:shadow-md' : 'opacity-70'} transition-all duration-200`}
                   >
                     {/* Left */}
                     <div className="flex-1 min-w-0">
                       <span className={`inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider ${text} mb-0.5`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${dot} animate-pulse`} />
+                        <span className={`w-1.5 h-1.5 rounded-full ${dot} ${!disabled ? 'animate-pulse' : ''}`} />
                         {tag}
                       </span>
                       <p className="font-extrabold text-[#021d49] text-sm leading-tight">{title}</p>
                       <p className="text-gray-400 text-xs">{sub}</p>
                     </div>
                     {/* CTA */}
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex-shrink-0 inline-flex items-center gap-1.5 text-white font-bold text-xs px-4 py-2.5 rounded-xl ${btnBg} transition-colors`}
-                    >
-                      {btnLabel} <ArrowRight className="w-3.5 h-3.5" />
-                    </a>
+                    {disabled ? (
+                      <span className={`flex-shrink-0 inline-flex items-center gap-1.5 text-white font-bold text-xs px-4 py-2.5 rounded-xl ${btnBg}`}>
+                        {btnLabel}
+                      </span>
+                    ) : (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex-shrink-0 inline-flex items-center gap-1.5 text-white font-bold text-xs px-4 py-2.5 rounded-xl ${btnBg} transition-colors`}
+                      >
+                        {btnLabel} <ArrowRight className="w-3.5 h-3.5" />
+                      </a>
+                    )}
                   </div>
                 ))}
               </div>
@@ -172,23 +179,39 @@ export default function OpenCallsWidget() {
 
             {/* Links */}
             <div className="p-3 space-y-2">
-              {CALLS.map(({ Icon, title, sub, href, btnLabel, btnBg, dot }) => (
-                <a
-                  key={title}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-50 transition-colors group"
-                >
-                  <span className={`w-2 h-2 rounded-full ${dot} flex-shrink-0`} />
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[#021d49] font-bold text-xs leading-tight">{title}</p>
-                    <p className="text-gray-400 text-[11px] truncate">{sub}</p>
+              {CALLS.map(({ title, sub, href, btnLabel, btnBg, dot, disabled }) => (
+                disabled ? (
+                  <div
+                    key={title}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl opacity-60 cursor-not-allowed"
+                  >
+                    <span className={`w-2 h-2 rounded-full ${dot} flex-shrink-0`} />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[#021d49] font-bold text-xs leading-tight">{title}</p>
+                      <p className="text-gray-400 text-[11px] truncate">{sub}</p>
+                    </div>
+                    <span className={`text-white text-[10px] font-bold px-2.5 py-1 rounded-lg ${btnBg} flex-shrink-0`}>
+                      {btnLabel}
+                    </span>
                   </div>
-                  <span className={`text-white text-[10px] font-bold px-2.5 py-1 rounded-lg ${btnBg} flex-shrink-0 transition-colors`}>
-                    {btnLabel}
-                  </span>
-                </a>
+                ) : (
+                  <a
+                    key={title}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-50 transition-colors group"
+                  >
+                    <span className={`w-2 h-2 rounded-full ${dot} flex-shrink-0`} />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[#021d49] font-bold text-xs leading-tight">{title}</p>
+                      <p className="text-gray-400 text-[11px] truncate">{sub}</p>
+                    </div>
+                    <span className={`text-white text-[10px] font-bold px-2.5 py-1 rounded-lg ${btnBg} flex-shrink-0 transition-colors`}>
+                      {btnLabel}
+                    </span>
+                  </a>
+                )
               ))}
             </div>
 
@@ -217,7 +240,7 @@ export default function OpenCallsWidget() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white" />
             </span>
-            <span className="text-sm">Apply Now — 3 Calls Open</span>
+            <span className="text-sm">Apply Now — 2 Calls Open</span>
             {fabOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
           </span>
         </button>
