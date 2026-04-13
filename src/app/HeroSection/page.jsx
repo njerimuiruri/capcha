@@ -175,11 +175,9 @@ const HeroSection = () => {
                         <span className="text-white font-bold text-xs uppercase tracking-widest">Applications Now Open</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                        <a href="https://ee.kobotoolbox.org/single/b5423b283351f3f61595a92a17a66e00"
-                            target="_blank" rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 bg-[#ff9500] hover:bg-[#e6850e] text-white text-xs font-bold px-3 py-1.5 rounded-full transition-colors">
+                        <span className="flex items-center gap-1.5 bg-white/10 text-white/40 text-xs font-bold px-3 py-1.5 rounded-full cursor-not-allowed select-none">
                             <Sparkles className="w-3 h-3" /> Spotlight Series 2026
-                        </a>
+                        </span>
                         <a href="https://ee.kobotoolbox.org/single/81f9beab8ea9a72662b5c429f732f7f3"
                             target="_blank" rel="noopener noreferrer"
                             className="flex items-center gap-1.5 bg-white/15 hover:bg-white/25 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/20 transition-colors">
