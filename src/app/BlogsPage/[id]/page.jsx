@@ -44,12 +44,7 @@ const BlogDetailPage = () => {
 
     const handleDownloadPDF = () => {
         if (post.pdfLink) {
-            const link = document.createElement("a")
-            link.href = post.pdfLink
-            link.setAttribute("download", "") // This attribute prompts the download
-            document.body.appendChild(link)
-            link.click()
-            document.body.removeChild(link)
+            window.open(post.pdfLink, "_blank", "noopener,noreferrer")
         }
     }
 
@@ -118,7 +113,7 @@ const BlogDetailPage = () => {
                                         className="flex items-center bg-white text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors"
                                     >
                                         <Download className="w-4 h-4 mr-2" />
-                                        Download PDF
+                                        View PDF
                                     </button>
                                 )}
                             </div>
@@ -140,7 +135,7 @@ const BlogDetailPage = () => {
                                                 className="flex items-center bg-[#0e8601] text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors shadow-md"
                                             >
                                                 <Download className="w-5 h-5 mr-2" />
-                                                Download Full Document (PDF)
+                                                View Full Document (PDF)
                                             </button>
                                         </div>
                                     )}

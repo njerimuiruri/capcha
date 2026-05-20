@@ -75,19 +75,9 @@ const ConferenceDetail = () => {
         if (conference.conceptNoteUrl) {
             try {
                 const link = document.createElement("a")
-                link.href = conference.conceptNoteUrl
-                link.target = "_blank"
-                link.rel = "noopener noreferrer"
-                const filename =
-                    conference.conceptNoteUrl.split("/").pop() ||
-                    `${conference.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}_concept_note.pdf`
-                link.download = filename
-                document.body.appendChild(link)
-                link.click()
-                document.body.removeChild(link)
+                window.open(conference.conceptNoteUrl, "_blank", "noopener,noreferrer")
             } catch (error) {
-                console.error("Download failed:", error)
-                window.open(conference.conceptNoteUrl, "_blank")
+                console.error("Failed to open PDF:", error)
             }
         } else {
             alert("Concept note is not available for download.")
