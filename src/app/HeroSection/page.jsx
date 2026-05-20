@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Users, Heart, Sparkles, Newspaper, Link2, ArrowRight, BookOpen } from 'lucide-react';
 import Link from 'next/link';
+import { blogPosts } from '@/data/blogs';
 
 const HeroSection = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -137,6 +138,18 @@ const HeroSection = () => {
                                     className="bg-[#ff9500] hover:bg-[#e6850e] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-600 hover:shadow-[#ff9500]/25">
                                     Join us
                                 </Link>
+
+                                {/* Latest article teaser */}
+                                <Link href={`/BlogsPage/${blogPosts[blogPosts.length - 1].id}`}
+                                    className="group mt-6 inline-flex items-center gap-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-3.5 hover:bg-white/15 transition-all duration-300 max-w-sm animate-fade-in-up"
+                                    style={{ animationDelay: '0.9s', opacity: 0 }}>
+                                    <span className="w-1 h-10 bg-[#ff9500] rounded-full flex-shrink-0" />
+                                    <div className="min-w-0">
+                                        <span className="text-[#ff9500] text-[10px] font-bold uppercase tracking-widest block mb-0.5">Latest Article</span>
+                                        <p className="text-white text-sm font-semibold line-clamp-1 leading-snug">{blogPosts[blogPosts.length - 1].title}</p>
+                                    </div>
+                                    <ArrowRight className="w-4 h-4 text-white/50 group-hover:text-[#ff9500] group-hover:translate-x-1 transition-all flex-shrink-0 ml-2" />
+                                </Link>
                             </div>
                         </div>
 
@@ -160,34 +173,6 @@ const HeroSection = () => {
                                 ))}
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* ── OPEN CALLS ANNOUNCEMENT STRIP ─────────────────────── */}
-            <div className="relative z-40 bg-gradient-to-r from-[#021d49] via-[#0e4a8c] to-[#021d49] border-b border-white/10">
-                <div className="max-w-6xl mx-auto px-6 py-3 flex flex-wrap items-center justify-between gap-3">
-                    <div className="flex items-center gap-2.5 flex-shrink-0">
-                        <span className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff9500] opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#ff9500]"></span>
-                        </span>
-                        <span className="text-white font-bold text-xs uppercase tracking-widest">Applications Now Open</span>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                        <span className="flex items-center gap-1.5 bg-white/10 text-white/40 text-xs font-bold px-3 py-1.5 rounded-full cursor-not-allowed select-none">
-                            <Sparkles className="w-3 h-3" /> Spotlight Series 2026
-                        </span>
-                        <a href="https://ee.kobotoolbox.org/single/81f9beab8ea9a72662b5c429f732f7f3"
-                            target="_blank" rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 bg-white/15 hover:bg-white/25 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/20 transition-colors">
-                            <Link2 className="w-3 h-3" /> CAPCHA Connect
-                        </a>
-                        <a href="https://ee.kobotoolbox.org/single/5b3703edf1a128aa20c66dff2fadd84f"
-                            target="_blank" rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 bg-[#0e8601] hover:bg-[#0a6e01] text-white text-xs font-bold px-3 py-1.5 rounded-full transition-colors">
-                            <BookOpen className="w-3 h-3" /> Learning Curve
-                        </a>
                     </div>
                 </div>
             </div>

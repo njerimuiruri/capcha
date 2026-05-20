@@ -9,7 +9,7 @@ const BlogSection = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const router = useRouter();
 
-    const articles = blogPosts.slice(0, 3).map(post => ({
+    const articles = [...blogPosts].reverse().slice(0, 3).map(post => ({
         id: post.id,
         image: post.featuredImage,
         author: post.author,

@@ -83,9 +83,47 @@ export const blogPosts = [
     likes: 45,
     pdfLink: "/document/ARIN-Technical-Report.pdf",
   },
+  {
+    id: 4,
+    title:
+      "Evidence Brief | Spotlight Series No. 1: From Climate-Health Data to Decision Intelligence",
+    excerpt:
+      "Health workers across Africa routinely observe climate-health patterns they cannot officially attribute — malaria cases spike after certain rainfall events, hospital admissions climb when temperatures rise, suicide rates increase quietly in communities hardest hit by drought. Yet most national systems have no formal mechanism to track or attribute these connections. This Evidence Brief draws on the first CAPCHA Spotlight Webinar Series themed 'Who Owns Climate–Health Data in Africa?' and asks: who controls the data, who interprets it, and whose priorities does it reflect?",
+    content:
+      "Evidence Brief | Spotlight Series No. 1\n\nThis brief draws on the presentation 'From Climate-Health Data to Decision Intelligence: Evidence from SOSCHI Indicators' presented by Dr. Etse Yawo Dzakpa (African Institute for Mathematical Sciences, Rwanda) and Dr. Vijendra Ingole (Office for National Statistics, United Kingdom) at the first CAPCHA Spotlight Webinar Series themed 'Who Owns Climate–Health Data in Africa?'\n\nHealth workers across Africa routinely observe patterns they cannot officially attribute. Malaria cases spike after certain rainfall events. Hospital admissions climb when temperatures rise. Suicide rates rise quietly in communities hardest hit by drought. Yet most national systems have no formal mechanism to track or attribute these connections. This Evidence Brief asks the deeper question: who controls the data, who interprets it, and whose priorities does it reflect?\n\nThe SOSCHI Framework: A Technical Answer That Must Be Grounded Locally\n\nFunded by the Wellcome Trust and hosted globally, the Statistical Framework for Climate-Health Interactions (SOSCHI) offers a compelling technical answer — a climate-health statistical framework designed to embed surveillance directly into official government systems, translating data into actionable decision intelligence rather than producing findings for distant academic journals.\n\nSOSCHI tracks three interconnected disease burdens:\n- Climate-attributable infectious, diarrheal, and vector-borne conditions linked to heat and rainfall\n- Mortality and hospital admissions connected to cold extremes, occupational stress, and suicide — measurable proxies for the mental toll of climate change\n- Deaths attributable to outdoor air pollution and wildfire burden, a growing crisis playing out silently and unevenly across the continent\n\nThese tools are built to work within resource-constrained settings and to slot into existing government information infrastructure — putting the power of anticipatory intelligence where it belongs.\n\nWhat Anticipatory Data Could Change\n\nConsider what it means to understand, in advance, when mosquito life cycles will accelerate, when parasites will develop faster, when rainfall patterns will create new breeding sites in high-burden transmission zones. Ministries currently still distribute nets and spray campaigns on a fixed calendar — arriving weeks before the outbreak, or weeks too late.\n\nSOSCHI addresses this by pairing routine health data from ministries with meteorological data from national agencies and international sources. The result is not simply telling a ministry that malaria cases will rise — it is pre-positioning resources ahead of seasonal onset, shifting from responding to weeks-old data to acting on a signal that has not yet become a crisis.\n\nWho Owns the Data That Saves Lives?\n\nHere is where the political question cannot be avoided. A statistical framework is only as transformative as the governance that surrounds it. If African climate-health data flows outward to global institutions, if it is interpreted outside the continent, and if it is governed by institutions beyond the control of the communities carrying the heaviest burdens — then even the most precise system will rarely produce contextually relevant, community-owned, actionable intelligence.\n\nAfrican countries have limited control over their own climate observations, which flow outward to global archives. Health records are published in journals not accessible locally. Evidence is generated about African communities but rarely with them by design.\n\nThis Brief argues that the push to institutionalise climate-health data systems must take the right steps — and that real data sovereignty cannot be transferred from outside. It requires African researchers to lead, to determine what is measured, and to do more than merely participate in frameworks designed elsewhere.\n\nWhat This Means for Decision-Makers\n\nThe recommendations emerging from this Brief are clear:\n\nNational governments in low- and middle-income countries should integrate existing platforms and donor-funded tools into monthly and seasonal decision cycles — moving from calendar-based to evidence-based intervention timing.\n\nMinistries should pre-position resources according to seasonally shifting climate signals rather than asking frontline workers to respond to something that builds over weeks.\n\nThe continent must insist that the data architectures being constructed are informed by African researchers, grounded in African disease definitions, and governed by African institutions.\n\nBecause a system that anticipates shocks must reflect the priorities of the people it serves — not simply be a more sophisticated version of systems that have historically extracted knowledge from communities without returning benefit.",
+    author: "Dr. Etse Yawo Dzakpa & Dr. Vijendra Ingole",
+    authorImage: "/img/user.jpg",
+    authorBio:
+      "Dr. Etse Yawo Dzakpa is a researcher at the African Institute for Mathematical Sciences, Rwanda. Dr. Vijendra Ingole is based at the Office for National Statistics, United Kingdom. Both presented at the first CAPCHA Spotlight Webinar Series themed 'Who Owns Climate–Health Data in Africa?'",
+    date: "May 19, 2026",
+    category: "climate",
+    readTime: "7 min read",
+    featured: true,
+    tags: [
+      "Evidence Brief",
+      "Data Sovereignty",
+      "Climate-Health Statistics",
+      "SOSCHI",
+      "Anticipatory Data",
+      "Africa",
+      "Health Policy",
+    ],
+    featuredImage: "/img/evidecebrief.jpg",
+    views: 0,
+    likes: 0,
+    pdfLink: "/document/CAPCHA Evidence brief.pdf",
+  },
 ];
 
 export const recentPosts = [
+  {
+    id: 4,
+    title:
+      "Evidence Brief | Spotlight Series No. 1: From Climate-Health Data to Decision Intelligence",
+    date: "May 19, 2026",
+    image: "/img/evidecebrief.jpg",
+    category: "climate",
+  },
   {
     id: 2,
     title:
@@ -101,14 +139,6 @@ export const recentPosts = [
     date: " August 26, 2024",
     image: "/img/policy.jpg",
     category: "climate",
-  },
-  {
-    id: 4,
-    title:
-      "Technical Report: Building Effective Communities of Practice for Transdisciplinary Research and Action in Climate Change and Health in Africa",
-    date: "August 28th 2024",
-    image: "/img/climatechange.jpg",
-    category: "health",
   },
 ];
 
