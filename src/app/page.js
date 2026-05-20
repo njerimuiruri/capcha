@@ -15,6 +15,7 @@ import PartnerSection from "./PartnerSection/page";
 import GallerySection from "./GallerySection/page";
 import MissionVisionSection from "./MissionVisionSection/page";
 import PageLoader from "./PageLoader";
+import OpenCallsWidget from "./OpenCallsWidget";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -44,6 +45,7 @@ export default function Home() {
           </div>
         </div>
         <Navbar />
+        <OpenCallsWidget />
 
         <main>
           <HeroSection />

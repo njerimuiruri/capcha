@@ -1,22 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { X, Sparkles, Link2, BookOpen, ArrowRight, ExternalLink, ChevronUp, ChevronDown } from 'lucide-react';
+import { X, Link2, ArrowRight, ExternalLink, ChevronUp, ChevronDown } from 'lucide-react';
 
 const CALLS = [
-  {
-    Icon: Sparkles,
-    tag: 'Deadline Passed',
-    title: 'Spotlight Series',
-    sub: 'Call for Presenters & Moderators',
-    href: null,
-    btnLabel: 'Closed',
-    gradient: 'from-[#ff9500] to-[#c97000]',
-    btnBg: 'bg-gray-400 cursor-not-allowed',
-    border: 'border-[#ff9500]/30',
-    text: 'text-gray-400',
-    dot: 'bg-gray-400',
-    disabled: true,
-  },
   {
     Icon: Link2,
     tag: 'Registration Open',
@@ -29,19 +15,6 @@ const CALLS = [
     border: 'border-[#021d49]/25',
     text: 'text-[#021d49]',
     dot: 'bg-[#021d49]',
-  },
-  {
-    Icon: BookOpen,
-    tag: 'Deadline Extended — 25 Apr',
-    title: 'Learning Curve',
-    sub: 'Structured Learning Programme',
-    href: 'https://ee.kobotoolbox.org/single/5b3703edf1a128aa20c66dff2fadd84f',
-    btnLabel: 'Enrol Now',
-    gradient: 'from-[#0e8601] to-[#0a6e01]',
-    btnBg: 'bg-[#0e8601] hover:bg-[#0a6e01]',
-    border: 'border-[#0e8601]/25',
-    text: 'text-[#0e8601]',
-    dot: 'bg-[#0e8601]',
   },
 ];
 
@@ -98,7 +71,7 @@ export default function OpenCallsWidget() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
                     <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
                   </span>
-                  2 Applications Currently Open
+                  1 Application Currently Open
                 </div>
                 <h2 className="text-2xl font-extrabold text-[#021d49] leading-tight">
                   Don&apos;t Miss These<br />CAPCHA Open Calls!
@@ -240,7 +213,7 @@ export default function OpenCallsWidget() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white" />
             </span>
-            <span className="text-sm">Apply Now — 2 Calls Open</span>
+            <span className="text-sm">Register Now — CAPCHA Connect</span>
             {fabOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
           </span>
         </button>
