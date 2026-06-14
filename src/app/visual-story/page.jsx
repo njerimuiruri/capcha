@@ -1,11 +1,10 @@
 'use client'
 import React from 'react';
-import { ChevronRight, Play, Globe, Sparkles, Calendar, MapPin, Video } from 'lucide-react';
+import { ChevronRight, Play, Globe, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
-import { conferences } from '@/data/conference';
 
 const GALLERY = [
     { src: '/img/conf1.jpg',   alt: 'CAPCHA Conference 1' },
@@ -27,58 +26,6 @@ const VisualStoryPage = () => {
         <>
             <Navbar />
             <div className="min-h-screen bg-white pt-20">
-
-                {/* ── EVENTS ───────────────────────────────────────── */}
-                <section className="py-14 px-4 bg-gray-50">
-                    <div className="max-w-5xl mx-auto">
-                        <div className="space-y-5">
-                            {conferences.map(conf => (
-                                <div key={conf.id} className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row gap-5">
-                                    {/* Status + date */}
-                                    <div className="sm:w-40 flex-shrink-0">
-                                        <span
-                                            className="inline-block text-xs font-bold px-2.5 py-1 rounded-full text-white mb-2"
-                                            style={{ backgroundColor: conf.eventStatus === 'upcoming' ? '#0e8601' : '#021d49' }}
-                                        >
-                                            {conf.eventStatus === 'upcoming' ? 'Upcoming' : 'Past'}
-                                        </span>
-                                        <p className="text-sm font-semibold text-[#021d49] flex items-center gap-1">
-                                            <Calendar className="w-3.5 h-3.5 flex-shrink-0" />
-                                            {conf.date}
-                                        </p>
-                                        <p className="text-xs text-gray-400 mt-1 flex items-center gap-1">
-                                            <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
-                                            {conf.location}
-                                        </p>
-                                    </div>
-
-                                    {/* Details */}
-                                    <div className="flex-1">
-                                        <h3 className="font-bold text-[#021d49] text-base mb-2">{conf.title}</h3>
-                                        <p className="text-sm text-gray-500 leading-relaxed mb-4 line-clamp-2">{conf.description}</p>
-
-                                        <div className="flex flex-wrap gap-2">
-                                            {conf.registrationOpen && (
-                                                <a href={conf.registrationLink || conf.conferenceWebsite}
-                                                    target="_blank" rel="noopener noreferrer"
-                                                    className="inline-flex items-center gap-1.5 text-xs font-bold bg-[#0e8601] text-white px-3 py-1.5 rounded-full hover:bg-[#0a6e01] transition-colors">
-                                                    Register
-                                                </a>
-                                            )}
-                                            {conf.recordingsAvailable && conf.videos?.filter(v => v).length > 0 && (
-                                                <Link href={`/ArinConference`}
-                                                    className="inline-flex items-center gap-1.5 text-xs font-bold border border-[#021d49] text-[#021d49] px-3 py-1.5 rounded-full hover:bg-[#021d49] hover:text-white transition-colors">
-                                                    <Video className="w-3.5 h-3.5" />
-                                                    Watch Recording
-                                                </Link>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
 
                 {/* ── PHOTO GALLERY ────────────────────────────────── */}
                 <section className="py-14 px-4 bg-white">
