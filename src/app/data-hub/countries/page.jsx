@@ -396,7 +396,7 @@ export default function CountriesPage() {
                     </td>
                     <td className="py-3 px-4 text-center">
                       {row.ndc_3_0 === null ? (
-                        <span className="text-gray-300">—</span>
+                        <span className="text-gray-300"></span>
                       ) : row.ndc_3_0 ? (
                         <CheckCircle2 size={18} className="text-[#0e8601] inline-block" />
                       ) : (

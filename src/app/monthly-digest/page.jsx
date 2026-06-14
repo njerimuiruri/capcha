@@ -31,7 +31,7 @@ const MonthlyDigestPage = () => {
 
     const sections = [
         { icon: '🔬', title: 'Research Highlights', desc: 'Curated summaries of the latest climate-health studies, papers, and findings from African and global institutions.' },
-        { icon: '📜', title: 'Policy Updates', desc: 'Key developments in climate and health policy across Africa — frameworks, decisions, and calls to action.' },
+        { icon: '📜', title: 'Policy Updates', desc: 'Key developments in climate and health policy across Africa  frameworks, decisions, and calls to action.' },
         { icon: '💰', title: 'Funding Opportunities', desc: 'Grants, fellowships, and calls for proposals relevant to climate-health researchers and practitioners.' },
         { icon: '📅', title: 'Upcoming Events', desc: 'Conferences, webinars, workshops, and training opportunities in the climate-health space.' },
         { icon: '🌟', title: 'Community Spotlight', desc: 'Featuring the work of African researchers, institutions, and initiatives making impact on the continent.' },
@@ -70,7 +70,7 @@ const MonthlyDigestPage = () => {
                         </h1>
 
                         <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-                            Your curated monthly briefing on the latest climate-health research, policy updates, and opportunities from across Africa — coming soon.
+                            Your curated monthly briefing on the latest climate-health research, policy updates, and opportunities from across Africa  coming soon.
                         </p>
 
                         <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-sm font-medium px-5 py-3 rounded-full">
@@ -127,7 +127,7 @@ const MonthlyDigestPage = () => {
                 <section className="py-16 px-4 bg-gray-50">
                     <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-5">
                         {[
-                            { icon: <Clock className="w-5 h-5" />, title: 'Save Time', desc: "We do the reading so you don't have to — only the most relevant updates, curated." },
+                            { icon: <Clock className="w-5 h-5" />, title: 'Save Time', desc: "We do the reading so you don't have to  only the most relevant updates, curated." },
                             { icon: <Globe className="w-5 h-5" />, title: 'Pan-African Coverage', desc: 'Research, policy, and events from across the entire African continent in one place.' },
                             { icon: <TrendingUp className="w-5 h-5" />, title: 'Stay Ahead', desc: 'Funding deadlines, calls for papers, and opportunities before they close.' },
                         ].map((item) => (

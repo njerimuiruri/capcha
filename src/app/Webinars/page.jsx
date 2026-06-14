@@ -18,7 +18,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
 
-// Sample webinar data — replace images/videos with real assets
+// Sample webinar data  replace images/videos with real assets
 const webinars = [
     {
         id: 1,

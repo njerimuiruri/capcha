@@ -53,7 +53,7 @@ const CAPCHAConnectPage = () => {
                     <div className="absolute inset-0 opacity-5"
                         style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-                    {/* Subtle floating country flags — decorative only */}
+                    {/* Subtle floating country flags  decorative only */}
                     <span className="absolute top-16 left-10 text-2xl opacity-20 hidden md:block select-none">🇳🇬</span>
                     <span className="absolute top-28 right-16 text-2xl opacity-20 hidden md:block select-none">🇰🇪</span>
                     <span className="absolute bottom-16 left-24 text-2xl opacity-20 hidden md:block select-none">🇬🇭</span>
@@ -83,7 +83,7 @@ const CAPCHAConnectPage = () => {
                         </h1>
 
                         <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-                            A pan-African networking platform connecting climate-health researchers, policymakers, and practitioners for collaboration, mentorship, and knowledge exchange — coming soon.
+                            A pan-African networking platform connecting climate-health researchers, policymakers, and practitioners for collaboration, mentorship, and knowledge exchange  coming soon.
                         </p>
 
                         <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-sm font-medium px-5 py-3 rounded-full">
@@ -121,7 +121,7 @@ const CAPCHAConnectPage = () => {
                         <p className="text-[#0e8601] text-sm font-bold uppercase tracking-widest mb-3">Platform Features</p>
                         <h2 className="text-3xl font-bold text-[#021d49] mb-5">Built for Africa's Climate-Health Community</h2>
                         <p className="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto mb-14">
-                            CAPCHA Connect goes beyond a directory — it's a dynamic space where Africa's climate-health ecosystem collaborates, learns, and grows together.
+                            CAPCHA Connect goes beyond a directory  it's a dynamic space where Africa's climate-health ecosystem collaborates, learns, and grows together.
                         </p>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 text-left">

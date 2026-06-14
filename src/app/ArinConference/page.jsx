@@ -185,7 +185,7 @@ const EventsPage = () => {
                     </div>
                 </div>
 
-                {/* ── CONTEXT BANNER — tells user exactly what section they're in ── */}
+                {/* ── CONTEXT BANNER  tells user exactly what section they're in ── */}
                 {activeSection === "conferences" ? (
                     <div className="bg-gradient-to-r from-[#021d49] to-[#03337a] py-5 px-4">
                         <div className="container mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
@@ -223,7 +223,7 @@ const EventsPage = () => {
                                 </div>
                                 <div>
                                     <p className="text-white font-bold text-lg leading-none">CAPCHA Webinar Series</p>
-                                    <p className="text-indigo-300 text-sm mt-0.5">Online expert sessions on climate and health — coming soon</p>
+                                    <p className="text-indigo-300 text-sm mt-0.5">Online expert sessions on climate and health  coming soon</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
@@ -449,7 +449,7 @@ const EventsPage = () => {
                                     <Monitor className="w-8 h-8 text-indigo-300 mb-3" />
                                     <h4 className="font-bold text-lg mb-2">Also Check Out Our Webinars</h4>
                                     <p className="text-indigo-200 text-sm mb-4 leading-relaxed">
-                                        Online expert sessions on climate and health — coming soon.
+                                        Online expert sessions on climate and health  coming soon.
                                     </p>
                                     <button onClick={() => setActiveSection("webinars")}
                                         className="w-full py-2.5 bg-white text-indigo-700 rounded-xl font-semibold text-sm hover:bg-indigo-50 transition-colors flex items-center justify-center gap-2">
@@ -478,7 +478,7 @@ const EventsPage = () => {
                                         className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white text-sm" />
                                 </div>
 
-                                {/* Coming Soon callout — prominent */}
+                                {/* Coming Soon callout  prominent */}
                                 <div className="bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-6 mb-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                                     <div className="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center flex-shrink-0">
                                         <Monitor className="w-7 h-7 text-white" />
@@ -599,11 +599,11 @@ const EventsPage = () => {
                                 <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                                     <h3 className="font-bold text-[#021d49] mb-4 text-lg">What Are Webinars?</h3>
                                     <p className="text-gray-500 text-sm leading-relaxed mb-4">
-                                        Online expert-led sessions where researchers, clinicians and policy makers share the latest findings on climate and health — accessible from anywhere across Africa.
+                                        Online expert-led sessions where researchers, clinicians and policy makers share the latest findings on climate and health  accessible from anywhere across Africa.
                                     </p>
                                     <div className="space-y-3">
                                         {[
-                                            { icon: <Globe className="w-4 h-4" />, text: "Fully online — join from anywhere" },
+                                            { icon: <Globe className="w-4 h-4" />, text: "Fully online  join from anywhere" },
                                             { icon: <Clock className="w-4 h-4" />, text: "60–90 minute sessions with live Q&A" },
                                             { icon: <Play className="w-4 h-4" />, text: "Recordings available after each session" },
                                             { icon: <Users className="w-4 h-4" />, text: "Pan-African expert speakers" },

@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 
-/* World-atlas TopoJSON — free, no token required */
+/* World-atlas TopoJSON  free, no token required */
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
 /* ── ISO numeric → display/lookup names ──────────────────────── */

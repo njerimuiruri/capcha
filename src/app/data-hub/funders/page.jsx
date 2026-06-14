@@ -37,7 +37,7 @@ function FundingTypeTooltip({ active, payload }) {
   return (
     <div className="bg-white rounded-xl shadow-xl border border-gray-200 p-4 max-w-sm z-50 pointer-events-none">
       <p className="font-bold text-[#021d49] text-sm mb-3 pb-2 border-b border-gray-100">
-        {d.name} — {d.value} {d.value === 1 ? 'Funder' : 'Funders'}
+        {d.name}  {d.value} {d.value === 1 ? 'Funder' : 'Funders'}
       </p>
       <div className="space-y-2 max-h-52 overflow-y-auto pr-1">
         {(d.funders || []).map(({ name, country }) => (
@@ -57,7 +57,7 @@ function CountryTooltip({ active, payload }) {
   return (
     <div className="bg-white rounded-xl shadow-xl border border-gray-200 p-4 max-w-sm z-50 pointer-events-none">
       <p className="font-bold text-[#021d49] text-sm mb-3 pb-2 border-b border-gray-100">
-        {d.fullName} — {d.count} {d.count === 1 ? 'Funder' : 'Funders'}
+        {d.fullName}  {d.count} {d.count === 1 ? 'Funder' : 'Funders'}
       </p>
       <div className="space-y-1.5 max-h-52 overflow-y-auto pr-1">
         {(d.funders || []).map(({ name, type }) => (

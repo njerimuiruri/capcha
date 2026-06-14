@@ -6,7 +6,7 @@ import { Lock } from 'lucide-react';
 import Navbar from '@/components/Navbar/navbar.jsx';
 import Footer from '@/components/Footer/footer.jsx';
 
-const DATA_HUB_LOCKED = true; // set to false to re-enable
+const DATA_HUB_LOCKED = false; // set to false to re-enable
 
 const NAV_LINKS = [
   { label: 'Overview', href: '/data-hub' },
@@ -30,7 +30,7 @@ export default function DataHubLayout({ children }) {
               <Lock className="w-9 h-9 text-[#021d49]" />
             </div>
             <h1 className="text-2xl font-bold text-[#021d49] mb-3">
-              Data Hub — Coming Soon
+              Data Hub  Coming Soon
             </h1>
             <p className="text-gray-500 leading-relaxed">
               This section is currently being prepared. Check back soon for access to the CAPCHA Data Hub.

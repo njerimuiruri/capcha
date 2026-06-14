@@ -115,7 +115,7 @@ export default function DataHubPage() {
           Data Hub Overview
         </h1>
         <p className="text-gray-500 mt-2 text-base max-w-2xl">
-          A unified platform tracking climate change and health data across Africa —
+          A unified platform tracking climate change and health data across Africa 
           covering countries, organizations, funders, and technical networks.
         </p>
       </section>
@@ -182,7 +182,7 @@ export default function DataHubPage() {
                   </div>
                 </div>
 
-                {/* Button footer — clearly a clickable action */}
+                {/* Button footer  clearly a clickable action */}
                 <div
                   className="flex items-center justify-between px-6 py-3 text-white text-sm font-bold transition-opacity duration-150"
                   style={{ backgroundColor: color }}

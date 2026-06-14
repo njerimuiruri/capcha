@@ -97,7 +97,7 @@ const CapacityEnhancementPage = () => {
         {
             icon: <Sparkles className="w-8 h-8" />,
             title: "CAPCHA Spotlight Series",
-            description: "A 90-minute monthly virtual series held every last Thursday (2:00–3:30 PM EAT), designed to bridge African research and real-world policy. Each session provokes cross-sector dialogue, translating climate-health science into actionable decision support. Once per quarter, structured cross-hub conversations bring together representatives from different climate-health platforms to explore complementarities, gaps, and alignment opportunities — with CAPCHA as a neutral convenor fostering ecosystem coherence.",
+            description: "A 90-minute monthly virtual series held every last Thursday (2:00–3:30 PM EAT), designed to bridge African research and real-world policy. Each session provokes cross-sector dialogue, translating climate-health science into actionable decision support. Once per quarter, structured cross-hub conversations bring together representatives from different climate-health platforms to explore complementarities, gaps, and alignment opportunities  with CAPCHA as a neutral convenor fostering ecosystem coherence.",
             color: "from-amber-500 to-orange-600",
             format: "Monthly · Last Thursday · 2:00–3:30 PM EAT",
             href: "/CapacityEnhancementPage/spotlight-series",
@@ -106,7 +106,7 @@ const CapacityEnhancementPage = () => {
         {
             icon: <Newspaper className="w-8 h-8" />,
             title: "CAPCHA Monthly Digest",
-            description: "A curated monthly publication synthesising the latest climate-health research, policy updates, funding opportunities, and event highlights from across Africa and beyond — keeping researchers, practitioners, and policymakers informed and connected.",
+            description: "A curated monthly publication synthesising the latest climate-health research, policy updates, funding opportunities, and event highlights from across Africa and beyond  keeping researchers, practitioners, and policymakers informed and connected.",
             color: "from-cyan-500 to-teal-600",
             format: "Monthly publication",
             href: "/CapacityEnhancementPage/monthly-digest",
@@ -114,7 +114,7 @@ const CapacityEnhancementPage = () => {
         {
             icon: <Link2 className="w-8 h-8" />,
             title: "CAPCHA Connect",
-            description: "A community networking platform connecting African climate-health researchers, practitioners, and policymakers. CAPCHA Connect facilitates peer-to-peer knowledge exchange, collaboration on cross-border projects, and mentorship — building the continental community of practice needed to drive evidence-informed climate-health action.",
+            description: "A community networking platform connecting African climate-health researchers, practitioners, and policymakers. CAPCHA Connect facilitates peer-to-peer knowledge exchange, collaboration on cross-border projects, and mentorship  building the continental community of practice needed to drive evidence-informed climate-health action.",
             color: "from-rose-500 to-pink-600",
             format: "Community platform",
             href: "/CapacityEnhancementPage/connect",
@@ -319,7 +319,7 @@ const CapacityEnhancementPage = () => {
                                         {program.highlight && (
                                             <div className="absolute top-3 right-3 z-10">
                                                 <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-500 text-white text-xs font-bold shadow-sm">
-                                                    <Sparkles className="w-3 h-3" /> NEW
+                                                     NEW
                                                 </span>
                                             </div>
                                         )}
@@ -420,7 +420,7 @@ const CapacityEnhancementPage = () => {
                                 <div className="relative p-7 flex flex-col h-full min-h-[260px]">
                                     <span className="inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 self-start">
                                         <span className="w-1.5 h-1.5 bg-white rounded-full animate-ping"></span>
-                                        Deadline Extended — 25 Apr
+                                        Deadline Extended  25 Apr
                                     </span>
                                     <BookOpen className="w-8 h-8 text-white mb-3" />
                                     <h3 className="text-white font-extrabold text-lg mb-2 leading-snug">Learning Curve<br />Structured Programme</h3>

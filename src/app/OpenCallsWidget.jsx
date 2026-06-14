@@ -76,7 +76,7 @@ export default function OpenCallsWidget() {
                 <h2 className="text-2xl font-extrabold text-[#021d49] leading-tight">
                   Don&apos;t Miss These<br />CAPCHA Open Calls!
                 </h2>
-                <p className="text-gray-400 text-sm mt-2">Apply, register, or enrol — directly below.</p>
+                <p className="text-gray-400 text-sm mt-2">Apply, register, or enrol  directly below.</p>
               </div>
 
               {/* Call cards */}
@@ -118,7 +118,7 @@ export default function OpenCallsWidget() {
                 onClick={() => setPopupOpen(false)}
                 className="w-full text-gray-400 hover:text-gray-600 text-xs font-medium transition-colors py-1"
               >
-                Close — I&apos;ll come back later
+                Close  I&apos;ll come back later
               </button>
             </div>
           </div>
@@ -213,7 +213,7 @@ export default function OpenCallsWidget() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white" />
             </span>
-            <span className="text-sm">Register Now — CAPCHA Connect</span>
+            <span className="text-sm">Register Now  CAPCHA Connect</span>
             {fabOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
           </span>
         </button>

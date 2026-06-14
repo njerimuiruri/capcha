@@ -22,7 +22,7 @@ import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
 
 // ---------------------------------------------------------------------------
-// Centralised data — in production this would come from an API / CMS
+// Centralised data  in production this would come from an API / CMS
 // ---------------------------------------------------------------------------
 const webinars = [
     {
@@ -32,7 +32,7 @@ const webinars = [
         description:
             'An in-depth exploration of how rising temperatures, extreme weather events, and shifting disease vectors are reshaping public health across Sub-Saharan Africa. Experts from across the continent share research findings and policy implications.',
         fullDescription: `
-            Climate change is no longer a distant threat — it is reshaping the health landscape across Africa in profound and accelerating ways.
+            Climate change is no longer a distant threat  it is reshaping the health landscape across Africa in profound and accelerating ways.
             This webinar brings together leading researchers, clinicians, and policy advocates to examine the mechanisms through which environmental change
             translates into disease burden, displacement, malnutrition, and mental health impacts.
 

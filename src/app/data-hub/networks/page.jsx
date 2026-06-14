@@ -48,7 +48,7 @@ function SupportTypeTooltip({ active, payload }) {
   return (
     <div className="bg-white rounded-xl shadow-xl border border-gray-200 p-4 max-w-xs z-50 pointer-events-none">
       <p className="font-bold text-[#021d49] text-sm mb-3 pb-2 border-b border-gray-100">
-        {d.name} — {d.value} {d.value === 1 ? 'Organization' : 'Organizations'}
+        {d.name}  {d.value} {d.value === 1 ? 'Organization' : 'Organizations'}
       </p>
       <div className="space-y-2">
         {(d.orgs || []).map(({ name, region }) => (

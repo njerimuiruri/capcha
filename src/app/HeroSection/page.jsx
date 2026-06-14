@@ -56,7 +56,7 @@ const HeroSection = () => {
             icon: <BookOpen className="w-6 h-6" />,
             tag: "OPEN · Enrol Now",
             title: "Learning Curve",
-            desc: "A structured learning programme for Africa's next generation of climate-health researchers — building skills, knowledge, and networks.",
+            desc: "A structured learning programme for Africa's next generation of climate-health researchers  building skills, knowledge, and networks.",
             href: "https://ee.kobotoolbox.org/single/5b3703edf1a128aa20c66dff2fadd84f",
             applyHref: "https://ee.kobotoolbox.org/single/5b3703edf1a128aa20c66dff2fadd84f",
             applyLabel: "Enrol in Learning Curve →",
@@ -248,7 +248,7 @@ const HeroSection = () => {
                                 New CAPCHA Initiatives
                             </h2>
                             <p className="text-gray-500 mt-3 max-w-xl leading-relaxed">
-                                Expanding how we connect, inform, and empower Africa's climate-health community — three new programmes launching soon.
+                                Expanding how we connect, inform, and empower Africa's climate-health community  three new programmes launching soon.
                             </p>
                         </div>
                         <Link href="/CapacityEnhancementPage"
@@ -284,7 +284,7 @@ const HeroSection = () => {
                                     {/* Description */}
                                     <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-5">{item.desc}</p>
 
-                                    {/* Apply CTA — prominent if open call */}
+                                    {/* Apply CTA  prominent if open call */}
                                     {item.applyHref && (
                                         <a href={item.applyHref} target="_blank" rel="noopener noreferrer"
                                             className={`inline-flex items-center justify-center gap-2 text-sm font-bold text-white py-2.5 px-4 rounded-xl transition-colors duration-200 mb-2 ${item.accentBg} ${item.accentHover}`}>

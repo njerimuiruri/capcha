@@ -86,7 +86,7 @@ export const blogPosts = [
   {
     id: 4,
     title:
-      "Who Owns the Data That Could Save African Lives? — Evidence Brief | Spotlight Series No. 1",
+      "Who Owns the Data That Could Save African Lives?  Evidence Brief | Spotlight Series No. 1",
     excerpt:
       "Across Africa, health workers are watching a pattern they cannot yet officially measure. Malaria cases spike after certain rains. Hospital admissions climb when temperatures soar. Suicide rates rise quietly in communities hit hardest by drought and displacement. The connection between climate and health is visible to anyone on the ground, yet most national health systems have no formal way to track it, attribute it, or act on it with precision. But here is the deeper question this webinar series was asking: even when that data exists, who controls it? Who interprets it? And whose priorities does it serve?",
     content:
@@ -119,7 +119,7 @@ export const recentPosts = [
   {
     id: 4,
     title:
-      "Who Owns the Data That Could Save African Lives? — Evidence Brief | Spotlight Series No. 1",
+      "Who Owns the Data That Could Save African Lives?  Evidence Brief | Spotlight Series No. 1",
     date: "May 19, 2026",
     image: "/img/evidecebrief.jpg",
     category: "climate",
