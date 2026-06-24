@@ -8,6 +8,17 @@ import Footer from '@/components/Footer/footer';
 
 const EVENTS = [
     {
+        id: 5,
+        category: 'Conferences',
+        title: 'CAPCHA Community Engagement & Networking Event',
+        description: 'A dedicated in-person gathering of CAPCHA partners, researchers, policymakers, and practitioners to share progress, strengthen cross-sector collaboration, and advance the climate-health agenda across Africa.',
+        date: '2025',
+        time: '',
+        location: 'Nairobi, Kenya',
+        image: '/img/capchaevent.jpeg',
+        speakers: 0,
+    },
+    {
         id: 1,
         category: 'Webinars',
         title: 'Pan-African Conference on Environment, Climate Change and Health: Science to Policy — Webinar Launch',

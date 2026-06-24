@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Users, Heart, Sparkles, Newspaper, Link2, ArrowRight, BookOpen } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { blogPosts } from '@/data/blogs';
 
 const HeroSection = () => {
@@ -149,6 +150,21 @@ const HeroSection = () => {
                                         <p className="text-white text-sm font-semibold line-clamp-1 leading-snug">{blogPosts[blogPosts.length - 1].title}</p>
                                     </div>
                                     <ArrowRight className="w-4 h-4 text-white/50 group-hover:text-[#ff9500] group-hover:translate-x-1 transition-all flex-shrink-0 ml-2" />
+                                </Link>
+
+                                {/* Upcoming Event teaser */}
+                                <Link href="/conferences-events"
+                                    className="group mt-3 inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl overflow-hidden hover:bg-white/15 transition-all duration-300 max-w-sm animate-fade-in-up"
+                                    style={{ animationDelay: '1.1s', opacity: 0 }}>
+                                    <div className="relative w-16 h-12 flex-shrink-0">
+                                        <Image src="/img/capchaevent.jpeg" alt="CAPCHA Event" fill className="object-cover" />
+                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20" />
+                                    </div>
+                                    <div className="min-w-0 py-2">
+                                        <span className="text-[#ff9500] text-[10px] font-bold uppercase tracking-widest block mb-0.5">Upcoming Event</span>
+                                        <p className="text-white text-sm font-semibold line-clamp-1 leading-snug">Pan-African Conference · Oct 2025</p>
+                                    </div>
+                                    <ArrowRight className="w-4 h-4 text-white/50 group-hover:text-[#ff9500] group-hover:translate-x-1 transition-all flex-shrink-0 mr-4" />
                                 </Link>
                             </div>
                         </div>
