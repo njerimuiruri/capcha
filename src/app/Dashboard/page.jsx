@@ -1,259 +1,135 @@
 import React from 'react';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { BarChart3, Users, Brain, Share2 } from 'lucide-react';
-import Image from 'next/image';
+import { BarChart3, Users, Brain, Share2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+
+const components = [
+    {
+        num: '01',
+        Icon: BarChart3,
+        color: '#55bdd0',
+        title: 'Database Dashboard',
+        desc: 'Access a centralized collection of data and analytics on climate and health across Africa.',
+        href: '/DatabaseDashboard',
+    },
+    {
+        num: '02',
+        Icon: Users,
+        color: '#0e8601',
+        title: 'Stakeholder Database',
+        desc: "Connect with climate and health stakeholders across Africa's research and policy landscape.",
+        href: '/StakeholderDatabase',
+    },
+    {
+        num: '03',
+        Icon: Brain,
+        color: '#021d49',
+        title: 'Knowledge Translation & Policy',
+        desc: 'Bridge the gap between scientific research and practical policy application in Africa.',
+        href: '/Knowledgetranslationandpolicy',
+    },
+    {
+        num: '04',
+        Icon: Share2,
+        color: '#ff9500',
+        title: 'Knowledge Sharing & Engagement',
+        desc: 'Share best practices and research findings on the impacts of climate change on health.',
+        href: '/Knowledgesharingandengagement',
+    },
+];
+
 const Dashboard = () => {
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-8 transition-colors duration-300">
-            <div className="max-w-7xl mx-auto">
+        <div className="relative bg-[#f8faf8] dark:bg-gray-950 py-16 px-4 md:px-8 overflow-hidden transition-colors duration-300">
 
-                <div className="hidden lg:block">
-                    <div className="relative grid grid-cols-3 gap-6 h-[600px]">
+            {/* ── Background art ── */}
 
-                        <div className="flex flex-col gap-6">
-                            <Card className="bg-white dark:bg-gray-800 shadow-sm hover:shadow-md dark:hover:shadow-lg transition-shadow duration-200 flex-1 border border-gray-200 dark:border-gray-700">
-                                <CardHeader className="pb-4">
-                                    <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mb-4">
-                                        <BarChart3 className="w-6 h-6 text-red-600 dark:text-red-400" />
-                                    </div>
+            {/* Subtle green dot grid */}
+            <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                    backgroundImage: 'radial-gradient(circle, #0e8601 1px, transparent 1px)',
+                    backgroundSize: '26px 26px',
+                    opacity: 0.04,
+                }}
+            />
 
-                                    <Link
-                                        href="/DatabaseDashboard"
-                                        className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+            {/* Large blurred green orb — top left */}
+            <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#0e8601] rounded-full opacity-[0.08] blur-3xl pointer-events-none" />
 
-                                        Database Dashboard
-                                    </Link>
-                                </CardHeader>
-                                <CardContent className="space-y-4">
-                                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                                        provides users with access to a centralized collection of data and analytics.
-                                    </p>
+            {/* Large blurred teal orb — bottom right */}
+            <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#55bdd0] rounded-full opacity-[0.08] blur-3xl pointer-events-none" />
 
-                                    <Link
-                                        href="/DatabaseDashboard"
-                                        className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
+            {/* Concentric rings — top right decorative */}
+            <div className="absolute top-10 right-10 pointer-events-none opacity-[0.07]">
+                <div className="w-40 h-40 rounded-full border-2 border-[#0e8601]" />
+                <div className="absolute inset-5 rounded-full border-2 border-[#55bdd0]" />
+                <div className="absolute inset-10 rounded-full border-2 border-[#021d49]" />
+                <div className="absolute inset-[60px] rounded-full bg-[#0e8601]" />
+            </div>
 
-                                        Read More
-                                    </Link>
-                                </CardContent>
-                            </Card>
+            {/* Leaf SVG — bottom left */}
+            <svg
+                className="absolute bottom-8 left-10 pointer-events-none opacity-[0.06]"
+                width="100" height="140" viewBox="0 0 100 140"
+                fill="none" xmlns="http://www.w3.org/2000/svg"
+            >
+                <path d="M50 5 C80 20 95 55 85 85 C75 115 55 135 50 135 C45 135 25 115 15 85 C5 55 20 20 50 5Z" fill="#0e8601" />
+                <path d="M50 5 L50 135" stroke="#021d49" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M50 40 Q65 55 80 60" stroke="#021d49" strokeWidth="1" strokeLinecap="round" />
+                <path d="M50 65 Q35 78 18 80" stroke="#021d49" strokeWidth="1" strokeLinecap="round" />
+                <path d="M50 90 Q62 100 72 108" stroke="#021d49" strokeWidth="1" strokeLinecap="round" />
+            </svg>
 
-                            <Card className="bg-white dark:bg-gray-800 shadow-sm hover:shadow-md dark:hover:shadow-lg transition-shadow duration-200 flex-1 border border-gray-200 dark:border-gray-700">
-                                <CardHeader className="pb-4">
-                                    <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mb-4">
-                                        <Users className="w-6 h-6 text-red-600 dark:text-red-400" />
-                                    </div>
+            {/* ── Cards panel ── */}
+            <div className="relative max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 dark:bg-gray-700 rounded-2xl overflow-hidden shadow-md">
+                    {components.map((item) => (
+                        <Link
+                            key={item.num}
+                            href={item.href}
+                            className="group bg-white dark:bg-gray-900 p-8 flex flex-col hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
+                        >
+                            {/* Icon + number */}
+                            <div className="flex items-start justify-between mb-8">
+                                <div
+                                    className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                                    style={{ backgroundColor: `${item.color}15` }}
+                                >
+                                    <item.Icon className="w-6 h-6" style={{ color: item.color }} />
+                                </div>
+                                <span className="text-xs font-black text-gray-200 dark:text-gray-700 select-none">
+                                    {item.num}
+                                </span>
+                            </div>
 
-                                    <Link
-                                        href="/StakeholderDatabase"
-                                        className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                            {/* Title */}
+                            <h3 className="font-bold text-[#021d49] dark:text-white text-base leading-snug mb-3">
+                                {item.title}
+                            </h3>
 
-                                        Stakeholder Database
-                                    </Link>
-                                </CardHeader>
-                                <CardContent className="space-y-4">
-                                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                                        Climate and Health Stakeholder Database
-                                    </p>
+                            {/* Description */}
+                            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed flex-1 mb-8">
+                                {item.desc}
+                            </p>
 
-                                    <Link
-                                        href="/StakeholderDatabase"
-                                        className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
-
-                                        Read More
-                                        <span className="text-xs">»</span>
-
-                                    </Link>
-                                </CardContent>
-                            </Card>
-                        </div>
-
-                        <div className="flex items-center justify-center">
-                            <div className="w-full h-80 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/30 rounded-lg flex items-center justify-center shadow-sm dark:shadow-lg overflow-hidden relative border border-gray-200 dark:border-gray-700">
-                                <Image
-                                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Ccircle cx='200' cy='200' r='180' fill='%23e0f2fe'/%3E%3Ccircle cx='200' cy='200' r='160' fill='%23b3e5fc'/%3E%3Ccircle cx='200' cy='200' r='140' fill='%2381d4fa'/%3E%3Ctext x='200' y='220' text-anchor='middle' font-size='60' fill='%23455a64'%3E🌍%3C/text%3E%3C/svg%3E"
-                                    alt="Globe representation"
-                                    fill
-                                    className="object-contain opacity-90 dark:opacity-80"
-                                />
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                                        <p className="text-blue-700 dark:text-blue-300 text-xs font-medium bg-white/80 dark:bg-gray-800/80 px-2 py-1 rounded border border-gray-200 dark:border-gray-600">
-                                            Climate & Health Global Impact
-                                        </p>
-                                    </div>
+                            {/* Read More + animated line */}
+                            <div>
+                                <div
+                                    className="inline-flex items-center gap-1.5 text-sm font-semibold mb-3"
+                                    style={{ color: item.color }}
+                                >
+                                    Read More
+                                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
+                                </div>
+                                <div className="h-0.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div
+                                        className="h-full w-0 group-hover:w-full transition-all duration-500 ease-out rounded-full"
+                                        style={{ backgroundColor: item.color }}
+                                    />
                                 </div>
                             </div>
-                        </div>
-
-                        <div className="flex flex-col gap-6">
-                            <Card className="bg-white dark:bg-gray-800 shadow-sm hover:shadow-md dark:hover:shadow-lg transition-shadow duration-200 flex-1 border border-gray-200 dark:border-gray-700">
-                                <CardHeader className="pb-4">
-                                    <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mb-4">
-                                        <Brain className="w-6 h-6 text-red-600 dark:text-red-400" />
-                                    </div>
-
-                                    <Link
-                                        href="/Knowledgetranslationandpolicy
-"
-                                        className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-
-                                        Knowledge translation and policy
-                                    </Link>
-                                </CardHeader>
-                                <CardContent className="space-y-4">
-                                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                                        To bridge the gap between scientific research and practical application
-                                    </p>
-
-                                    <Link
-                                        href="/Knowledgetranslationandpolicy
-"
-                                        className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
-
-                                        Read More
-                                        <span className="text-xs">»</span>
-
-                                    </Link>
-                                </CardContent>
-                            </Card>
-
-                            <Card className="bg-white dark:bg-gray-800 shadow-sm hover:shadow-md dark:hover:shadow-lg transition-shadow duration-200 flex-1 border border-gray-200 dark:border-gray-700">
-                                <CardHeader className="pb-4">
-                                    <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mb-4">
-                                        <Share2 className="w-6 h-6 text-red-600 dark:text-red-400" />
-                                    </div>
-
-                                    <Link
-                                        href="/Knowledgesharingandengagement
-"
-                                        className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-
-                                        Knowledge sharing and engagement
-                                    </Link>
-                                </CardHeader>
-                                <CardContent className="space-y-4">
-                                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                                        Shares knowledge, best practices, and research findings related to the impacts of climate change on health
-                                    </p>
-
-                                    <Link
-                                        href="/Knowledgesharingandengagement
-"
-                                        className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
-
-                                        Read More
-                                        <span className="text-xs">»</span>
-                                    </Link>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="lg:hidden">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                        <Card className="bg-white dark:bg-gray-800 shadow-sm hover:shadow-md dark:hover:shadow-lg transition-shadow duration-200 border border-gray-200 dark:border-gray-700">
-                            <CardHeader className="pb-4">
-                                <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mb-4">
-                                    <BarChart3 className="w-6 h-6 text-red-600 dark:text-red-400" />
-                                </div>
-                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                                    Database Dashboard
-                                </h3>
-                            </CardHeader>
-                            <CardContent className="space-y-4">
-                                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                                    provides users with access to a centralized collection of data and analytics.
-                                </p>
-                                <button className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
-                                    Read More
-                                    <span className="text-xs">»</span>
-                                </button>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="bg-white dark:bg-gray-800 shadow-sm hover:shadow-md dark:hover:shadow-lg transition-shadow duration-200 border border-gray-200 dark:border-gray-700">
-                            <CardHeader className="pb-4">
-                                <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mb-4">
-                                    <Brain className="w-6 h-6 text-red-600 dark:text-red-400" />
-                                </div>
-                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                                    Knowledge translation and policy
-                                </h3>
-                            </CardHeader>
-                            <CardContent className="space-y-4">
-                                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                                    To bridge the gap between scientific research and practical application
-                                </p>
-                                <button className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
-                                    Read More
-                                    <span className="text-xs">»</span>
-                                </button>
-                            </CardContent>
-                        </Card>
-
-                        {/* Central Image */}
-                        <div className="md:col-span-2">
-                            <Card className="bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700">
-                                <CardContent className="p-0">
-                                    <div className="relative w-full h-64 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/30 flex items-center justify-center rounded-lg">
-                                        <div className="text-center p-6">
-                                            <div className="w-24 h-24 mx-auto mb-3 bg-blue-200 dark:bg-blue-800/50 rounded-full flex items-center justify-center">
-                                                <div className="w-18 h-18 bg-blue-300 dark:bg-blue-700/50 rounded-full flex items-center justify-center">
-                                                    <div className="text-blue-700 dark:text-blue-300 text-lg">🌍</div>
-                                                </div>
-                                            </div>
-                                            <p className="text-blue-700 dark:text-blue-300 text-sm">Climate & Health Global Impact</p>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </div>
-
-                        {/* Stakeholder Database Card */}
-                        <Card className="bg-white dark:bg-gray-800 shadow-sm hover:shadow-md dark:hover:shadow-lg transition-shadow duration-200 border border-gray-200 dark:border-gray-700">
-                            <CardHeader className="pb-4">
-                                <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mb-4">
-                                    <Users className="w-6 h-6 text-red-600 dark:text-red-400" />
-                                </div>
-                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                                    Stakeholder Database
-                                </h3>
-                            </CardHeader>
-                            <CardContent className="space-y-4">
-                                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                                    Climate and Health Stakeholder Database
-                                </p>
-                                <button className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
-                                    Read More
-                                    <span className="text-xs">»</span>
-                                </button>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="bg-white dark:bg-gray-800 shadow-sm hover:shadow-md dark:hover:shadow-lg transition-shadow duration-200 border border-gray-200 dark:border-gray-700">
-                            <CardHeader className="pb-4">
-                                <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mb-4">
-                                    <Share2 className="w-6 h-6 text-red-600 dark:text-red-400" />
-                                </div>
-                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                                    Knowledge sharing and engagement
-                                </h3>
-                            </CardHeader>
-                            <CardContent className="space-y-4">
-                                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                                    Shares knowledge, best practices, and research findings related to the impacts of climate change on health
-                                </p>
-                                <button className="text-red-600 dark:text-red-400 text-sm font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200 flex items-center gap-1">
-                                    Read More
-                                    <span className="text-xs">»</span>
-                                </button>
-                            </CardContent>
-                        </Card>
-                    </div>
+                        </Link>
+                    ))}
                 </div>
             </div>
         </div>

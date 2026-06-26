@@ -44,7 +44,7 @@ const BlogSection = () => {
     };
 
     return (
-        <div className="bg-gray-50 dark:bg-gray-900 py-16 px-4 relative">
+        <div className="bg-gray-50 dark:bg-gray-900 py-10 px-4 relative">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-12">
                     <div className="flex items-center justify-center mb-4">

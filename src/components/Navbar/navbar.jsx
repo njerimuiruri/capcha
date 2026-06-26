@@ -44,7 +44,7 @@ const Navbar = () => {
                         </a>
                         <span className="hidden lg:flex items-center gap-1.5">
                             <MapPin className="w-3 h-3 flex-shrink-0" />
-                            ACK Gardens House, Bishop Road, 1st Ngong Ave, Upperhill
+                            ACK Garden House, Bishop Road, 1st Ngong Ave, Upperhill
                         </span>
                     </div>
                     <div className="flex items-center gap-3 text-white/70">
@@ -208,10 +208,12 @@ const Navbar = () => {
                                         </p>
                                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Active Projects</p>
                                         {[
-                                            { label: 'BioCam4', desc: 'Bioenergetics & climate', href: '#', ext: true },
+                                            { label: 'BioCam4', desc: 'Bioenergetics & climate', href: 'https://biocam4.com/', ext: true },
                                             { label: 'Consultation & CoP', desc: 'Communities of practice', href: '#' },
                                             { label: 'The Heat Stakeholder Mapping', desc: 'Heat-health actor landscape', href: '#' },
-                                            { label: 'MexCovid 10', desc: 'Mexico COVID-climate study', href: '#', ext: true },
+                                            // { label: 'Mex', desc: 'Mex', href: '#', ext: true },
+                                       { label: 'Covid19', desc: 'Covid19', href: '#', ext: true },
+
                                         ].map(p => (
                                             <a key={p.label} href={p.href} target={p.ext ? '_blank' : undefined}
                                                 rel={p.ext ? 'noopener noreferrer' : undefined} onClick={closeAll}

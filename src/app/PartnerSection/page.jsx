@@ -97,7 +97,7 @@ const PartnerSection = () => {
     };
 
     return (
-        <div className="py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 relative"
+        <div className="py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 relative"
             style={{
                 backgroundImage: 'url("/img/background.png")',
                 backgroundSize: 'cover',

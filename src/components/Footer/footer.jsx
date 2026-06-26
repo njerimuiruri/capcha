@@ -126,7 +126,7 @@ const Footer = () => {
                                 <MapPin className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
                                 <div>
                                     <p className="text-sm font-medium">Location</p>
-                                    <p className="text-sm text-gray-300">ACK Gardens House,Bishop Road, 1St Ngong Ave, Upperhill, Nairobi. P.O Box 53358 – 00200. Nairobi, Kenya</p>
+                                    <p className="text-sm text-gray-300">ACK Garden House,Bishop Road, 1St Ngong Ave, Upperhill, Nairobi. P.O Box 53358 – 00200. Nairobi, Kenya</p>
                                 </div>
                             </div>
 

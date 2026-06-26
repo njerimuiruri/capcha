@@ -14,7 +14,7 @@ import Footer from "@/components/Footer/footer";
 import PartnerSection from "./PartnerSection/page";
 import GallerySection from "./GallerySection/page";
 import MissionVisionSection from "./MissionVisionSection/page";
-import VideoSection from "./VideoSection/page";
+import InitiativesSection from "./InitiativesSection/page";
 import PageLoader from "./PageLoader";
 import OpenCallsWidget from "./OpenCallsWidget";
 export default function Home() {
@@ -42,6 +42,7 @@ export default function Home() {
 
         <main>
           <HeroSection />
+          <InitiativesSection />
           <AboutSection />
           <MissionVisionSection />
           <CallToAction />
@@ -49,7 +50,6 @@ export default function Home() {
           {/* <TeamsPage /> */}
           <PartnerSection />
           <BlogSection />
-          <VideoSection />
           <GallerySection />
         </main>
         <Footer />

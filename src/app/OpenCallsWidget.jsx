@@ -5,16 +5,16 @@ import { X, Link2, ArrowRight, ExternalLink, ChevronUp, ChevronDown } from 'luci
 const CALLS = [
   {
     Icon: Link2,
-    tag: 'Registration Open',
-    title: 'CAPCHA Connect',
-    sub: 'Pan-African Community Platform',
-    href: 'https://ee.kobotoolbox.org/single/81f9beab8ea9a72662b5c429f732f7f3',
-    btnLabel: 'Register Now',
-    gradient: 'from-[#021d49] to-[#03337a]',
-    btnBg: 'bg-[#021d49] hover:bg-[#03337a]',
-    border: 'border-[#021d49]/25',
-    text: 'text-[#021d49]',
-    dot: 'bg-[#021d49]',
+    tag: 'Enrolment Open',
+    title: 'Learning Curve',
+    sub: 'Structured Learning Programme',
+    href: 'https://ee.kobotoolbox.org/single/5b3703edf1a128aa20c66dff2fadd84f',
+    btnLabel: 'Enrol Now',
+    gradient: 'from-[#0e8601] to-[#0a6e01]',
+    btnBg: 'bg-[#0e8601] hover:bg-[#0a6e01]',
+    border: 'border-[#0e8601]/25',
+    text: 'text-[#0e8601]',
+    dot: 'bg-[#0e8601]',
   },
 ];
 
@@ -66,12 +66,12 @@ export default function OpenCallsWidget() {
             <div className="p-8 pt-7">
               {/* Header */}
               <div className="text-center mb-7">
-                <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200 text-red-600 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
+                <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
                   <span className="relative flex h-2.5 w-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
                   </span>
-                  1 Application Currently Open
+                  1 Enrolment Currently Open
                 </div>
                 <h2 className="text-2xl font-extrabold text-[#021d49] leading-tight">
                   Don&apos;t Miss These<br />CAPCHA Open Calls!
@@ -204,16 +204,16 @@ export default function OpenCallsWidget() {
         {/* FAB button */}
         <button
           onClick={() => setFabOpen((v) => !v)}
-          className="relative flex items-center gap-2.5 bg-gradient-to-r from-[#ff9500] to-[#e6850e] hover:from-[#e6850e] hover:to-[#cc7400] text-white font-bold px-5 py-3.5 rounded-2xl shadow-2xl transition-all duration-200 hover:scale-105 active:scale-95"
+          className="relative flex items-center gap-2.5 bg-gradient-to-r from-[#0e8601] to-[#0a6e01] hover:from-[#0a6e01] hover:to-[#085a01] text-white font-bold px-5 py-3.5 rounded-2xl shadow-2xl transition-all duration-200 hover:scale-105 active:scale-95"
         >
           {/* Outer pulse ring */}
-          <span className="absolute -inset-1 rounded-2xl bg-[#ff9500]/40 animate-ping" />
+          <span className="absolute -inset-1 rounded-2xl bg-[#0e8601]/40 animate-ping" />
           <span className="relative flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white" />
             </span>
-            <span className="text-sm">Register Now  CAPCHA Connect</span>
+            <span className="text-sm">Enrol Now · Learning Curve</span>
             {fabOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
           </span>
         </button>

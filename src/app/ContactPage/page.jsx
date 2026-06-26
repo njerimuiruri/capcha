@@ -162,7 +162,7 @@ const ContactPage = () => {
                                     <div>
                                         <h3 className="text-xl font-bold text-gray-900 mb-4">Our Address</h3>
                                         <p className="text-gray-600 leading-relaxed">
-                                            ACK Gardens House,Bishop Road, 1St Ngong Ave, Upperhill, <br /> Nairobi. P.O Box 53358 – 00200. Nairobi, Kenya<br />
+                                            ACK Garden House,Bishop Road, 1St Ngong Ave, Upperhill, <br /> Nairobi. P.O Box 53358 – 00200. Nairobi, Kenya<br />
 
                                         </p>
                                     </div>

@@ -2,67 +2,59 @@ import React from 'react';
 
 const CallToAction = () => {
     return (
-        <div className="relative h-64 sm:h-80 md:h-96 w-full overflow-hidden">
-            <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{
-                    backgroundImage: `url('data:image/svg+xml,${encodeURIComponent(`
-            <svg width="1920" height="600" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
-                  <stop offset="100%" style="stop-color:#98FB98;stop-opacity:1" />
-                </linearGradient>
-              </defs>
-              <rect width="100%" height="60%" fill="url(#skyGradient)"/>
-              <rect y="60%" width="100%" height="40%" fill="#90EE90"/>
-              <!-- Clouds -->
-              <ellipse cx="300" cy="120" rx="80" ry="40" fill="white" opacity="0.7"/>
-              <ellipse cx="800" cy="100" rx="100" ry="50" fill="white" opacity="0.6"/>
-              <ellipse cx="1400" cy="150" rx="90" ry="45" fill="white" opacity="0.5"/>
-              <!-- People silhouettes -->
-              <ellipse cx="600" cy="360" rx="20" ry="40" fill="#333" opacity="0.8"/>
-              <ellipse cx="700" cy="370" rx="18" ry="35" fill="#333" opacity="0.7"/>
-            </svg>
-          `)}`
-                }}
-            />
+        <div className="relative bg-[#021d49] py-12 overflow-hidden">
 
-            <div
-                className="absolute inset-0"
-                style={{
-                    background: `linear-gradient(135deg, 
-            rgba(2, 29, 73, 0.85) 0%, 
-            rgba(2, 29, 73, 0.7) 50%, 
-            rgba(14, 134, 1, 0.7) 100%)`
-                }}
-            />
-
-            <div className="relative z-10 flex h-full items-center justify-center px-4 sm:px-6 lg:px-8">
-                <div className="text-center">
-
-
-
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white">
-                        <span className="block">
-                            Components Of{' '}
-                            <span
-                                className="relative bg-gradient-to-r from-blue-300 via-white to-green-300 bg-clip-text text-transparent font-extrabold"
-                                style={{
-                                    textShadow: '0 4px 20px rgba(255, 255, 255, 0.3)'
-                                }}
-                            >
-                                CAPCHA
-                            </span>
-                        </span>
-                    </h1>
-
-                </div>
+            {/* ── Decorative background ── */}
+            <div className="absolute inset-0 pointer-events-none">
+                {/* Dot grid */}
+                <div
+                    className="absolute inset-0 opacity-[0.06]"
+                    style={{
+                        backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)',
+                        backgroundSize: '28px 28px',
+                    }}
+                />
+                {/* Large blurred green circle – top right */}
+                <div className="absolute -top-40 -right-40 w-[28rem] h-[28rem] bg-[#0e8601] rounded-full opacity-[0.12] blur-3xl" />
+                {/* Large blurred teal circle – bottom left */}
+                <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#55bdd0] rounded-full opacity-[0.12] blur-3xl" />
+                {/* Vertical accent lines */}
+                <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#55bdd0]/20 to-transparent" />
+                <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#0e8601]/20 to-transparent" />
+                {/* Small floating dots */}
+                <div className="absolute top-1/4 left-[15%] w-3 h-3 bg-[#0e8601] rounded-full opacity-40" />
+                <div className="absolute top-3/4 right-[18%] w-2 h-2 bg-[#55bdd0] rounded-full opacity-50" />
+                <div className="absolute top-1/2 left-[40%] w-1.5 h-1.5 bg-[#ff9500] rounded-full opacity-30" />
+                <div className="absolute top-[20%] right-[35%] w-2 h-2 bg-[#0e8601] rounded-full opacity-25" />
             </div>
 
-            <div className="absolute top-4 right-4 h-2 w-2 rounded-full bg-white/20 animate-pulse"></div>
-            <div className="absolute bottom-6 left-6 h-1.5 w-1.5 rounded-full bg-green-300/40 animate-pulse delay-500"></div>
-            <div className="absolute top-8 left-1/4 h-1 w-1 rounded-full bg-blue-300/30 animate-pulse delay-1000"></div>
+            {/* ── Content ── */}
+            <div className="relative container mx-auto px-6 lg:px-12 text-center">
+
+                {/* Pill label */}
+                <div className="inline-flex items-center gap-2 bg-[#0e8601]/20 border border-[#0e8601]/40 text-[#55bdd0] text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-8">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0e8601] animate-pulse" />
+                    Our Platform
+                </div>
+
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                    Components of{' '}
+                    <span className="text-transparent bg-gradient-to-r from-[#55bdd0] to-[#0e8601] bg-clip-text">
+                        CAPCHA
+                    </span>
+                </h2>
+
+                <p className="text-gray-400 max-w-xl mx-auto text-base leading-relaxed mb-10">
+                    Explore the key pillars that drive our climate-health mission across Africa.
+                </p>
+
+                {/* Decorative accent bar */}
+                <div className="flex items-center justify-center gap-2">
+                    <div className="w-16 h-0.5 bg-[#55bdd0] rounded-full" />
+                    <div className="w-2.5 h-2.5 bg-[#0e8601] rounded-full" />
+                    <div className="w-16 h-0.5 bg-[#0e8601] rounded-full" />
+                </div>
+            </div>
         </div>
     );
 };
