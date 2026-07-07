@@ -271,6 +271,7 @@ const Navbar = () => {
                                         </p>
                                         {[
                                             { label: 'Interactive Map', desc: 'Actors across Africa', href: '/Connect' },
+                                            { label: 'Organizations Map', desc: 'Climate & health projects map', href: '/connect/test' },
                                         ].map(item => (
                                             <Link key={item.href} href={item.href} onClick={closeAll}
                                                 className="flex items-start gap-2 py-1.5 group/i">
@@ -314,7 +315,7 @@ const Navbar = () => {
                                             { label: 'Research & Innovation', href: '/Research', subs: [{ label: 'Knowledge Sharing', href: '/knowledge-sharing' }, { label: 'Spotlight Series', href: '/spotlight-series' }] },
                                             { label: 'Policy & Advocacy', href: '/PolicyAdvocacyPage', subs: [{ label: 'Knowledge Translation', href: '/knowledge-translation' }, { label: 'Learning Curve', href: '/learning-curve' }, { label: 'Publications', href: '/publications' }] },
                                             { label: 'Capacity Building', href: '/CapacityEnhancementPage', subs: [] },
-                                            { label: 'CAPCHA Connect', href: '/Connect', subs: [{ label: 'Interactive Map', href: '/Connect' }] },
+                                            { label: 'CAPCHA Connect', href: '/Connect', subs: [{ label: 'Interactive Map', href: '/Connect' }, { label: 'Organizations Map', href: '/connect/test' }] },
                                         ].map(item => (
                                             <div key={item.label}>
                                                 <div className="flex items-center justify-between">

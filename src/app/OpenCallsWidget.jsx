@@ -5,11 +5,11 @@ import { X, Link2, ArrowRight, ExternalLink, ChevronUp, ChevronDown } from 'luci
 const CALLS = [
   {
     Icon: Link2,
-    tag: 'Enrolment Open',
-    title: 'Learning Curve',
-    sub: 'Structured Learning Programme',
-    href: 'https://ee.kobotoolbox.org/single/5b3703edf1a128aa20c66dff2fadd84f',
-    btnLabel: 'Enrol Now',
+    tag: 'Application Open',
+    title: 'CAPCHA Connect',
+    sub: 'Climate & Health Community Platform',
+    href: '/connect/test',
+    btnLabel: 'Apply Now',
     gradient: 'from-[#0e8601] to-[#0a6e01]',
     btnBg: 'bg-[#0e8601] hover:bg-[#0a6e01]',
     border: 'border-[#0e8601]/25',
@@ -71,7 +71,7 @@ export default function OpenCallsWidget() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                     <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
                   </span>
-                  1 Enrolment Currently Open
+                  1 Application Currently Open
                 </div>
                 <h2 className="text-2xl font-extrabold text-[#021d49] leading-tight">
                   Don&apos;t Miss These<br />CAPCHA Open Calls!
@@ -103,8 +103,6 @@ export default function OpenCallsWidget() {
                     ) : (
                       <a
                         href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className={`flex-shrink-0 inline-flex items-center gap-1.5 text-white font-bold text-xs px-4 py-2.5 rounded-xl ${btnBg} transition-colors`}
                       >
                         {btnLabel} <ArrowRight className="w-3.5 h-3.5" />
@@ -171,8 +169,6 @@ export default function OpenCallsWidget() {
                   <a
                     key={title}
                     href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-50 transition-colors group"
                   >
                     <span className={`w-2 h-2 rounded-full ${dot} flex-shrink-0`} />
@@ -213,7 +209,7 @@ export default function OpenCallsWidget() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white" />
             </span>
-            <span className="text-sm">Enrol Now · Learning Curve</span>
+            <span className="text-sm">Apply Now · CAPCHA Connect</span>
             {fabOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
           </span>
         </button>
