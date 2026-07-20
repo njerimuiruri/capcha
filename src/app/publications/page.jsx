@@ -40,6 +40,35 @@ const publications = [
         pdfUrl: '/document/CAPCHA Evidence brief.pdf',
         doiUrl: null,
     },
+     {
+        id: 'p2',
+        category: 'policy',
+        title: 'When Evidence Exists but Policy Doesn’t Move.',
+        authors: ['CAPCHA Research Team'],
+        year: 2026,
+        journal: 'CAPCHA Evidence Brief',
+        volume: 'Issue 2',
+        tags: ['Data Governance', 'Policy', 'Africa'],
+        // abstract: 'This evidence brief explores questions of data ownership and governance in climate-health contexts across Africa, drawing on the findings of the first CAPCHA Spotlight Series session.',
+abstract:'Africa  has  no  shortage  of  climate–health  evidence.  Research  institutions, practitioners, and regional initiatives continue to generate knowledge that can inform policy, while continental bodies are strengthening climate and health  action.  Yet  despite  this  growing  evidence  base,  policy  uptake  and implementation remain slow. The challenge is no longer producing more evidence, but understanding why existing evidence so often fails to reach and  influence  policy  and  decision-making.  The  bottleneck  lies  in governance:  the  systems,  institutions,  and  processes  that  determine  how evidence moves into decisions, financing, and implementation.'
+        ,pdfUrl: '/document/CAPCHAEvidencebriefNo.2.pdf',
+        doiUrl: null,
+    },
+    {
+        id: 'p3',
+        category: 'policy',
+        title: 'Financing Climate Health Without the Traditional Donor Funding',
+        authors: ['CAPCHA Research Team'],
+        year: 2026,
+        journal: 'CAPCHA Evidence Brief',
+        volume: 'Issue 3',
+        tags: ['Data Governance', 'Policy', 'Africa'],
+        // abstract: 'This evidence brief explores questions of data ownership and governance in climate-health contexts across Africa, drawing on the findings of the first CAPCHA Spotlight Series session.',
+       abstract:'Climate  change  is  increasingly  straining  Africas  health  systems,  yet financing  for  climate-health  action  remains  heavily  dependent  on traditional donors. As climate shocks disrupt health services, infrastructure, and supply chains, there is an urgent need to explore sustainable, locally driven financing mechanisms that can strengthen health system resilience beyond conventional donor funding.'
+      ,  pdfUrl: '/document/CAPCHAEvidencebriefNo.2.pdf',
+        doiUrl: null,
+    },
+    
     // ── Working Papers ────────────────────────────────────────────────────────
     {
         id: 'w1',
