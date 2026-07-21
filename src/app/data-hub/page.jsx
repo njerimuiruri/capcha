@@ -43,63 +43,62 @@ const ndcData = [
   { name: 'Not Submitted', value: 50, fill: '#cbd5e1' },
 ];
 
-const navSections = [
-  {
-    href: '/data-hub/countries',
-    icon: Globe,
-    title: 'Countries & Policy',
-    description:
-      'Interactive map and tables showing HNAP adoption status and NDC 3.0 submissions across 54 African nations.',
-    color: '#0e8601',
-    bg: '#0e860112',
-    stats: [
-      { value: 53, label: 'Countries Tracked' },
-      { value: 6, label: 'HNAPs Implemented' },
-      { value: 3, label: 'NDC 3.0 Submitted' },
-    ],
-  },
-  {
-    href: '/data-hub/organizations',
-    icon: Building2,
-    title: 'Organizations',
-    description:
-      'Browse climate and health organizations operating across Africa at national, regional, and global scopes.',
-    color: '#021d49',
-    bg: '#021d4912',
-    stats: [
-      { value: orgsData.organizations.length, label: 'Organizations' },
-      { value: 4, label: 'Scope Levels' },
-    ],
-  },
-  {
-    href: '/data-hub/funders',
-    icon: Landmark,
-    title: 'Funders',
-    description:
-      'Discover funders supporting climate-health initiatives with grants, loans, investments, and technical assistance.',
-    color: '#ff9500',
-    bg: '#ff950012',
-    stats: [
-      { value: fundersData.data.length, label: 'Total Funders' },
-      { value: 6, label: 'Funding Types' },
-    ],
-  },
-  {
-    href: '/data-hub/networks',
-    icon: Network,
-    title: 'Technical Networks',
-    description:
-      'Explore technical support networks providing research, capacity building, and policy guidance across Africa.',
-    color: '#55bdd0',
-    bg: '#55bdd012',
-    stats: [
-      { value: 6, label: 'Networks' },
-      { value: 7, label: 'Support Types' },
-    ],
-  },
-];
-
 export default function DataHubPage() {
+  const navSections = [
+    {
+      href: '/data-hub/countries',
+      icon: Globe,
+      title: 'Countries & Policy',
+      description:
+        'Interactive map and tables showing HNAP adoption status and NDC 3.0 submissions across 54 African nations.',
+      color: '#0e8601',
+      bg: '#0e860112',
+      stats: [
+        { value: 53, label: 'Countries Tracked' },
+        { value: 6, label: 'HNAPs Implemented' },
+        { value: 3, label: 'NDC 3.0 Submitted' },
+      ],
+    },
+    {
+      href: '/data-hub/organizations',
+      icon: Building2,
+      title: 'Organizations',
+      description:
+        'Browse climate and health organizations operating across Africa at national, regional, and global scopes.',
+      color: '#021d49',
+      bg: '#021d4912',
+      stats: [
+        { value: orgsData?.length || 0, label: 'Organizations' },
+        { value: 4, label: 'Scope Levels' },
+      ],
+    },
+    {
+      href: '/data-hub/funders',
+      icon: Landmark,
+      title: 'Funders',
+      description:
+        'Discover funders supporting climate-health initiatives with grants, loans, investments, and technical assistance.',
+      color: '#ff9500',
+      bg: '#ff950012',
+      stats: [
+        { value: fundersData?.data?.length || 0, label: 'Total Funders' },
+        { value: 6, label: 'Funding Types' },
+      ],
+    },
+    {
+      href: '/data-hub/networks',
+      icon: Network,
+      title: 'Technical Networks',
+      description:
+        'Explore technical support networks providing research, capacity building, and policy guidance across Africa.',
+      color: '#55bdd0',
+      bg: '#55bdd012',
+      stats: [
+        { value: 6, label: 'Networks' },
+        { value: 7, label: 'Support Types' },
+      ],
+    },
+  ];
   return (
     <div className="pb-20">
 
@@ -125,8 +124,8 @@ export default function DataHubPage() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[
             { value: 53, label: 'Countries Tracked', icon: MapPin, color: '#0e8601' },
-            { value: orgsData.organizations.length, label: 'Organizations', icon: Building2, color: '#021d49' },
-            { value: fundersData.data.length, label: 'Funders', icon: DollarSign, color: '#ff9500' },
+            { value: orgsData?.length || 0, label: 'Organizations', icon: Building2, color: '#021d49' },
+            { value: fundersData?.data?.length || 0, label: 'Funders', icon: DollarSign, color: '#ff9500' },
             { value: 6, label: 'Technical Networks', icon: Wifi, color: '#55bdd0' },
           ].map(({ value, label, icon: Icon, color }) => (
             <div key={label} className="bg-white rounded-2xl shadow-sm border border-gray-100 px-6 py-5 flex items-center gap-4 hover:shadow-md transition-shadow">
@@ -270,8 +269,8 @@ export default function DataHubPage() {
             </div>
             <p className="text-xs text-gray-400 -mt-2">Key actors in the Africa climate-health landscape</p>
             {[
-              { label: 'Organizations tracked', value: orgsData.organizations.length, color: '#021d49' },
-              { label: 'Active funders', value: fundersData.data.length, color: '#ff9500' },
+              { label: 'Organizations tracked', value: orgsData?.length || 0, color: '#021d49' },
+              { label: 'Active funders', value: fundersData?.data?.length || 0, color: '#ff9500' },
               { label: 'Technical networks', value: 6, color: '#55bdd0' },
               { label: 'African countries covered', value: 53, color: '#0e8601' },
               { label: 'HNAPs implemented', value: 6, color: '#0e8601' },

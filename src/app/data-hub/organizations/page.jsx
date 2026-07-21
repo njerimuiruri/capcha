@@ -68,12 +68,25 @@ function FunderTooltip({ active, payload }) {
   );
 }
 
+/* ── Transform org data ───────────────────────────────────────── */
+function transformOrgData(orgs) {
+  return orgs.map((org) => ({
+    ...org,
+    organization: org.organization || org.lead_organization || 'Unknown',
+    funder: typeof org.funder === 'string'
+      ? org.funder.split(',').map(f => f.trim()).filter(f => f)
+      : org.funder || [],
+    projects_and_thematic_focus: org.projects_and_thematic_focus || [],
+  }));
+}
+
 /* ── Compute stats ────────────────────────────────────────────── */
 function computeStats(orgs) {
+  const transformedOrgs = transformOrgData(orgs);
   const scopeMap = { Africa: [], Global: [], National: [], Regional: [] };
   const funderMap = {};
 
-  orgs.forEach((org) => {
+  transformedOrgs.forEach((org) => {
     if (scopeMap[org.scope] !== undefined) {
       scopeMap[org.scope].push({ name: org.organization, location: org.project_location });
     }
@@ -182,13 +195,15 @@ export default function OrganizationsPage() {
   const [search, setSearch] = useState('');
   const [scopeFilter, setScopeFilter] = useState('All');
 
+  const transformedOrgs = transformOrgData(orgsData);
+
   const { scopeCounts, scopeChart, topFunders } = useMemo(
-    () => computeStats(orgsData.organizations),
+    () => computeStats(orgsData),
     []
   );
 
   const filtered = useMemo(() => {
-    return orgsData.organizations.filter((org) => {
+    return transformedOrgs.filter((org) => {
       const matchSearch =
         !search.trim() ||
         org.organization.toLowerCase().includes(search.toLowerCase()) ||
@@ -197,7 +212,7 @@ export default function OrganizationsPage() {
       const matchScope = scopeFilter === 'All' || org.scope === scopeFilter;
       return matchSearch && matchScope;
     });
-  }, [search, scopeFilter]);
+  }, [search, scopeFilter, transformedOrgs]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pb-16 space-y-10">
@@ -212,7 +227,7 @@ export default function OrganizationsPage() {
 
       {/* ── Stat cards ──────────────────────────────────────────── */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <StatCard value={orgsData.organizations.length} label="Total Organizations" color="#021d49" />
+        <StatCard value={orgsData.length} label="Total Organizations" color="#021d49" />
         <StatCard value={scopeCounts.Africa || 0} label="Africa-focused" color="#3b82f6" />
         <StatCard value={scopeCounts.Global || 0} label="Global Scope" color="#8b5cf6" />
         <StatCard value={(scopeCounts.National || 0) + (scopeCounts.Regional || 0)} label="National / Regional" color="#0e8601" />
@@ -285,7 +300,7 @@ export default function OrganizationsPage() {
           <option value="Regional">Regional</option>
         </select>
         <span className="text-sm text-gray-400 ml-1">
-          {filtered.length} of {orgsData.organizations.length} shown
+          {filtered.length} of {orgsData.length} shown
         </span>
       </div>
 
