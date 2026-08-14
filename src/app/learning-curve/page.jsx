@@ -1,18 +1,59 @@
 'use client';
 import React, { useState } from 'react';
-import { Search, Calendar, User, ChevronLeft, ChevronRight, BookOpen, FileText, X, Tag } from 'lucide-react';
+import { Search, ChevronRight, BookOpen, FileText, X, Tag } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { blogPosts, popularTags } from '@/data/blogs';
 import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
+import Pagination from '@/components/Pagination';
+import DocumentCard from '@/components/LearningCurve/DocumentCard';
+import { publicationsByRecency, publicationCategoryMap } from '@/data/publications';
 
 const CATEGORIES = [
     { value: 'all',     label: 'All Publications' },
     { value: 'climate', label: 'Climate' },
     { value: 'health',  label: 'Health' },
 ];
+
+const blogPostsByRecency = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+// A publication is the same document as a blog post when one title contains
+// the other (e.g. the SOSCHI evidence brief is posted both as a blog write-up
+// and as a formal publication) — skip it here so it isn't listed twice.
+const normalizeTitle = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+const isAlreadyListedAsBlogPost = (pub) => {
+    const pubTitle = normalizeTitle(pub.title);
+    return blogPosts.some(post => {
+        const postTitle = normalizeTitle(post.title);
+        return postTitle.includes(pubTitle) || pubTitle.includes(postTitle);
+    });
+};
+const uniquePublicationsByRecency = publicationsByRecency.filter(p => !isAlreadyListedAsBlogPost(p));
+
+// One continuous, dated feed — blog posts and publication documents interleaved
+// by recency rather than shown as two separate lists/sections.
+const combinedItems = [
+    ...blogPostsByRecency.map(post => ({
+        kind: 'blog',
+        id: `blog-${post.id}`,
+        sortDate: new Date(post.date),
+        category: post.category,
+        searchText: `${post.title} ${post.excerpt}`.toLowerCase(),
+        tags: post.tags,
+        data: post,
+    })),
+    ...uniquePublicationsByRecency.map(pub => ({
+        kind: 'publication',
+        id: `pub-${pub.id}`,
+        sortDate: new Date(pub.year, 0, 1),
+        category: null, // publications aren't classified as climate/health
+        searchText: `${pub.title} ${pub.abstract} ${pub.authors.join(' ')} ${pub.tags.join(' ')}`.toLowerCase(),
+        tags: pub.tags,
+        data: pub,
+    })),
+].sort((a, b) => b.sortDate - a.sortDate);
 
 const LearningCurvePage = () => {
     const router = useRouter();
@@ -22,17 +63,16 @@ const LearningCurvePage = () => {
     const [selectedTag, setSelectedTag] = useState('');
     const postsPerPage = 6;
 
-    const filtered = blogPosts.filter(post => {
-        const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory;
-        const matchesSearch =
-            post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesTag = !selectedTag || post.tags.includes(selectedTag);
+    const filtered = combinedItems.filter(item => {
+        const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
+        const q = searchTerm.toLowerCase();
+        const matchesSearch = !q || item.searchText.includes(q);
+        const matchesTag = !selectedTag || item.tags.includes(selectedTag);
         return matchesCategory && matchesSearch && matchesTag;
     });
 
     const totalPages = Math.ceil(filtered.length / postsPerPage);
-    const currentPosts = filtered.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
+    const currentItems = filtered.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
 
     const handleCategoryChange = (cat) => { setSelectedCategory(cat); setCurrentPage(1); };
     const handleTagClick = (tag) => {
@@ -135,7 +175,7 @@ const LearningCurvePage = () => {
                             </p>
 
                             {/* Cards */}
-                            {currentPosts.length === 0 ? (
+                            {currentItems.length === 0 ? (
                                 <div className="text-center py-24 bg-white rounded-2xl border border-gray-100">
                                     <BookOpen className="w-16 h-16 mx-auto mb-4 text-gray-200" />
                                     <p className="text-xl font-semibold text-gray-400">No publications found</p>
@@ -144,140 +184,46 @@ const LearningCurvePage = () => {
                                 </div>
                             ) : (
                                 <div className="space-y-5">
-                                    {currentPosts.map(post => (
-                                        <article
-                                            key={post.id}
-                                            className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-[#0e8601]/20 transition-all duration-200 overflow-hidden group"
-                                        >
-                                            <div className="flex flex-col sm:flex-row">
-                                                {/* Thumbnail */}
-                                                <div className="relative sm:w-48 h-40 sm:h-auto flex-shrink-0 overflow-hidden">
-                                                    {post.featuredImage ? (
-                                                        <Image
-                                                            src={post.featuredImage}
-                                                            alt={post.title}
-                                                            fill
-                                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                                        />
-                                                    ) : (
-                                                        <div className="w-full h-full bg-gradient-to-br from-[#021d49] to-[#0e8601] flex items-center justify-center">
-                                                            <FileText className="w-10 h-10 text-white/40" />
-                                                        </div>
-                                                    )}
-                                                    {/* Category badge */}
-                                                    <div className="absolute top-2 left-2">
-                                                        <span className={`px-2.5 py-1 rounded-full text-xs font-bold text-white shadow-sm ${post.category === 'climate' ? 'bg-blue-600' : 'bg-[#0e8601]'}`}>
-                                                            {post.category === 'climate' ? 'Climate' : 'Health'}
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                                {/* Content */}
-                                                <div className="p-5 flex flex-col flex-1">
-                                                    {/* Meta */}
-                                                    <div className="flex items-center gap-3 text-xs text-gray-400 mb-2">
-                                                        <span className="flex items-center gap-1">
-                                                            <Calendar className="w-3.5 h-3.5" />{post.date}
-                                                        </span>
-                                                        <span className="flex items-center gap-1">
-                                                            <User className="w-3.5 h-3.5" />{post.author}
-                                                        </span>
-                                                        {post.readTime && (
-                                                            <span>{post.readTime}</span>
-                                                        )}
-                                                    </div>
-
-                                                    <h3
-                                                        className="text-base font-bold text-[#021d49] group-hover:text-[#0e8601] transition-colors mb-2 leading-snug cursor-pointer"
-                                                        onClick={() => router.push(`/BlogsPage/${post.id}`)}
-                                                    >
-                                                        {post.title}
-                                                    </h3>
-
-                                                    <p className="text-sm text-gray-500 leading-relaxed mb-3 flex-1 line-clamp-2">
-                                                        {post.excerpt}
-                                                    </p>
-
-                                                    {/* Tags */}
-                                                    <div className="flex flex-wrap gap-1.5 mb-4">
-                                                        {post.tags.slice(0, 3).map(tag => (
-                                                            <button
-                                                                key={tag}
-                                                                onClick={() => handleTagClick(tag)}
-                                                                className={`text-xs px-2.5 py-1 rounded-full border font-medium transition-colors ${selectedTag === tag
-                                                                    ? 'bg-[#0e8601] text-white border-[#0e8601]'
-                                                                    : 'bg-gray-50 text-gray-500 border-gray-200 hover:border-[#0e8601] hover:text-[#0e8601]'
-                                                                }`}
-                                                            >
-                                                                {tag}
-                                                            </button>
-                                                        ))}
-                                                        {post.tags.length > 3 && (
-                                                            <span className="text-xs px-2.5 py-1 rounded-full bg-gray-50 text-gray-400 border border-gray-200">
-                                                                +{post.tags.length - 3}
-                                                            </span>
-                                                        )}
-                                                    </div>
-
-                                                    {/* CTA */}
-                                                    <div className="flex gap-2 pt-3 border-t border-gray-100">
-                                                        <button
-                                                            onClick={() => router.push(`/BlogsPage/${post.id}`)}
-                                                            className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#021d49] hover:bg-[#0e8601] text-white text-sm font-semibold transition-colors"
-                                                        >
-                                                            Read More
-                                                            <ChevronRight className="w-3.5 h-3.5" />
-                                                        </button>
-                                                        {post.pdfLink && (
-                                                            <a
-                                                                href={post.pdfLink}
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-gray-200 hover:border-[#0e8601] hover:text-[#0e8601] text-gray-600 text-sm font-semibold transition-colors"
-                                                            >
-                                                                <FileText className="w-3.5 h-3.5" />
-                                                                PDF
-                                                            </a>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </article>
+                                    {currentItems.map(item => item.kind === 'blog' ? (
+                                        <DocumentCard
+                                            key={item.id}
+                                            image={item.data.featuredImage}
+                                            categoryLabel={item.data.category === 'climate' ? 'Climate' : 'Health'}
+                                            categoryColorClass={item.data.category === 'climate' ? 'bg-blue-600' : 'bg-[#0e8601]'}
+                                            date={item.data.date}
+                                            author={item.data.author}
+                                            readTime={item.data.readTime}
+                                            title={item.data.title}
+                                            onTitleClick={() => router.push(`/BlogsPage/${item.data.id}`)}
+                                            excerpt={item.data.excerpt}
+                                            tags={item.data.tags}
+                                            activeTag={selectedTag}
+                                            onTagClick={handleTagClick}
+                                            primary={{ label: 'Read More', onClick: () => router.push(`/BlogsPage/${item.data.id}`) }}
+                                            secondary={item.data.pdfLink ? { label: 'PDF', href: item.data.pdfLink, external: true, icon: <FileText className="w-3.5 h-3.5" /> } : null}
+                                        />
+                                    ) : (
+                                        <DocumentCard
+                                            key={item.id}
+                                            image={item.data.image}
+                                            categoryLabel={publicationCategoryMap[item.data.category]?.label}
+                                            categoryColorClass={publicationCategoryMap[item.data.category]?.color}
+                                            date={item.data.year}
+                                            author={item.data.authors.join(', ')}
+                                            title={item.data.title}
+                                            excerpt={item.data.abstract}
+                                            tags={item.data.tags}
+                                            activeTag={selectedTag}
+                                            onTagClick={handleTagClick}
+                                            primary={item.data.pdfUrl
+                                                ? { label: 'Download PDF', href: item.data.pdfUrl, external: true, icon: <FileText className="w-3.5 h-3.5" /> }
+                                                : { label: 'PDF coming soon', disabled: true, icon: <FileText className="w-3.5 h-3.5" /> }}
+                                        />
                                     ))}
                                 </div>
                             )}
 
-                            {/* Pagination */}
-                            {totalPages > 1 && (
-                                <div className="flex justify-center items-center gap-2 mt-8">
-                                    <button
-                                        onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-                                        disabled={currentPage === 1}
-                                        className="p-2 rounded-full bg-white shadow hover:shadow-md disabled:opacity-40 transition-shadow"
-                                    >
-                                        <ChevronLeft className="w-5 h-5" />
-                                    </button>
-                                    {[...Array(totalPages)].map((_, i) => (
-                                        <button
-                                            key={i}
-                                            onClick={() => setCurrentPage(i + 1)}
-                                            className={`w-10 h-10 rounded-full font-semibold text-sm transition-colors shadow hover:shadow-md ${currentPage === i + 1
-                                                ? 'bg-[#021d49] text-white'
-                                                : 'bg-white text-gray-700 hover:bg-gray-50'
-                                            }`}
-                                        >
-                                            {i + 1}
-                                        </button>
-                                    ))}
-                                    <button
-                                        onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-                                        disabled={currentPage === totalPages}
-                                        className="p-2 rounded-full bg-white shadow hover:shadow-md disabled:opacity-40 transition-shadow"
-                                    >
-                                        <ChevronRight className="w-5 h-5" />
-                                    </button>
-                                </div>
-                            )}
+                            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
                         </div>
 
                         {/* ── Sidebar ── */}

@@ -1,213 +1,23 @@
 'use client'
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
-    ChevronRight, Search, X, FileText, BookOpen, ScrollText,
-    Newspaper, GraduationCap, ExternalLink, Calendar, Users,
-    ArrowLeft, Sparkles, Filter,
+    ChevronRight, Search, X, BookOpen,
+    ArrowLeft, ScrollText, Filter,
 } from 'lucide-react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
+import Pagination from '@/components/Pagination';
+import PublicationCard from '@/components/Publications/PublicationCard';
+import { publicationsByRecency as publications, PUBLICATION_CATEGORIES as CATEGORIES } from '@/data/publications';
 
-// ─── Publication data ──────────────────────────────────────────────────────────
-// Add real publications here. categories: 'journal' | 'policy' | 'working' | 'report' | 'conference'
-const publications = [
-    // ── Journal Articles ──────────────────────────────────────────────────────
-    {
-        id: 'j1',
-        category: 'journal',
-        title: 'Climate-Health Data Sovereignty in Sub-Saharan Africa: A Framework Analysis',
-        authors: ['Dr. Etse Yawo Dzakpa', 'Dr. Vijendra Ingole'],
-        year: 2026,
-        journal: 'Climate and Health Research',
-        volume: 'Vol. 3, No. 1',
-        tags: ['Data Sovereignty', 'Climate-Health', 'Africa', 'SOSCHI'],
-        abstract: 'This paper examines the conceptual and operational dimensions of climate-health data sovereignty in sub-Saharan Africa, introducing the SOSCHI framework as a tool for embedding climate-health surveillance into national health information systems.',
-        pdfUrl: null,
-        doiUrl: null,
-    },
-    // ── Policy Briefs ─────────────────────────────────────────────────────────
-    {
-        id: 'p1',
-        category: 'policy',
-        title: 'Who Owns the Data That Could Save African Lives?',
-        authors: ['CAPCHA Research Team'],
-        year: 2026,
-        journal: 'CAPCHA Evidence Brief',
-        volume: 'Issue 1',
-        tags: ['Data Governance', 'Policy', 'Africa'],
-        abstract: 'This evidence brief explores questions of data ownership and governance in climate-health contexts across Africa, drawing on the findings of the first CAPCHA Spotlight Series session.',
-        pdfUrl: '/document/CAPCHA Evidence brief.pdf',
-        doiUrl: null,
-    },
-     {
-        id: 'p2',
-        category: 'policy',
-        title: 'When Evidence Exists but Policy Doesn’t Move.',
-        authors: ['CAPCHA Research Team'],
-        year: 2026,
-        journal: 'CAPCHA Evidence Brief',
-        volume: 'Issue 2',
-        tags: ['Data Governance', 'Policy', 'Africa'],
-        // abstract: 'This evidence brief explores questions of data ownership and governance in climate-health contexts across Africa, drawing on the findings of the first CAPCHA Spotlight Series session.',
-abstract:'Africa  has  no  shortage  of  climate–health  evidence.  Research  institutions, practitioners, and regional initiatives continue to generate knowledge that can inform policy, while continental bodies are strengthening climate and health  action.  Yet  despite  this  growing  evidence  base,  policy  uptake  and implementation remain slow. The challenge is no longer producing more evidence, but understanding why existing evidence so often fails to reach and  influence  policy  and  decision-making.  The  bottleneck  lies  in governance:  the  systems,  institutions,  and  processes  that  determine  how evidence moves into decisions, financing, and implementation.'
-        ,pdfUrl: '/document/CAPCHAEvidencebriefNo.2.pdf',
-        doiUrl: null,
-    },
-    {
-        id: 'p3',
-        category: 'policy',
-        title: 'Financing Climate Health Without the Traditional Donor Funding',
-        authors: ['CAPCHA Research Team'],
-        year: 2026,
-        journal: 'CAPCHA Evidence Brief',
-        volume: 'Issue 3',
-        tags: ['Data Governance', 'Policy', 'Africa'],
-        // abstract: 'This evidence brief explores questions of data ownership and governance in climate-health contexts across Africa, drawing on the findings of the first CAPCHA Spotlight Series session.',
-       abstract:'Climate  change  is  increasingly  straining  Africas  health  systems,  yet financing  for  climate-health  action  remains  heavily  dependent  on traditional donors. As climate shocks disrupt health services, infrastructure, and supply chains, there is an urgent need to explore sustainable, locally driven financing mechanisms that can strengthen health system resilience beyond conventional donor funding.'
-      ,  pdfUrl: '/document/CAPCHAEvidencebriefNo.2.pdf',
-        doiUrl: null,
-    },
-    
-    // ── Working Papers ────────────────────────────────────────────────────────
-    {
-        id: 'w1',
-        category: 'working',
-        title: 'Integrating Climate and Health Surveillance: Lessons from the SOSCHI Pilot',
-        authors: ['CAPCHA Research Consortium'],
-        year: 2025,
-        journal: 'CAPCHA Working Paper Series',
-        volume: 'WP-2025-01',
-        tags: ['Surveillance', 'SOSCHI', 'Health Systems'],
-        abstract: 'A working paper documenting early findings from the SOSCHI pilot programme, examining how climate-health surveillance can be embedded within existing national health information architectures.',
-        pdfUrl: null,
-        doiUrl: null,
-    },
-    // ── Reports ───────────────────────────────────────────────────────────────
-    {
-        id: 'r1',
-        category: 'report',
-        title: 'CAPCHA Annual Report 2025',
-        authors: ['CAPCHA Secretariat'],
-        year: 2025,
-        journal: 'Annual Report',
-        volume: '2025',
-        tags: ['Annual Report', 'CAPCHA', 'Progress'],
-        abstract: 'The 2025 CAPCHA Annual Report documents the platform\'s activities, partnerships, and outputs across research, capacity enhancement, and policy advocacy activities over the past year.',
-        pdfUrl: null,
-        doiUrl: null,
-    },
-    // ── Conference Papers ─────────────────────────────────────────────────────
-    {
-        id: 'c1',
-        category: 'conference',
-        title: 'Climate-Sensitive Disease Burden in East Africa: Emerging Evidence',
-        authors: ['Dr. Vijendra Ingole', 'CAPCHA Research Team'],
-        year: 2025,
-        journal: 'Proceedings of the African Climate-Health Conference',
-        volume: 'ACHC 2025',
-        tags: ['Disease Burden', 'East Africa', 'Climate Change'],
-        abstract: 'Conference paper presenting emerging evidence on the shifting burden of climate-sensitive diseases across East Africa, with implications for health system preparedness and national adaptation plans.',
-        pdfUrl: null,
-        doiUrl: null,
-    },
-];
-
-// ─── Categories config ────────────────────────────────────────────────────────
-const CATEGORIES = [
-    { id: 'all',        label: 'All Publications', icon: <BookOpen className="w-4 h-4" />,     color: 'bg-[#021d49]' },
-    { id: 'journal',    label: 'Journal Articles', icon: <GraduationCap className="w-4 h-4" />, color: 'bg-[#0e8601]' },
-    { id: 'policy',     label: 'Policy Briefs',    icon: <ScrollText className="w-4 h-4" />,    color: 'bg-[#ff9500]' },
-    { id: 'working',    label: 'Working Papers',   icon: <FileText className="w-4 h-4" />,      color: 'bg-indigo-600' },
-    { id: 'report',     label: 'Reports',          icon: <Newspaper className="w-4 h-4" />,     color: 'bg-rose-600'  },
-    { id: 'conference', label: 'Conference Papers',icon: <Users className="w-4 h-4" />,         color: 'bg-teal-600'  },
-];
-
-const categoryMap = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));
-
-// ─── Publication card ─────────────────────────────────────────────────────────
-function PubCard({ pub }) {
-    const [expanded, setExpanded] = useState(false);
-    const cat = categoryMap[pub.category];
-
-    return (
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200 transition-all duration-200 overflow-hidden">
-            {/* Coloured top bar */}
-            <div className={`h-1 w-full ${cat?.color ?? 'bg-gray-300'}`} />
-
-            <div className="p-5">
-                {/* Category + year */}
-                <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-white text-xs font-bold ${cat?.color ?? 'bg-gray-400'}`}>
-                        {cat?.icon}
-                        {cat?.label ?? pub.category}
-                    </span>
-                    <span className="flex items-center gap-1 text-xs text-gray-400">
-                        <Calendar className="w-3.5 h-3.5" />
-                        {pub.year}
-                    </span>
-                    <span className="text-xs text-gray-400">{pub.volume}</span>
-                </div>
-
-                {/* Title */}
-                <h3 className="font-bold text-[#021d49] text-base leading-snug mb-2">{pub.title}</h3>
-
-                {/* Journal */}
-                <p className="text-xs text-[#0e8601] font-semibold mb-2 italic">{pub.journal}</p>
-
-                {/* Authors */}
-                <p className="text-xs text-gray-500 mb-3 flex items-center gap-1.5">
-                    <Users className="w-3.5 h-3.5 flex-shrink-0" />
-                    {pub.authors.join(', ')}
-                </p>
-
-                {/* Abstract (expandable) */}
-                <div className={`text-sm text-gray-500 leading-relaxed mb-3 ${!expanded ? 'line-clamp-2' : ''}`}>
-                    {pub.abstract}
-                </div>
-                {pub.abstract.length > 120 && (
-                    <button onClick={() => setExpanded(v => !v)} className="text-xs text-[#0e8601] hover:underline mb-3">
-                        {expanded ? 'Show less' : 'Read more'}
-                    </button>
-                )}
-
-                {/* Tags */}
-                {pub.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                        {pub.tags.map(t => (
-                            <span key={t} className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-500 font-medium">{t}</span>
-                        ))}
-                    </div>
-                )}
-
-                {/* Action buttons */}
-                <div className="flex flex-wrap gap-2 pt-3 border-t border-gray-50">
-                    {pub.pdfUrl ? (
-                        <a href={pub.pdfUrl} target="_blank" rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#021d49] hover:bg-[#033080] text-white text-xs font-semibold transition-colors">
-                            <FileText className="w-3.5 h-3.5" /> Download PDF
-                        </a>
-                    ) : (
-                        <span className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gray-100 text-gray-400 text-xs font-semibold cursor-not-allowed">
-                            <FileText className="w-3.5 h-3.5" /> PDF coming soon
-                        </span>
-                    )}
-                    {pub.doiUrl && (
-                        <a href={pub.doiUrl} target="_blank" rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-[#0e8601] text-[#0e8601] hover:bg-[#0e8601]/5 text-xs font-semibold transition-colors">
-                            <ExternalLink className="w-3.5 h-3.5" /> View DOI
-                        </a>
-                    )}
-                </div>
-            </div>
-        </div>
-    );
-}
+const PUBS_PER_PAGE = 9;
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 const PublicationsPage = () => {
     const [activeCategory, setActiveCategory] = useState('all');
     const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
 
     const filtered = useMemo(() => {
         return publications.filter(p => {
@@ -223,9 +33,16 @@ const PublicationsPage = () => {
         });
     }, [activeCategory, searchTerm]);
 
+    useEffect(() => { setCurrentPage(1); }, [activeCategory, searchTerm]);
+
+    const totalPages = Math.ceil(filtered.length / PUBS_PER_PAGE);
+    const currentPubs = filtered.slice((currentPage - 1) * PUBS_PER_PAGE, currentPage * PUBS_PER_PAGE);
+
     const countFor = (id) => id === 'all'
         ? publications.length
         : publications.filter(p => p.category === id).length;
+
+    const categoryMap = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));
 
     return (
         <>
@@ -234,7 +51,7 @@ const PublicationsPage = () => {
 
                 {/* ── HERO ─────────────────────────────────────────── */}
                 <section className="pt-24 pb-8 px-4 border-b border-gray-100 bg-white">
-                    <div className="max-w-5xl mx-auto">
+                    <div className="max-w-6xl mx-auto">
                         <nav className="flex items-center gap-1.5 text-gray-400 text-xs mb-5">
                             <Link href="/" className="hover:text-[#021d49] transition-colors">Home</Link>
                             <ChevronRight className="w-3 h-3" />
@@ -266,30 +83,33 @@ const PublicationsPage = () => {
                 </section>
 
                 {/* ── FILTERS ──────────────────────────────────────── */}
-                <section className="sticky top-[calc(theme(spacing.20)+theme(spacing.28))] z-10 bg-white border-b border-gray-100 px-4 py-4 shadow-sm">
-                    <div className="max-w-5xl mx-auto flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
+                <section className="sticky top-[125px] z-10 bg-white border-b border-gray-100 px-4 py-4 shadow-sm">
+                    <div className="max-w-6xl mx-auto flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
 
                         {/* Category tabs */}
                         <div className="flex flex-wrap gap-2">
-                            {CATEGORIES.map(cat => (
-                                <button
-                                    key={cat.id}
-                                    onClick={() => setActiveCategory(cat.id)}
-                                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                                        activeCategory === cat.id
-                                            ? `${cat.color} text-white shadow-sm`
-                                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                                    }`}
-                                >
-                                    {cat.icon}
-                                    {cat.label}
-                                    <span className={`ml-0.5 px-1.5 py-0.5 rounded-full text-xs font-bold ${
-                                        activeCategory === cat.id ? 'bg-white/25 text-white' : 'bg-gray-200 text-gray-500'
-                                    }`}>
-                                        {countFor(cat.id)}
-                                    </span>
-                                </button>
-                            ))}
+                            {CATEGORIES.map(cat => {
+                                const Icon = cat.icon;
+                                return (
+                                    <button
+                                        key={cat.id}
+                                        onClick={() => setActiveCategory(cat.id)}
+                                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                                            activeCategory === cat.id
+                                                ? `${cat.color} text-white shadow-sm`
+                                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                        }`}
+                                    >
+                                        <Icon className="w-4 h-4" />
+                                        {cat.label}
+                                        <span className={`ml-0.5 px-1.5 py-0.5 rounded-full text-xs font-bold ${
+                                            activeCategory === cat.id ? 'bg-white/25 text-white' : 'bg-gray-200 text-gray-500'
+                                        }`}>
+                                            {countFor(cat.id)}
+                                        </span>
+                                    </button>
+                                );
+                            })}
                         </div>
 
                         {/* Search */}
@@ -313,7 +133,7 @@ const PublicationsPage = () => {
 
                 {/* ── PUBLICATION GRID ─────────────────────────────── */}
                 <section className="py-10 px-4 bg-gray-50 min-h-[400px]">
-                    <div className="max-w-5xl mx-auto">
+                    <div className="max-w-6xl mx-auto">
 
                         {/* Active filter summary */}
                         {(searchTerm || activeCategory !== 'all') && (
@@ -344,9 +164,12 @@ const PublicationsPage = () => {
                                 </button>
                             </div>
                         ) : (
-                            <div className="grid md:grid-cols-2 gap-5">
-                                {filtered.map(pub => <PubCard key={pub.id} pub={pub} />)}
-                            </div>
+                            <>
+                                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                                    {currentPubs.map(pub => <PublicationCard key={pub.id} pub={pub} />)}
+                                </div>
+                                <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
+                            </>
                         )}
                     </div>
                 </section>
