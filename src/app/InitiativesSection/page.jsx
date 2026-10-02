@@ -29,7 +29,7 @@ const initiatives = [
         desc: "A structured learning programme for Africa's next generation of climate-health researchers — building skills, knowledge, and networks.",
         status: 'open',
         statusLabel: 'Enrol Now',
-        href: 'https://ee.kobotoolbox.org/single/5b3703edf1a128aa20c66dff2fadd84f',
+        href: '/learning-curve',
         external: true,
     },
     {
