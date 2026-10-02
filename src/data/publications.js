@@ -9,7 +9,8 @@ import {
 } from "lucide-react";
 
 // ─── Publication data ──────────────────────────────────────────────────────────
-// Add real publications here. categories: 'journal' | 'policy' | 'working' | 'report' | 'conference'
+// Add real publications here. categories: 'journal' | 'policy' | 'working' | 'report' | 'conference' | 'case-study'
+// Add new uploads at the bottom with a `dateAdded` ("YYYY-MM-DD") so they show first.
 export const publications = [
   // ── Journal Articles ──────────────────────────────────────────────────────
   {
@@ -71,52 +72,12 @@ export const publications = [
     doiUrl: null,
   },
   // ── Working Papers ────────────────────────────────────────────────────────
-  {
-    id: "w1",
-    category: "working",
-    title:
-      "Integrating Climate and Health Surveillance: Lessons from the SOSCHI Pilot",
-    authors: ["CAPCHA Research Consortium"],
-    year: 2025,
-    journal: "CAPCHA Working Paper Series",
-    volume: "WP-2025-01",
-    tags: ["Surveillance", "SOSCHI", "Health Systems"],
-    abstract:
-      "A working paper documenting early findings from the SOSCHI pilot programme, examining how climate-health surveillance can be embedded within existing national health information architectures.",
-    pdfUrl: null,
-    doiUrl: null,
-  },
+
   // ── Reports ───────────────────────────────────────────────────────────────
-  {
-    id: "r1",
-    category: "report",
-    title: "CAPCHA Annual Report 2025",
-    authors: ["CAPCHA Secretariat"],
-    year: 2025,
-    journal: "Annual Report",
-    volume: "2025",
-    tags: ["Annual Report", "CAPCHA", "Progress"],
-    abstract:
-      "The 2025 CAPCHA Annual Report documents the platform's activities, partnerships, and outputs across research, capacity enhancement, and policy advocacy activities over the past year.",
-    pdfUrl: null,
-    doiUrl: null,
-  },
+
   // ── Conference Papers ─────────────────────────────────────────────────────
-  {
-    id: "c1",
-    category: "conference",
-    title: "Climate-Sensitive Disease Burden in East Africa: Emerging Evidence",
-    authors: ["Dr. Vijendra Ingole", "CAPCHA Research Team"],
-    year: 2025,
-    journal: "Proceedings of the African Climate-Health Conference",
-    volume: "ACHC 2025",
-    tags: ["Disease Burden", "East Africa", "Climate Change"],
-    abstract:
-      "Conference paper presenting emerging evidence on the shifting burden of climate-sensitive diseases across East Africa, with implications for health system preparedness and national adaptation plans.",
-    pdfUrl: null,
-    doiUrl: null,
-  },
-  // ── Case Studies ──────────────────────────────────────────────────────────
+
+  // ── Case Studies ─────────────────────────────────s─────────────────────────
   {
     id: "cs1",
     category: "case-study",
@@ -161,6 +122,58 @@ export const publications = [
     image: "/img/rethinkingdigital.jpg",
     pdfUrl:
       "/document/Rethinking Digital Climate Innovation for Mothers Living Through Extreme Heat (1).pdf",
+    doiUrl: null,
+  },
+  {
+    id: "cs3",
+    category: "case-study",
+    title:
+      "From Voice to Action: What Nigeria's Young Climate-Health Leaders Taught Us",
+    authors: [
+      "Chris Bassey",
+      "Ann Irungu",
+      "Virginia Wamboi",
+      "Maria Nailantei",
+    ],
+    year: 2026,
+    journal: "CAPCHA Case Study Collection",
+    volume: "Blog Post",
+    tags: [
+      "Youth Engagement",
+      "Climate-Health Policy",
+      "Nigeria",
+      "Advocacy",
+      "Youths4Action",
+    ],
+    abstract:
+      "The Amplifying Youth Voices for Climate-Health Action Youth Pre-Conference, convened in Abuja by Nigeria Health Watch, reached 357 participants and produced the Green Print Manifesto and the Youths4Action advocacy platform. The experience showed that young people need more than a seat at the table: they need funding, mentorship and clear pathways that turn their ideas into lasting climate-health action.",
+    image: "/img/capcha-a.png",
+    dateAdded: "2026-10-02",
+    pdfUrl: "/document/Chris Basey Blog.pdf",
+    doiUrl: null,
+  },
+  {
+    id: "cs4",
+    category: "case-study",
+    title:
+      "How Theatre is Changing the Conversation on Plastic Pollution in Lake Victoria, Kisumu, Kenya",
+    authors: ["Edwin Koga", "Ann Irungu", "Virginia Wamboi", "Maria Nailantei"],
+    year: 2026,
+    journal: "CAPCHA Case Study Collection",
+    volume: "Blog Post",
+    tags: [
+      "Plastic Pollution",
+      "Community Engagement",
+      "Lake Victoria",
+      "Kenya",
+      "Theatre for Change",
+    ],
+    abstract:
+      "Amazon Theatrix Ensemble's 'Voice of Sango' initiative used spoken word and community theatre to help fisherfolk communities around Lake Victoria link plastic pollution and untreated waste to declining fish stocks, a decline many had attributed to divine punishment. The experience shows how participatory, inclusive communication can make climate and environmental risks tangible and locally owned.",
+    image: "/img/capcha-b.png",
+    dateAdded: "2026-10-02",
+    pdfUrl:
+      "/document/HOW THEATRE IS CHANGING THE CONVERSATION ON PLASTIC POLLUTION IN LAKE VICTORIA, KISUMU, KENYA.pdf",
     doiUrl: null,
   },
 ];
@@ -210,9 +223,31 @@ export const publicationCategoryMap = Object.fromEntries(
   PUBLICATION_CATEGORIES.map((c) => [c.id, c]),
 );
 
-// Publications only carry a year + volume/issue (no exact publish date), so
-// recency is ordered by year, preserving the curated order within a year
-// rather than inventing exact dates.
-export const publicationsByRecency = [...publications].sort(
-  (a, b) => b.year - a.year,
-);
+// Newest first. `dateAdded` ("YYYY-MM-DD", the day the document was uploaded)
+// gives an exact position; entries without it fall back to 1 Jan of their
+// year. Ties put the later entry in the list first, so newer uploads lead.
+const parseDateAdded = (s) => {
+  const [y, m, d] = s.split("-").map(Number);
+  return new Date(y, m - 1, d);
+};
+
+export const publicationSortDate = (pub) =>
+  pub.dateAdded ? parseDateAdded(pub.dateAdded) : new Date(pub.year, 0, 1);
+
+export const publicationDisplayDate = (pub) =>
+  pub.dateAdded
+    ? parseDateAdded(pub.dateAdded).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      })
+    : String(pub.year);
+
+export const publicationsByRecency = publications
+  .map((pub, index) => ({ pub, index }))
+  .sort(
+    (a, b) =>
+      publicationSortDate(b.pub) - publicationSortDate(a.pub) ||
+      b.index - a.index,
+  )
+  .map(({ pub }) => pub);
