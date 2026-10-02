@@ -30,7 +30,6 @@ const initiatives = [
         status: 'open',
         statusLabel: 'Enrol Now',
         href: '/learning-curve',
-        external: true,
     },
     {
         Icon: Newspaper,
