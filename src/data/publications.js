@@ -176,6 +176,61 @@ export const publications = [
       "/document/HOW THEATRE IS CHANGING THE CONVERSATION ON PLASTIC POLLUTION IN LAKE VICTORIA, KISUMU, KENYA.pdf",
     doiUrl: null,
   },
+  {
+    id: "cs5",
+    category: "case-study",
+    title:
+      "When Climate Plans Meet Reproductive Health: Lessons from Kasese District, Uganda",
+    authors: [
+      "Muhereza Dancan",
+      "Ann Irungu",
+      "Virginia Wamboi",
+      "Maria Nailantei",
+    ],
+    year: 2026,
+    journal: "CAPCHA Case Study Collection",
+    volume: "Blog Post",
+    tags: [
+      "Climate Adaptation Planning",
+      "Sexual and Reproductive Health",
+      "Gender Equality",
+      "Uganda",
+      "District Climate Action Plan",
+    ],
+    abstract:
+      "Under the PROMISE Phase II programme, Reproductive Health Uganda supported Kasese District to develop a costed District Climate Action Plan that integrates sexual and reproductive health and rights (SRHR) and gender equality from the start. Built through a multisectoral, locally led process, the plan (estimated at USD 14.75 million) was approved by the district council and launched in September 2024, and the district has since increased budget allocations for SRHR and gender-related interventions. The case shows how national climate law can be localised into district action, while highlighting funding constraints that threaten implementation.",
+    image: "/img/capcha-c.png",
+    dateAdded: "2026-10-28",
+    pdfUrl: "/document/MuherezaDancanBlogPost.pdf",
+    doiUrl: null,
+  },
+  {
+    id: "cs6",
+    category: "case-study",
+    title: "How Communities Are Rethinking Climate-Health Preparedness",
+    authors: [
+      "Olaitan Femi-Falade",
+      "Ann Irungu",
+      "Virginia Wamboi",
+      "Maria Nailantei",
+    ],
+    year: 2026,
+    journal: "CAPCHA Case Study Collection",
+    volume: "Blog Post",
+    tags: [
+      "Climate-Health Preparedness",
+      "Faith-Based Engagement",
+      "Community Ambassadors",
+      "Flooding",
+      "New York City",
+    ],
+    abstract:
+      "The Climate & Health Equity Forum for Research, Leadership & Action (CHEF) trained Community Climate & Health Ambassadors and piloted the Rainproof Calvary project with a Nigerian church in Brooklyn to help immigrant and underserved communities prepare for flooding and other climate-health risks. Delays in accessing hospital and clinical data limited how quickly outreach could be targeted, showing the need to act before perfect data is available. The experience points governments toward trusted community networks and systems that connect environmental and health data to timely decisions.",
+    image: "/img/capcha-d.png",
+    dateAdded: "2026-10-28",
+    pdfUrl: "/document/OlaitanFemi-FaladeBlogPost.pdf",
+    doiUrl: null,
+  },
 ];
 
 // ─── Categories config ────────────────────────────────────────────────────────
@@ -213,7 +268,7 @@ export const PUBLICATION_CATEGORIES = [
   },
   {
     id: "case-study",
-    label: "Case Studies",
+    label: "Blog Posts",
     icon: Lightbulb,
     color: "bg-cyan-600",
   },
