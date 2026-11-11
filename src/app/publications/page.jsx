@@ -79,7 +79,7 @@ const PublicationsPage = () => {
                                 CAPCHA <span className="text-[#ff9500]">Publications</span>
                             </h1>
                             <p className="text-gray-500 text-sm mt-1">
-                                Journal articles, policy briefs, case studies and reports from CAPCHA and its research partners.
+                                Journal articles, Evidence briefs, case studies and reports from CAPCHA and its research partners.
                             </p>
                         </div>
                         <Link href="/learning-curve" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#021d49] hover:text-[#0e8601] transition-colors">

@@ -71,6 +71,49 @@ export const publications = [
     pdfUrl: "/document/finance.pdf",
     doiUrl: null,
   },
+  {
+    id: "p4",
+    category: "policy",
+    title:
+      "From Waste to Wealth: Biodegradation and the Circular Bioeconomy in Africa",
+    authors: ["CAPCHA Research Team"],
+    year: 2026,
+    journal: "CAPCHA Evidence Brief",
+    volume: "Issue 4",
+    tags: [
+      "Biodegradation",
+      "Waste Management",
+      "Circular Bioeconomy",
+      "Africa",
+    ],
+    abstract:
+      "Municipal solid waste in Sub-Saharan Africa is projected to nearly triple by 2050, and 30-70% of it is organic. This brief, drawn from the fourth CAPCHA Spotlight Webinar, shows how composting, anaerobic digestion, bioremediation and black soldier fly technology can cut methane, restore soils and create jobs. It also sets out what is holding back scale-up: weak source separation, limited finance and missing standards.",
+    dateAdded: "2026-11-11",
+    pdfUrl: "/document/CAPCHA_Evidence_brief_No_4.pdf",
+    doiUrl: null,
+  },
+  {
+    id: "p5",
+    category: "policy",
+    title:
+      "From Invisible Stress to Lifelong Impact: Climate Change and Brain Health Across the Lifespan",
+    authors: ["CAPCHA Research Team"],
+    year: 2026,
+    journal: "CAPCHA Evidence Brief",
+    volume: "Issue 5",
+    tags: [
+      "Brain Health",
+      "Mental Health",
+      "Eco-anxiety",
+      "Climate-Health",
+      "Africa",
+    ],
+    abstract:
+      "Drawing on four presentations from a special edition of the CAPCHA Spotlight Webinar Series, this brief shows how heat, air pollution and extreme weather affect brain and mental health from before birth through old age. It looks at the toll on families, eco-anxiety in African contexts, and a four-layer model for integrating mental health into climate resilience, and argues that brain and mental health belong in climate adaptation and disaster policy from the start.",
+    dateAdded: "2026-11-11",
+    pdfUrl: "/document/CAPCHA_Evidence_brief_No_5.pdf",
+    doiUrl: null,
+  },
   // ── Working Papers ────────────────────────────────────────────────────────
 
   // ── Reports ───────────────────────────────────────────────────────────────
@@ -249,7 +292,7 @@ export const PUBLICATION_CATEGORIES = [
   },
   {
     id: "policy",
-    label: "Policy Briefs",
+    label: "Evidence Briefs",
     icon: ScrollText,
     color: "bg-[#ff9500]",
   },
