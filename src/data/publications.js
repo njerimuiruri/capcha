@@ -274,6 +274,33 @@ export const publications = [
     pdfUrl: "/document/OlaitanFemi-FaladeBlogPost.pdf",
     doiUrl: null,
   },
+  {
+    id: "cs7",
+    category: "case-study",
+    title: "Inside Uganda's Youth-Led Experiment in Turning Waste into Wealth",
+    authors: [
+      "Dr. Morris Chris Ongom",
+      "Ann Irungu",
+      "Virginia Wamboi",
+      "Maria Nailantei",
+    ],
+    year: 2026,
+    journal: "CAPCHA Case Study Collection",
+    volume: "Blog Post",
+    tags: [
+      "Circular Economy",
+      "Waste Management",
+      "Youth Entrepreneurship",
+      "Green Finance",
+      "Uganda",
+    ],
+    abstract:
+      "In Lira, Soroti and Gulu, the Global Forum for Development (GLOFORD) Uganda's Wealth from Waste initiative trains young people to sort, recycle and upcycle waste into briquettes, compost and crafts, backed by low-interest micro green innovation funds, mentorship and market linkages. Slow household waste separation, uneven loan repayment and fluctuating demand showed that training and finance alone are not enough: young waste-based enterprises also need reliable raw materials, stronger markets and sustained community participation.",
+    image: "/img/wealthfromwaste.jpg",
+    dateAdded: "2026-11-17",
+    pdfUrl: "/document/blogpost1.pdf",
+    doiUrl: null,
+  },
 ];
 
 // ─── Categories config ────────────────────────────────────────────────────────
