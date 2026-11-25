@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Users, Heart, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { blogPosts } from '@/data/blogs';
+import { featuredDocument } from '@/data/featured';
 
 const HeroSection = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -68,17 +68,20 @@ const HeroSection = () => {
                                     Join us
                                 </Link> */}
 
-                                {/* Latest article teaser */}
-                                <Link href={`/BlogsPage/${blogPosts[blogPosts.length - 1].id}`}
-                                    className="group mt-6 inline-flex items-center gap-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-3.5 hover:bg-white/15 transition-all duration-300 max-w-sm animate-fade-in-up"
+                                {/* Featured document — the Lancet Countdown brief */}
+                                <a href={featuredDocument.pdf} target="_blank" rel="noopener noreferrer"
+                                    className="group mt-6 flex items-center gap-4 bg-white rounded-2xl p-3 pr-5 shadow-2xl hover:-translate-y-0.5 transition-transform duration-300 max-w-lg animate-fade-in-up"
                                     style={{ animationDelay: '0.9s', opacity: 0 }}>
-                                    <span className="w-1 h-10 bg-[#ff9500] rounded-full flex-shrink-0" />
-                                    <div className="min-w-0">
-                                        <span className="text-[#ff9500] text-[10px] font-bold uppercase tracking-widest block mb-0.5">Latest Article</span>
-                                        <p className="text-white text-sm font-semibold line-clamp-1 leading-snug">{blogPosts[blogPosts.length - 1].title}</p>
+                                    <Image src={featuredDocument.cover} alt="" width={featuredDocument.coverWidth} height={featuredDocument.coverHeight}
+                                        sizes="80px" className="w-16 sm:w-20 h-auto rounded border border-gray-200 flex-shrink-0" />
+                                    <div className="min-w-0 flex-1">
+                                        <span className="text-[#b45f00] text-xs font-bold block mb-1">New: {featuredDocument.series} policy brief</span>
+                                        <p className="text-[#021d49] text-base font-bold leading-snug">{featuredDocument.title}</p>
+                                        <span className="mt-1.5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#0e8601]">
+                                            Read the brief <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        </span>
                                     </div>
-                                    <ArrowRight className="w-4 h-4 text-white/50 group-hover:text-[#ff9500] group-hover:translate-x-1 transition-all flex-shrink-0 ml-2" />
-                                </Link>
+                                </a>
 
                                 {/* Upcoming Event teaser */}
                                 <Link href="/conferences-events"
@@ -98,7 +101,7 @@ const HeroSection = () => {
                         </div>
 
                         {/* Slide nav */}
-                        <div className="absolute right-4 md:right-8 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-6 z-20">
+                        <div className="absolute right-4 md:right-8 top-1/2 transform -translate-y-1/2 hidden md:flex flex-col items-center space-y-6 z-20">
                             <button onClick={prevSlide}
                                 className="w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110">
                                 <ChevronLeft className="w-5 h-5 text-white" />

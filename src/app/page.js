@@ -17,6 +17,7 @@ import MissionVisionSection from "./MissionVisionSection/page";
 import InitiativesSection from "./InitiativesSection/page";
 import PageLoader from "./PageLoader";
 import OpenCallsWidget from "./OpenCallsWidget";
+import FeaturedDocument from "@/components/FeaturedDocument";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -42,6 +43,23 @@ export default function Home() {
 
         <main>
           <HeroSection />
+          <section
+            id="featured-brief"
+            className="scroll-mt-32 bg-white dark:bg-gray-900 pt-16 pb-2"
+          >
+            <div className="container mx-auto px-6 lg:px-12">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-0.5 bg-[#0e8601]" />
+                <span className="text-[#0e8601] font-semibold text-xs tracking-widest uppercase">
+                  Featured Policy Brief
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#021d49] dark:text-white mb-8">
+                Lancet Countdown: Kenya 2026
+              </h2>
+              <FeaturedDocument />
+            </div>
+          </section>
           <InitiativesSection />
           <AboutSection />
           <MissionVisionSection />

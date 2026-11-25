@@ -114,6 +114,42 @@ export const publications = [
     pdfUrl: "/document/CAPCHA_Evidence_brief_No_5.pdf",
     doiUrl: null,
   },
+  {
+    id: "p6",
+    category: "policy",
+    title: "2026 Climate and Health Policy Priorities for Kenya",
+    authors: [
+      "Ann S.W. Irungu",
+      "Virginia W. Gacuthi",
+      "Dr. Eurallyah J. Akinyi",
+      "Francis Oloo",
+      "Dr. Joanes Atela",
+      "Sophie Matu",
+      "Arthur A. Gohole",
+      "Dr. Evans Amukoye",
+      "Dr. Humphrey Agevi",
+      "Dr. Martin Muchangi",
+      "Caroline Muthoni",
+    ],
+    year: 2026,
+    journal: "Lancet Countdown Policy Brief",
+    volume: "Kenya 2026",
+    tags: [
+      "Lancet Countdown",
+      "Kenya",
+      "Heat and Health",
+      "Clean Energy",
+      "Climate-Health Policy",
+      "Early Warning Systems",
+    ],
+    abstract:
+      "Key priority areas for Kenya, supported by evidence from indicators in the 2026 Report of the Lancet Countdown: heat-health protection in affordable housing and informal-settlement upgrading, affordable renewable and zero-emission household energy, and county-level climate and health information in health planning and emergency preparedness. Developed by the Lancet Countdown, ARIN and PECHAN.",
+    image: "/img/lancet-countdown-kenya-2026-card.jpg",
+    dateAdded: "2026-11-25",
+    pdfUrl:
+      "/document/Lancet-Countdown-2026-Kenya-Climate-Health-Policy-Priorities.pdf",
+    doiUrl: null,
+  },
   // ── Working Papers ────────────────────────────────────────────────────────
 
   // ── Reports ───────────────────────────────────────────────────────────────

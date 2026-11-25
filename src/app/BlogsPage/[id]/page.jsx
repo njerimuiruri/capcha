@@ -49,11 +49,18 @@ const BlogDetailPage = () => {
     }
 
     const renderContent = (content) => {
-        return content.split("\n").map((paragraph, index) => (
-            <p key={index} className="text-gray-700 mb-4 leading-relaxed">
-                {paragraph}
-            </p>
-        ))
+        // Lines starting with "## " are section headings.
+        return content.split("\n").map((paragraph, index) =>
+            paragraph.startsWith("## ") ? (
+                <h2 key={index} className="text-xl md:text-2xl font-bold text-[#021d49] leading-snug mt-10 mb-4">
+                    {paragraph.slice(3)}
+                </h2>
+            ) : (
+                <p key={index} className="text-gray-700 mb-4 leading-relaxed">
+                    {paragraph}
+                </p>
+            ),
+        )
     }
 
     return (

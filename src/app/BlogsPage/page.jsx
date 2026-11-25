@@ -18,7 +18,8 @@ const BlogPage = () => {
 
     const postsPerPage = 6;
 
-    const filteredPosts = blogPosts.filter(post => {
+    // Newest first, so the latest post gets the highlighted card.
+    const filteredPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date)).filter(post => {
         const matchesTag = selectedTag === 'all' || post.category === selectedTag;
         const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
             post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());

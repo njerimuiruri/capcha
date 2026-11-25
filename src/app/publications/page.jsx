@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar/navbar';
 import Footer from '@/components/Footer/footer';
 import Pagination from '@/components/Pagination';
+import FeaturedDocument from '@/components/FeaturedDocument';
 import { PublicationDocumentCard } from '@/components/LearningCurve/DocumentCard';
 import DocumentFilterBar, { sortItems } from '@/components/LearningCurve/DocumentFilterBar';
 import {
@@ -95,6 +96,13 @@ const PublicationsPage = () => {
                     tags={allTags} activeTag={activeTag} onTagChange={withReset(setActiveTag)}
                     sort={sort} onSortChange={withReset(setSort)}
                 />
+
+                {/* ── Featured (hidden while filtering) ── */}
+                {!hasActiveFilters && currentPage === 1 && (
+                    <section className="max-w-7xl mx-auto px-4 pt-8" aria-label="Featured publication">
+                        <FeaturedDocument compact />
+                    </section>
+                )}
 
                 {/* ── Grid ── */}
                 <section className="max-w-7xl mx-auto px-4 py-8">
