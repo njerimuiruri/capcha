@@ -88,6 +88,7 @@ export const publications = [
     ],
     abstract:
       "Municipal solid waste in Sub-Saharan Africa is projected to nearly triple by 2050, and 30-70% of it is organic. This brief, drawn from the fourth CAPCHA Spotlight Webinar, shows how composting, anaerobic digestion, bioremediation and black soldier fly technology can cut methane, restore soils and create jobs. It also sets out what is holding back scale-up: weak source separation, limited finance and missing standards.",
+    image: "/img/capcha-e.png",
     dateAdded: "2026-11-11",
     pdfUrl: "/document/CAPCHA_Evidence_brief_No_4.pdf",
     doiUrl: null,
@@ -110,6 +111,7 @@ export const publications = [
     ],
     abstract:
       "Drawing on four presentations from a special edition of the CAPCHA Spotlight Webinar Series, this brief shows how heat, air pollution and extreme weather affect brain and mental health from before birth through old age. It looks at the toll on families, eco-anxiety in African contexts, and a four-layer model for integrating mental health into climate resilience, and argues that brain and mental health belong in climate adaptation and disaster policy from the start.",
+    image: "/img/capcha-f.png",
     dateAdded: "2026-11-11",
     pdfUrl: "/document/CAPCHA_Evidence_brief_No_5.pdf",
     doiUrl: null,
@@ -156,8 +158,13 @@ export const publications = [
   {
     id: "r1",
     category: "report",
-    title: "The Health, Gender and Climate Nexus in Africa: Webinar Outcome Document",
-    authors: ["Mansa Africa", "Dala Group", "Africa Research and Impact Network (ARIN)"],
+    title:
+      "The Health, Gender and Climate Nexus in Africa: Webinar Outcome Document",
+    authors: [
+      "Mansa Africa",
+      "Dala Group",
+      "Africa Research and Impact Network (ARIN)",
+    ],
     year: 2026,
     journal: "Webinar Outcome Document",
     volume: "Session 1 of 5",
