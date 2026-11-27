@@ -55,6 +55,11 @@ const BlogDetailPage = () => {
                 <h2 key={index} className="text-xl md:text-2xl font-bold text-[#021d49] leading-snug mt-10 mb-4">
                     {paragraph.slice(3)}
                 </h2>
+            ) : paragraph.startsWith("• ") ? (
+                <p key={index} className="text-gray-700 mb-3 leading-relaxed pl-5 relative">
+                    <span className="absolute left-0 text-[#0e8601] font-bold" aria-hidden>•</span>
+                    {paragraph.slice(2)}
+                </p>
             ) : (
                 <p key={index} className="text-gray-700 mb-4 leading-relaxed">
                     {paragraph}

@@ -152,7 +152,29 @@ export const publications = [
   },
   // ── Working Papers ────────────────────────────────────────────────────────
 
-  // ── Reports ───────────────────────────────────────────────────────────────
+  // ── Reports ─────────────────────────────────────────────────────────────
+  {
+    id: "r1",
+    category: "report",
+    title: "The Health, Gender and Climate Nexus in Africa: Webinar Outcome Document",
+    authors: ["Mansa Africa", "Dala Group", "Africa Research and Impact Network (ARIN)"],
+    year: 2026,
+    journal: "Webinar Outcome Document",
+    volume: "Session 1 of 5",
+    tags: [
+      "Gender",
+      "Climate-Health",
+      "Climate Finance",
+      "Agroecology",
+      "Africa",
+    ],
+    abstract:
+      "Outcomes from the inaugural webinar of a five-part series convened by Mansa Africa, Dala Group and ARIN on 29 October 2026: why climate shocks are not gender-neutral, and what data, finance, community knowledge and accountability an integrated climate, health and gender response needs.",
+    image: "/img/health-gender-climate-nexus-card.jpg",
+    dateAdded: "2026-11-26",
+    pdfUrl: "/document/Climatehealthandgendernexusoutcomedocument.pdf",
+    doiUrl: null,
+  },
 
   // ── Conference Papers ─────────────────────────────────────────────────────
 
